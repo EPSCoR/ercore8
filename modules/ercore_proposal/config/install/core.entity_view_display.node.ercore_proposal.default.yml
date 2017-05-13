@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ercore_proposal.body
+    - node.type.ercore_proposal
+  module:
+    - text
+    - user
+id: node.ercore_proposal.default
+targetEntityType: node
+bundle: ercore_proposal
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_organizer
+    - node.type.ercore_publication
+id: node.ercore_publication.field_ercore_organizer
+field_name: field_ercore_organizer
+entity_type: node
+bundle: ercore_publication
+label: 'EPSCoR Author(s)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

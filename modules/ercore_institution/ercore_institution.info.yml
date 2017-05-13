@@ -1,0 +1,15 @@
+name: 'ERCore Institution'
+description: 'Provides ERCore Institution content type and related configuration. Use this form to add an affiliated institution with the EPSCoR project. A person may belong to several institutions, and may collaborate from one of many. Enter the institutions that are appropriate for the project.'
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+version: 8.x-1.0
+project: ercore
+package: ERCore

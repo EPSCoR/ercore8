@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ercore_event.body
+    - field.field.node.ercore_event.field_ercore_ev_date
+    - field.field.node.ercore_event.field_ercore_ev_document
+    - field.field.node.ercore_event.field_ercore_ev_engagement
+    - field.field.node.ercore_event.field_ercore_ev_location
+    - field.field.node.ercore_event.field_ercore_ev_program
+    - field.field.node.ercore_event.field_ercore_ev_reminders
+    - field.field.node.ercore_event.field_ercore_ev_url
+    - field.field.node.ercore_event.field_ercore_organizer
+    - node.type.ercore_event
+  module:
+    - text
+    - user
+id: node.ercore_event.teaser
+targetEntityType: node
+bundle: ercore_event
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  field_ercore_ev_date: true
+  field_ercore_ev_document: true
+  field_ercore_ev_engagement: true
+  field_ercore_ev_location: true
+  field_ercore_ev_program: true
+  field_ercore_ev_reminders: true
+  field_ercore_ev_url: true
+  field_ercore_organizer: true

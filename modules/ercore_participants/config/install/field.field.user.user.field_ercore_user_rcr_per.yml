@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_rcr_per
+  module:
+    - datetime
+    - user
+id: user.user.field_ercore_user_rcr_per
+field_name: field_ercore_user_rcr_per
+entity_type: user
+bundle: user
+label: 'RCR in Person'
+description: 'Date of in person training.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,18 @@
+name: 'ERCore Admin'
+description: 'Provides ERCore Admin content type and related configuration. For ERCore administrative content.'
+type: module
+core: 8.x
+
+dependencies:
+  - block
+  - ercore_core
+  - field
+  - menu_ui
+  - node
+  - path
+  - system
+  - text
+  - user
+version: 8.x-1.0
+project: ercore
+package: ERCore

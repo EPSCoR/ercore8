@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'ERCore Component'
+vid: ercore_component_vocab
+description: ''
+hierarchy: 0
+weight: 0

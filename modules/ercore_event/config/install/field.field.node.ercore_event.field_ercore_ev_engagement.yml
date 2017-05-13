@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_ev_engagement
+    - node.type.ercore_event
+    - paragraphs.paragraphs_type.ercore_external_engagement
+  module:
+    - entity_reference_revisions
+id: node.ercore_event.field_ercore_ev_engagement
+field_name: field_ercore_ev_engagement
+entity_type: node
+bundle: ercore_event
+label: 'External Engagement'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ercore_external_engagement: ercore_external_engagement
+    target_bundles_drag_drop:
+      ercore_external_engagement:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

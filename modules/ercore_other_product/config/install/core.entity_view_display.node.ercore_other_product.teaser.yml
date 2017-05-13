@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.ercore_other_product
+  module:
+    - user
+id: node.ercore_other_product.teaser
+targetEntityType: node
+bundle: ercore_other_product
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden: {  }

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'ERCore Patent'
+type: ercore_patent
+description: 'Patents resulting from work done by EPSCoR.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

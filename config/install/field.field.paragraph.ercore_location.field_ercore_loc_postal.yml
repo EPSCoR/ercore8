@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_loc_postal
+    - paragraphs.paragraphs_type.ercore_location
+id: paragraph.ercore_location.field_ercore_loc_postal
+field_name: field_ercore_loc_postal
+entity_type: paragraph
+bundle: ercore_location
+label: 'Postal Code'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

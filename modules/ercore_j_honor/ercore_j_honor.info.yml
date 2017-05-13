@@ -1,0 +1,15 @@
+name: 'ERCore Honors and Awards'
+description: 'Provides ERCore Honors and Awards content type and related configuration. Honors and awards for special recognition of research or achievement.'
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+version: 8.x-1.0
+project: ercore
+package: ERCore

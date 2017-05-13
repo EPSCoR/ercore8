@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'ERCore Presentation'
+type: ercore_presentation
+description: 'Use this form to report on presentations given by you on EPSCoR related research.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

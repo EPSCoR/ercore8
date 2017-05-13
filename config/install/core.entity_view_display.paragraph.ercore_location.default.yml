@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ercore_location.field_ercore_loc_add1
+    - field.field.paragraph.ercore_location.field_ercore_loc_add2
+    - field.field.paragraph.ercore_location.field_ercore_loc_city
+    - field.field.paragraph.ercore_location.field_ercore_loc_name
+    - field.field.paragraph.ercore_location.field_ercore_loc_postal
+    - field.field.paragraph.ercore_location.field_ercore_loc_state
+    - paragraphs.paragraphs_type.ercore_location
+  module:
+    - options
+id: paragraph.ercore_location.default
+targetEntityType: paragraph
+bundle: ercore_location
+mode: default
+content:
+  field_ercore_loc_city:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_ercore_loc_postal:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_ercore_loc_state:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+hidden:
+  field_ercore_loc_add1: true
+  field_ercore_loc_add2: true
+  field_ercore_loc_name: true

@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ercore_collaboration.body
+    - node.type.ercore_collaboration
+  module:
+    - text
+    - user
+id: node.ercore_collaboration.default
+targetEntityType: node
+bundle: ercore_collaboration
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

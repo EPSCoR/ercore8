@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ercore_patent.body
+    - node.type.ercore_patent
+  module:
+    - text
+    - user
+id: node.ercore_patent.default
+targetEntityType: node
+bundle: ercore_patent
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

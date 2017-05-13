@@ -1,0 +1,25 @@
+name: 'ERCore Calendar Event'
+description: 'Provides ERCore Calendar Event content type and related configuration. Enter events onto the Calendar - public or private to EPSCoR only.'
+type: module
+core: 8.x
+dependencies:
+  - computed_field
+  - datetime
+  - entity_reference_revisions
+  - ercore_core
+  - ercore_program
+  - field
+  - field_group
+  - field_permissions
+  - file
+  - link
+  - menu_ui
+  - node
+  - options
+  - paragraphs
+  - select_or_other
+  - text
+  - user
+version: 8.x-1.0
+project: ercore
+package: ERCore

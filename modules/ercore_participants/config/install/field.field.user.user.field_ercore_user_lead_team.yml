@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_lead_team
+  module:
+    - user
+id: user.user.field_ercore_user_lead_team
+field_name: field_ercore_user_lead_team
+entity_type: user
+bundle: user
+label: 'I am on the EPSCoR Management Team.'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

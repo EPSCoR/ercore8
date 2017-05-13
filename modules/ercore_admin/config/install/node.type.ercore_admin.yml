@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - ercore-admin-menu
+    parent: 'ercore-admin-menu:'
+name: 'ERCore Admin'
+type: ercore_admin
+description: 'For ERCore administrative content.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ercore_other_product
+  module:
+    - user
+id: node.ercore_other_product.default
+targetEntityType: node
+bundle: ercore_other_product
+mode: default
+content:
+  links:
+    weight: 100
+hidden: {  }

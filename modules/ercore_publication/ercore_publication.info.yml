@@ -1,0 +1,15 @@
+name: 'ERCore Publication'
+description: 'Provides ERCore Publication content type and related configuration. Publications are journal articles, text books, monographs, chapters in books, conference proceedings, technical reports, abstracts, or other formal written documents, in both print and electronic media.'
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+version: 8.x-1.0
+project: ercore
+package: ERCore

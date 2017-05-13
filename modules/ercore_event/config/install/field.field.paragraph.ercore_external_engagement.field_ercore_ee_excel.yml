@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_ee_excel
+    - paragraphs.paragraphs_type.ercore_external_engagement
+  module:
+    - file
+id: paragraph.ercore_external_engagement.field_ercore_ee_excel
+field_name: field_ercore_ee_excel
+entity_type: paragraph
+bundle: ercore_external_engagement
+label: 'Upload the Excel Sheet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: external_engagement
+  file_extensions: xls
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

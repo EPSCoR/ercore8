@@ -1,0 +1,23 @@
+name: ERCore
+description: 'ERCore Basic content types and functions.'
+type: module
+core: 8.x
+version: 8.x-1.0
+dependencies:
+  - ckeditor
+  - editor
+  - ercore_event
+  - features
+  - field
+  - field_permissions
+  - filter
+  - node
+  - options
+  - paragraphs
+  - path
+  - pathologic
+  - select_or_other
+  - taxonomy
+  - text
+  - user
+package: ERCore

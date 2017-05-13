@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_loc_name
+    - paragraphs.paragraphs_type.ercore_location
+id: paragraph.ercore_location.field_ercore_loc_name
+field_name: field_ercore_loc_name
+entity_type: paragraph
+bundle: ercore_location
+label: 'Location Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

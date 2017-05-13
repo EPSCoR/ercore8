@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ercore_j_honor.body
+    - node.type.ercore_j_honor
+  module:
+    - text
+    - user
+id: node.ercore_j_honor.default
+targetEntityType: node
+bundle: ercore_j_honor
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

@@ -1,0 +1,13 @@
+name: 'ERCore Component'
+description: 'ERCore Components vocabulary and functions.'
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - path
+  - taxonomy
+  - text
+version: 8.x-1.0
+project: ercore
+package: ERCore

@@ -1,0 +1,11 @@
+bundle: ercore
+excluded:
+  - core.entity_form_display.paragraph.ercore_location.default
+  - core.entity_view_display.paragraph.ercore_location.default
+  - field.storage.paragraph.field_ercore_loc_add1
+  - field.storage.paragraph.field_ercore_loc_add2
+  - field.storage.paragraph.field_ercore_loc_city
+  - field.storage.paragraph.field_ercore_loc_name
+  - field.storage.paragraph.field_ercore_loc_postal
+  - field.storage.paragraph.field_ercore_loc_state
+required: true

@@ -1,0 +1,21 @@
+name: 'ERCore Participants'
+description: 'Users and associated fields.'
+type: module
+core: 8.x
+dependencies:
+  - datetime
+  - entity_reference_revisions
+  - ercore_core
+  - field
+  - field_group
+  - field_permissions
+  - file
+  - link
+  - name
+  - options
+  - paragraphs
+  - select_or_other
+  - telephone
+  - user
+version: 8.x-1.0
+package: ERCore

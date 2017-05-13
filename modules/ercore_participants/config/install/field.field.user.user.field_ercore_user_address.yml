@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_address
+    - paragraphs.paragraphs_type.ercore_location
+  module:
+    - entity_reference_revisions
+    - user
+id: user.user.field_ercore_user_address
+field_name: field_ercore_user_address
+entity_type: user
+bundle: user
+label: 'Work Address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ercore_location: ercore_location
+    target_bundles_drag_drop:
+      ercore_external_engagement:
+        weight: 3
+        enabled: false
+      ercore_location:
+        enabled: true
+        weight: 4
+field_type: entity_reference_revisions

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'ERCore Program'
+vid: ercore_program_vocab
+description: ''
+hierarchy: 0
+weight: 0

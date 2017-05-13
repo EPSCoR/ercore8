@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_loc_state
+    - paragraphs.paragraphs_type.ercore_location
+  module:
+    - options
+id: paragraph.ercore_location.field_ercore_loc_state
+field_name: field_ercore_loc_state
+entity_type: paragraph
+bundle: ercore_location
+label: 'State / Territory / Province'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

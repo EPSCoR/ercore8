@@ -1,0 +1,107 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ercore_event.body
+    - field.field.node.ercore_event.field_ercore_ev_date
+    - field.field.node.ercore_event.field_ercore_ev_document
+    - field.field.node.ercore_event.field_ercore_ev_engagement
+    - field.field.node.ercore_event.field_ercore_ev_location
+    - field.field.node.ercore_event.field_ercore_ev_program
+    - field.field.node.ercore_event.field_ercore_ev_reminders
+    - field.field.node.ercore_event.field_ercore_ev_url
+    - field.field.node.ercore_event.field_ercore_event_type
+    - field.field.node.ercore_event.field_ercore_organizer
+    - node.type.ercore_event
+  module:
+    - datetime
+    - entity_reference_revisions
+    - file
+    - link
+    - options
+    - text
+    - user
+id: node.ercore_event.default
+targetEntityType: node
+bundle: ercore_event
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_ev_date:
+    weight: 102
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_ercore_ev_document:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+  field_ercore_ev_engagement:
+    type: entity_reference_revisions_entity_view
+    weight: 111
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_ercore_ev_location:
+    type: entity_reference_revisions_entity_view
+    weight: 112
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_ercore_ev_program:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_ercore_ev_reminders:
+    weight: 108
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_ercore_ev_url:
+    weight: 106
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_ercore_event_type:
+    weight: 113
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ercore_organizer:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  links:
+    weight: 100
+hidden: {  }

@@ -1,0 +1,15 @@
+name: 'ERCore Programs'
+description: 'ERCore Programs vocabulary and functions.'
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - field_permissions
+  - node
+  - path
+  - taxonomy
+  - text
+version: 8.x-1.0
+project: ercore
+package: ERCore

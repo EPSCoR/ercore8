@@ -1,0 +1,15 @@
+name: 'ERCore Highlight'
+description: 'Provides ERCore Highlight content type and related configuration. '
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+version: 8.x-1.0
+project: ercore
+package: ERCore

@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_ev_location
+    - node.type.ercore_event
+    - paragraphs.paragraphs_type.ercore_location
+  module:
+    - entity_reference_revisions
+id: node.ercore_event.field_ercore_ev_location
+field_name: field_ercore_ev_location
+entity_type: node
+bundle: ercore_event
+label: 'Location / Address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ercore_location: ercore_location
+    target_bundles_drag_drop:
+      ercore_external_engagement:
+        weight: 2
+        enabled: false
+      ercore_location:
+        enabled: true
+        weight: 5
+      test:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

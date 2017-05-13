@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_rcr_on_up
+  module:
+    - file
+    - user
+id: user.user.field_ercore_user_rcr_on_up
+field_name: field_ercore_user_rcr_on_up
+entity_type: user
+bundle: user
+label: 'RCR Online Upload'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: rcr/online
+  file_extensions: 'txt pdf doc'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

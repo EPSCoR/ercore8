@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ercore_admin.body
+    - node.type.ercore_admin
+  module:
+    - text
+    - user
+id: node.ercore_admin.default
+targetEntityType: node
+bundle: ercore_admin
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

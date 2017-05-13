@@ -1,0 +1,15 @@
+name: 'ERCore Presentation'
+description: 'Provides ERCore Presentation content type and related configuration. Use this form to report on presentations given by you on EPSCoR related research.'
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+version: 8.x-1.0
+project: ercore
+package: ERCore

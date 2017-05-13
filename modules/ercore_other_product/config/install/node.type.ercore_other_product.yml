@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'ERCore Other Product'
+type: ercore_other_product
+description: 'Use this form to report on other research products such as Data or Databases, Physical Collection, Audio or Video products, Software, Educational aids, Instruments or Equipment or Other Inventions.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

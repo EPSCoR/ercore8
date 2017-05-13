@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore-admin-menu
+label: 'ERCore Admin Menu'
+description: 'ERCore specific administrative content.'
+locked: false

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_ee_k12_ttr_f
+    - paragraphs.paragraphs_type.ercore_external_engagement
+id: paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_f
+field_name: field_ercore_ee_k12_ttr_f
+entity_type: paragraph
+bundle: ercore_external_engagement
+label: 'K-12: Student Reached Via Teach. Training - Female'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

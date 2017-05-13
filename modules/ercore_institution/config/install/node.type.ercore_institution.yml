@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'ERCore Institution'
+type: ercore_institution
+description: 'Use this form to add an affiliated institution with the EPSCoR project. A person may belong to several institutions, and may collaborate from one of many. Enter the institutions that are appropriate for the project.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

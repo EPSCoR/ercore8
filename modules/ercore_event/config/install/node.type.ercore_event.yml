@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'ERCore Calendar Event'
+type: ercore_event
+description: 'Enter events onto the Calendar - public or private to EPSCoR only.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

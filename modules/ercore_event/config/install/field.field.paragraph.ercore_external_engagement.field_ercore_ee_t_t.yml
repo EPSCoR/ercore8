@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_ee_t_t
+    - paragraphs.paragraphs_type.ercore_external_engagement
+  module:
+    - computed_field
+id: paragraph.ercore_external_engagement.field_ercore_ee_t_t
+field_name: field_ercore_ee_t_t
+entity_type: paragraph
+bundle: ercore_external_engagement
+label: Total
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: {  }
+default_value_callback: ''
+settings:
+  computed_code: "// ARI Fields\r\n    $value_ari_stu_f = $entity->field_ercore_ee_ari_stu_f['und'][0]['value'];\r\n    $value_ari_stu_m = $entity->field_ercore_ee_ari_stu_m['und'][0]['value'];\r\n    $value_ari_stu_u = $entity->field_ercore_ee_ari_stu_u['und'][0]['value'];\r\n    $value_ari_fac_f = $entity->field_ercore_ee_ari_fac_f['und'][0]['value'];\r\n    $value_ari_fac_m = $entity->field_ercore_ee_ari_fac_m['und'][0]['value'];\r\n    $value_ari_fac_u = $entity->field_ercore_ee_ari_fac_u['und'][0]['value'];\r\n    // PUI Fields\r\n    $value_pui_stu_f = $entity->field_ercore_ee_pui_stu_f['und'][0]['value'];\r\n    $value_pui_stu_m = $entity->field_ercore_ee_pui_stu_m['und'][0]['value'];\r\n    $value_pui_stu_u = $entity->field_ercore_ee_pui_stu_u['und'][0]['value'];\r\n    $value_pui_fac_f = $entity->field_ercore_ee_pui_fac_f['und'][0]['value'];\r\n    $value_pui_fac_m = $entity->field_ercore_ee_pui_fac_m['und'][0]['value'];\r\n    $value_pui_fac_u = $entity->field_ercore_ee_pui_fac_u['und'][0]['value'];\r\n    // MSI Fields\r\n    $value_msi_stu_f = $entity->field_ercore_ee_msi_stu_f['und'][0]['value'];\r\n    $value_msi_stu_m = $entity->field_ercore_ee_msi_stu_m['und'][0]['value'];\r\n    $value_msi_stu_u = $entity->field_ercore_ee_msi_stu_u['und'][0]['value'];\r\n    $value_msi_fac_f = $entity->field_ercore_ee_msi_fac_f['und'][0]['value'];\r\n    $value_msi_fac_m = $entity->field_ercore_ee_msi_fac_m['und'][0]['value'];\r\n    $value_msi_fac_u = $entity->field_ercore_ee_msi_fac_u['und'][0]['value'];\r\n    // K12 fields\r\n    $value_k12t_f = $entity->field_ercore_ee_k12i_tec_f['und'][0]['value'];\r\n    $value_k12t_m = $entity->field_ercore_ee_k12i_tec_m['und'][0]['value'];\r\n    $value_k12t_u = $entity->field_ercore_ee_k12i_tec_u['und'][0]['value'];\r\n    $value_k12d_f = $entity->field_ercore_ee_k12i_stud_f['und'][0]['value'];\r\n    $value_k12d_m = $entity->field_ercore_ee_k12i_stud_m['und'][0]['value'];\r\n    $value_k12d_u = $entity->field_ercore_ee_k12i_stud_u['und'][0]['value'];\r\n    $value_k12tt_f = $entity->field_ercore_ee_k12i_stut_f['und'][0]['value'];\r\n    $value_k12tt_m = $entity->field_ercore_ee_k12i_stut_m['und'][0]['value'];\r\n    $value_k12tt_u = $entity->field_ercore_ee_k12i_stut_u['und'][0]['value'];\r\n    // Other fields\r\n    $value_oth_f = $entity->field_ercore_ee_oth_f['und'][0]['value'];\r\n    $value_oth_m = $entity->field_ercore_ee_oth_m['und'][0]['value'];\r\n    $value_oth_u = $entity->field_ercore_ee_oth_u['und'][0]['value'];\r\n\r\n    // Total\r\n    $value = $value_ari_stu_f +\r\n      $value_ari_stu_m +\r\n      $value_ari_stu_u +\r\n      $value_ari_fac_f +\r\n      $value_ari_fac_m +\r\n      $value_ari_fac_u +\r\n      $value_pui_stu_f +\r\n      $value_pui_stu_m +\r\n      $value_pui_stu_u +\r\n      $value_pui_fac_f +\r\n      $value_pui_fac_m +\r\n      $value_pui_fac_u +\r\n      $value_msi_stu_f +\r\n      $value_msi_stu_m +\r\n      $value_msi_stu_u +\r\n      $value_msi_fac_f +\r\n      $value_msi_fac_m +\r\n      $value_msi_fac_u +\r\n      $value_k12t_f +\r\n      $value_k12t_m +\r\n      $value_k12t_u +\r\n      $value_k12d_f +\r\n      $value_k12d_m +\r\n      $value_k12d_u +\r\n      $value_k12tt_f +\r\n      $value_k12tt_m +\r\n      $value_k12tt_u +\r\n      $value_oth_f +\r\n      $value_oth_m +\r\n      $value_oth_u;"
+  display_code: '$display_output = $value;'
+field_type: computed

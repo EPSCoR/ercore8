@@ -1,0 +1,302 @@
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_er_publication
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Publication)'
+source:
+  plugin: d7_node_revision
+  node_type: er_publication
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  body:
+    plugin: iterator
+    source: body
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_ark:
+    plugin: iterator
+    source: field_er_ark
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_collection_title:
+    plugin: iterator
+    source: field_er_collection_title
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_doi:
+    plugin: iterator
+    source: field_er_doi
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_epscor_acknowledged_: field_er_epscor_acknowledged_
+  field_er_full_citation:
+    plugin: iterator
+    source: field_er_full_citation
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_journal_name:
+    plugin: iterator
+    source: field_er_journal_name
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_journal_pages:
+    plugin: iterator
+    source: field_er_journal_pages
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_journal_volume:
+    plugin: iterator
+    source: field_er_journal_volume
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_link:
+    plugin: d6_cck_link
+    source: field_er_link
+  field_er_non_epscor_authors:
+    plugin: iterator
+    source: field_er_non_epscor_authors
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_nsf_ack: field_er_nsf_ack
+  field_er_peer_reviewed: field_er_peer_reviewed
+  field_er_pub_archived: field_er_pub_archived
+  field_er_pub_data: field_er_pub_data
+  field_er_pub_what_archive_:
+    plugin: iterator
+    source: field_er_pub_what_archive_
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_publication_date: field_er_publication_date
+  field_er_publication_status: field_er_publication_status
+  field_er_publication_submit: field_er_publication_submit
+  field_er_publication_type: field_er_publication_type
+  field_er_publisher:
+    plugin: iterator
+    source: field_er_publisher
+    process:
+      value: value
+      format:
+        -
+          plugin: static_map
+          bypass: true
+          source: format
+          map:
+            - null
+        -
+          plugin: skip_on_empty
+          method: process
+        -
+          plugin: migration
+          migration:
+            - upgrade_d6_filter_format
+            - upgrade_d7_filter_format
+          source: format
+  field_er_rii_support: field_er_rii_support
+  field_er_upload_file:
+    plugin: iterator
+    source: field_er_upload_file
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_er_user_entity_reference: field_er_user_entity_reference
+  field_er_program: field_er_program
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: er_publication
+migration_dependencies:
+  required:
+    36: upgrade_d7_node_er_award
+    37: upgrade_d7_node_er_collaboration
+    38: upgrade_d7_node_er_collaborators
+    39: upgrade_d7_node_er_engagement
+    40: upgrade_d7_node_er_event
+    41: upgrade_d7_node_er_institution
+    42: upgrade_d7_node_er_news
+    43: upgrade_d7_node_er_other_product
+    44: upgrade_d7_node_er_patent
+    45: upgrade_d7_node_er_presentation
+    46: upgrade_d7_node_er_proposal
+    47: upgrade_d7_node_er_publication
+    48: upgrade_d7_node_page
+  optional:
+    - upgrade_d6_filter_format
+    - upgrade_d7_filter_format
