@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_boards
+  module:
+    - options
+    - user
+id: user.user.field_ercore_user_boards
+field_name: field_ercore_user_boards
+entity_type: user
+bundle: user
+label: 'Boards and Committees'
+description: 'Please select which boards or committees you are or will be a member of.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

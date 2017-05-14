@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_j_highlight.body
+    - field.field.node.ercore_j_highlight.field_ercore_organizer
+    - field.field.node.ercore_j_highlight.field_ercore_programs
     - node.type.ercore_j_highlight
   module:
     - path
@@ -25,6 +27,22 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
+  field_ercore_organizer:
+    weight: 32
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_ercore_programs:
+    weight: 33
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   path:
     type: path
     weight: 30

@@ -2,19 +2,17 @@ langcode: en
 status: true
 dependencies:
   module:
-    - datetime_range
     - field_permissions
     - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_ercore_ev_date
-field_name: field_ercore_ev_date
+id: node.field_ercore_inst_participating
+field_name: field_ercore_inst_participating
 entity_type: node
-type: daterange
-settings:
-  datetime_type: datetime
-module: datetime_range
+type: boolean
+settings: {  }
+module: core
 locked: false
 cardinality: 1
 translatable: true

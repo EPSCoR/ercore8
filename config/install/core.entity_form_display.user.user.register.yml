@@ -4,18 +4,34 @@ dependencies:
   config:
     - core.entity_form_mode.user.register
     - field.field.user.user.field_ercore_user_address
+    - field.field.user.user.field_ercore_user_advisor
+    - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_disabilities
+    - field.field.user.user.field_ercore_user_doc_act
+    - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
     - field.field.user.user.field_ercore_user_gender
     - field.field.user.user.field_ercore_user_lead_team
     - field.field.user.user.field_ercore_user_link
+    - field.field.user.user.field_ercore_user_master_act
+    - field.field.user.user.field_ercore_user_master_ant
+    - field.field.user.user.field_ercore_user_mentor_plan
     - field.field.user.user.field_ercore_user_name
+    - field.field.user.user.field_ercore_user_part_dates
     - field.field.user.user.field_ercore_user_phone_mobile
     - field.field.user.user.field_ercore_user_phone_work
-    - field.field.user.user.field_ercore_user_project_role
+    - field.field.user.user.field_ercore_user_programs
+    - field.field.user.user.field_ercore_user_proj_comp
     - field.field.user.user.field_ercore_user_race
+    - field.field.user.user.field_ercore_user_rcr_on
+    - field.field.user.user.field_ercore_user_rcr_on_up
+    - field.field.user.user.field_ercore_user_rcr_per
+    - field.field.user.user.field_ercore_user_rcr_per_up
+    - field.field.user.user.field_ercore_user_rcr_status
     - field.field.user.user.field_ercore_user_supervisor
+    - field.field.user.user.field_ercore_user_under_act
+    - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
   module:
     - field_group
@@ -179,11 +195,6 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_ercore_user_project_role:
-    weight: 32
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
   field_ercore_user_race:
     weight: 27
     settings:
@@ -212,4 +223,21 @@ content:
     weight: 30
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_ercore_user_advisor: true
+  field_ercore_user_boards: true
+  field_ercore_user_doc_act: true
+  field_ercore_user_doc_ant: true
+  field_ercore_user_master_act: true
+  field_ercore_user_master_ant: true
+  field_ercore_user_mentor_plan: true
+  field_ercore_user_part_dates: true
+  field_ercore_user_programs: true
+  field_ercore_user_proj_comp: true
+  field_ercore_user_rcr_on: true
+  field_ercore_user_rcr_on_up: true
+  field_ercore_user_rcr_per: true
+  field_ercore_user_rcr_per_up: true
+  field_ercore_user_rcr_status: true
+  field_ercore_user_under_act: true
+  field_ercore_user_under_ant: true

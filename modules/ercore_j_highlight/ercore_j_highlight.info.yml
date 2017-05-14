@@ -2,8 +2,10 @@ name: 'ERCore Highlight'
 description: 'Provides ERCore Highlight content type and related configuration. '
 type: module
 core: 8.x
-
 dependencies:
+  - ercore_core
+  - ercore_event
+  - ercore_program
   - field
   - menu_ui
   - node

@@ -7,14 +7,14 @@ dependencies:
     - field.field.node.ercore_event.field_ercore_ev_document
     - field.field.node.ercore_event.field_ercore_ev_engagement
     - field.field.node.ercore_event.field_ercore_ev_location
-    - field.field.node.ercore_event.field_ercore_ev_program
     - field.field.node.ercore_event.field_ercore_ev_reminders
     - field.field.node.ercore_event.field_ercore_ev_url
     - field.field.node.ercore_event.field_ercore_event_type
     - field.field.node.ercore_event.field_ercore_organizer
+    - field.field.node.ercore_event.field_ercore_programs
     - node.type.ercore_event
   module:
-    - datetime
+    - datetime_range
     - file
     - link
     - paragraphs
@@ -36,7 +36,7 @@ content:
     weight: 3
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
+    type: daterange_default
   field_ercore_ev_document:
     weight: 8
     settings:
@@ -45,7 +45,7 @@ content:
     type: file_generic
   field_ercore_ev_location:
     type: entity_reference_paragraphs
-    weight: 11
+    weight: 10
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -76,7 +76,7 @@ content:
     third_party_settings: {  }
     type: link_default
   field_ercore_event_type:
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -88,6 +88,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_ercore_programs:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   title:
     type: string_textfield
     weight: 0

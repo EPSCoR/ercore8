@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_inst_link
+    - node.type.ercore_institution
+  module:
+    - link
+id: node.ercore_institution.field_ercore_inst_link
+field_name: field_ercore_inst_link
+entity_type: node
+bundle: ercore_institution
+label: 'Institutional Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_inst_country
+    - node.type.ercore_institution
+id: node.ercore_institution.field_ercore_inst_country
+field_name: field_ercore_inst_country
+entity_type: node
+bundle: ercore_institution
+label: Country
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'United States'
+default_value_callback: ''
+settings: {  }
+field_type: string

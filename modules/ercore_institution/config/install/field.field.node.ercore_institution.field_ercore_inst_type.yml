@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_inst_type
+    - node.type.ercore_institution
+  module:
+    - options
+id: node.ercore_institution.field_ercore_inst_type
+field_name: field_ercore_inst_type
+entity_type: node
+bundle: ercore_institution
+label: Type
+description: 'This labels the university as Jurisdictional, External-Domestic, or External-Foreign.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

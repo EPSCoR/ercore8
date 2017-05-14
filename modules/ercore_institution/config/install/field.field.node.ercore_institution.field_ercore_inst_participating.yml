@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_inst_participating
+    - node.type.ercore_institution
+id: node.ercore_institution.field_ercore_inst_participating
+field_name: field_ercore_inst_participating
+entity_type: node
+bundle: ercore_institution
+label: Participating
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -2,16 +2,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ercore_ev_program
-    - node.type.ercore_event
+    - field.storage.user.field_ercore_user_programs
     - taxonomy.vocabulary.ercore_program_vocab
-id: node.ercore_event.field_ercore_ev_program
-field_name: field_ercore_ev_program
-entity_type: node
-bundle: ercore_event
-label: Program(s)
+  module:
+    - user
+id: user.user.field_ercore_user_programs
+field_name: field_ercore_user_programs
+entity_type: user
+bundle: user
+label: Programs
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

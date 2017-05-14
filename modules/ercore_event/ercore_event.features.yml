@@ -8,4 +8,5 @@ excluded:
   - field.storage.paragraph.field_ercore_loc_name
   - field.storage.paragraph.field_ercore_loc_postal
   - field.storage.paragraph.field_ercore_loc_state
+  - field.storage.node.field_ercore_programs
 required: true

@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ercore_user_participation.field_ercore_participation_dates
+    - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
+    - paragraphs.paragraphs_type.ercore_user_participation
+  module:
+    - datetime_range
+    - options
+id: paragraph.ercore_user_participation.default
+targetEntityType: paragraph
+bundle: ercore_user_participation
+mode: default
+content:
+  field_ercore_participation_dates:
+    weight: 1
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+  field_ercore_senior_role:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+hidden: {  }

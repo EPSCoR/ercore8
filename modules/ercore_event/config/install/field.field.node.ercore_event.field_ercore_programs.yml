@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_programs
+    - node.type.ercore_event
+    - taxonomy.vocabulary.ercore_program_vocab
+id: node.ercore_event.field_ercore_programs
+field_name: field_ercore_programs
+entity_type: node
+bundle: ercore_event
+label: Programs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ercore_program_vocab: ercore_program_vocab
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

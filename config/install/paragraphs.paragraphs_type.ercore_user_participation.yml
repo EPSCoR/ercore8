@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore_user_participation
+label: 'User Participation'
+behavior_plugins: {  }

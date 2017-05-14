@@ -8,10 +8,11 @@ dependencies:
     - field.field.node.ercore_event.field_ercore_ev_document
     - field.field.node.ercore_event.field_ercore_ev_engagement
     - field.field.node.ercore_event.field_ercore_ev_location
-    - field.field.node.ercore_event.field_ercore_ev_program
     - field.field.node.ercore_event.field_ercore_ev_reminders
     - field.field.node.ercore_event.field_ercore_ev_url
+    - field.field.node.ercore_event.field_ercore_event_type
     - field.field.node.ercore_event.field_ercore_organizer
+    - field.field.node.ercore_event.field_ercore_programs
     - node.type.ercore_event
   module:
     - text
@@ -38,4 +39,6 @@ hidden:
   field_ercore_ev_program: true
   field_ercore_ev_reminders: true
   field_ercore_ev_url: true
+  field_ercore_event_type: true
   field_ercore_organizer: true
+  field_ercore_programs: true
