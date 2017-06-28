@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.ercore_other_product.field_ercore_nsf
+    - field.field.node.ercore_other_product.field_ercore_op_date
+    - field.field.node.ercore_other_product.field_ercore_op_description
+    - field.field.node.ercore_other_product.field_ercore_op_non_epscor
+    - field.field.node.ercore_other_product.field_ercore_op_rii_support
+    - field.field.node.ercore_other_product.field_ercore_op_type
+    - field.field.node.ercore_other_product.field_ercore_op_website
+    - field.field.node.ercore_other_product.field_ercore_organizer
+    - node.type.ercore_other_product
+  module:
+    - datetime
+    - link
+    - options
+    - user
+id: node.ercore_other_product.full
+targetEntityType: node
+bundle: ercore_other_product
+mode: full
+content:
+  field_ercore_nsf:
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ercore_op_date:
+    weight: 1
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+  field_ercore_op_description:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_ercore_op_non_epscor:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_ercore_op_rii_support:
+    weight: 5
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ercore_op_type:
+    weight: 0
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ercore_op_website:
+    weight: 4
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_ercore_organizer:
+    weight: 2
+    label: above
+    settings:
+      view_mode: ercore_name_org_dept
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  links:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

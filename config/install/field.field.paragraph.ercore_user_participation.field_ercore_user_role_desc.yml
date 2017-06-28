@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_user_role_desc
+    - paragraphs.paragraphs_type.ercore_user_participation
+  module:
+    - text
+id: paragraph.ercore_user_participation.field_ercore_user_role_desc
+field_name: field_ercore_user_role_desc
+entity_type: paragraph
+bundle: ercore_user_participation
+label: 'Description of Role and Contributions'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

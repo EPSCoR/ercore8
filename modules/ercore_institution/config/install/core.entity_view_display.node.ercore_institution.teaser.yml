@@ -1,9 +1,14 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_institution.body
+    - field.field.node.ercore_institution.field_ercore_inst_abbr
+    - field.field.node.ercore_institution.field_ercore_inst_country
+    - field.field.node.ercore_institution.field_ercore_inst_link
+    - field.field.node.ercore_institution.field_ercore_inst_participating
+    - field.field.node.ercore_institution.field_ercore_inst_type
     - node.type.ercore_institution
   module:
     - text
@@ -22,4 +27,11 @@ content:
     third_party_settings: {  }
   links:
     weight: 100
-hidden: {  }
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ercore_inst_abbr: true
+  field_ercore_inst_country: true
+  field_ercore_inst_link: true
+  field_ercore_inst_participating: true
+  field_ercore_inst_type: true

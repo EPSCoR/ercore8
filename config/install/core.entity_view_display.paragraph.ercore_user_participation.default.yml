@@ -4,10 +4,14 @@ dependencies:
   config:
     - field.field.paragraph.ercore_user_participation.field_ercore_participation_dates
     - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_department
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_partic_inst
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_role_desc
     - paragraphs.paragraphs_type.ercore_user_participation
   module:
     - datetime_range
     - options
+    - text
 id: paragraph.ercore_user_participation.default
 targetEntityType: paragraph
 bundle: ercore_user_participation
@@ -15,7 +19,7 @@ mode: default
 content:
   field_ercore_participation_dates:
     weight: 1
-    label: above
+    label: inline
     settings:
       separator: '-'
       format_type: medium
@@ -24,8 +28,28 @@ content:
     type: daterange_default
   field_ercore_senior_role:
     weight: 0
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
+  field_ercore_user_department:
+    weight: 4
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_ercore_user_partic_inst:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_ercore_user_role_desc:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
 hidden: {  }

@@ -43,6 +43,17 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
+  field_ercore_ev_engagement:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
   field_ercore_ev_location:
     type: entity_reference_paragraphs
     weight: 10
@@ -110,7 +121,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_ercore_ev_engagement: true
   path: true
   promote: true
   sticky: true

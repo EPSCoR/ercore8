@@ -7,8 +7,8 @@ dependencies:
   - datetime
   - datetime_range
   - entity_reference_revisions
-  - ercore_core
   - ercore_component
+  - ercore_core
   - ercore_program
   - field
   - field_group

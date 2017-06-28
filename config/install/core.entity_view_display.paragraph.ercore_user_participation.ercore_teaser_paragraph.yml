@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.ercore_teaser_paragraph
+    - field.field.paragraph.ercore_user_participation.field_ercore_participation_dates
+    - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_department
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_partic_inst
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_role_desc
+    - paragraphs.paragraphs_type.ercore_user_participation
+id: paragraph.ercore_user_participation.ercore_teaser_paragraph
+targetEntityType: paragraph
+bundle: ercore_user_participation
+mode: ercore_teaser_paragraph
+content:
+  field_ercore_user_department:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_ercore_user_partic_inst:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+hidden:
+  field_ercore_participation_dates: true
+  field_ercore_senior_role: true
+  field_ercore_user_role_desc: true

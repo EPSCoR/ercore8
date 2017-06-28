@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_estimated
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_excel
@@ -434,6 +435,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_ercore_ee_ari_stu_t: true
   field_ercore_ee_other_t: true
   field_ercore_ee_t_t: true
   status: true

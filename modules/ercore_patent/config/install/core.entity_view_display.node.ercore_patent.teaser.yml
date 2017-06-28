@@ -4,22 +4,37 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_patent.body
+    - field.field.node.ercore_patent.field_ercore_organizer
+    - field.field.node.ercore_patent.field_ercore_programs
+    - field.field.node.ercore_patent.field_ercore_pt_award
+    - field.field.node.ercore_patent.field_ercore_pt_description
+    - field.field.node.ercore_patent.field_ercore_pt_disclosure
+    - field.field.node.ercore_patent.field_ercore_pt_filing
+    - field.field.node.ercore_patent.field_ercore_pt_license
+    - field.field.node.ercore_patent.field_ercore_pt_licensed
+    - field.field.node.ercore_patent.field_ercore_pt_licensee
+    - field.field.node.ercore_patent.field_ercore_pt_link
+    - field.field.node.ercore_patent.field_ercore_pt_provisional
     - node.type.ercore_patent
   module:
-    - text
     - user
 id: node.ercore_patent.teaser
 targetEntityType: node
 bundle: ercore_patent
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
   links:
     weight: 100
-hidden: {  }
+hidden:
+  body: true
+  field_ercore_organizer: true
+  field_ercore_programs: true
+  field_ercore_pt_award: true
+  field_ercore_pt_description: true
+  field_ercore_pt_disclosure: true
+  field_ercore_pt_filing: true
+  field_ercore_pt_license: true
+  field_ercore_pt_licensed: true
+  field_ercore_pt_licensee: true
+  field_ercore_pt_link: true
+  field_ercore_pt_provisional: true

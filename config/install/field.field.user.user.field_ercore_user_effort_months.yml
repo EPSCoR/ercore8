@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_effort_months
+  module:
+    - user
+id: user.user.field_ercore_user_effort_months
+field_name: field_ercore_user_effort_months
+entity_type: user
+bundle: user
+label: 'Months of Effort This Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 12
+  prefix: ''
+  suffix: month|months
+field_type: integer

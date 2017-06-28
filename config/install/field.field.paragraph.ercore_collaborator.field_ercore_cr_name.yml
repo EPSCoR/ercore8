@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_cr_name
+    - paragraphs.paragraphs_type.ercore_collaborator
+id: paragraph.ercore_collaborator.field_ercore_cr_name
+field_name: field_ercore_cr_name
+entity_type: paragraph
+bundle: ercore_collaborator
+label: 'Name of Collaborating Individual'
+description: 'Please provide the full name of the person.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -3,21 +3,109 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_patent.body
+    - field.field.node.ercore_patent.field_ercore_organizer
+    - field.field.node.ercore_patent.field_ercore_programs
+    - field.field.node.ercore_patent.field_ercore_pt_award
+    - field.field.node.ercore_patent.field_ercore_pt_description
+    - field.field.node.ercore_patent.field_ercore_pt_disclosure
+    - field.field.node.ercore_patent.field_ercore_pt_filing
+    - field.field.node.ercore_patent.field_ercore_pt_license
+    - field.field.node.ercore_patent.field_ercore_pt_licensed
+    - field.field.node.ercore_patent.field_ercore_pt_licensee
+    - field.field.node.ercore_patent.field_ercore_pt_link
+    - field.field.node.ercore_patent.field_ercore_pt_provisional
     - node.type.ercore_patent
   module:
-    - text
+    - datetime
+    - link
     - user
 id: node.ercore_patent.default
 targetEntityType: node
 bundle: ercore_patent
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
+  field_ercore_organizer:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_ercore_programs:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_ercore_pt_award:
+    weight: 7
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+  field_ercore_pt_description:
+    weight: 3
+    label: above
     settings: {  }
     third_party_settings: {  }
+    type: basic_string
+  field_ercore_pt_disclosure:
+    weight: 1
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+  field_ercore_pt_filing:
+    weight: 6
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+  field_ercore_pt_license:
+    weight: 8
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+  field_ercore_pt_licensee:
+    weight: 9
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_ercore_pt_link:
+    weight: 4
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_ercore_pt_provisional:
+    weight: 5
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+    type: datetime_default
   links:
-    weight: 100
-hidden: {  }
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_ercore_pt_licensed: true

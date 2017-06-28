@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_cr_inst
+    - node.type.ercore_institution
+    - paragraphs.paragraphs_type.ercore_collaborator
+id: paragraph.ercore_collaborator.field_ercore_cr_inst
+field_name: field_ercore_cr_inst
+entity_type: paragraph
+bundle: ercore_collaborator
+label: Institution/Organization
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      ercore_institution: ercore_institution
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

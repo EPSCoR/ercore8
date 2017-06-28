@@ -22,6 +22,7 @@ settings:
       type: _none
     target_bundles: null
     sort:
-      field: _none
+      field: field_ercore_user_name.family
+      direction: ASC
     auto_create: false
 field_type: entity_reference

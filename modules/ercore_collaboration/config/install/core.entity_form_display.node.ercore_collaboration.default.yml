@@ -3,8 +3,15 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_collaboration.body
+    - field.field.node.ercore_collaboration.field_ercore_cn_collaborator
+    - field.field.node.ercore_collaboration.field_ercore_cn_dates
+    - field.field.node.ercore_collaboration.field_ercore_components
+    - field.field.node.ercore_collaboration.field_ercore_organizer
+    - field.field.node.ercore_collaboration.field_ercore_programs
     - node.type.ercore_collaboration
   module:
+    - datetime_range
+    - paragraphs
     - path
     - text
 id: node.ercore_collaboration.default
@@ -14,7 +21,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 31
+    weight: 6
     settings:
       rows: 9
       summary_rows: 3
@@ -22,36 +29,70 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_cn_collaborator:
+    type: entity_reference_paragraphs
+    weight: 5
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_ercore_cn_dates:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+  field_ercore_components:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_ercore_organizer:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_ercore_programs:
+    type: options_select
+    weight: 3
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 11
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 9
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 10
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60

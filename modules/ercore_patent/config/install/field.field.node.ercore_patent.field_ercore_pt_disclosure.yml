@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pt_disclosure
+    - node.type.ercore_patent
+  module:
+    - datetime
+id: node.ercore_patent.field_ercore_pt_disclosure
+field_name: field_ercore_pt_disclosure
+entity_type: node
+bundle: ercore_patent
+label: 'Disclosure Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

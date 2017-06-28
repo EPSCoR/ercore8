@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_op_description
+    - node.type.ercore_other_product
+id: node.ercore_other_product.field_ercore_op_description
+field_name: field_ercore_op_description
+entity_type: node
+bundle: ercore_other_product
+label: Description
+description: 'Please provide a brief description of your products. 3-4 sentences maximum.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

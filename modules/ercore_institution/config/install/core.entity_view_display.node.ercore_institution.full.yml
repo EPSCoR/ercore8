@@ -1,0 +1,67 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.ercore_institution.body
+    - field.field.node.ercore_institution.field_ercore_inst_abbr
+    - field.field.node.ercore_institution.field_ercore_inst_country
+    - field.field.node.ercore_institution.field_ercore_inst_link
+    - field.field.node.ercore_institution.field_ercore_inst_participating
+    - field.field.node.ercore_institution.field_ercore_inst_type
+    - node.type.ercore_institution
+  module:
+    - link
+    - options
+    - text
+    - user
+id: node.ercore_institution.full
+targetEntityType: node
+bundle: ercore_institution
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_inst_country:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_ercore_inst_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_ercore_inst_participating:
+    weight: 0
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Participating Organization'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+  field_ercore_inst_type:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  links:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ercore_inst_abbr: true

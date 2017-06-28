@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore_long
+label: 'ERCore Long'
+locked: false
+pattern: 'F d, Y h:ma'

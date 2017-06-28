@@ -7,7 +7,7 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: 'ERCore Calendar Event'
+name: 'ERCore Engagement Event'
 type: ercore_event
 description: 'Enter events onto the Calendar - public or private to EPSCoR only.'
 help: ''

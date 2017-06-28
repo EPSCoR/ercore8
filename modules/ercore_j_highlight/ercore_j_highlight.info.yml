@@ -3,10 +3,16 @@ description: 'Provides ERCore Highlight content type and related configuration. 
 type: module
 core: 8.x
 dependencies:
+  - datetime
+  - ercore_collaboration
+  - ercore_component
   - ercore_core
   - ercore_event
   - ercore_program
   - field
+  - field_permissions
+  - file
+  - image
   - menu_ui
   - node
   - path

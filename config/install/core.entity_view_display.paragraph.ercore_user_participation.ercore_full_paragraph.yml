@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.ercore_full_paragraph
+    - field.field.paragraph.ercore_user_participation.field_ercore_participation_dates
+    - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_department
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_partic_inst
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_role_desc
+    - paragraphs.paragraphs_type.ercore_user_participation
+  module:
+    - datetime_range
+    - options
+    - text
+id: paragraph.ercore_user_participation.ercore_full_paragraph
+targetEntityType: paragraph
+bundle: ercore_user_participation
+mode: ercore_full_paragraph
+content:
+  field_ercore_participation_dates:
+    weight: 0
+    label: inline
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+  field_ercore_senior_role:
+    weight: 1
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_ercore_user_department:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_ercore_user_partic_inst:
+    weight: 2
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_ercore_user_role_desc:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden: {  }

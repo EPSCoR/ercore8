@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercoer_user_epscore_paid
+  module:
+    - user
+id: user.user.field_ercoer_user_epscore_paid
+field_name: field_ercoer_user_epscore_paid
+entity_type: user
+bundle: user
+label: 'Are you paid by the EPSCoR grant?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

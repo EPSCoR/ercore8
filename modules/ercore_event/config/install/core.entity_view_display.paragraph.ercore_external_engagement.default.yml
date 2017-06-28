@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_estimated
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_excel
@@ -47,11 +48,43 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_t
     - paragraphs.paragraphs_type.ercore_external_engagement
+  module:
+    - computed_field
 id: paragraph.ercore_external_engagement.default
 targetEntityType: paragraph
 bundle: ercore_external_engagement
 mode: default
-content: {  }
+content:
+  field_ercore_ee_ari_stu_t:
+    weight: 0
+    label: above
+    settings:
+      sanitized: true
+    third_party_settings: {  }
+    type: computed
+  field_ercore_ee_estimated:
+    type: boolean
+    weight: 0
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  field_ercore_ee_other_t:
+    type: computed
+    weight: 0
+    label: above
+    settings:
+      sanitized: true
+    third_party_settings: {  }
+  field_ercore_ee_t_t:
+    type: computed
+    weight: 0
+    label: above
+    settings:
+      sanitized: true
+    third_party_settings: {  }
 hidden:
   field_ercore_ee_ari_fac_f: true
   field_ercore_ee_ari_fac_m: true
@@ -61,7 +94,6 @@ hidden:
   field_ercore_ee_ari_stu_m: true
   field_ercore_ee_ari_stu_mn: true
   field_ercore_ee_ari_stu_u: true
-  field_ercore_ee_estimated: true
   field_ercore_ee_excel: true
   field_ercore_ee_k12_dir_f: true
   field_ercore_ee_k12_dir_m: true
@@ -86,7 +118,6 @@ hidden:
   field_ercore_ee_other_f: true
   field_ercore_ee_other_m: true
   field_ercore_ee_other_mn: true
-  field_ercore_ee_other_t: true
   field_ercore_ee_other_u: true
   field_ercore_ee_pui_fac_f: true
   field_ercore_ee_pui_fac_m: true
@@ -96,4 +127,3 @@ hidden:
   field_ercore_ee_pui_stu_m: true
   field_ercore_ee_pui_stu_mn: true
   field_ercore_ee_pui_stu_u: true
-  field_ercore_ee_t_t: true

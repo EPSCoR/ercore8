@@ -1,25 +1,31 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_j_honor.body
+    - field.field.node.ercore_j_honor.field_ercore_hn_date
+    - field.field.node.ercore_j_honor.field_ercore_organizer
+    - field.field.node.ercore_j_honor.field_ercore_programs
     - node.type.ercore_j_honor
   module:
-    - text
+    - datetime
     - user
 id: node.ercore_j_honor.teaser
 targetEntityType: node
 bundle: ercore_j_honor
 mode: teaser
 content:
-  body:
+  field_ercore_hn_date:
+    type: datetime_default
+    weight: 0
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
     settings:
-      trim_length: 600
+      timezone_override: ''
+      format_type: ercore_short
     third_party_settings: {  }
-  links:
-    weight: 100
-hidden: {  }
+hidden:
+  body: true
+  field_ercore_organizer: true
+  field_ercore_programs: true
+  links: true

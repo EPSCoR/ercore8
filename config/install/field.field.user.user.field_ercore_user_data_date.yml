@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_data_date
+  module:
+    - datetime
+    - user
+id: user.user.field_ercore_user_data_date
+field_name: field_ercore_user_data_date
+entity_type: user
+bundle: user
+label: 'When do you anticipate the data be available to the data repository?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

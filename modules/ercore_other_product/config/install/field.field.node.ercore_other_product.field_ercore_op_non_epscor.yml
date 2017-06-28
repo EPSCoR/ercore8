@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_op_non_epscor
+    - node.type.ercore_other_product
+id: node.ercore_other_product.field_ercore_op_non_epscor
+field_name: field_ercore_op_non_epscor
+entity_type: node
+bundle: ercore_other_product
+label: 'Non-EPSCoR Participant Research Product Creators'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

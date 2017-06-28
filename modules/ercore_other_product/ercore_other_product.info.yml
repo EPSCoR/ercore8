@@ -2,11 +2,17 @@ name: 'ERCore Other Product'
 description: 'Provides ERCore Other Product content type and related configuration. Use this form to report on other research products such as Data or Databases, Physical Collection, Audio or Video products, Software, Educational aids, Instruments or Equipment or Other Inventions.'
 type: module
 core: 8.x
-
 dependencies:
+  - datetime
   - ercore_core
+  - ercore_event
+  - ercore_program
+  - field
+  - field_permissions
+  - link
   - menu_ui
   - node
+  - options
   - path
   - user
 version: 8.x-1.0

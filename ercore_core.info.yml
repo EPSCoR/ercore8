@@ -9,10 +9,12 @@ dependencies:
   - datetime_range
   - editor
   - entity_reference_revisions
+  - ercore_collaboration
   - ercore_component
   - ercore_program
   - features
   - field
+  - field_group
   - field_permissions
   - file
   - filter

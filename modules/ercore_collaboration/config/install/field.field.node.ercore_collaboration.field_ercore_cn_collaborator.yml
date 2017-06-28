@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_cn_collaborator
+    - node.type.ercore_collaboration
+    - paragraphs.paragraphs_type.ercore_collaborator
+  module:
+    - entity_reference_revisions
+id: node.ercore_collaboration.field_ercore_cn_collaborator
+field_name: field_ercore_cn_collaborator
+entity_type: node
+bundle: ercore_collaboration
+label: 'External Collaborators'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ercore_collaborator: ercore_collaborator
+    target_bundles_drag_drop:
+      ercore_collaborator:
+        enabled: true
+        weight: 5
+      ercore_external_engagement:
+        weight: 6
+        enabled: false
+      ercore_location:
+        weight: 7
+        enabled: false
+      ercore_user_participation:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

@@ -2,8 +2,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.ercore_other_product.field_ercore_nsf
+    - field.field.node.ercore_other_product.field_ercore_op_date
+    - field.field.node.ercore_other_product.field_ercore_op_description
+    - field.field.node.ercore_other_product.field_ercore_op_non_epscor
+    - field.field.node.ercore_other_product.field_ercore_op_rii_support
+    - field.field.node.ercore_other_product.field_ercore_op_type
+    - field.field.node.ercore_other_product.field_ercore_op_website
+    - field.field.node.ercore_other_product.field_ercore_organizer
     - node.type.ercore_other_product
   module:
+    - datetime
+    - link
     - path
 id: node.ercore_other_product.default
 targetEntityType: node
@@ -15,33 +25,82 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
+  field_ercore_nsf:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_ercore_op_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  field_ercore_op_description:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_ercore_op_non_epscor:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_ercore_op_rii_support:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_ercore_op_type:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+  field_ercore_op_website:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_ercore_organizer:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   path:
     type: path
-    weight: 30
+    weight: 13
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 11
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 12
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60

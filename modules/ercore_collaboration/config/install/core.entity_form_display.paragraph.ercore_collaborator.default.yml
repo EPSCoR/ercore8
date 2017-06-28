@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ercore_collaborator.field_ercore_cr_dept
+    - field.field.paragraph.ercore_collaborator.field_ercore_cr_inst
+    - field.field.paragraph.ercore_collaborator.field_ercore_cr_name
+    - paragraphs.paragraphs_type.ercore_collaborator
+id: paragraph.ercore_collaborator.default
+targetEntityType: paragraph
+bundle: ercore_collaborator
+mode: default
+content:
+  field_ercore_cr_dept:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_ercore_cr_inst:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_ercore_cr_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true

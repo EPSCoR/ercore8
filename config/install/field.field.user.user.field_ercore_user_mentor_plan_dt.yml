@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_mentor_plan_dt
+  module:
+    - datetime
+    - user
+id: user.user.field_ercore_user_mentor_plan_dt
+field_name: field_ercore_user_mentor_plan_dt
+entity_type: user
+bundle: user
+label: 'Mentor Plan Sign-off Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

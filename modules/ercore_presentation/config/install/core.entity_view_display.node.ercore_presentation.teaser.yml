@@ -1,9 +1,11 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_presentation.body
+    - field.field.node.ercore_presentation.field_ercore_organizer
+    - field.field.node.ercore_presentation.field_ercore_programs
     - node.type.ercore_presentation
   module:
     - text
@@ -22,4 +24,6 @@ content:
     third_party_settings: {  }
   links:
     weight: 100
-hidden: {  }
+hidden:
+  field_ercore_organizer: true
+  field_ercore_programs: true

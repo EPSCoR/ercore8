@@ -1,8 +1,16 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.ercore_other_product.field_ercore_nsf
+    - field.field.node.ercore_other_product.field_ercore_op_date
+    - field.field.node.ercore_other_product.field_ercore_op_description
+    - field.field.node.ercore_other_product.field_ercore_op_non_epscor
+    - field.field.node.ercore_other_product.field_ercore_op_rii_support
+    - field.field.node.ercore_other_product.field_ercore_op_type
+    - field.field.node.ercore_other_product.field_ercore_op_website
+    - field.field.node.ercore_other_product.field_ercore_organizer
     - node.type.ercore_other_product
   module:
     - user
@@ -13,4 +21,12 @@ mode: teaser
 content:
   links:
     weight: 100
-hidden: {  }
+hidden:
+  field_ercore_nsf: true
+  field_ercore_op_date: true
+  field_ercore_op_description: true
+  field_ercore_op_non_epscor: true
+  field_ercore_op_rii_support: true
+  field_ercore_op_type: true
+  field_ercore_op_website: true
+  field_ercore_organizer: true

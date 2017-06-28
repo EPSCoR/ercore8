@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore_no_privileges_
+label: 'No Privileges'
+weight: -8
+is_admin: null
+permissions: {  }

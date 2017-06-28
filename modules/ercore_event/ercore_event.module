@@ -8,6 +8,6 @@
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
-function ercore_event_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // dpm($form, 'dpm');
+function ercore_event_form_node_ercore_event_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  
 }

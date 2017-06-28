@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore_view
+label: 'ERCore View Content Only'
+weight: -6
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access in-place editing'
+  - 'view the administration theme'
+  - 'view own unpublished content'

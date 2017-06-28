@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore_short
+label: 'ERCore Short'
+locked: false
+pattern: 'n/d/y h:ma'

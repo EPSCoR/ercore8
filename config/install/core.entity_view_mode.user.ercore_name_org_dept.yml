@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.ercore_name_org_dept
+label: 'Name, Org Dept'
+targetEntityType: user
+cache: true

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore_month_day_year
+label: 'ERCore Month Day, Year'
+locked: false
+pattern: 'F d, Y'

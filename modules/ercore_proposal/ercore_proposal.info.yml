@@ -2,9 +2,10 @@ name: 'ERCore Proposal or Grant'
 description: 'Provides ERCore Proposal or Grant content type and related configuration. Use this form to report on the proposals you have submitted and grants either awarded or declined.'
 type: module
 core: 8.x
-
 dependencies:
   - ercore_core
+  - ercore_event
+  - ercore_program
   - field
   - menu_ui
   - node

@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.ercore_presentation.body
+    - field.field.node.ercore_presentation.field_ercore_organizer
+    - field.field.node.ercore_presentation.field_ercore_programs
+    - node.type.ercore_presentation
+  module:
+    - text
+    - user
+id: node.ercore_presentation.full
+targetEntityType: node
+bundle: ercore_presentation
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_organizer:
+    weight: 1
+    label: above
+    settings:
+      view_mode: ercore_name_org_dept
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_ercore_programs:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  links:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

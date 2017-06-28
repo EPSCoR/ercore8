@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ercore_collaborator
+label: Collaborator
+behavior_plugins: {  }

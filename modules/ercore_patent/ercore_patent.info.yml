@@ -2,10 +2,14 @@ name: 'ERCore Patent'
 description: 'Provides ERCore Patent content type and related configuration. Patents resulting from work done by EPSCoR.'
 type: module
 core: 8.x
-
 dependencies:
+  - datetime
   - ercore_core
+  - ercore_event
+  - ercore_program
   - field
+  - field_permissions
+  - link
   - menu_ui
   - node
   - path
