@@ -1,5 +1,5 @@
-name: 'ERCore Calendar Event'
-description: 'Provides ERCore Calendar Event content type and related configuration. Enter events onto the Calendar - public or private to EPSCoR only.'
+name: 'ERCore Engagement Event'
+description: 'Provides ERCore Engagement Event content type and related configuration. Enter events onto the Calendar - public or private to EPSCoR only.'
 type: module
 core: 8.x
 dependencies:

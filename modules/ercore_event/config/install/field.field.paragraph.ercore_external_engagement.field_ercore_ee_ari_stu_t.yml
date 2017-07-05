@@ -12,13 +12,13 @@ entity_type: paragraph
 bundle: ercore_external_engagement
 label: 'ARI: Student -Total'
 description: ''
-required: false
+required: true
 translatable: false
 default_value:
   -
     value: {  }
 default_value_callback: ''
 settings:
-  computed_code: "\r\n $value = $entity->field_ercore_ee_ari_fac_f['und'][0]['value'] + $entity->field_ercore_ee_ari_fac_m['und'][0]['value'] + $entity->field_ercore_ee_ari_fac_u['und'][0]['value'];"
+  computed_code: ' $value = $entity->field_ercore_ee_ari_stu_f[''und''][0][''value''] + $entity->field_ercore_ee_ari_stu_m[''und''][0][''value''] + $entity->field_ercore_ee_ari_stu_u[''und''][0][''value''];'
   display_code: '$display_output = $value;'
 field_type: computed

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_ee_ari_fac_t
+    - paragraphs.paragraphs_type.ercore_external_engagement
+  module:
+    - computed_field
+id: paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_t
+field_name: field_ercore_ee_ari_fac_t
+entity_type: paragraph
+bundle: ercore_external_engagement
+label: 'ARI: Faculty - Total'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: {  }
+default_value_callback: ''
+settings:
+  computed_code: ' $value = $entity->field_ercore_ee_ari_fac_f[''und''][0][''value''] + $entity->field_ercore_ee_ari_fac_m[''und''][0][''value''] + $entity->field_ercore_ee_ari_fac_u[''und''][0][''value''];'
+  display_code: '$display_output = $value;'
+field_type: computed

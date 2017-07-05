@@ -5,6 +5,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_m
@@ -46,7 +47,11 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_u
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_f
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_t
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_u
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_um
     - paragraphs.paragraphs_type.ercore_external_engagement
   module:
     - computed_field
@@ -78,6 +83,20 @@ content:
     settings:
       sanitized: true
     third_party_settings: {  }
+  field_ercore_ee_t_f:
+    weight: 2
+    label: above
+    settings:
+      sanitized: true
+    third_party_settings: {  }
+    type: computed
+  field_ercore_ee_t_m:
+    weight: 1
+    label: above
+    settings:
+      sanitized: true
+    third_party_settings: {  }
+    type: computed
   field_ercore_ee_t_t:
     type: computed
     weight: 0
@@ -85,10 +104,25 @@ content:
     settings:
       sanitized: true
     third_party_settings: {  }
+  field_ercore_ee_t_u:
+    weight: 3
+    label: above
+    settings:
+      sanitized: true
+    third_party_settings: {  }
+    type: computed
+  field_ercore_ee_t_um:
+    weight: 4
+    label: above
+    settings:
+      sanitized: true
+    third_party_settings: {  }
+    type: computed
 hidden:
   field_ercore_ee_ari_fac_f: true
   field_ercore_ee_ari_fac_m: true
   field_ercore_ee_ari_fac_mn: true
+  field_ercore_ee_ari_fac_t: true
   field_ercore_ee_ari_fac_u: true
   field_ercore_ee_ari_stu_f: true
   field_ercore_ee_ari_stu_m: true

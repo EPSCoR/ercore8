@@ -5,6 +5,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_fac_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_m
@@ -46,7 +47,11 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_u
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_f
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_t
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_u
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_um
     - paragraphs.paragraphs_type.ercore_external_engagement
   module:
     - field_group
@@ -433,8 +438,29 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_ercore_ee_t_f:
+    weight: 22
+    settings: {  }
+    third_party_settings: {  }
+    type: null
+  field_ercore_ee_t_m:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: null
+  field_ercore_ee_t_u:
+    weight: 23
+    settings: {  }
+    third_party_settings: {  }
+    type: null
+  field_ercore_ee_t_um:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: null
 hidden:
   created: true
+  field_ercore_ee_ari_fac_t: true
   field_ercore_ee_ari_stu_t: true
   field_ercore_ee_other_t: true
   field_ercore_ee_t_t: true

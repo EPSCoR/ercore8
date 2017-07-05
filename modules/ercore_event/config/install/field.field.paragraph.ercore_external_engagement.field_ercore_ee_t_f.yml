@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ercore_ee_other_t
+    - field.storage.paragraph.field_ercore_ee_t_f
     - paragraphs.paragraphs_type.ercore_external_engagement
   module:
     - computed_field
-id: paragraph.ercore_external_engagement.field_ercore_ee_other_t
-field_name: field_ercore_ee_other_t
+id: paragraph.ercore_external_engagement.field_ercore_ee_t_f
+field_name: field_ercore_ee_t_f
 entity_type: paragraph
 bundle: ercore_external_engagement
-label: 'Other: Total'
+label: 'Total: Female'
 description: ''
 required: true
 translatable: false
@@ -19,6 +19,6 @@ default_value:
     value: {  }
 default_value_callback: ''
 settings:
-  computed_code: '$value = $entity->field_ercore_ee_other_f[''und''][0][''value''] + $entity->field_ercore_ee_other_m[''und''][0][''value''] + $entity->field_ercore_ee_other_u[''und''][0][''value''];'
+  computed_code: '$value = 0;'
   display_code: '$display_output = $value;'
 field_type: computed
