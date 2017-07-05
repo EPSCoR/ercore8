@@ -21,6 +21,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_tch_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_tch_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_tch_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_tch_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_tch_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_m
@@ -29,10 +30,12 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_fac_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_fac_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_fac_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_fac_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_fac_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_stu_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_stu_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_stu_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_stu_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_other_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_other_m
@@ -42,10 +45,12 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_fac_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_fac_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_fac_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_fac_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_fac_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_m
@@ -288,6 +293,11 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_ercore_ee_k12_tch_t:
+    weight: 25
+    settings: {  }
+    third_party_settings: {  }
+    type: null
   field_ercore_ee_k12_tch_u:
     type: number
     weight: 10
@@ -462,7 +472,11 @@ hidden:
   created: true
   field_ercore_ee_ari_fac_t: true
   field_ercore_ee_ari_stu_t: true
+  field_ercore_ee_msi_fac_t: true
+  field_ercore_ee_msi_stu_t: true
   field_ercore_ee_other_t: true
+  field_ercore_ee_pui_fac_t: true
+  field_ercore_ee_pui_stu_t: true
   field_ercore_ee_t_t: true
   status: true
   uid: true

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_ee_k12_ttr_t
+    - paragraphs.paragraphs_type.ercore_external_engagement
+  module:
+    - computed_field
+id: paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_t
+field_name: field_ercore_ee_k12_ttr_t
+entity_type: paragraph
+bundle: ercore_external_engagement
+label: 'K-12: Students via Teach Training - Total'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: {  }
+default_value_callback: ''
+settings:
+  computed_code: "$value = $entity->field_ercore_ee_k12_ttr_f['und'][0]['value'] + $value_m = $entity->field_ercore_ee_k12_ttr_m['und'][0]['value'] + $entity->field_ercore_ee_k12_ttr_u['und'][0]['value'];\r\n       "
+  display_code: '$display_output = $value;'
+field_type: computed
