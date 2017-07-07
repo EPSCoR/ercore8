@@ -17,6 +17,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_tch_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_tch_m
@@ -26,6 +27,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_mn
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_fac_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_msi_fac_m
@@ -162,7 +164,7 @@ third_party_settings:
       children:
         - field_ercore_ee_excel
       parent_name: ''
-      weight: 20
+      weight: 1
       format_type: fieldset
       format_settings:
         id: ercore_ee_upload
@@ -178,7 +180,7 @@ third_party_settings:
         - group_ercore_ee_k12
         - group_ercore_ee_other
       parent_name: ''
-      weight: 20
+      weight: 2
       format_type: fieldset
       format_settings:
         id: erore_ee_manual
@@ -240,7 +242,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_ercore_ee_estimated:
-    weight: 1
+    weight: 0
     settings:
       display_label: true
     third_party_settings: {  }
@@ -293,11 +295,6 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_ercore_ee_k12_tch_t:
-    weight: 25
-    settings: {  }
-    third_party_settings: {  }
-    type: null
   field_ercore_ee_k12_tch_u:
     type: number
     weight: 10
@@ -448,35 +445,22 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_ercore_ee_t_f:
-    weight: 22
-    settings: {  }
-    third_party_settings: {  }
-    type: null
-  field_ercore_ee_t_m:
-    weight: 21
-    settings: {  }
-    third_party_settings: {  }
-    type: null
-  field_ercore_ee_t_u:
-    weight: 23
-    settings: {  }
-    third_party_settings: {  }
-    type: null
-  field_ercore_ee_t_um:
-    weight: 24
-    settings: {  }
-    third_party_settings: {  }
-    type: null
 hidden:
   created: true
   field_ercore_ee_ari_fac_t: true
   field_ercore_ee_ari_stu_t: true
+  field_ercore_ee_k12_dir_t: true
+  field_ercore_ee_k12_tch_t: true
+  field_ercore_ee_k12_ttr_t: true
   field_ercore_ee_msi_fac_t: true
   field_ercore_ee_msi_stu_t: true
   field_ercore_ee_other_t: true
   field_ercore_ee_pui_fac_t: true
   field_ercore_ee_pui_stu_t: true
+  field_ercore_ee_t_f: true
+  field_ercore_ee_t_m: true
   field_ercore_ee_t_t: true
+  field_ercore_ee_t_u: true
+  field_ercore_ee_t_um: true
   status: true
   uid: true
