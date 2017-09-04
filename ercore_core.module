@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the ERCore module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function ercore_core_form_alter(&$form, &$form_state, $form_id) {
+  $forms = array(
+    'node_ercore_collaboration_form',
+    'node_ercore_event_form',
+    'node_ercore_j_highlight_form',
+    'node_ercore_j_honor_form',
+    'node_ercore_other_product_form',
+    'node_ercore_patent_form',
+    'node_ercore_presentation_form',
+    'node_ercore_proposal_form',
+    'node_ercore_publication_form',
+  );
+  if (in_array($form_id, $forms) && $form['nid']['#value'] == NULL) {
+    dpm($form['field_ercore_organizer'], 'form');
+   /* $author = $form['author']['name']['#default_value'];
+    $author_uid = $form['uid']['#value'];
+    $form['field_ercore_organizer']['und'][0]['target_id']['#default_value'] = "$author ($author_uid)";
+    $message = 'Your name, "' . $author . '", has been automatically added to ' . $form['field_ercore_organizer']['und']['#title'] . ' field.';
+    drupal_set_message($message, 'status');*/
+  }
+
+  // Require Programs field if ercore_programs variable set.
+  /*if (variable_get('ercore_program_required') == 1) {
+    $form['field_ercore_programs']['und']['#required'] = 1;
+  }
+  // Require Programs field if ercore_programs variable set.
+  if (variable_get('ercore_component_required') == 1) {
+    $form['field_ercore_components']['und']['#required'] = 1;
+  }
+  if ($form_id == 'ercore_settings_callback') {
+    $form['ercore_component_required']['#states'] = array(
+      'visible' => array(
+        ':input[name="ercore_component_usage"]' => array('checked' => TRUE),
+      ),
+    );
+    $form['ercore_program_required']['#states'] = array(
+      'visible' => array(
+        ':input[name="ercore_program_usage"]' => array('checked' => TRUE),
+      ),
+    );
+  }*/
+}
