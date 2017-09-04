@@ -4,10 +4,8 @@ type: module
 core: 8.x
 dependencies:
   - datetime
-  - ercore_collaboration
   - ercore_component
   - ercore_core
-  - ercore_event
   - ercore_program
   - field
   - field_permissions

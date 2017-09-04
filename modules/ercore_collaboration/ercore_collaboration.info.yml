@@ -7,7 +7,6 @@ dependencies:
   - entity_reference_revisions
   - ercore_component
   - ercore_core
-  - ercore_event
   - ercore_institution
   - ercore_program
   - field

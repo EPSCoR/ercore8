@@ -3,7 +3,6 @@ description: 'ERCore Programs vocabulary and functions.'
 type: module
 core: 8.x
 dependencies:
-  - ercore_core
   - field
   - field_permissions
   - node
