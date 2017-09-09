@@ -21,7 +21,7 @@ function ercore_core_form_alter(&$form, &$form_state, $form_id) {
     'node_ercore_publication_form',
   );
   if (in_array($form_id, $forms) && $form['nid']['#value'] == NULL) {
-    dpm($form['field_ercore_organizer'], 'form');
+    kint($form['field_ercore_organizer'], 'form');
    /* $author = $form['author']['name']['#default_value'];
     $author_uid = $form['uid']['#value'];
     $form['field_ercore_organizer']['und'][0]['target_id']['#default_value'] = "$author ($author_uid)";

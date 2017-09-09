@@ -5,6 +5,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_publication.body
     - field.field.node.ercore_publication.field_ercore_organizer
+    - field.field.node.ercore_publication.field_ercore_programs
     - node.type.ercore_publication
   module:
     - text
@@ -21,7 +22,10 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   links:
     weight: 100
+    region: content
 hidden:
   field_ercore_organizer: true
+  field_ercore_programs: true
