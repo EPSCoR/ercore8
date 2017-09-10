@@ -46,6 +46,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
+    - field.field.user.user.user_picture
   module:
     - entity_reference_revisions
     - name
@@ -70,6 +71,7 @@ content:
       multiple_el_al_first: '1'
     third_party_settings: {  }
     type: name_default
+    region: content
   field_ercore_user_part_dates:
     type: entity_reference_revisions_entity_view
     weight: 1
@@ -78,6 +80,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
 hidden:
   field_ercoer_user_epscore_paid: true
   field_ercore_user_address: true
@@ -121,3 +124,4 @@ hidden:
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true
   member_for: true
+  user_picture: true

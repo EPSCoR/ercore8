@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pp_proposal_paid
+    - node.type.ercore_proposal
+id: node.ercore_proposal.field_ercore_pp_proposal_paid
+field_name: field_ercore_pp_proposal_paid
+entity_type: node
+bundle: ercore_proposal
+label: 'Salary Support'
+description: 'Are EPSCoR participants listed on this grant receiving financial support?'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

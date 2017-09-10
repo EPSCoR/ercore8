@@ -21,6 +21,7 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_ercore_organizer:
     weight: 1
     label: above
@@ -29,6 +30,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
   field_ercore_programs:
     weight: 2
     label: inline
@@ -36,8 +38,10 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   links:
     weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden: {  }

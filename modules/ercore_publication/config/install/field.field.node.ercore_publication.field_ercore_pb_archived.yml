@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_archived
+    - node.type.ercore_publication
+id: node.ercore_publication.field_ercore_pb_archived
+field_name: field_ercore_pb_archived
+entity_type: node
+bundle: ercore_publication
+label: 'Is it being archived?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

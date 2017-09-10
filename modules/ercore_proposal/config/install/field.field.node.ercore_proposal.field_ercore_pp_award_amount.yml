@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pp_award_amount
+    - node.type.ercore_proposal
+id: node.ercore_proposal.field_ercore_pp_award_amount
+field_name: field_ercore_pp_award_amount
+entity_type: node
+bundle: ercore_proposal
+label: 'Award Amount'
+description: 'Final approved award amount.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

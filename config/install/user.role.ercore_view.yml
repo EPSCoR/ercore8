@@ -6,7 +6,7 @@ label: 'ERCore View Content Only'
 weight: -6
 is_admin: null
 permissions:
-  - 'access toolbar'
   - 'access in-place editing'
-  - 'view the administration theme'
+  - 'access toolbar'
   - 'view own unpublished content'
+  - 'view the administration theme'

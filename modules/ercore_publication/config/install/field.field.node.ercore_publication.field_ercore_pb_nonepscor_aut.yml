@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_nonepscor_aut
+    - node.type.ercore_publication
+id: node.ercore_publication.field_ercore_pb_nonepscor_aut
+field_name: field_ercore_pb_nonepscor_aut
+entity_type: node
+bundle: ercore_publication
+label: 'Non-EPSCoR Authors'
+description: 'List any authors that may not be users in this system.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

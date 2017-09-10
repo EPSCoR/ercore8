@@ -23,6 +23,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_ercore_loc_postal:
     weight: 0
     label: above
@@ -30,12 +31,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_ercore_loc_state:
     weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
 hidden:
   field_ercore_loc_add1: true
   field_ercore_loc_add2: true

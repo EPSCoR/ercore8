@@ -3,10 +3,27 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_proposal.body
+    - field.field.node.ercore_proposal.field_ercore_goals
     - field.field.node.ercore_proposal.field_ercore_organizer
+    - field.field.node.ercore_proposal.field_ercore_pp_award_amount
+    - field.field.node.ercore_proposal.field_ercore_pp_award_req_dec
+    - field.field.node.ercore_proposal.field_ercore_pp_location
+    - field.field.node.ercore_proposal.field_ercore_pp_other_pi
+    - field.field.node.ercore_proposal.field_ercore_pp_others
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_date
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_denied
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_paid
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_pending
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_status
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_submit
+    - field.field.node.ercore_proposal.field_ercore_pp_support
+    - field.field.node.ercore_proposal.field_ercore_pp_support_type
     - field.field.node.ercore_proposal.field_ercore_programs
     - node.type.ercore_proposal
   module:
+    - datetime
+    - datetime_range
+    - options
     - text
     - user
 id: node.ercore_proposal.default
@@ -20,6 +37,15 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_ercore_goals:
+    weight: 117
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_ercore_organizer:
     weight: 103
     label: above
@@ -27,6 +53,122 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_ercore_pp_award_amount:
+    weight: 115
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_ercore_pp_award_req_dec:
+    weight: 108
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_ercore_pp_location:
+    weight: 116
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ercore_pp_other_pi:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ercore_pp_others:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ercore_pp_proposal_date:
+    weight: 114
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_ercore_pp_proposal_denied:
+    weight: 113
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pp_proposal_paid:
+    weight: 106
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_ercore_pp_proposal_pending:
+    weight: 112
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pp_proposal_status:
+    weight: 110
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_ercore_pp_proposal_submit:
+    weight: 111
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pp_support:
+    weight: 107
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ercore_pp_support_type:
+    weight: 109
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_ercore_programs:
     weight: 102
     label: above
@@ -34,6 +176,8 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   links:
     weight: 100
+    region: content
 hidden: {  }

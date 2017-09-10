@@ -22,6 +22,7 @@ content:
     weight: 4
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_ercore_hn_date:
     weight: 1
     label: hidden
@@ -30,6 +31,7 @@ content:
       format_type: ercore_month_day_year
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_ercore_organizer:
     weight: 3
     label: above
@@ -38,6 +40,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
   field_ercore_programs:
     weight: 2
     label: inline
@@ -45,8 +48,10 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   links:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden: {  }

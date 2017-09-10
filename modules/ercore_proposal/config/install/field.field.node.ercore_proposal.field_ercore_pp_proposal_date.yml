@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pp_proposal_date
+    - node.type.ercore_proposal
+  module:
+    - datetime_range
+id: node.ercore_proposal.field_ercore_pp_proposal_date
+field_name: field_ercore_pp_proposal_date
+entity_type: node
+bundle: ercore_proposal
+label: 'Award Dates'
+description: 'Final approved award dates.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

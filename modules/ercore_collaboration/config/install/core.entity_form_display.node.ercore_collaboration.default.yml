@@ -21,20 +21,22 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 6
+    weight: 4
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 8
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_ercore_cn_collaborator:
     type: entity_reference_paragraphs
-    weight: 5
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -43,46 +45,54 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
   field_ercore_cn_dates:
     weight: 1
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
+    region: content
   field_ercore_components:
-    weight: 2
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_ercore_organizer:
-    weight: 4
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_ercore_programs:
     type: options_select
-    weight: 3
+    weight: 6
     settings: {  }
     third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 11
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 9
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 10
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0
@@ -90,6 +100,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 7
@@ -98,4 +109,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

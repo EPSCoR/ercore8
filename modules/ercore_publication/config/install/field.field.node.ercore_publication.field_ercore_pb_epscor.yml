@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_epscor
+    - node.type.ercore_publication
+id: node.ercore_publication.field_ercore_pb_epscor
+field_name: field_ercore_pb_epscor
+entity_type: node
+bundle: ercore_publication
+label: 'EPSCoR Acknowledged'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

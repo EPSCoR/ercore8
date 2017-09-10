@@ -4,6 +4,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_proposal.body
+    - field.field.node.ercore_proposal.field_ercore_organizer
+    - field.field.node.ercore_proposal.field_ercore_programs
     - node.type.ercore_proposal
   module:
     - text
@@ -20,6 +22,10 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   links:
     weight: 100
-hidden: {  }
+    region: content
+hidden:
+  field_ercore_organizer: true
+  field_ercore_programs: true

@@ -9,6 +9,7 @@
  * Implements hook_form_alter().
  */
 function ercore_core_form_alter(&$form, &$form_state, $form_id) {
+  $user = \Drupal::currentUser();
   $forms = array(
     'node_ercore_collaboration_form',
     'node_ercore_event_form',
@@ -21,12 +22,10 @@ function ercore_core_form_alter(&$form, &$form_state, $form_id) {
     'node_ercore_publication_form',
   );
   if (in_array($form_id, $forms) && $form['nid']['#value'] == NULL) {
-    kint($form['field_ercore_organizer'], 'form');
-   /* $author = $form['author']['name']['#default_value'];
-    $author_uid = $form['uid']['#value'];
-    $form['field_ercore_organizer']['und'][0]['target_id']['#default_value'] = "$author ($author_uid)";
-    $message = 'Your name, "' . $author . '", has been automatically added to ' . $form['field_ercore_organizer']['und']['#title'] . ' field.';
-    drupal_set_message($message, 'status');*/
+   // dpm($form['field_ercore_organizer']['widget'][0]['target_id']);
+    $form['field_ercore_organizer']['widget'][0]['#default_value'] = $user;
+   // $message = 'Your name, "' . $user->name . '", has been automatically added to this field.';
+   // $form['field_ercore_organizer']['widget'][0]['#desciption'] = $message;
   }
 
   // Require Programs field if ercore_programs variable set.

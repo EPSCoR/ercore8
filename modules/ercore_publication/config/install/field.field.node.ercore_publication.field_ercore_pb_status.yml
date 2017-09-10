@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_status
+    - node.type.ercore_publication
+  module:
+    - options
+id: node.ercore_publication.field_ercore_pb_status
+field_name: field_ercore_pb_status
+entity_type: node
+bundle: ercore_publication
+label: Status
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

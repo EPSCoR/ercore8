@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_upload
+    - node.type.ercore_publication
+  module:
+    - file
+id: node.ercore_publication.field_ercore_pb_upload
+field_name: field_ercore_pb_upload
+entity_type: node
+bundle: ercore_publication
+label: 'Upload File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: publication-upload
+  file_extensions: 'txt pdf doc docx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

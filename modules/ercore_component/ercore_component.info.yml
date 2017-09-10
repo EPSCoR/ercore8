@@ -2,9 +2,9 @@ name: 'ERCore Component'
 description: 'ERCore Components vocabulary and functions.'
 type: module
 core: 8.x
-
 dependencies:
   - field
+  - field_permissions
   - path
   - taxonomy
   - text

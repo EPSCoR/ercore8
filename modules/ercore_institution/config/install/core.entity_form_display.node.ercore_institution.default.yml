@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_institution.body
+    - field.field.node.ercore_institution.field_ercore_in_category
     - field.field.node.ercore_institution.field_ercore_inst_abbr
     - field.field.node.ercore_institution.field_ercore_inst_country
     - field.field.node.ercore_institution.field_ercore_inst_link
@@ -26,11 +27,19 @@ content:
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 10
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_ercore_in_category:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_ercore_inst_abbr:
     weight: 1
     settings:
@@ -38,6 +47,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_ercore_inst_country:
     weight: 5
     settings:
@@ -45,6 +55,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_ercore_inst_link:
     weight: 8
     settings:
@@ -52,34 +63,40 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_ercore_inst_participating:
     weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
   field_ercore_inst_type:
     weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   path:
     type: path
     weight: 6
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 9
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 11
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0
@@ -87,6 +104,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 7
@@ -95,4 +113,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

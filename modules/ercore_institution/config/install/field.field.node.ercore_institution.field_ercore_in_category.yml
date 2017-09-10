@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_in_category
+    - node.type.ercore_institution
+  module:
+    - options
+id: node.ercore_institution.field_ercore_in_category
+field_name: field_ercore_in_category
+entity_type: node
+bundle: ercore_institution
+label: Category
+description: 'Please select one of the categories above that benefits this institution.  Please give preference to one of the top three in the list if the institution qualifies for that category, i.e., Hispanic Serving, Tribal Colleges and Universities, or Historically Black Colleges and Universities.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

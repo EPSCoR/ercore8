@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_nsf
+    - node.type.ercore_publication
+  module:
+    - options
+id: node.ercore_publication.field_ercore_nsf
+field_name: field_ercore_nsf
+entity_type: node
+bundle: ercore_publication
+label: 'NSF Acknowledgement'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

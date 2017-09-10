@@ -1,0 +1,180 @@
+<?php
+
+/**
+ * @file
+ * Module file for the ERCore Publication module.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ercore_publication_form_node_ercore_publication_form_alter(&$form, &$form_state, $form_id) {
+  dpm($form, 'forms yeah!');
+  // Publication Status Fields.
+  // Submitted Date field #states.
+  $form['field_ercore_pb_submit_date']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_status[und]"]' => array(
+        array('value' => '0'),
+        array('value' => '1'),
+        array('value' => '2'),
+      ),
+    ),
+  );
+  // Published Date field #states.
+  $form['field_ercore_pb_date']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_status[und]"]' => array('value' => '0'),
+    ),
+    'required' => array(
+      ':input[name="field_ercore_pb_status[und]"]' => array('value' => '0'),
+    ),
+  );
+  // NSF field #states.
+  $form['field_ercore_nsf']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_status[und]"]' => array('value' => '0'),
+    ),
+    'required' => array(
+      ':input[name="field_ercore_pb_status[und]"]' => array('value' => '0'),
+    ),
+  );
+  // Body field #states.
+  $form['body']['#weight'] = '9';
+  $form['body']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_status[und]"]' => array('value' => '0'),
+    ),
+    'required' => array(
+      ':input[name="field_ercore_pb_status[und]"]' => array('value' => '0'),
+    ),
+  );
+  // Publication Type Fields.
+  // Journal Name field #states.
+  $form['field_ercore_pb_journal_name']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+    'required' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // Volume field #states.
+  $form['field_ercore_pb_journal_volume']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // Publisher field #states.
+  $form['field_ercore_pb_publisher']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // Title of Series field #states.
+  $form['field_ercore_pb_coll_title']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // Pages field #states.
+  $form['field_ercore_pb_journal_pages']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // DOI field #states.
+  $form['field_ercore_pb_doi']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // ISSN/ISBN field #states.
+  $form['field_ercore_pb_issn']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // ARK field #states.
+  $form['field_ercore_pb_ark']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_type[und]"]' => array(
+        array('value' => 'Journal Article'),
+        array('value' => 'Book'),
+        array('value' => 'Conference Proceedings'),
+        array('value' => 'Magazine Article'),
+        array('value' => 'Technical Report'),
+        array('value' => 'Newspaper Article'),
+      ),
+    ),
+  );
+  // Data field #states.
+  $form['field_ercore_pb_archived']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_data[und]"]' => array('value' => '1'),
+    ),
+  );
+  $form['field_ercore_pb_arch_name']['#states'] = array(
+    'visible' => array(
+      ':input[name="field_ercore_pb_archived[und]"]' => array('value' => '2'),
+    ),
+    'required' => array(
+      ':input[name="field_ercore_pb_archived[und]"]' => array('value' => '2'),
+    ),
+  );
+}

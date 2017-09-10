@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pp_proposal_pending
+    - node.type.ercore_proposal
+  module:
+    - datetime
+id: node.ercore_proposal.field_ercore_pp_proposal_pending
+field_name: field_ercore_pp_proposal_pending
+entity_type: node
+bundle: ercore_proposal
+label: 'Date of Pending Notification'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

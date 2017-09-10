@@ -199,6 +199,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_ari_fac_m:
     type: number_integer
     weight: 10
@@ -207,6 +208,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_ari_fac_mn:
     type: number_integer
     weight: 12
@@ -215,6 +217,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_ari_fac_u:
     type: number_integer
     weight: 11
@@ -223,6 +226,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_ari_stu_f:
     type: number_integer
     weight: 4
@@ -231,6 +235,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_ari_stu_m:
     type: number_integer
     weight: 5
@@ -239,6 +244,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_ari_stu_mn:
     type: number_integer
     weight: 7
@@ -247,6 +253,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_ari_stu_u:
     type: number_integer
     weight: 6
@@ -255,6 +262,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_estimated:
     type: boolean
     weight: 15
@@ -264,6 +272,7 @@ content:
       format_custom_true: 'Values Are Estimated'
       format_custom_false: ''
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_dir_f:
     type: number_integer
     weight: 30
@@ -272,6 +281,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_dir_m:
     type: number_integer
     weight: 31
@@ -280,6 +290,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_dir_mn:
     type: number_integer
     weight: 33
@@ -288,6 +299,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_dir_u:
     type: number_integer
     weight: 32
@@ -296,6 +308,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_tch_f:
     type: number_integer
     weight: 26
@@ -304,6 +317,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_tch_m:
     type: number_integer
     weight: 27
@@ -312,6 +326,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_tch_mn:
     type: number_integer
     weight: 29
@@ -320,6 +335,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_tch_u:
     type: number_integer
     weight: 28
@@ -328,6 +344,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_ttr_f:
     type: number_integer
     weight: 34
@@ -336,6 +353,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_ttr_m:
     type: number_integer
     weight: 35
@@ -344,6 +362,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_ttr_mn:
     type: number_integer
     weight: 37
@@ -352,6 +371,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_k12_ttr_u:
     type: number_integer
     weight: 36
@@ -360,6 +380,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_fac_f:
     type: number_integer
     weight: 23
@@ -368,6 +389,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_fac_m:
     type: number_integer
     weight: 24
@@ -376,6 +398,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_fac_mn:
     type: number_integer
     weight: 27
@@ -384,6 +407,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_fac_u:
     type: number_integer
     weight: 26
@@ -392,6 +416,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_stu_f:
     type: number_integer
     weight: 28
@@ -400,6 +425,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_stu_m:
     type: number_integer
     weight: 22
@@ -408,6 +434,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_stu_mn:
     type: number_integer
     weight: 30
@@ -416,6 +443,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_msi_stu_u:
     type: number_integer
     weight: 29
@@ -424,6 +452,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_other_f:
     type: number_integer
     weight: 6
@@ -432,6 +461,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_other_m:
     type: number_integer
     weight: 8
@@ -440,6 +470,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_other_mn:
     type: number_integer
     weight: 10
@@ -448,6 +479,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_other_u:
     type: number_integer
     weight: 9
@@ -456,6 +488,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_fac_f:
     type: number_integer
     weight: 12
@@ -464,6 +497,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_fac_m:
     type: number_integer
     weight: 13
@@ -472,6 +506,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_fac_mn:
     type: number_integer
     weight: 15
@@ -480,6 +515,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_fac_u:
     type: number_integer
     weight: 14
@@ -488,6 +524,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_stu_f:
     type: number_integer
     weight: 8
@@ -496,6 +533,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_stu_m:
     type: number_integer
     weight: 9
@@ -504,6 +542,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_stu_mn:
     type: number_integer
     weight: 11
@@ -512,6 +551,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_pui_stu_u:
     type: number_integer
     weight: 10
@@ -520,6 +560,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_t_f:
     weight: 5
     label: inline
@@ -527,6 +568,7 @@ content:
       sanitized: true
     third_party_settings: {  }
     type: computed
+    region: content
   field_ercore_ee_t_m:
     weight: 3
     label: inline
@@ -534,6 +576,7 @@ content:
       sanitized: true
     third_party_settings: {  }
     type: computed
+    region: content
   field_ercore_ee_t_t:
     type: computed
     weight: 2
@@ -541,6 +584,7 @@ content:
     settings:
       sanitized: true
     third_party_settings: {  }
+    region: content
   field_ercore_ee_t_u:
     weight: 7
     label: inline
@@ -548,6 +592,7 @@ content:
       sanitized: true
     third_party_settings: {  }
     type: computed
+    region: content
   field_ercore_ee_t_um:
     weight: 6
     label: inline
@@ -555,6 +600,7 @@ content:
       sanitized: true
     third_party_settings: {  }
     type: computed
+    region: content
 hidden:
   field_ercore_ee_ari_fac_t: true
   field_ercore_ee_ari_stu_t: true

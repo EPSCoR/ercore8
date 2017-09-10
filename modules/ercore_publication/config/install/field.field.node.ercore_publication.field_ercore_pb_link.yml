@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_link
+    - node.type.ercore_publication
+  module:
+    - link
+id: node.ercore_publication.field_ercore_pb_link
+field_name: field_ercore_pb_link
+entity_type: node
+bundle: ercore_publication
+label: 'Publication Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

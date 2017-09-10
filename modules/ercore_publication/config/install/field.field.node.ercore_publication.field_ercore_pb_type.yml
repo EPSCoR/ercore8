@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_type
+    - node.type.ercore_publication
+  module:
+    - options
+id: node.ercore_publication.field_ercore_pb_type
+field_name: field_ercore_pb_type
+entity_type: node
+bundle: ercore_publication
+label: 'Publication Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

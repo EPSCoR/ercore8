@@ -3,12 +3,110 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_ercoer_user_epscore_paid
+    - field.field.user.user.field_ercore_user_address
+    - field.field.user.user.field_ercore_user_advisor
+    - field.field.user.user.field_ercore_user_boards
+    - field.field.user.user.field_ercore_user_collecting
+    - field.field.user.user.field_ercore_user_data_date
+    - field.field.user.user.field_ercore_user_data_desc
+    - field.field.user.user.field_ercore_user_data_mgr
+    - field.field.user.user.field_ercore_user_data_ongoing
+    - field.field.user.user.field_ercore_user_data_url
+    - field.field.user.user.field_ercore_user_direct_fund
+    - field.field.user.user.field_ercore_user_disabilities
+    - field.field.user.user.field_ercore_user_doc_act
+    - field.field.user.user.field_ercore_user_doc_ant
+    - field.field.user.user.field_ercore_user_effort_months
+    - field.field.user.user.field_ercore_user_ethnicity
+    - field.field.user.user.field_ercore_user_fac_support
+    - field.field.user.user.field_ercore_user_funding_src
+    - field.field.user.user.field_ercore_user_gender
+    - field.field.user.user.field_ercore_user_hired_date
+    - field.field.user.user.field_ercore_user_lead_team
+    - field.field.user.user.field_ercore_user_link
+    - field.field.user.user.field_ercore_user_master_act
+    - field.field.user.user.field_ercore_user_master_ant
+    - field.field.user.user.field_ercore_user_mentor_plan
+    - field.field.user.user.field_ercore_user_mentor_plan_dt
+    - field.field.user.user.field_ercore_user_name
+    - field.field.user.user.field_ercore_user_part_160
+    - field.field.user.user.field_ercore_user_part_dates
+    - field.field.user.user.field_ercore_user_phone_mobile
+    - field.field.user.user.field_ercore_user_phone_work
+    - field.field.user.user.field_ercore_user_programs
+    - field.field.user.user.field_ercore_user_proj_comp
+    - field.field.user.user.field_ercore_user_race
+    - field.field.user.user.field_ercore_user_rcr_on
+    - field.field.user.user.field_ercore_user_rcr_on_up
+    - field.field.user.user.field_ercore_user_rcr_per
+    - field.field.user.user.field_ercore_user_rcr_per_up
+    - field.field.user.user.field_ercore_user_rcr_status
+    - field.field.user.user.field_ercore_user_supervisor
+    - field.field.user.user.field_ercore_user_under_act
+    - field.field.user.user.field_ercore_user_under_ant
+    - field.field.user.user.field_ercore_user_veteran
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
+    - image
     - user
 id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content: {  }
+content:
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
 hidden:
+  field_ercoer_user_epscore_paid: true
+  field_ercore_user_address: true
+  field_ercore_user_advisor: true
+  field_ercore_user_boards: true
+  field_ercore_user_collecting: true
+  field_ercore_user_data_date: true
+  field_ercore_user_data_desc: true
+  field_ercore_user_data_mgr: true
+  field_ercore_user_data_ongoing: true
+  field_ercore_user_data_url: true
+  field_ercore_user_direct_fund: true
+  field_ercore_user_disabilities: true
+  field_ercore_user_doc_act: true
+  field_ercore_user_doc_ant: true
+  field_ercore_user_effort_months: true
+  field_ercore_user_ethnicity: true
+  field_ercore_user_fac_support: true
+  field_ercore_user_funding_src: true
+  field_ercore_user_gender: true
+  field_ercore_user_hired_date: true
+  field_ercore_user_lead_team: true
+  field_ercore_user_link: true
+  field_ercore_user_master_act: true
+  field_ercore_user_master_ant: true
+  field_ercore_user_mentor_plan: true
+  field_ercore_user_mentor_plan_dt: true
+  field_ercore_user_name: true
+  field_ercore_user_part_160: true
+  field_ercore_user_part_dates: true
+  field_ercore_user_phone_mobile: true
+  field_ercore_user_phone_work: true
+  field_ercore_user_programs: true
+  field_ercore_user_proj_comp: true
+  field_ercore_user_race: true
+  field_ercore_user_rcr_on: true
+  field_ercore_user_rcr_on_up: true
+  field_ercore_user_rcr_per: true
+  field_ercore_user_rcr_per_up: true
+  field_ercore_user_rcr_status: true
+  field_ercore_user_supervisor: true
+  field_ercore_user_under_act: true
+  field_ercore_user_under_ant: true
+  field_ercore_user_veteran: true
   member_for: true

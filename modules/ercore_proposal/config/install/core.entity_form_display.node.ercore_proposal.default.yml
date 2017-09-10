@@ -3,12 +3,84 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_proposal.body
+    - field.field.node.ercore_proposal.field_ercore_goals
     - field.field.node.ercore_proposal.field_ercore_organizer
+    - field.field.node.ercore_proposal.field_ercore_pp_award_amount
+    - field.field.node.ercore_proposal.field_ercore_pp_award_req_dec
+    - field.field.node.ercore_proposal.field_ercore_pp_location
+    - field.field.node.ercore_proposal.field_ercore_pp_other_pi
+    - field.field.node.ercore_proposal.field_ercore_pp_others
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_date
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_denied
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_paid
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_pending
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_status
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_submit
+    - field.field.node.ercore_proposal.field_ercore_pp_support
+    - field.field.node.ercore_proposal.field_ercore_pp_support_type
     - field.field.node.ercore_proposal.field_ercore_programs
     - node.type.ercore_proposal
   module:
+    - datetime
+    - datetime_range
+    - field_group
     - path
     - text
+third_party_settings:
+  field_group:
+    group_ercore_pp_instruct:
+      children:
+        - group_ercore_pp_principle
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        id: ercore_pp_instruct
+        classes: 'group-ercore-pp-instruct field-group-div'
+        description: 'Please report on all your Current, Pending, and Denied Support grant efforts in your pipeline starting from your initial participating start date. Do not list this EPSCoR grant, but include all proposals, regardless of funding source or success (include all proposals you have submitted, including denied proposals). Identify the PI and Co-PI, then list the other EPSCoR faculty or faculty equivalent. Do not list Post-Docs, Grad Students, Undergrads, Techs, etc.. Use this form once for each grant effort. ONE (grant) entry is needed per grant regardless of how many EPSCoR researchers are listed on the grant.'
+        required_fields: true
+      label: Instructions
+    group_ercore_pp_principle:
+      children:
+        - field_ercore_organizer
+        - field_ercore_pp_other_pi
+        - group_ercore_pp_details
+      parent_name: group_ercore_pp_instruct
+      weight: 14
+      format_type: fieldset
+      format_settings:
+        label: 'Principle Investigators'
+        description: ''
+        required_fields: true
+        id: ercore_principle
+        classes: ''
+      label: 'Principle Investigators'
+    group_ercore_pp_details:
+      children:
+        - field_ercore_pp_others
+        - field_ercore_pp_proposal_paid
+        - field_ercore_pp_support
+        - field_ercore_pp_award_req_dec
+        - field_ercore_pp_support_type
+        - field_ercore_pp_proposal_status
+        - field_ercore_pp_proposal_submit
+        - field_ercore_pp_proposal_pending
+        - field_ercore_pp_proposal_denied
+        - field_ercore_pp_proposal_date
+        - field_ercore_pp_award_amount
+        - field_ercore_pp_location
+        - field_ercore_goals
+        - body
+        - field_ercore_programs
+      parent_name: group_ercore_pp_principle
+      weight: 17
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Proposal Details'
 id: node.ercore_proposal.default
 targetEntityType: node
 bundle: ercore_proposal
@@ -16,63 +88,165 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 31
+    weight: 29
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 18
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_ercore_goals:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_ercore_organizer:
-    weight: 33
+    weight: 15
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_ercore_pp_award_amount:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_ercore_pp_award_req_dec:
+    weight: 19
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_ercore_pp_location:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pp_other_pi:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pp_others:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pp_proposal_date:
+    weight: 25
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_ercore_pp_proposal_denied:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pp_proposal_paid:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_ercore_pp_proposal_pending:
+    weight: 23
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pp_proposal_status:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ercore_pp_proposal_submit:
+    weight: 22
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pp_support:
+    weight: 18
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pp_support_type:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_ercore_programs:
-    weight: 32
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-  path:
-    type: path
     weight: 30
     settings: {  }
     third_party_settings: {  }
+    type: options_select
+    region: content
+  path:
+    type: path
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 20
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 17
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 19
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

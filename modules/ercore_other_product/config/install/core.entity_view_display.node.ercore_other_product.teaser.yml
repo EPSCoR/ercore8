@@ -21,6 +21,7 @@ mode: teaser
 content:
   links:
     weight: 100
+    region: content
 hidden:
   field_ercore_nsf: true
   field_ercore_op_date: true

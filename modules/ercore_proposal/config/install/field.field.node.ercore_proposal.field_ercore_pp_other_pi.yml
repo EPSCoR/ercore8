@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pp_other_pi
+    - node.type.ercore_proposal
+id: node.ercore_proposal.field_ercore_pp_other_pi
+field_name: field_ercore_pp_other_pi
+entity_type: node
+bundle: ercore_proposal
+label: 'Non-EPSCoR PI/Co-PI'
+description: 'Please add the first and last name of non-EPSCoR PI or Co-PI.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

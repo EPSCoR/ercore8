@@ -3,12 +3,61 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_publication.body
+    - field.field.node.ercore_publication.field_ercore_goals
+    - field.field.node.ercore_publication.field_ercore_nsf
     - field.field.node.ercore_publication.field_ercore_organizer
+    - field.field.node.ercore_publication.field_ercore_pb_arch_name
+    - field.field.node.ercore_publication.field_ercore_pb_archived
+    - field.field.node.ercore_publication.field_ercore_pb_ark
+    - field.field.node.ercore_publication.field_ercore_pb_citation
+    - field.field.node.ercore_publication.field_ercore_pb_coll_title
+    - field.field.node.ercore_publication.field_ercore_pb_data
+    - field.field.node.ercore_publication.field_ercore_pb_date
+    - field.field.node.ercore_publication.field_ercore_pb_doi
+    - field.field.node.ercore_publication.field_ercore_pb_epscor
+    - field.field.node.ercore_publication.field_ercore_pb_issn
+    - field.field.node.ercore_publication.field_ercore_pb_journal_name
+    - field.field.node.ercore_publication.field_ercore_pb_journal_pages
+    - field.field.node.ercore_publication.field_ercore_pb_journal_volume
+    - field.field.node.ercore_publication.field_ercore_pb_link
+    - field.field.node.ercore_publication.field_ercore_pb_nonepscor_aut
+    - field.field.node.ercore_publication.field_ercore_pb_peer_reviewed
+    - field.field.node.ercore_publication.field_ercore_pb_publisher
+    - field.field.node.ercore_publication.field_ercore_pb_rii_support
+    - field.field.node.ercore_publication.field_ercore_pb_status
+    - field.field.node.ercore_publication.field_ercore_pb_submit_date
+    - field.field.node.ercore_publication.field_ercore_pb_type
+    - field.field.node.ercore_publication.field_ercore_pb_upload
     - field.field.node.ercore_publication.field_ercore_programs
     - node.type.ercore_publication
   module:
+    - datetime
+    - field_group
+    - file
+    - link
     - path
     - text
+third_party_settings:
+  field_group:
+    group_ercore_pb_info:
+      children:
+        - field_ercore_pb_journal_name
+        - field_ercore_pb_journal_volume
+        - field_ercore_pb_publisher
+        - field_ercore_pb_coll_title
+        - field_ercore_pb_journal_pages
+        - field_ercore_pb_doi
+        - field_ercore_pb_issn
+        - field_ercore_pb_ark
+      parent_name: ''
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        id: ercore_pb_info
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Publication Information'
 id: node.ercore_publication.default
 targetEntityType: node
 bundle: ercore_publication
@@ -16,7 +65,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 31
+    weight: 1
     settings:
       rows: 9
       summary_rows: 3
@@ -25,12 +74,26 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 23
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_goals:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_nsf:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_ercore_organizer:
-    weight: 32
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -38,18 +101,173 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_ercore_programs:
-    weight: 33
+  field_ercore_pb_arch_name:
+    weight: 21
     settings:
-      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: string_textfield
+    region: content
+  field_ercore_pb_archived:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_ercore_pb_ark:
+    weight: 19
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_citation:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_coll_title:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_data:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_ercore_pb_date:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pb_doi:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_epscor:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_ercore_pb_issn:
+    weight: 18
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_journal_name:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_journal_pages:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_journal_volume:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_link:
+    weight: 17
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ercore_pb_nonepscor_aut:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_peer_reviewed:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_ercore_pb_publisher:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ercore_pb_rii_support:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ercore_pb_status:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ercore_pb_submit_date:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ercore_pb_type:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ercore_pb_upload:
+    weight: 18
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_ercore_programs:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   path:
     type: path
-    weight: 30
+    weight: 25
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -57,19 +275,19 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 11
     third_party_settings: {  }
     region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 24
     third_party_settings: {  }
     region: content
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -77,7 +295,7 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 22
     settings:
       match_operator: CONTAINS
       size: 60

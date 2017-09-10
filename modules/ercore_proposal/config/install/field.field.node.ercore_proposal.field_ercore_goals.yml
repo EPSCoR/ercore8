@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_goals
+    - node.type.ercore_proposal
+id: node.ercore_proposal.field_ercore_goals
+field_name: field_ercore_goals
+entity_type: node
+bundle: ercore_proposal
+label: 'Goals and Objectives'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

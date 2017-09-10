@@ -23,6 +23,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_ercore_loc_add2:
     type: string_textfield
     weight: 2
@@ -30,6 +31,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_ercore_loc_city:
     weight: 3
     settings:
@@ -37,6 +39,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_ercore_loc_name:
     type: string_textfield
     weight: 0
@@ -44,6 +47,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_ercore_loc_postal:
     weight: 5
     settings:
@@ -51,6 +55,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_ercore_loc_state:
     weight: 4
     settings:
@@ -58,6 +63,7 @@ content:
       sort_options: ''
     third_party_settings: {  }
     type: select_or_other_list
+    region: content
 hidden:
   created: true
   status: true

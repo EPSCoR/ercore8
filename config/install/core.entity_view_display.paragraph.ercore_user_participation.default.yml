@@ -26,12 +26,14 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: daterange_default
+    region: content
   field_ercore_senior_role:
     weight: 0
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   field_ercore_user_department:
     weight: 4
     label: inline
@@ -39,6 +41,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_ercore_user_partic_inst:
     weight: 3
     label: inline
@@ -46,10 +49,12 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_ercore_user_role_desc:
     weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
 hidden: {  }

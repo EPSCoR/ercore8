@@ -4,8 +4,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_collaboration.body
+    - field.field.node.ercore_collaboration.field_ercore_cn_collaborator
+    - field.field.node.ercore_collaboration.field_ercore_cn_dates
+    - field.field.node.ercore_collaboration.field_ercore_components
+    - field.field.node.ercore_collaboration.field_ercore_organizer
+    - field.field.node.ercore_collaboration.field_ercore_programs
     - node.type.ercore_collaboration
   module:
+    - datetime_range
     - text
     - user
 id: node.ercore_collaboration.teaser
@@ -16,10 +22,24 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 1
     settings:
       trim_length: 600
     third_party_settings: {  }
-  links:
-    weight: 100
-hidden: {  }
+    region: content
+  field_ercore_cn_dates:
+    type: daterange_default
+    weight: 0
+    region: content
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+hidden:
+  field_ercore_cn_collaborator: true
+  field_ercore_components: true
+  field_ercore_organizer: true
+  field_ercore_programs: true
+  links: true

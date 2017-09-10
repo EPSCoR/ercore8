@@ -3,17 +3,21 @@ status: true
 dependencies:
   module:
     - field_permissions
-    - taxonomy
-    - text
+    - file
+    - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: taxonomy_term.field_ercore_cmp_description
-field_name: field_ercore_cmp_description
-entity_type: taxonomy_term
-type: text_with_summary
-settings: {  }
-module: text
+id: node.field_ercore_pb_upload
+field_name: field_ercore_pb_upload
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
 locked: false
 cardinality: 1
 translatable: true

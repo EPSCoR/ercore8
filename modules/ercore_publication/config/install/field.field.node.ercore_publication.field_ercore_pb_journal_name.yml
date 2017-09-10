@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pb_journal_name
+    - node.type.ercore_publication
+id: node.ercore_publication.field_ercore_pb_journal_name
+field_name: field_ercore_pb_journal_name
+entity_type: node
+bundle: ercore_publication
+label: 'Journal, Book, Magazine or Newspaper Name'
+description: 'For Publication Types of Journal Article, Book, Conference Proceedings, Magazine Article, and Newspaper Article.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

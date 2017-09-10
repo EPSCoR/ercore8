@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.ercore_component_vocab.field_ercore_cmp_core
-    - field.field.taxonomy_term.ercore_component_vocab.field_ercore_cmp_description
     - taxonomy.vocabulary.ercore_component_vocab
   module:
     - path
@@ -14,36 +13,32 @@ bundle: ercore_component_vocab
 mode: default
 content:
   description:
-    type: text_textfield
+    type: text_textarea
+    weight: 2
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+    region: content
+  field_ercore_cmp_core:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  name:
+    type: string_textfield
     weight: 0
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_ercore_cmp_core:
-    weight: 32
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-  field_ercore_cmp_description:
-    weight: 31
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea_with_summary
-  name:
-    type: string_textfield
-    weight: -5
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
+    region: content
   path:
     type: path
-    weight: 30
+    weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden: {  }

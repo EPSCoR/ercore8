@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pp_support_type
+    - node.type.ercore_proposal
+  module:
+    - options
+id: node.ercore_proposal.field_ercore_pp_support_type
+field_name: field_ercore_pp_support_type
+entity_type: node
+bundle: ercore_proposal
+label: 'Support Type'
+description: 'Please categorize the nature of the Source of Support.  Do not list your NSF EPSCoR grant here. You are required to list ALL other sources of funding, current or pending. We also need to collect information on grants that were not funded in order to help with tracking and success rates.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

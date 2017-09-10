@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_pp_award_req_dec
+    - node.type.ercore_proposal
+id: node.ercore_proposal.field_ercore_pp_award_req_dec
+field_name: field_ercore_pp_award_req_dec
+entity_type: node
+bundle: ercore_proposal
+label: 'Amount Requested'
+description: 'Please enter only numbers and decimals, no commas.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

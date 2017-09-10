@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_ercore_in_category
+field_name: field_ercore_in_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hispanic
+      label: 'Hispanic Serving Institutions'
+    -
+      value: tribal
+      label: 'Tribal Colleges and Universities'
+    -
+      value: black
+      label: 'Historically Black Colleges and Universities'
+    -
+      value: academic
+      label: 'Academic Research Institutions'
+    -
+      value: undergrad
+      label: 'Primarily Undergraduate Institutions'
+    -
+      value: lab
+      label: 'National Laboratories'
+    -
+      value: industry
+      label: Industry
+    -
+      value: none
+      label: None/Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

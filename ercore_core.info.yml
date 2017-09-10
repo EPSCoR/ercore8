@@ -11,12 +11,14 @@ dependencies:
   - entity_reference_revisions
   - ercore_component
   - ercore_program
+  - ercore_user
   - features
   - field
   - field_group
   - field_permissions
   - file
   - filter
+  - image
   - link
   - name
   - node
@@ -25,6 +27,7 @@ dependencies:
   - path
   - pathologic
   - select_or_other
+  - system
   - taxonomy
   - telephone
   - text
