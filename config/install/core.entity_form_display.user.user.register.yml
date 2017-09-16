@@ -3,7 +3,6 @@ status: false
 dependencies:
   config:
     - core.entity_form_mode.user.register
-    - field.field.user.user.field_ercoer_user_epscore_paid
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_advisor
     - field.field.user.user.field_ercore_user_boards
@@ -18,6 +17,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_act
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
+    - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
     - field.field.user.user.field_ercore_user_funding_src
@@ -46,7 +46,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
-    - field.field.user.user.user_picture
   module:
     - field_group
     - link
@@ -255,7 +254,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_ercoer_user_epscore_paid: true
   field_ercore_user_advisor: true
   field_ercore_user_boards: true
   field_ercore_user_collecting: true
@@ -268,6 +266,7 @@ hidden:
   field_ercore_user_doc_act: true
   field_ercore_user_doc_ant: true
   field_ercore_user_effort_months: true
+  field_ercore_user_epscore_paid: true
   field_ercore_user_funding_src: true
   field_ercore_user_hired_date: true
   field_ercore_user_master_act: true
@@ -285,4 +284,3 @@ hidden:
   field_ercore_user_rcr_status: true
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true
-  user_picture: true

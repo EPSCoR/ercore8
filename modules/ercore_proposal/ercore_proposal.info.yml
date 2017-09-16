@@ -6,7 +6,6 @@ dependencies:
   - datetime
   - datetime_range
   - ercore_core
-  - ercore_event
   - ercore_program
   - ercore_publication
   - field

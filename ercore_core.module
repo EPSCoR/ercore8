@@ -8,8 +8,9 @@
 /**
  * Implements hook_form_alter().
  */
-function ercore_core_form_alter(&$form, &$form_state, $form_id) {
-  $user = \Drupal::currentUser();
+function ercore_core_form_alter(&$form, $form_state, $form_id) {
+ /* $user = \Drupal::currentUser();
+  $uid = \Drupal::currentUser()->id();
   $forms = array(
     'node_ercore_collaboration_form',
     'node_ercore_event_form',
@@ -21,14 +22,14 @@ function ercore_core_form_alter(&$form, &$form_state, $form_id) {
     'node_ercore_proposal_form',
     'node_ercore_publication_form',
   );
-  if (in_array($form_id, $forms) && $form['nid']['#value'] == NULL) {
+ // if (in_array($form_id, $forms) && $form['nid']['#value'] == NULL) {
    // dpm($form['field_ercore_organizer']['widget'][0]['target_id']);
     $form['field_ercore_organizer']['widget'][0]['#default_value'] = $user;
    // $message = 'Your name, "' . $user->name . '", has been automatically added to this field.';
    // $form['field_ercore_organizer']['widget'][0]['#desciption'] = $message;
-  }
+  //}
 
-  // Require Programs field if ercore_programs variable set.
+  // Require Programs field if ercore_programs variable set.*/
   /*if (variable_get('ercore_program_required') == 1) {
     $form['field_ercore_programs']['und']['#required'] = 1;
   }

@@ -5,8 +5,6 @@ core: 8.x
 dependencies:
   - datetime
   - ercore_core
-  - ercore_event
-  - ercore_other_product
   - ercore_program
   - field
   - field_group

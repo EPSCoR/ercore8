@@ -9,10 +9,10 @@
  * Implements hook_form_FORM_ID_alter().
  */
 function ercore_publication_form_node_ercore_publication_form_alter(&$form, &$form_state, $form_id) {
-  dpm($form, 'forms yeah!');
+//  ksm($form, 'forms yeah!');
   // Publication Status Fields.
   // Submitted Date field #states.
-  $form['field_ercore_pb_submit_date']['#states'] = array(
+ /* $form['field_ercore_pb_submit_date']['#states'] = array(
     'visible' => array(
       ':input[name="field_ercore_pb_status[und]"]' => array(
         array('value' => '0'),
@@ -176,5 +176,5 @@ function ercore_publication_form_node_ercore_publication_form_alter(&$form, &$fo
     'required' => array(
       ':input[name="field_ercore_pb_archived[und]"]' => array('value' => '2'),
     ),
-  );
+  );*/
 }

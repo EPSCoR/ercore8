@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.ercore_name_org_dept
-    - field.field.user.user.field_ercoer_user_epscore_paid
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_advisor
     - field.field.user.user.field_ercore_user_boards
@@ -18,6 +17,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_act
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
+    - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
     - field.field.user.user.field_ercore_user_funding_src
@@ -46,7 +46,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
-    - field.field.user.user.user_picture
   module:
     - entity_reference_revisions
     - name
@@ -82,7 +81,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_ercoer_user_epscore_paid: true
   field_ercore_user_address: true
   field_ercore_user_advisor: true
   field_ercore_user_boards: true
@@ -97,6 +95,7 @@ hidden:
   field_ercore_user_doc_act: true
   field_ercore_user_doc_ant: true
   field_ercore_user_effort_months: true
+  field_ercore_user_epscore_paid: true
   field_ercore_user_ethnicity: true
   field_ercore_user_fac_support: true
   field_ercore_user_funding_src: true
@@ -124,4 +123,3 @@ hidden:
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true
   member_for: true
-  user_picture: true

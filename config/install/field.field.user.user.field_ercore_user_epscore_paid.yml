@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_ercoer_user_epscore_paid
+    - field.storage.user.field_ercore_user_epscore_paid
   module:
     - user
-id: user.user.field_ercoer_user_epscore_paid
-field_name: field_ercoer_user_epscore_paid
+id: user.user.field_ercore_user_epscore_paid
+field_name: field_ercore_user_epscore_paid
 entity_type: user
 bundle: user
 label: 'Are you paid by the EPSCoR grant?'
