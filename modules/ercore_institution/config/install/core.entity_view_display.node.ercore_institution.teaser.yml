@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_institution.body
+    - field.field.node.ercore_institution.field_ercore_in_category
     - field.field.node.ercore_institution.field_ercore_inst_abbr
     - field.field.node.ercore_institution.field_ercore_inst_country
     - field.field.node.ercore_institution.field_ercore_inst_link
@@ -11,29 +12,30 @@ dependencies:
     - field.field.node.ercore_institution.field_ercore_inst_type
     - node.type.ercore_institution
   module:
-    - text
+    - link
     - user
 id: node.ercore_institution.teaser
 targetEntityType: node
 bundle: ercore_institution
 mode: teaser
 content:
-  body:
+  field_ercore_inst_link:
+    type: link
+    weight: 0
+    region: content
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
     settings:
-      trim_length: 600
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
+  body: true
+  field_ercore_in_category: true
   field_ercore_inst_abbr: true
   field_ercore_inst_country: true
-  field_ercore_inst_link: true
   field_ercore_inst_participating: true
   field_ercore_inst_type: true
+  links: true

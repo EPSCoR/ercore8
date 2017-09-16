@@ -16,9 +16,10 @@ required: true
 translatable: false
 default_value:
   -
-    value: {  }
+    value: 0
 default_value_callback: ''
 settings:
-  computed_code: '$value = 6 + 6'
-  display_code: '$display_output = $value;'
-field_type: computed
+  code: ''
+  prefix: ''
+  suffix: ''
+field_type: computed_integer

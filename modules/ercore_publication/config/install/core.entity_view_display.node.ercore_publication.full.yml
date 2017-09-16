@@ -4,7 +4,31 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_publication.body
+    - field.field.node.ercore_publication.field_ercore_goals
+    - field.field.node.ercore_publication.field_ercore_nsf
     - field.field.node.ercore_publication.field_ercore_organizer
+    - field.field.node.ercore_publication.field_ercore_pb_arch_name
+    - field.field.node.ercore_publication.field_ercore_pb_archived
+    - field.field.node.ercore_publication.field_ercore_pb_ark
+    - field.field.node.ercore_publication.field_ercore_pb_citation
+    - field.field.node.ercore_publication.field_ercore_pb_coll_title
+    - field.field.node.ercore_publication.field_ercore_pb_data
+    - field.field.node.ercore_publication.field_ercore_pb_date
+    - field.field.node.ercore_publication.field_ercore_pb_doi
+    - field.field.node.ercore_publication.field_ercore_pb_epscor
+    - field.field.node.ercore_publication.field_ercore_pb_issn
+    - field.field.node.ercore_publication.field_ercore_pb_journal_name
+    - field.field.node.ercore_publication.field_ercore_pb_journal_pages
+    - field.field.node.ercore_publication.field_ercore_pb_journal_volume
+    - field.field.node.ercore_publication.field_ercore_pb_link
+    - field.field.node.ercore_publication.field_ercore_pb_nonepscor_aut
+    - field.field.node.ercore_publication.field_ercore_pb_peer_reviewed
+    - field.field.node.ercore_publication.field_ercore_pb_publisher
+    - field.field.node.ercore_publication.field_ercore_pb_rii_support
+    - field.field.node.ercore_publication.field_ercore_pb_status
+    - field.field.node.ercore_publication.field_ercore_pb_submit_date
+    - field.field.node.ercore_publication.field_ercore_pb_type
+    - field.field.node.ercore_publication.field_ercore_pb_upload
     - field.field.node.ercore_publication.field_ercore_programs
     - node.type.ercore_publication
   module:
@@ -43,4 +67,28 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_ercore_goals: true
+  field_ercore_nsf: true
+  field_ercore_pb_arch_name: true
+  field_ercore_pb_archived: true
+  field_ercore_pb_ark: true
+  field_ercore_pb_citation: true
+  field_ercore_pb_coll_title: true
+  field_ercore_pb_data: true
+  field_ercore_pb_date: true
+  field_ercore_pb_doi: true
+  field_ercore_pb_epscor: true
+  field_ercore_pb_issn: true
+  field_ercore_pb_journal_name: true
+  field_ercore_pb_journal_pages: true
+  field_ercore_pb_journal_volume: true
+  field_ercore_pb_link: true
+  field_ercore_pb_nonepscor_aut: true
+  field_ercore_pb_peer_reviewed: true
+  field_ercore_pb_publisher: true
+  field_ercore_pb_rii_support: true
+  field_ercore_pb_status: true
+  field_ercore_pb_submit_date: true
+  field_ercore_pb_type: true
+  field_ercore_pb_upload: true

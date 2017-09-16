@@ -1,31 +1,7 @@
 langcode: en
-status: true
+status: false
 dependencies:
-  config:
-    - core.entity_view_mode.node.teaser
-    - field.field.node.ercore_proposal.body
-    - field.field.node.ercore_proposal.field_ercore_organizer
-    - field.field.node.ercore_proposal.field_ercore_programs
-    - node.type.ercore_proposal
-  module:
-    - text
-    - user
 id: node.ercore_proposal.teaser
 targetEntityType: node
 bundle: ercore_proposal
 mode: teaser
-content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    region: content
-hidden:
-  field_ercore_organizer: true
-  field_ercore_programs: true

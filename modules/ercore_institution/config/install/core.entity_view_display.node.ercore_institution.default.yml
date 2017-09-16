@@ -73,8 +73,8 @@ content:
     region: content
   links:
     weight: 5
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_ercore_inst_abbr: true

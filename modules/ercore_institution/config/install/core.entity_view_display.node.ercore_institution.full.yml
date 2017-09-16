@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_institution.body
+    - field.field.node.ercore_institution.field_ercore_in_category
     - field.field.node.ercore_institution.field_ercore_inst_abbr
     - field.field.node.ercore_institution.field_ercore_inst_country
     - field.field.node.ercore_institution.field_ercore_inst_link
@@ -23,12 +24,27 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_in_category:
+    type: list_default
+    weight: 4
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_inst_abbr:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_ercore_inst_country:
-    weight: 3
+    weight: 5
     label: inline
     settings:
       link_to_entity: false
@@ -36,7 +52,7 @@ content:
     type: string
     region: content
   field_ercore_inst_link:
-    weight: 4
+    weight: 6
     label: hidden
     settings:
       trim_length: 80
@@ -58,16 +74,15 @@ content:
     type: boolean
     region: content
   field_ercore_inst_type:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   links:
-    weight: 5
+    weight: 7
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-hidden:
-  field_ercore_inst_abbr: true
+hidden: {  }

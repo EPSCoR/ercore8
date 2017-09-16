@@ -5,6 +5,8 @@
  * Defines ERCore Event content and field types.
  */
 
+require_once drupal_get_path('module', 'ercore_event') . '/includes/ercore_event_computed.inc';
+
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
  */

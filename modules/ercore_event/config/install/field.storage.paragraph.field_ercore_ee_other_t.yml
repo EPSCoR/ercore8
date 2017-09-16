@@ -11,13 +11,10 @@ third_party_settings:
 id: paragraph.field_ercore_ee_other_t
 field_name: field_ercore_ee_other_t
 entity_type: paragraph
-type: computed
+type: computed_integer
 settings:
-  data_type: int
-  data_length: '32'
-  data_size: normal
-  data_precision: '10'
-  data_scale: '0'
+  unsigned: false
+  size: normal
 module: computed_field
 locked: false
 cardinality: 1

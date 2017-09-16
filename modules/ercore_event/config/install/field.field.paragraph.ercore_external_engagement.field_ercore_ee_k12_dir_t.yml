@@ -16,9 +16,10 @@ required: true
 translatable: false
 default_value:
   -
-    value: {  }
+    value: 0
 default_value_callback: ''
 settings:
-  computed_code: "$value = $entity->field_ercore_ee_k12_dir_f['und'][0]['value'] + $value_m = $entity->field_ercore_ee_k12_dir_m['und'][0]['value'] + $entity->field_ercore_ee_k12_dir_u['und'][0]['value'];\r\n       "
-  display_code: '$display_output = $value;'
-field_type: computed
+  code: ''
+  prefix: ''
+  suffix: ''
+field_type: computed_integer
