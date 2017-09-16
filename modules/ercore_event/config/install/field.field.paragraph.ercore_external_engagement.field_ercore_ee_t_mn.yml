@@ -2,24 +2,24 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ercore_ee_t_um
+    - field.storage.paragraph.field_ercore_ee_t_mn
     - paragraphs.paragraphs_type.ercore_external_engagement
   module:
     - computed_field
-id: paragraph.ercore_external_engagement.field_ercore_ee_t_um
-field_name: field_ercore_ee_t_um
+id: paragraph.ercore_external_engagement.field_ercore_ee_t_mn
+field_name: field_ercore_ee_t_mn
 entity_type: paragraph
 bundle: ercore_external_engagement
 label: 'Total: Under-represented Minority'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -
     value: 0
 default_value_callback: ''
 settings:
-  code: ''
+  code: '$value = 0;'
   prefix: ''
   suffix: ''
 field_type: computed_integer

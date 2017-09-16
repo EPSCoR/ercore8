@@ -1,7 +1,59 @@
 langcode: en
 status: false
 dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ercore_proposal.body
+    - field.field.node.ercore_proposal.field_ercore_goals
+    - field.field.node.ercore_proposal.field_ercore_organizer
+    - field.field.node.ercore_proposal.field_ercore_pp_award_amount
+    - field.field.node.ercore_proposal.field_ercore_pp_award_req_dec
+    - field.field.node.ercore_proposal.field_ercore_pp_location
+    - field.field.node.ercore_proposal.field_ercore_pp_other_pi
+    - field.field.node.ercore_proposal.field_ercore_pp_others
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_date
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_denied
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_paid
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_pending
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_status
+    - field.field.node.ercore_proposal.field_ercore_pp_proposal_submit
+    - field.field.node.ercore_proposal.field_ercore_pp_support
+    - field.field.node.ercore_proposal.field_ercore_pp_support_type
+    - field.field.node.ercore_proposal.field_ercore_programs
+    - node.type.ercore_proposal
+  module:
+    - text
+    - user
 id: node.ercore_proposal.teaser
 targetEntityType: node
 bundle: ercore_proposal
 mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_ercore_goals: true
+  field_ercore_organizer: true
+  field_ercore_pp_award_amount: true
+  field_ercore_pp_award_req_dec: true
+  field_ercore_pp_location: true
+  field_ercore_pp_other_pi: true
+  field_ercore_pp_others: true
+  field_ercore_pp_proposal_date: true
+  field_ercore_pp_proposal_denied: true
+  field_ercore_pp_proposal_paid: true
+  field_ercore_pp_proposal_pending: true
+  field_ercore_pp_proposal_status: true
+  field_ercore_pp_proposal_submit: true
+  field_ercore_pp_support: true
+  field_ercore_pp_support_type: true
+  field_ercore_programs: true

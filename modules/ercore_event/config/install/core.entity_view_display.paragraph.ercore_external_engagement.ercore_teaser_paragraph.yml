@@ -59,7 +59,6 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_m
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_u
-    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_um
     - paragraphs.paragraphs_type.ercore_external_engagement
   module:
     - computed_field
@@ -79,44 +78,48 @@ content:
     third_party_settings: {  }
     region: content
   field_ercore_ee_t_f:
-    weight: 2
-    label: inline
-    settings:
-      sanitized: true
-    third_party_settings: {  }
-    type: computed
-    region: content
-  field_ercore_ee_t_m:
-    weight: 3
-    label: inline
-    settings:
-      sanitized: true
-    third_party_settings: {  }
-    type: computed
-    region: content
-  field_ercore_ee_t_t:
-    type: computed
     weight: 1
     label: inline
     settings:
-      sanitized: true
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
     third_party_settings: {  }
+    type: computed_integer
     region: content
-  field_ercore_ee_t_u:
-    weight: 4
+  field_ercore_ee_t_m:
+    weight: 2
     label: inline
     settings:
-      sanitized: true
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
     third_party_settings: {  }
-    type: computed
+    type: computed_integer
     region: content
-  field_ercore_ee_t_um:
+  field_ercore_ee_t_t:
+    type: computed_integer
     weight: 5
     label: inline
     settings:
-      sanitized: true
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
     third_party_settings: {  }
-    type: computed
+    region: content
+  field_ercore_ee_t_u:
+    weight: 3
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+    type: computed_integer
     region: content
 hidden:
   field_ercore_ee_ari_fac_f: true

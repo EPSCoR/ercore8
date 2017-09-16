@@ -56,11 +56,12 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_m
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_u
-    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_um
     - paragraphs.paragraphs_type.ercore_external_engagement
   module:
+    - computed_field
     - field_group
     - file
 third_party_settings:
@@ -487,6 +488,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  field_ercore_ee_t_mn:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
 hidden:
   created: true
   field_ercore_ee_ari_fac_t: true
@@ -503,6 +510,6 @@ hidden:
   field_ercore_ee_t_m: true
   field_ercore_ee_t_t: true
   field_ercore_ee_t_u: true
-  field_ercore_ee_t_um: true
+  field_ercore_test: true
   status: true
   uid: true

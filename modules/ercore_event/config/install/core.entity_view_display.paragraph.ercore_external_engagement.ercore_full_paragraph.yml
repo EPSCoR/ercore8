@@ -57,9 +57,9 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_m
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_u
-    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_um
     - paragraphs.paragraphs_type.ercore_external_engagement
   module:
     - computed_field
@@ -68,13 +68,13 @@ third_party_settings:
   field_group:
     group_ercore_ee_totals:
       children:
-        - field_ercore_ee_t_t
-        - field_ercore_ee_t_m
         - field_ercore_ee_t_f
-        - field_ercore_ee_t_um
+        - field_ercore_ee_t_m
         - field_ercore_ee_t_u
+        - field_ercore_ee_t_mn
+        - field_ercore_ee_t_t
       parent_name: ''
-      weight: 16
+      weight: 1
       format_type: fieldset
       format_settings:
         id: ercore_ee_totals
@@ -85,12 +85,12 @@ third_party_settings:
       children:
         - group_ercore_ee_ari
       parent_name: ''
-      weight: 17
-      format_type: accordion
+      weight: 2
+      format_type: fieldset
       format_settings:
-        id: ercore_ee_subtotals
-        classes: ercore_ee
-        effect: none
+        description: ''
+        classes: ''
+        id: ''
       label: Subtotals
     group_ercore_ee_ari:
       children:
@@ -98,18 +98,19 @@ third_party_settings:
         - field_ercore_ee_ari_stu_m
         - field_ercore_ee_ari_stu_u
         - field_ercore_ee_ari_stu_mn
+        - field_ercore_ee_ari_stu_t
         - field_ercore_ee_ari_fac_f
         - field_ercore_ee_ari_fac_m
         - field_ercore_ee_ari_fac_u
         - field_ercore_ee_ari_fac_mn
+        - field_ercore_ee_ari_fac_t
       parent_name: group_ercore_ee_subtotals
       weight: 3
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
-        id: ercore_ee_ari
-        classes: ercore_ee_sub
-        formatter: closed
         description: ''
+        classes: ''
+        id: ''
       label: 'Academic Research Institutions (ARI)'
     group_ercore_ee_other:
       children:
@@ -117,14 +118,14 @@ third_party_settings:
         - field_ercore_ee_other_m
         - field_ercore_ee_other_u
         - field_ercore_ee_other_mn
+        - field_ercore_ee_other_t
       parent_name: ''
-      weight: 18
-      format_type: accordion_item
+      weight: 6
+      format_type: fieldset
       format_settings:
-        id: ercore_ee_othjer
-        classes: ercore_ee_sub
-        formatter: closed
         description: ''
+        classes: ''
+        id: ''
       label: Other
     group_ercore_ee_pui:
       children:
@@ -132,37 +133,39 @@ third_party_settings:
         - field_ercore_ee_pui_stu_m
         - field_ercore_ee_pui_stu_u
         - field_ercore_ee_pui_stu_mn
+        - field_ercore_ee_pui_stu_t
         - field_ercore_ee_pui_fac_f
         - field_ercore_ee_pui_fac_m
         - field_ercore_ee_pui_fac_u
         - field_ercore_ee_pui_fac_mn
+        - field_ercore_ee_pui_fac_t
       parent_name: ''
-      weight: 19
-      format_type: accordion_item
+      weight: 4
+      format_type: fieldset
       format_settings:
-        id: ercore_ee_pui
-        classes: ercore_ee_sub
-        formatter: closed
         description: ''
+        classes: ''
+        id: ''
       label: 'Primary Undergraduate Institutions (UI)'
     group_ercoer_ee_msi:
       children:
+        - field_ercore_ee_msi_stu_f
         - field_ercore_ee_msi_stu_m
+        - field_ercore_ee_msi_stu_u
+        - field_ercore_ee_msi_stu_mn
+        - field_ercore_ee_msi_stu_t
         - field_ercore_ee_msi_fac_f
         - field_ercore_ee_msi_fac_m
         - field_ercore_ee_msi_fac_u
         - field_ercore_ee_msi_fac_mn
-        - field_ercore_ee_msi_stu_f
-        - field_ercore_ee_msi_stu_u
-        - field_ercore_ee_msi_stu_mn
+        - field_ercore_ee_msi_fac_t
       parent_name: ''
-      weight: 20
-      format_type: accordion_item
+      weight: 5
+      format_type: fieldset
       format_settings:
-        id: ercore_ee_msi
-        classes: ercore_ee_sub
-        formatter: closed
         description: ''
+        classes: ''
+        id: ''
       label: 'Minority Serving Institutions (MSI)'
     group_ercoe_ee_k12:
       children:
@@ -170,22 +173,24 @@ third_party_settings:
         - field_ercore_ee_k12_tch_m
         - field_ercore_ee_k12_tch_u
         - field_ercore_ee_k12_tch_mn
+        - field_ercore_ee_k12_tch_t
+        - field_ercore_ee_k12_ttr_f
         - field_ercore_ee_k12_dir_f
         - field_ercore_ee_k12_dir_m
         - field_ercore_ee_k12_dir_u
         - field_ercore_ee_k12_dir_mn
-        - field_ercore_ee_k12_ttr_f
+        - field_ercore_ee_k12_dir_t
         - field_ercore_ee_k12_ttr_m
         - field_ercore_ee_k12_ttr_u
         - field_ercore_ee_k12_ttr_mn
+        - field_ercore_ee_k12_ttr_t
       parent_name: ''
-      weight: 22
-      format_type: accordion_item
+      weight: 7
+      format_type: fieldset
       format_settings:
-        id: ercore_ee_k12
-        classes: ercore_ee_sub
-        formatter: closed
         description: ''
+        classes: ''
+        id: ''
       label: 'K-12 Institutions (K-12)'
 id: paragraph.ercore_external_engagement.ercore_full_paragraph
 targetEntityType: paragraph
@@ -197,7 +202,7 @@ content:
     weight: 9
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
@@ -206,7 +211,7 @@ content:
     weight: 10
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
@@ -215,16 +220,27 @@ content:
     weight: 12
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
+  field_ercore_ee_ari_fac_t:
+    type: computed_integer
+    weight: 13
+    region: content
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
   field_ercore_ee_ari_fac_u:
     type: number_integer
     weight: 11
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
@@ -233,40 +249,51 @@ content:
     weight: 4
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_ari_stu_m:
     type: number_integer
     weight: 5
-    label: above
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_ari_stu_mn:
     type: number_integer
     weight: 7
-    label: above
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
+  field_ercore_ee_ari_stu_t:
+    type: computed_integer
+    weight: 8
+    region: content
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
   field_ercore_ee_ari_stu_u:
     type: number_integer
     weight: 6
-    label: above
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_estimated:
     type: boolean
-    weight: 15
+    weight: 0
     label: hidden
     settings:
       format: custom
@@ -276,253 +303,330 @@ content:
     region: content
   field_ercore_ee_k12_dir_f:
     type: number_integer
-    weight: 30
+    weight: 39
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_dir_m:
     type: number_integer
-    weight: 31
+    weight: 40
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_dir_mn:
     type: number_integer
-    weight: 33
+    weight: 42
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
+  field_ercore_ee_k12_dir_t:
+    type: computed_integer
+    weight: 43
+    region: content
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
   field_ercore_ee_k12_dir_u:
     type: number_integer
-    weight: 32
-    label: above
+    weight: 41
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_tch_f:
     type: number_integer
-    weight: 26
+    weight: 32
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_tch_m:
     type: number_integer
-    weight: 27
+    weight: 33
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_tch_mn:
     type: number_integer
-    weight: 29
+    weight: 36
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
-  field_ercore_ee_k12_tch_u:
-    type: number_integer
-    weight: 28
+  field_ercore_ee_k12_tch_t:
+    type: computed_integer
+    weight: 37
+    region: content
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+  field_ercore_ee_k12_tch_u:
+    type: number_integer
+    weight: 34
+    label: inline
+    settings:
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_ttr_f:
     type: number_integer
-    weight: 34
+    weight: 38
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_ttr_m:
     type: number_integer
-    weight: 35
+    weight: 44
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_ttr_mn:
     type: number_integer
-    weight: 37
+    weight: 46
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
-  field_ercore_ee_k12_ttr_u:
-    type: number_integer
-    weight: 36
+  field_ercore_ee_k12_ttr_t:
+    type: computed_integer
+    weight: 47
+    region: content
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+  field_ercore_ee_k12_ttr_u:
+    type: number_integer
+    weight: 45
+    label: inline
+    settings:
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_fac_f:
     type: number_integer
-    weight: 23
+    weight: 36
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_fac_m:
     type: number_integer
-    weight: 24
+    weight: 37
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_fac_mn:
     type: number_integer
-    weight: 27
+    weight: 39
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
-  field_ercore_ee_msi_fac_u:
-    type: number_integer
-    weight: 26
+  field_ercore_ee_msi_fac_t:
+    type: computed_integer
+    weight: 40
+    region: content
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+  field_ercore_ee_msi_fac_u:
+    type: number_integer
+    weight: 38
+    label: inline
+    settings:
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_stu_f:
     type: number_integer
-    weight: 28
+    weight: 30
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_stu_m:
     type: number_integer
-    weight: 22
+    weight: 32
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_stu_mn:
     type: number_integer
-    weight: 30
+    weight: 34
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
-  field_ercore_ee_msi_stu_u:
-    type: number_integer
-    weight: 29
+  field_ercore_ee_msi_stu_t:
+    type: computed_integer
+    weight: 35
+    region: content
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+  field_ercore_ee_msi_stu_u:
+    type: number_integer
+    weight: 33
+    label: inline
+    settings:
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_other_f:
     type: number_integer
-    weight: 6
-    label: above
+    weight: 36
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_other_m:
     type: number_integer
-    weight: 8
-    label: above
+    weight: 37
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_other_mn:
     type: number_integer
-    weight: 10
-    label: above
+    weight: 39
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
+  field_ercore_ee_other_t:
+    type: computed_integer
+    weight: 41
+    region: content
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
   field_ercore_ee_other_u:
     type: number_integer
-    weight: 9
-    label: above
+    weight: 38
+    label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_pui_fac_f:
     type: number_integer
-    weight: 12
+    weight: 13
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_pui_fac_m:
     type: number_integer
-    weight: 13
+    weight: 14
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_pui_fac_mn:
     type: number_integer
-    weight: 15
+    weight: 17
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
-  field_ercore_ee_pui_fac_u:
-    type: number_integer
-    weight: 14
+  field_ercore_ee_pui_fac_t:
+    type: computed_integer
+    weight: 18
+    region: content
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+  field_ercore_ee_pui_fac_u:
+    type: number_integer
+    weight: 16
+    label: inline
+    settings:
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
@@ -531,7 +635,7 @@ content:
     weight: 8
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
@@ -540,7 +644,7 @@ content:
     weight: 9
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
@@ -549,68 +653,84 @@ content:
     weight: 11
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
+  field_ercore_ee_pui_stu_t:
+    type: computed_integer
+    weight: 12
+    region: content
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
   field_ercore_ee_pui_stu_u:
     type: number_integer
     weight: 10
     label: inline
     settings:
-      thousand_separator: ''
+      thousand_separator: ','
       prefix_suffix: true
     third_party_settings: {  }
     region: content
   field_ercore_ee_t_f:
+    weight: 4
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+    type: computed_integer
+    region: content
+  field_ercore_ee_t_m:
     weight: 5
     label: inline
     settings:
-      sanitized: true
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
     third_party_settings: {  }
-    type: computed
+    type: computed_integer
     region: content
-  field_ercore_ee_t_m:
-    weight: 3
+  field_ercore_ee_t_mn:
+    type: computed_integer
+    weight: 7
+    region: content
     label: inline
     settings:
-      sanitized: true
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
     third_party_settings: {  }
-    type: computed
-    region: content
   field_ercore_ee_t_t:
-    type: computed
-    weight: 2
+    type: computed_integer
+    weight: 8
     label: inline
     settings:
-      sanitized: true
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
     third_party_settings: {  }
     region: content
   field_ercore_ee_t_u:
-    weight: 7
-    label: inline
-    settings:
-      sanitized: true
-    third_party_settings: {  }
-    type: computed
-    region: content
-  field_ercore_ee_t_um:
     weight: 6
     label: inline
     settings:
-      sanitized: true
+      thousand_separator: ','
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
     third_party_settings: {  }
-    type: computed
+    type: computed_integer
     region: content
 hidden:
-  field_ercore_ee_ari_fac_t: true
-  field_ercore_ee_ari_stu_t: true
   field_ercore_ee_excel: true
-  field_ercore_ee_k12_dir_t: true
-  field_ercore_ee_k12_tch_t: true
-  field_ercore_ee_k12_ttr_t: true
-  field_ercore_ee_msi_fac_t: true
-  field_ercore_ee_msi_stu_t: true
-  field_ercore_ee_other_t: true
-  field_ercore_ee_pui_fac_t: true
-  field_ercore_ee_pui_stu_t: true

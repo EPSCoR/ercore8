@@ -8,8 +8,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: paragraph.field_ercore_ee_t_um
-field_name: field_ercore_ee_t_um
+id: paragraph.field_ercore_ee_t_mn
+field_name: field_ercore_ee_t_mn
 entity_type: paragraph
 type: computed_integer
 settings:
