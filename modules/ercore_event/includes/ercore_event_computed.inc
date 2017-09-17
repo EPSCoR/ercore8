@@ -242,35 +242,15 @@ function computed_field_field_ercore_ee_t_u_compute($entity_type_manager, $entit
  */
 function computed_field_field_ercore_ee_t_mn_compute($entity_type_manager, $entity, $fields, $delta) {
   $value =
-    $fields['field_ercore_ee_ari_fac_f'][0]['value'] +
-    $fields['field_ercore_ee_ari_fac_m'][0]['value'] +
-    $fields['field_ercore_ee_ari_fac_u'][0]['value'] +
-    $fields['field_ercore_ee_ari_stu_f'][0]['value'] +
-    $fields['field_ercore_ee_ari_stu_m'][0]['value'] +
-    $fields['field_ercore_ee_ari_stu_u'][0]['value'] +
-    $fields['field_ercore_ee_k12_dir_f'][0]['value'] +
-    $fields['field_ercore_ee_k12_dir_m'][0]['value'] +
-    $fields['field_ercore_ee_k12_dir_u'][0]['value'] +
-    $fields['field_ercore_ee_k12_ttr_f'][0]['value'] +
-    $fields['field_ercore_ee_k12_ttr_m'][0]['value'] +
-    $fields['field_ercore_ee_k12_ttr_u'][0]['value'] +
-    $fields['field_ercore_ee_k12_tch_f'][0]['value'] +
-    $fields['field_ercore_ee_k12_tch_m'][0]['value'] +
-    $fields['field_ercore_ee_k12_tch_u'][0]['value'] +
-    $fields['field_ercore_ee_msi_fac_f'][0]['value'] +
-    $fields['field_ercore_ee_msi_fac_m'][0]['value'] +
-    $fields['field_ercore_ee_msi_fac_u'][0]['value'] +
-    $fields['field_ercore_ee_msi_stu_f'][0]['value'] +
-    $fields['field_ercore_ee_msi_stu_m'][0]['value'] +
-    $fields['field_ercore_ee_msi_stu_u'][0]['value'] +
-    $fields['field_ercore_ee_other_f'][0]['value'] +
-    $fields['field_ercore_ee_other_m'][0]['value'] +
-    $fields['field_ercore_ee_other_u'][0]['value'] +
-    $fields['field_ercore_ee_pui_fac_f'][0]['value'] +
-    $fields['field_ercore_ee_pui_fac_m'][0]['value'] +
-    $fields['field_ercore_ee_pui_fac_u'][0]['value'] +
-    $fields['field_ercore_ee_pui_stu_f'][0]['value'] +
-    $fields['field_ercore_ee_pui_stu_m'][0]['value'] +
-    $fields['field_ercore_ee_pui_stu_u'][0]['value'];
+    $fields['field_ercore_ee_ari_fac_mn'][0]['value'] +
+    $fields['field_ercore_ee_ari_stu_mn'][0]['value'] +
+    $fields['field_ercore_ee_k12_dir_mn'][0]['value'] +
+    $fields['field_ercore_ee_k12_ttr_mn'][0]['value'] +
+    $fields['field_ercore_ee_k12_tch_mn'][0]['value'] +
+    $fields['field_ercore_ee_msi_fac_mn'][0]['value'] +
+    $fields['field_ercore_ee_msi_stu_mn'][0]['value'] +
+    $fields['field_ercore_ee_other_mn'][0]['value'] +
+    $fields['field_ercore_ee_pui_fac_mn'][0]['value'] +
+    $fields['field_ercore_ee_pui_stu_mn'][0]['value'];
   return $value;
 }

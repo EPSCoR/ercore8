@@ -29,7 +29,13 @@ settings:
       ercore_location:
         weight: 5
         enabled: false
+      ercore_collaborator:
+        weight: 6
+        enabled: false
       ercore_user_participation:
         enabled: true
         weight: 6
+      ercore_core_user_participation:
+        weight: 7
+        enabled: false
 field_type: entity_reference_revisions

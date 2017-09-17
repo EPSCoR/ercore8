@@ -18,7 +18,7 @@ bundle: ercore_user_participation
 mode: default
 content:
   field_ercore_participation_dates:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       separator: '-'
@@ -35,7 +35,7 @@ content:
     type: list_default
     region: content
   field_ercore_user_department:
-    weight: 4
+    weight: 3
     label: inline
     settings:
       link_to_entity: false
@@ -43,7 +43,7 @@ content:
     type: string
     region: content
   field_ercore_user_partic_inst:
-    weight: 3
+    weight: 1
     label: inline
     settings:
       link: true
@@ -51,7 +51,7 @@ content:
     type: entity_reference_label
     region: content
   field_ercore_user_role_desc:
-    weight: 2
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }

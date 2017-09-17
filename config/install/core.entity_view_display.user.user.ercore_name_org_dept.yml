@@ -17,6 +17,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_act
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
+    - field.field.user.user.field_ercore_user_emp_id
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
@@ -42,7 +43,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_rcr_per
     - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
-    - field.field.user.user.field_ercore_user_supervisor
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
@@ -95,6 +95,7 @@ hidden:
   field_ercore_user_doc_act: true
   field_ercore_user_doc_ant: true
   field_ercore_user_effort_months: true
+  field_ercore_user_emp_id: true
   field_ercore_user_epscore_paid: true
   field_ercore_user_ethnicity: true
   field_ercore_user_fac_support: true
@@ -118,7 +119,6 @@ hidden:
   field_ercore_user_rcr_per: true
   field_ercore_user_rcr_per_up: true
   field_ercore_user_rcr_status: true
-  field_ercore_user_supervisor: true
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true

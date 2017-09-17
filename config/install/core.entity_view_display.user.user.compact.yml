@@ -42,7 +42,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_rcr_per
     - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
-    - field.field.user.user.field_ercore_user_supervisor
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
@@ -102,7 +101,6 @@ hidden:
   field_ercore_user_rcr_per: true
   field_ercore_user_rcr_per_up: true
   field_ercore_user_rcr_status: true
-  field_ercore_user_supervisor: true
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true

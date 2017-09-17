@@ -19,7 +19,7 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  code: '$value = 0;'
+  code: ''
   prefix: ''
   suffix: ''
 field_type: computed_integer

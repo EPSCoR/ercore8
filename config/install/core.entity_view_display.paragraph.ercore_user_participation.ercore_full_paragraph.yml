@@ -19,7 +19,7 @@ bundle: ercore_user_participation
 mode: ercore_full_paragraph
 content:
   field_ercore_participation_dates:
-    weight: 0
+    weight: 2
     label: inline
     settings:
       separator: '-'
@@ -29,7 +29,7 @@ content:
     type: daterange_default
     region: content
   field_ercore_senior_role:
-    weight: 1
+    weight: 0
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -44,7 +44,7 @@ content:
     type: string
     region: content
   field_ercore_user_partic_inst:
-    weight: 2
+    weight: 1
     label: inline
     settings:
       link: true
