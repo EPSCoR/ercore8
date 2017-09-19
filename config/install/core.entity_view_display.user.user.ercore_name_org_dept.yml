@@ -17,7 +17,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_act
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
-    - field.field.user.user.field_ercore_user_emp_id
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
@@ -35,8 +34,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_part_dates
     - field.field.user.user.field_ercore_user_phone_mobile
     - field.field.user.user.field_ercore_user_phone_work
-    - field.field.user.user.field_ercore_user_programs
-    - field.field.user.user.field_ercore_user_proj_comp
     - field.field.user.user.field_ercore_user_race
     - field.field.user.user.field_ercore_user_rcr_on
     - field.field.user.user.field_ercore_user_rcr_on_up
@@ -46,6 +43,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
+    - field.field.user.user.user_picture
   module:
     - entity_reference_revisions
     - name
@@ -95,7 +93,6 @@ hidden:
   field_ercore_user_doc_act: true
   field_ercore_user_doc_ant: true
   field_ercore_user_effort_months: true
-  field_ercore_user_emp_id: true
   field_ercore_user_epscore_paid: true
   field_ercore_user_ethnicity: true
   field_ercore_user_fac_support: true
@@ -111,8 +108,6 @@ hidden:
   field_ercore_user_part_160: true
   field_ercore_user_phone_mobile: true
   field_ercore_user_phone_work: true
-  field_ercore_user_programs: true
-  field_ercore_user_proj_comp: true
   field_ercore_user_race: true
   field_ercore_user_rcr_on: true
   field_ercore_user_rcr_on_up: true
@@ -123,3 +118,4 @@ hidden:
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true
   member_for: true
+  user_picture: true

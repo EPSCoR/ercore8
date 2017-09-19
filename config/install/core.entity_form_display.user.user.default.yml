@@ -16,7 +16,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_act
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
-    - field.field.user.user.field_ercore_user_emp_id
+    - field.field.user.user.field_ercore_user_employee_id
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
@@ -34,8 +34,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_part_dates
     - field.field.user.user.field_ercore_user_phone_mobile
     - field.field.user.user.field_ercore_user_phone_work
-    - field.field.user.user.field_ercore_user_programs
-    - field.field.user.user.field_ercore_user_proj_comp
     - field.field.user.user.field_ercore_user_race
     - field.field.user.user.field_ercore_user_rcr_on
     - field.field.user.user.field_ercore_user_rcr_on_up
@@ -45,163 +43,175 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
     - datetime
     - field_group
     - file
+    - image
     - link
     - name
     - paragraphs
-    - select_or_other
     - telephone
     - text
     - user
 third_party_settings:
   field_group:
-    group_ercore_information:
+    group_ercore_us_profile:
       children:
-        - group_ercore_user_data
-        - group_ercore_account_settings
+        - group_ercore_us_contact
+        - group_ercore_us_demographics
+        - group_ercore_us_epscor
+        - group_ercore_us_institution
+        - group_ercore_us_data
+        - group_ercore_us_account
       parent_name: ''
-      weight: 1
-      format_type: tab
+      weight: 4
+      format_type: tabs
       format_settings:
-        id: ercore_info
+        id: ercore_user_profile
         classes: ''
-        effect: none
-      label: Information
-    group_ercore_contact:
+        direction: vertical
+      label: Profile
+    group_ercore_us_contact:
       children:
-        - group_user_profile
         - field_ercore_user_name
+        - field_ercore_user_employee_id
         - field_ercore_user_phone_work
         - field_ercore_user_phone_mobile
         - field_ercore_user_address
         - field_ercore_user_link
-      parent_name: group_user_profile
-      weight: 20
+        - user_picture
+      parent_name: group_ercore_us_profile
+      weight: 47
       format_type: tab
       format_settings:
-        label: 'Contact Information'
-        formatter: open
-        required_fields: true
-        id: ercore_contact
+        id: ercore_user__contact
         classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
       label: 'Contact Information'
-    group_ercore_demographics:
+    group_ercore_us_demographics:
       children:
         - field_ercore_user_gender
-        - field_ercore_user_ethnicity
         - field_ercore_user_race
+        - field_ercore_user_ethnicity
         - field_ercore_user_disabilities
         - field_ercore_user_veteran
-      parent_name: group_user_profile
-      weight: 21
+      parent_name: group_ercore_us_profile
+      weight: 48
       format_type: tab
       format_settings:
-        label: Demographics
-        formatter: closed
-        required_fields: true
-        id: ercore_demographics
-        classes: ''
-      label: Demographics
-    group_ercore_account_settings:
-      children:
-        - account
-        - field_ercore_user_advisor
-        - timezone
-        - language
-      parent_name: group_ercore_information
-      weight: 26
-      format_type: tab
-      format_settings:
-        id: ercore_account
+        id: ercore_user_demographics
         classes: ''
         formatter: closed
-        required_fields: true
         description: ''
-      label: 'Account Settings'
-    group_ercore_epscor:
+        required_fields: true
+      label: Demographics
+    group_ercore_us_epscor:
       children:
-        - field_ercore_user_part_dates
         - field_ercore_user_lead_team
         - field_ercore_user_boards
+        - field_ercore_user_advisor
+        - field_ercore_user_epscore_paid
         - field_ercore_user_part_160
         - field_ercore_user_fac_support
-        - group_ercore_education
-      parent_name: group_user_profile
-      weight: 22
+        - field_ercore_user_hired_date
+        - field_ercore_user_effort_months
+        - field_ercore_user_direct_fund
+        - field_ercore_user_funding_src
+        - group_ercore_us_education
+        - group_ercore_us_certification
+      parent_name: group_ercore_us_profile
+      weight: 49
       format_type: tab
       format_settings:
-        id: ercore_epscor
+        label: 'EPSCoR Involvement'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ercore_user_epscor
+        classes: ''
+      label: 'EPSCoR Involvement'
+    group_ercore_us_institution:
+      children:
+        - field_ercore_user_part_dates
+      parent_name: group_ercore_us_profile
+      weight: 50
+      format_type: tab
+      format_settings:
+        id: ercore_user_institution
         classes: ''
         formatter: closed
-        required_fields: true
         description: ''
-      label: 'EPSCoR Involvement'
-    group_user_profile:
-      children:
-        - group_ercore_contact
-        - group_ercore_demographics
-        - group_ercore_epscor
-      parent_name: group_ercore_contact
-      weight: 11
-      format_type: tabs
-      format_settings:
-        id: ercore_user_profile_tabs
-        classes: ''
-        direction: vertical
-      label: Profile
-    group_ercore_user_data:
+        required_fields: true
+      label: Institution
+    group_ercore_us_data:
       children:
         - field_ercore_user_collecting
-        - field_ercore_user_data_mgr
-        - field_ercore_user_data_date
-        - field_ercore_user_data_ongoing
         - field_ercore_user_data_desc
+        - field_ercore_user_data_date
+        - field_ercore_user_data_mgr
+        - field_ercore_user_data_ongoing
         - field_ercore_user_data_url
-        - group_ercore_certifications
-      parent_name: group_ercore_information
-      weight: 24
+      parent_name: group_ercore_us_profile
+      weight: 52
       format_type: tab
       format_settings:
-        id: ercore_data
+        id: ercore_user_data
         classes: ''
         formatter: closed
         description: ''
         required_fields: true
       label: 'Data Collection'
-    group_ercore_education:
+    group_ercore_us_account:
+      children:
+        - account
+        - language
+        - timezone
+      parent_name: group_ercore_us_profile
+      weight: 53
+      format_type: tab
+      format_settings:
+        id: ercore_user_account
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Account Information'
+    group_ercore_us_education:
       children:
         - field_ercore_user_under_ant
         - field_ercore_user_under_act
         - field_ercore_user_master_ant
         - field_ercore_user_master_act
-        - field_ercore_user_doc_act
         - field_ercore_user_doc_ant
-        - field_ercore_user_mentor_plan
+        - field_ercore_user_doc_act
         - field_ercore_user_mentor_plan_dt
-      parent_name: group_ercore_epscor
-      weight: 17
+        - field_ercore_user_mentor_plan
+      parent_name: group_ercore_us_epscor
+      weight: 20
       format_type: fieldset
       format_settings:
-        id: ercore_education
+        id: ercore_user_education
         classes: ''
         description: ''
         required_fields: true
       label: Education
-    group_ercore_certifications:
+    group_ercore_us_certification:
       children:
         - field_ercore_user_rcr_status
-        - field_ercore_user_rcr_on
-        - field_ercore_user_rcr_on_up
         - field_ercore_user_rcr_per
         - field_ercore_user_rcr_per_up
-      parent_name: group_ercore_user_data
-      weight: 25
+        - field_ercore_user_rcr_on
+        - field_ercore_user_rcr_on_up
+      parent_name: group_ercore_us_epscor
+      weight: 21
       format_type: fieldset
       format_settings:
-        id: ercore_certifications
+        id: ercore_user_certification
         classes: ''
         description: ''
         required_fields: true
@@ -212,7 +222,7 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 29
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -221,7 +231,8 @@ content:
     region: content
   field_ercore_user_address:
     type: entity_reference_paragraphs
-    weight: 10
+    weight: 9
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -230,37 +241,36 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
   field_ercore_user_advisor:
     type: string_textfield
-    weight: 31
+    weight: 11
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_ercore_user_boards:
-    type: options_select
-    weight: 14
+    type: options_buttons
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_collecting:
     type: boolean_checkbox
-    weight: 4
+    weight: 1
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_ercore_user_data_date:
     type: datetime_default
-    weight: 6
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_data_desc:
     type: text_textarea
-    weight: 8
+    weight: 2
     region: content
     settings:
       rows: 5
@@ -268,127 +278,162 @@ content:
     third_party_settings: {  }
   field_ercore_user_data_mgr:
     type: boolean_checkbox
-    weight: 5
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_ercore_user_data_ongoing:
     type: boolean_checkbox
-    weight: 7
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_ercore_user_data_url:
     type: link_default
-    weight: 9
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-  field_ercore_user_disabilities:
-    weight: 28
-    settings:
-      select_element_type: select_or_other_select
-      sort_options: ''
-    third_party_settings: {  }
-    type: select_or_other_list
+  field_ercore_user_direct_fund:
+    type: number
+    weight: 18
     region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_ercore_user_disabilities:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_ercore_user_doc_act:
     type: datetime_default
-    weight: 8
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_doc_ant:
     type: datetime_default
-    weight: 9
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ercore_user_emp_id:
-    weight: 2
+  field_ercore_user_effort_months:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_ercore_user_employee_id:
+    weight: 6
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_ercore_user_ethnicity:
-    weight: 25
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_ercore_user_fac_support:
-    weight: 16
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_ercore_user_gender:
-    weight: 24
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_ercore_user_lead_team:
+  field_ercore_user_epscore_paid:
+    type: boolean_checkbox
     weight: 13
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_ercore_user_link:
-    weight: 12
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_ercore_user_master_act:
-    type: datetime_default
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_ercore_user_master_ant:
-    type: datetime_default
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_ercore_user_mentor_plan:
-    type: file_generic
-    weight: 10
     region: content
     settings:
-      progress_indicator: throbber
+      display_label: true
     third_party_settings: {  }
-  field_ercore_user_mentor_plan_dt:
-    type: datetime_default
-    weight: 11
+  field_ercore_user_ethnicity:
+    type: options_select
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ercore_user_name:
-    weight: 7
-    settings: {  }
-    third_party_settings: {  }
-    type: name_default
-    region: content
-  field_ercore_user_part_160:
+  field_ercore_user_fac_support:
     type: boolean_checkbox
     weight: 15
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  field_ercore_user_funding_src:
+    type: text_textarea
+    weight: 19
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_ercore_user_gender:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_user_hired_date:
+    type: datetime_default
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_user_lead_team:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_ercore_user_link:
+    type: link_default
+    weight: 10
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_ercore_user_master_act:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_user_master_ant:
+    type: datetime_default
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_user_mentor_plan:
+    type: file_generic
+    weight: 24
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_ercore_user_mentor_plan_dt:
+    type: datetime_default
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_user_name:
+    type: name_default
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_user_part_160:
+    type: boolean_checkbox
+    weight: 14
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_ercore_user_part_dates:
     type: paragraphs
-    weight: 12
+    weight: 1
     region: content
     settings:
       title: Paragraph
@@ -399,99 +444,93 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
   field_ercore_user_phone_mobile:
-    weight: 9
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
-  field_ercore_user_phone_work:
     type: telephone_default
     weight: 8
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_ercore_user_phone_work:
+    type: telephone_default
+    weight: 7
     region: content
-  field_ercore_user_proj_comp:
-    type: options_select
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_ercore_user_race:
+    type: options_buttons
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ercore_user_race:
-    weight: 27
-    settings:
-      select_element_type: select_or_other_select
-      sort_options: ''
-    third_party_settings: {  }
-    type: select_or_other_list
-    region: content
   field_ercore_user_rcr_on:
     type: datetime_default
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_rcr_on_up:
     type: file_generic
-    weight: 13
+    weight: 11
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_ercore_user_rcr_per:
     type: datetime_default
-    weight: 14
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_rcr_per_up:
     type: file_generic
-    weight: 15
+    weight: 8
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_ercore_user_rcr_status:
     type: boolean_checkbox
-    weight: 11
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_ercore_user_under_act:
     type: datetime_default
-    weight: 5
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_under_ant:
     type: datetime_default
-    weight: 4
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_veteran:
-    weight: 29
+    type: boolean_checkbox
+    weight: 7
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   language:
-    weight: 33
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   timezone:
-    weight: 32
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_ercore_user_direct_fund: true
-  field_ercore_user_effort_months: true
-  field_ercore_user_epscore_paid: true
-  field_ercore_user_funding_src: true
-  field_ercore_user_hired_date: true
-  field_ercore_user_programs: true
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 11
+    region: content
+hidden: {  }

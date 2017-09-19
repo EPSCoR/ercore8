@@ -4,8 +4,10 @@ dependencies:
   config:
     - field.field.paragraph.ercore_user_participation.field_ercore_participation_dates
     - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_component
     - field.field.paragraph.ercore_user_participation.field_ercore_user_department
     - field.field.paragraph.ercore_user_participation.field_ercore_user_partic_inst
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_program
     - field.field.paragraph.ercore_user_participation.field_ercore_user_role_desc
     - paragraphs.paragraphs_type.ercore_user_participation
   module:
@@ -28,6 +30,15 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_ercore_user_component:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_ercore_user_department:
     weight: 3
     settings:
@@ -42,8 +53,17 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_ercore_user_role_desc:
+  field_ercore_user_program:
     weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ercore_user_role_desc:
+    weight: 6
     settings:
       rows: 5
       placeholder: ''

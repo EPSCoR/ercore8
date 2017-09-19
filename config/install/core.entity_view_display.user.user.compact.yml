@@ -34,8 +34,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_part_dates
     - field.field.user.user.field_ercore_user_phone_mobile
     - field.field.user.user.field_ercore_user_phone_work
-    - field.field.user.user.field_ercore_user_programs
-    - field.field.user.user.field_ercore_user_proj_comp
     - field.field.user.user.field_ercore_user_race
     - field.field.user.user.field_ercore_user_rcr_on
     - field.field.user.user.field_ercore_user_rcr_on_up
@@ -45,7 +43,10 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
+    - image
     - user
 id: user.user.compact
 targetEntityType: user
@@ -93,8 +94,6 @@ hidden:
   field_ercore_user_part_dates: true
   field_ercore_user_phone_mobile: true
   field_ercore_user_phone_work: true
-  field_ercore_user_programs: true
-  field_ercore_user_proj_comp: true
   field_ercore_user_race: true
   field_ercore_user_rcr_on: true
   field_ercore_user_rcr_on_up: true

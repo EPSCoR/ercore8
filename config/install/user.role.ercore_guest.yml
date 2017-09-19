@@ -3,6 +3,5 @@ status: true
 dependencies: {  }
 id: ercore_guest
 label: Guest
-weight: -7
+weight: -8
 is_admin: null
-permissions: {  }

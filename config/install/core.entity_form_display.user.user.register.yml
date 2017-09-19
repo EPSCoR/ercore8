@@ -17,6 +17,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_act
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
+    - field.field.user.user.field_ercore_user_employee_id
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
@@ -34,8 +35,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_part_dates
     - field.field.user.user.field_ercore_user_phone_mobile
     - field.field.user.user.field_ercore_user_phone_work
-    - field.field.user.user.field_ercore_user_programs
-    - field.field.user.user.field_ercore_user_proj_comp
     - field.field.user.user.field_ercore_user_race
     - field.field.user.user.field_ercore_user_rcr_on
     - field.field.user.user.field_ercore_user_rcr_on_up
@@ -45,6 +44,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
+    - field.field.user.user.user_picture
   module:
     - field_group
     - name
@@ -66,6 +66,7 @@ third_party_settings:
     group_ercore_contact:
       children:
         - field_ercore_user_name
+        - field_ercore_user_employee_id
         - account
         - timezone
         - language
@@ -97,13 +98,21 @@ bundle: user
 mode: register
 content:
   account:
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   contact:
     weight: 5
     region: content
+  field_ercore_user_employee_id:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_ercore_user_name:
     weight: 0
     settings: {  }
@@ -111,12 +120,12 @@ content:
     type: name_default
     region: content
   language:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   timezone:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -151,8 +160,6 @@ hidden:
   field_ercore_user_part_dates: true
   field_ercore_user_phone_mobile: true
   field_ercore_user_phone_work: true
-  field_ercore_user_programs: true
-  field_ercore_user_proj_comp: true
   field_ercore_user_race: true
   field_ercore_user_rcr_on: true
   field_ercore_user_rcr_on_up: true
@@ -162,3 +169,4 @@ hidden:
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true
+  user_picture: true

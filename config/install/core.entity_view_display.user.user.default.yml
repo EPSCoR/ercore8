@@ -16,7 +16,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_act
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
-    - field.field.user.user.field_ercore_user_emp_id
+    - field.field.user.user.field_ercore_user_employee_id
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
@@ -34,8 +34,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_part_dates
     - field.field.user.user.field_ercore_user_phone_mobile
     - field.field.user.user.field_ercore_user_phone_work
-    - field.field.user.user.field_ercore_user_programs
-    - field.field.user.user.field_ercore_user_proj_comp
     - field.field.user.user.field_ercore_user_race
     - field.field.user.user.field_ercore_user_rcr_on
     - field.field.user.user.field_ercore_user_rcr_on_up
@@ -45,14 +43,17 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
+    - image
     - user
 id: user.user.default
 targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_ercore_user_emp_id:
+  field_ercore_user_employee_id:
     weight: 6
     label: above
     settings:
@@ -63,6 +64,15 @@ content:
   member_for:
     weight: 5
     region: content
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
 hidden:
   field_ercore_user_address: true
   field_ercore_user_advisor: true
@@ -95,8 +105,6 @@ hidden:
   field_ercore_user_part_dates: true
   field_ercore_user_phone_mobile: true
   field_ercore_user_phone_work: true
-  field_ercore_user_programs: true
-  field_ercore_user_proj_comp: true
   field_ercore_user_race: true
   field_ercore_user_rcr_on: true
   field_ercore_user_rcr_on_up: true

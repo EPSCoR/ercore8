@@ -5,8 +5,3 @@ id: ercore_view
 label: 'ERCore View Content Only'
 weight: -6
 is_admin: null
-permissions:
-  - 'access in-place editing'
-  - 'access toolbar'
-  - 'view own unpublished content'
-  - 'view the administration theme'
