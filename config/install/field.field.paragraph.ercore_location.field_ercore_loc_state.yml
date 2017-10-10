@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.paragraph.field_ercore_loc_state
     - paragraphs.paragraphs_type.ercore_location
-  module:
-    - options
 id: paragraph.ercore_location.field_ercore_loc_state
 field_name: field_ercore_loc_state
 entity_type: paragraph
@@ -17,4 +15,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_string
+field_type: string

@@ -9,8 +9,6 @@ dependencies:
     - field.field.paragraph.ercore_location.field_ercore_loc_postal
     - field.field.paragraph.ercore_location.field_ercore_loc_state
     - paragraphs.paragraphs_type.ercore_location
-  module:
-    - select_or_other
 id: paragraph.ercore_location.default
 targetEntityType: paragraph
 bundle: ercore_location
@@ -57,12 +55,12 @@ content:
     type: string_textfield
     region: content
   field_ercore_loc_state:
-    weight: 4
+    weight: 6
     settings:
-      select_element_type: select_or_other_select
-      sort_options: ''
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: select_or_other_list
+    type: string_textfield
     region: content
 hidden:
   created: true

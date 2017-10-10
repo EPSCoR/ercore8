@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.ercore_full_paragraph
     - field.field.paragraph.ercore_location.field_ercore_loc_add1
     - field.field.paragraph.ercore_location.field_ercore_loc_add2
     - field.field.paragraph.ercore_location.field_ercore_loc_city
@@ -9,10 +10,10 @@ dependencies:
     - field.field.paragraph.ercore_location.field_ercore_loc_postal
     - field.field.paragraph.ercore_location.field_ercore_loc_state
     - paragraphs.paragraphs_type.ercore_location
-id: paragraph.ercore_location.default
+id: paragraph.ercore_location.ercore_full_paragraph
 targetEntityType: paragraph
 bundle: ercore_location
-mode: default
+mode: ercore_full_paragraph
 content:
   field_ercore_loc_add1:
     type: string

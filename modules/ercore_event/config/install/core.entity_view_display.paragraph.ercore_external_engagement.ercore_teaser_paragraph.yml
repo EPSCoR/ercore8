@@ -57,6 +57,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_pui_stu_u
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_f
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_m
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_t_u
     - paragraphs.paragraphs_type.ercore_external_engagement
@@ -173,3 +174,4 @@ hidden:
   field_ercore_ee_pui_stu_mn: true
   field_ercore_ee_pui_stu_t: true
   field_ercore_ee_pui_stu_u: true
+  field_ercore_ee_t_mn: true
