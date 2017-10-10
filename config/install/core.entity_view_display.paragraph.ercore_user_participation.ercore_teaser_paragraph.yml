@@ -5,8 +5,10 @@ dependencies:
     - core.entity_view_mode.paragraph.ercore_teaser_paragraph
     - field.field.paragraph.ercore_user_participation.field_ercore_participation_dates
     - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_component
     - field.field.paragraph.ercore_user_participation.field_ercore_user_department
     - field.field.paragraph.ercore_user_participation.field_ercore_user_partic_inst
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_program
     - field.field.paragraph.ercore_user_participation.field_ercore_user_role_desc
     - paragraphs.paragraphs_type.ercore_user_participation
 id: paragraph.ercore_user_participation.ercore_teaser_paragraph
@@ -33,4 +35,6 @@ content:
 hidden:
   field_ercore_participation_dates: true
   field_ercore_senior_role: true
+  field_ercore_user_component: true
+  field_ercore_user_program: true
   field_ercore_user_role_desc: true

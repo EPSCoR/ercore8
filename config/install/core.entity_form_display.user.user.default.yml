@@ -96,8 +96,8 @@ third_party_settings:
     group_ercore_us_demographics:
       children:
         - field_ercore_user_gender
-        - field_ercore_user_race
         - field_ercore_user_ethnicity
+        - field_ercore_user_race
         - field_ercore_user_disabilities
         - field_ercore_user_veteran
       parent_name: group_ercore_us_profile
@@ -229,6 +229,8 @@ content:
   contact:
     weight: 5
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_ercore_user_address:
     type: entity_reference_paragraphs
     weight: 9
@@ -307,7 +309,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_disabilities:
     type: options_select
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -347,7 +349,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_ethnicity:
     type: options_select
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -459,7 +461,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_race:
     type: options_buttons
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -510,7 +512,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_veteran:
     type: boolean_checkbox
-    weight: 7
+    weight: 6
     region: content
     settings:
       display_label: true

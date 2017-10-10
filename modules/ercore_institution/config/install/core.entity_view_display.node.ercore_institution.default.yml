@@ -3,8 +3,8 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_institution.body
-    - field.field.node.ercore_institution.field_ercore_in_category
     - field.field.node.ercore_institution.field_ercore_inst_abbr
+    - field.field.node.ercore_institution.field_ercore_inst_category
     - field.field.node.ercore_institution.field_ercore_inst_country
     - field.field.node.ercore_institution.field_ercore_inst_link
     - field.field.node.ercore_institution.field_ercore_inst_participating
@@ -27,9 +27,9 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_ercore_in_category:
-    weight: 6
-    label: above
+  field_ercore_inst_category:
+    weight: 8
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
@@ -65,7 +65,7 @@ content:
     type: boolean
     region: content
   field_ercore_inst_type:
-    weight: 2
+    weight: 7
     label: inline
     settings: {  }
     third_party_settings: {  }

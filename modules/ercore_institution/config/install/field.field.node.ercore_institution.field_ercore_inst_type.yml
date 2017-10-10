@@ -12,7 +12,7 @@ entity_type: node
 bundle: ercore_institution
 label: Type
 description: 'This labels the university as Jurisdictional, External-Domestic, or External-Foreign.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
