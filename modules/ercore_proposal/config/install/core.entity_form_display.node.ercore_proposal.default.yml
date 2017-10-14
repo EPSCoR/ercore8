@@ -28,25 +28,13 @@ dependencies:
     - text
 third_party_settings:
   field_group:
-    group_ercore_pp_instruct:
-      children:
-        - group_ercore_pp_principle
-      parent_name: ''
-      weight: 1
-      format_type: fieldset
-      format_settings:
-        id: ercore_pp_instruct
-        classes: 'group-ercore-pp-instruct field-group-div'
-        description: 'Please report on all your Current, Pending, and Denied Support grant efforts in your pipeline starting from your initial participating start date. Do not list this EPSCoR grant, but include all proposals, regardless of funding source or success (include all proposals you have submitted, including denied proposals). Identify the PI and Co-PI, then list the other EPSCoR faculty or faculty equivalent. Do not list Post-Docs, Grad Students, Undergrads, Techs, etc.. Use this form once for each grant effort. ONE (grant) entry is needed per grant regardless of how many EPSCoR researchers are listed on the grant.'
-        required_fields: true
-      label: Instructions
     group_ercore_pp_principle:
       children:
         - field_ercore_organizer
         - field_ercore_pp_other_pi
         - group_ercore_pp_details
-      parent_name: group_ercore_pp_instruct
-      weight: 14
+      parent_name: ''
+      weight: 2
       format_type: fieldset
       format_settings:
         label: 'Principle Investigators'
@@ -97,7 +85,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 18
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -214,7 +202,7 @@ content:
     region: content
   path:
     type: path
-    weight: 21
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -222,14 +210,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 20
+    weight: 6
     third_party_settings: {  }
     region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 17
+    weight: 3
     third_party_settings: {  }
     region: content
   title:
@@ -242,7 +230,7 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 19
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60

@@ -3,6 +3,7 @@ description: 'Provides ERCore Proposal or Grant content type and related configu
 type: module
 core: 8.x
 dependencies:
+  - block_content
   - datetime
   - datetime_range
   - ercore_core

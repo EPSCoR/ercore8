@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * PHP file {ercore_proposal.module} for use with eightball.
+ */
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Form Alter for ERCore Proposal nodes.
+ */
+function ercore_proposal_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'node_ercore_proposal_form' || $form_id === 'node_ercore_proposal_edit_form') {
+    ksm($form);
+    $form['fieldname'] = array(
+      '#type' => 'markup',
+      '#value' => "My Value Goes Here",
+    );
+    $form['field_ercore_pp_proposal_submit']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array(
+          array('value' => 'Submitted'),
+          array('value' => 'Pending'),
+          array('value' => 'Awarded'),
+          array('value' => 'Expired'),
+          array('value' => 'Denied'),
+        ),
+      ),
+    );
+    $form['field_ercore_pp_proposal_pending']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array('value' => 'Pending'),
+      ),
+      'required' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array('value' => 'Pending'),
+      ),
+    );
+    $form['field_ercore_pp_proposal_denied']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array('value' => 'Denied'),
+      ),
+      'required' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array('value' => 'Denied'),
+      ),
+    );
+    $form['field_ercore_pp_proposal_date']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array(
+          array('value' => 'Awarded'),
+          array('value' => 'Expired'),
+        ),
+      ),
+      'required' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array(
+          array('value' => 'Awarded'),
+          array('value' => 'Expired'),
+        ),
+      ),
+    );
+    $form['field_ercore_pp_award_amount']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array('value' => 'Awarded'),
+      ),
+      'required' => array(
+        ':input[name="field_ercore_pp_proposal_status[und]"]' => array('value' => 'Awarded'),
+      ),
+    );
+  }
+}
