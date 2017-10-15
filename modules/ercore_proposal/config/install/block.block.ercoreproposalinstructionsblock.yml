@@ -1,0 +1,28 @@
+uuid: 2b2d62ff-8bc7-4fcb-bfac-828b93d2e054
+langcode: en
+status: true
+dependencies:
+  module:
+    - ercore_proposal
+    - node
+  theme:
+    - seven
+id: ercoreproposalinstructionsblock
+theme: seven
+region: highlighted
+weight: -3
+provider: null
+plugin: ercore_proposal_instructions_block
+settings:
+  id: ercore_proposal_instructions_block
+  label: 'ERCore Proposal instructions block'
+  provider: ercore_proposal
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      ercore_proposal: ercore_proposal
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
