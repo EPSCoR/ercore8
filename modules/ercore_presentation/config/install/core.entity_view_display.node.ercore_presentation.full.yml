@@ -4,7 +4,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_presentation.body
-    - field.field.node.ercore_presentation.field_ercore_goals
     - field.field.node.ercore_presentation.field_ercore_nsf
     - field.field.node.ercore_presentation.field_ercore_organizer
     - field.field.node.ercore_presentation.field_ercore_programs
@@ -35,14 +34,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_ercore_goals:
-    type: string
-    weight: 9
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_ercore_nsf:
     type: list_default
     weight: 11

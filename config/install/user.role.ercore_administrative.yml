@@ -5,3 +5,4 @@ id: ercore_administrative
 label: 'Administrative Staff'
 weight: -4
 is_admin: null
+permissions: {  }

@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_presentation.body
-    - field.field.node.ercore_presentation.field_ercore_goals
     - field.field.node.ercore_presentation.field_ercore_nsf
     - field.field.node.ercore_presentation.field_ercore_organizer
     - field.field.node.ercore_presentation.field_ercore_programs
@@ -33,14 +32,6 @@ content:
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_ercore_goals:
-    weight: 7
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
     region: content
   field_ercore_nsf:
     weight: 10

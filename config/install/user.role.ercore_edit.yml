@@ -5,3 +5,4 @@ id: ercore_edit
 label: 'ERCore Edit Content'
 weight: -5
 is_admin: null
+permissions: {  }

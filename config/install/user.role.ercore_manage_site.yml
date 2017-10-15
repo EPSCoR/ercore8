@@ -5,3 +5,4 @@ id: ercore_manage_site
 label: 'ERCore Site Manager'
 weight: -3
 is_admin: null
+permissions: {  }
