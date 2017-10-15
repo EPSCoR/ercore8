@@ -10,9 +10,11 @@ entity_type: node
 bundle: ercore_publication
 label: 'Is it being archived?'
 description: ''
-required: false
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 0
 default_value_callback: ''
 settings:
   on_label: 'Yes'

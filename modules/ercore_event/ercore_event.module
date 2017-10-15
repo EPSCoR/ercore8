@@ -5,11 +5,13 @@
  * Defines ERCore Event content and field types.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 require_once drupal_get_path('module', 'ercore_event') . '/includes/ercore_event_computed.inc';
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
-function ercore_event_form_node_ercore_event_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function ercore_event_form_node_ercore_event_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   
 }

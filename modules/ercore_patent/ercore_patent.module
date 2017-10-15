@@ -5,10 +5,12 @@
  * PHP file {ercore_patent.module} for use with eightball.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_form_alter().
  */
-function ercore_patent_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function ercore_patent_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_patent_form' || $form_id === 'node_ercore_patent_edit_form') {
     $form['field_ercore_pt_license']['#states'] = array(
       'visible' => array(
