@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_ps_others
+    - node.type.ercore_presentation
+id: node.ercore_presentation.field_ercore_ps_others
+field_name: field_ercore_ps_others
+entity_type: node
+bundle: ercore_presentation
+label: 'Non-EPSCoR Presenter(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

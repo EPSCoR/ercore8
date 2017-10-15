@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_ps_type
+    - node.type.ercore_presentation
+  module:
+    - options
+id: node.ercore_presentation.field_ercore_ps_type
+field_name: field_ercore_ps_type
+entity_type: node
+bundle: ercore_presentation
+label: 'Type of Presentation'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

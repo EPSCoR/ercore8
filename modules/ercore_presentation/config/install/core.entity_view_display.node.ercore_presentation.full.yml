@@ -4,10 +4,23 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_presentation.body
+    - field.field.node.ercore_presentation.field_ercore_goals
+    - field.field.node.ercore_presentation.field_ercore_nsf
     - field.field.node.ercore_presentation.field_ercore_organizer
     - field.field.node.ercore_presentation.field_ercore_programs
+    - field.field.node.ercore_presentation.field_ercore_ps_date
+    - field.field.node.ercore_presentation.field_ercore_ps_event
+    - field.field.node.ercore_presentation.field_ercore_ps_link
+    - field.field.node.ercore_presentation.field_ercore_ps_others
+    - field.field.node.ercore_presentation.field_ercore_ps_status
+    - field.field.node.ercore_presentation.field_ercore_ps_type
+    - field.field.node.ercore_presentation.field_ercore_ps_upload
     - node.type.ercore_presentation
   module:
+    - datetime
+    - file
+    - link
+    - options
     - text
     - user
 id: node.ercore_presentation.full
@@ -18,10 +31,25 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 0
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_goals:
+    type: string
+    weight: 9
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_nsf:
+    type: list_default
+    weight: 11
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
   field_ercore_organizer:
     weight: 1
     label: above
@@ -32,16 +60,73 @@ content:
     type: entity_reference_entity_view
     region: content
   field_ercore_programs:
-    weight: 2
+    weight: 8
     label: inline
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  links:
-    weight: 3
+  field_ercore_ps_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_ercore_ps_event:
+    type: basic_string
+    weight: 7
+    region: content
+    label: above
     settings: {  }
     third_party_settings: {  }
+  field_ercore_ps_link:
+    type: link
+    weight: 3
     region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_ercore_ps_others:
+    type: string
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_ps_status:
+    type: list_default
+    weight: 4
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_ps_type:
+    type: list_default
+    weight: 5
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_ps_upload:
+    type: file_default
+    weight: 12
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

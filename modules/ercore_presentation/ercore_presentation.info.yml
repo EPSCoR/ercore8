@@ -3,11 +3,17 @@ description: 'Provides ERCore Presentation content type and related configuratio
 type: module
 core: 8.x
 dependencies:
+  - datetime
   - ercore_core
   - ercore_program
+  - ercore_publication
   - field
+  - field_permissions
+  - file
+  - link
   - menu_ui
   - node
+  - options
   - path
   - text
   - user
