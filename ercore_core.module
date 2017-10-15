@@ -9,8 +9,6 @@
  * Implements hook_form_alter().
  */
 function ercore_core_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  //dpm($form_id, 'from_id')
-//  ksm($form);
   $user = \Drupal::currentUser();
   $uid = \Drupal::currentUser()->id();
   $forms = array(
@@ -24,7 +22,6 @@ function ercore_core_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $fo
     'node_ercore_proposal_form',
     'node_ercore_publication_form',
   );
-  //ksm($uid);
   if (in_array($form_id, $forms) && $form['nid']['#value'] == NULL) {
     $form['field_ercore_organizer']['widget'][0]['#default_value'] = $uid;
     $form['field_ercore_organizer']['widget'][0]['#target_type'] = 'user';

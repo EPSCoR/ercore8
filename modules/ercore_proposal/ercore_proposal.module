@@ -12,7 +12,6 @@
  */
 function ercore_proposal_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_proposal_form' || $form_id === 'node_ercore_proposal_edit_form') {
-    ksm($form);
     $form['fieldname'] = array(
       '#type' => 'markup',
       '#value' => "My Value Goes Here",

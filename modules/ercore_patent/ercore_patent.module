@@ -10,7 +10,6 @@
  */
 function ercore_patent_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_patent_form' || $form_id === 'node_ercore_patent_edit_form') {
-    ksm($form['field_ercore_pt_license']['widget']['0']['value']['#states'], 'before');
     $form['field_ercore_pt_license']['#states'] = array(
       'visible' => array(
         ':input[name="field_ercore_pt_licensed[value]"]' => array('checked' => TRUE),
@@ -31,6 +30,5 @@ function ercore_patent_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $
         ':input[name="field_ercore_pt_licensed[value]"]' => array('checked' => TRUE),
       ),
     );
-    ksm($form['field_ercore_pt_license']['widget']['0']['value']['#states'], 'after');
   }
 }

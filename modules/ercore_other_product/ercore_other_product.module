@@ -12,7 +12,6 @@
  */
 function ercore_other_product_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_other_product_form' || $form_id === 'node_ercore_other_product_edit_form') {
-    ksm('hit form?');
     // Makes Website field visible if type value  is set to 7 (website).
     $form['field_ercore_op_website']['#states'] = array(
       'visible' => array(
