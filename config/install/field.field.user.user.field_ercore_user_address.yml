@@ -13,7 +13,7 @@ entity_type: user
 bundle: user
 label: 'Work Address'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -29,4 +29,10 @@ settings:
       ercore_location:
         enabled: true
         weight: 4
+      ercore_collaborator:
+        weight: 5
+        enabled: false
+      ercore_user_participation:
+        weight: 8
+        enabled: false
 field_type: entity_reference_revisions

@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_ercore_user_address
-    - field.field.user.user.field_ercore_user_advisor
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
     - field.field.user.user.field_ercore_user_data_date
@@ -64,6 +63,8 @@ content:
   member_for:
     weight: 5
     region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
@@ -75,7 +76,6 @@ content:
     label: hidden
 hidden:
   field_ercore_user_address: true
-  field_ercore_user_advisor: true
   field_ercore_user_boards: true
   field_ercore_user_collecting: true
   field_ercore_user_data_date: true

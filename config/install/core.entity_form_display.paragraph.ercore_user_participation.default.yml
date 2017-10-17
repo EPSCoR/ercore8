@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
     - field.field.paragraph.ercore_user_participation.field_ercore_user_component
     - field.field.paragraph.ercore_user_participation.field_ercore_user_department
+    - field.field.paragraph.ercore_user_participation.field_ercore_user_mentor
     - field.field.paragraph.ercore_user_participation.field_ercore_user_partic_inst
     - field.field.paragraph.ercore_user_participation.field_ercore_user_program
     - field.field.paragraph.ercore_user_participation.field_ercore_user_role_desc
@@ -19,7 +20,7 @@ bundle: ercore_user_participation
 mode: default
 content:
   field_ercore_participation_dates:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
@@ -31,7 +32,7 @@ content:
     type: options_select
     region: content
   field_ercore_user_component:
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -40,21 +41,30 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ercore_user_department:
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_ercore_user_partic_inst:
+  field_ercore_user_mentor:
     weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ercore_user_partic_inst:
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_ercore_user_program:
-    weight: 4
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
@@ -63,7 +73,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ercore_user_role_desc:
-    weight: 6
+    weight: 7
     settings:
       rows: 5
       placeholder: ''

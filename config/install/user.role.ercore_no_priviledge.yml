@@ -3,6 +3,6 @@ status: true
 dependencies: {  }
 id: ercore_no_priviledge
 label: 'ERCore No Priviledges'
-weight: -7
+weight: -8
 is_admin: null
 permissions: {  }

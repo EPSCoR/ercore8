@@ -4,7 +4,6 @@ dependencies:
   config:
     - core.entity_form_mode.user.register
     - field.field.user.user.field_ercore_user_address
-    - field.field.user.user.field_ercore_user_advisor
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
     - field.field.user.user.field_ercore_user_data_date
@@ -37,9 +36,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_phone_work
     - field.field.user.user.field_ercore_user_race
     - field.field.user.user.field_ercore_user_rcr_on
-    - field.field.user.user.field_ercore_user_rcr_on_up
     - field.field.user.user.field_ercore_user_rcr_per
-    - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
@@ -77,7 +74,6 @@ content:
 hidden:
   contact: true
   field_ercore_user_address: true
-  field_ercore_user_advisor: true
   field_ercore_user_boards: true
   field_ercore_user_collecting: true
   field_ercore_user_data_date: true
@@ -109,9 +105,7 @@ hidden:
   field_ercore_user_phone_work: true
   field_ercore_user_race: true
   field_ercore_user_rcr_on: true
-  field_ercore_user_rcr_on_up: true
   field_ercore_user_rcr_per: true
-  field_ercore_user_rcr_per_up: true
   field_ercore_user_rcr_status: true
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true
