@@ -15,6 +15,7 @@ dependencies:
   - node
   - options
   - path
+  - pathauto
   - text
   - user
 version: 8.x-1.0

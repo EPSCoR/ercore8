@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_other_products
+label: 'ERCore Other Products'
+type: 'canonical_entities:node'
+pattern: 'other-research-products/[node:field_ercore_op_type]/[node:title]'
+selection_criteria:
+  1ad0bc5b-b3f0-460e-bbcb-f27b3567ac02:
+    id: node_type
+    bundles:
+      ercore_other_product: ercore_other_product
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 1ad0bc5b-b3f0-460e-bbcb-f27b3567ac02
+selection_logic: and
+weight: -5
+relationships: {  }

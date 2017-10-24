@@ -2,19 +2,18 @@ langcode: en
 status: true
 dependencies:
   module:
-    - datetime
     - field_permissions
-    - user
+    - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: user.field_ercore_user_data_date
-field_name: field_ercore_user_data_date
-entity_type: user
-type: datetime
+id: node.field_ercore_ps_event
+field_name: field_ercore_ps_event
+entity_type: node
+type: string_long
 settings:
-  datetime_type: date
-module: datetime
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

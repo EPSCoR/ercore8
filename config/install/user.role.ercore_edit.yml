@@ -3,6 +3,6 @@ status: true
 dependencies: {  }
 id: ercore_edit
 label: 'ERCore Edit Content'
-weight: -6
+weight: -5
 is_admin: null
 permissions: {  }

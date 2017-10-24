@@ -15,6 +15,7 @@ dependencies:
   - node
   - paragraphs
   - path
+  - pathauto
   - taxonomy
   - text
   - user

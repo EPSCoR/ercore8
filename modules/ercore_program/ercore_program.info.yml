@@ -3,10 +3,12 @@ description: 'ERCore Programs vocabulary and functions.'
 type: module
 core: 8.x
 dependencies:
+  - ctools
   - field
   - field_permissions
   - node
   - path
+  - pathauto
   - taxonomy
   - text
 version: 8.x-1.0

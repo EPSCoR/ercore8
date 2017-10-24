@@ -19,10 +19,13 @@ dependencies:
   - node
   - options
   - paragraphs
+  - pathauto
   - select_or_other
+  - semanticviews
   - taxonomy
   - text
   - user
+  - views
 version: 8.x-1.0
 project: ercore
 package: ERCore

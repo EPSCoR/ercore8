@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_collaborations
+label: 'ERCore Collaborations'
+type: 'canonical_entities:node'
+pattern: 'collaborations/[node:title]'
+selection_criteria:
+  8525b530-766c-4f70-8ccf-3723df74e425:
+    id: node_type
+    bundles:
+      ercore_collaboration: ercore_collaboration
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 8525b530-766c-4f70-8ccf-3723df74e425
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: ercore_programs
+label: 'ERCore Programs'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'programs/[term:name]'
+selection_criteria:
+  4b598a5c-f567-4071-8397-c62691f7233b:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      ercore_program_vocab: ercore_program_vocab
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 4b598a5c-f567-4071-8397-c62691f7233b
+selection_logic: and
+weight: -5
+relationships: {  }

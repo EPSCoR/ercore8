@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_presentation
+label: 'ERCore Presentation'
+type: 'canonical_entities:node'
+pattern: 'presentations/[node:field_ercore_ps_type]/[node:field_ercore_ps_date:date:custom:Y]/[node:title]'
+selection_criteria:
+  32fa4514-4825-41b7-a824-a04961360abc:
+    id: node_type
+    bundles:
+      ercore_presentation: ercore_presentation
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 32fa4514-4825-41b7-a824-a04961360abc
+selection_logic: and
+weight: -5
+relationships: {  }

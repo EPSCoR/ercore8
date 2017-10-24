@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.full
+    - field.field.user.user.field_ercore_overall_roles
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
@@ -556,4 +557,5 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_ercore_overall_roles: true
   member_for: true

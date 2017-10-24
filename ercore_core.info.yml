@@ -4,7 +4,10 @@ type: module
 core: 8.x
 version: 8.x-1.0
 dependencies:
+  - block
+  - block_content
   - ckeditor
+  - contact
   - datetime
   - datetime_range
   - editor
@@ -19,6 +22,7 @@ dependencies:
   - filter
   - image
   - link
+  - menu_link_content
   - name
   - node
   - options
@@ -26,9 +30,11 @@ dependencies:
   - path
   - pathologic
   - select_or_other
+  - shortcut
   - system
   - taxonomy
   - telephone
   - text
+  - tour
   - user
 package: ERCore

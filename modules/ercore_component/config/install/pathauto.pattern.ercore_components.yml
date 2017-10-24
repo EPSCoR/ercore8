@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: ercore_components
+label: 'ERCore Components'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'components/[term:name]'
+selection_criteria:
+  c3bd9081-4a64-4187-a679-4162f2663bbe:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      ercore_component_vocab: ercore_component_vocab
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: c3bd9081-4a64-4187-a679-4162f2663bbe
+selection_logic: and
+weight: -5
+relationships: {  }

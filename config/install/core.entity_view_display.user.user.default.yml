@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_ercore_overall_roles
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
@@ -75,6 +76,7 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_ercore_overall_roles: true
   field_ercore_user_address: true
   field_ercore_user_boards: true
   field_ercore_user_collecting: true

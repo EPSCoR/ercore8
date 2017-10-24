@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_ercore_overall_roles
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
@@ -52,6 +53,7 @@ dependencies:
     - link
     - name
     - paragraphs
+    - path
     - telephone
     - text
     - user
@@ -61,8 +63,8 @@ third_party_settings:
       children:
         - group_ercore_us_contact
         - group_ercore_us_demographics
-        - group_ercore_us_epscor
         - group_ercore_us_institution
+        - group_ercore_us_epscor
         - group_ercore_us_data
         - group_ercore_us_account
       parent_name: ''
@@ -123,7 +125,7 @@ third_party_settings:
         - group_ercore_us_education
         - group_ercore_us_certification
       parent_name: group_ercore_us_profile
-      weight: 49
+      weight: 50
       format_type: tab
       format_settings:
         label: 'EPSCoR Involvement'
@@ -137,7 +139,7 @@ third_party_settings:
       children:
         - field_ercore_user_part_dates
       parent_name: group_ercore_us_profile
-      weight: 50
+      weight: 49
       format_type: tab
       format_settings:
         id: ercore_user_institution
@@ -155,7 +157,7 @@ third_party_settings:
         - field_ercore_user_data_ongoing
         - field_ercore_user_data_desc
       parent_name: group_ercore_us_profile
-      weight: 52
+      weight: 51
       format_type: tab
       format_settings:
         id: ercore_user_data
@@ -170,7 +172,7 @@ third_party_settings:
         - language
         - timezone
       parent_name: group_ercore_us_profile
-      weight: 53
+      weight: 52
       format_type: tab
       format_settings:
         id: ercore_user_account
@@ -190,7 +192,7 @@ third_party_settings:
         - field_ercore_user_mentor_plan_dt
         - field_ercore_user_mentor_plan
       parent_name: group_ercore_us_epscor
-      weight: 20
+      weight: 21
       format_type: fieldset
       format_settings:
         id: ercore_user_education
@@ -206,7 +208,7 @@ third_party_settings:
         - field_ercore_user_rcr_on
         - field_ercore_user_rcr_on_up
       parent_name: group_ercore_us_epscor
-      weight: 21
+      weight: 22
       format_type: fieldset
       format_settings:
         id: ercore_user_certification
@@ -229,6 +231,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_ercore_overall_roles:
+    weight: 53
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_ercore_user_address:
     type: entity_reference_paragraphs
     weight: 9
@@ -243,7 +251,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_boards:
     type: options_buttons
-    weight: 10
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -292,7 +300,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_direct_fund:
     type: number
-    weight: 18
+    weight: 19
     region: content
     settings:
       placeholder: ''
@@ -305,19 +313,19 @@ content:
     third_party_settings: {  }
   field_ercore_user_doc_act:
     type: datetime_default
-    weight: 22
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_doc_ant:
     type: datetime_default
-    weight: 21
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_effort_months:
     type: number
-    weight: 17
+    weight: 18
     region: content
     settings:
       placeholder: ''
@@ -332,7 +340,7 @@ content:
     region: content
   field_ercore_user_epscore_paid:
     type: options_buttons
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -344,13 +352,13 @@ content:
     third_party_settings: {  }
   field_ercore_user_fac_support:
     type: options_buttons
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_funding_src:
     type: text_textarea
-    weight: 19
+    weight: 20
     region: content
     settings:
       rows: 5
@@ -364,13 +372,13 @@ content:
     third_party_settings: {  }
   field_ercore_user_hired_date:
     type: datetime_default
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_lead_team:
     type: options_buttons
-    weight: 9
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -384,26 +392,26 @@ content:
     third_party_settings: {  }
   field_ercore_user_master_act:
     type: datetime_default
-    weight: 20
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_master_ant:
     type: datetime_default
-    weight: 19
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_mentor_plan:
     type: file_generic
-    weight: 24
+    weight: 21
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_ercore_user_mentor_plan_dt:
     type: datetime_default
-    weight: 23
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -415,13 +423,13 @@ content:
     third_party_settings: {  }
   field_ercore_user_part_160:
     type: options_buttons
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_part_dates:
     type: paragraphs
-    weight: 6
+    weight: 13
     region: content
     settings:
       title: Paragraph
@@ -485,13 +493,13 @@ content:
     third_party_settings: {  }
   field_ercore_user_under_act:
     type: datetime_default
-    weight: 18
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_under_ant:
     type: datetime_default
-    weight: 17
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -504,6 +512,12 @@ content:
     third_party_settings: {  }
   language:
     weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }

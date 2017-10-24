@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_proposal
+label: 'ERCore Proposal'
+type: 'canonical_entities:node'
+pattern: 'proposals/[node:field_ercore_pp_proposal_submit:date:custom:Y]/[node:field_ercore_pp_proposal_submit:date:custom:m]/[node:title]'
+selection_criteria:
+  e15d5048-567e-4dfc-81a8-78d39788cecc:
+    id: node_type
+    bundles:
+      ercore_proposal: ercore_proposal
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e15d5048-567e-4dfc-81a8-78d39788cecc
+selection_logic: and
+weight: -5
+relationships: {  }

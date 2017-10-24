@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_patent
+label: 'ERCore Patent'
+type: 'canonical_entities:node'
+pattern: 'patents/[node:title]'
+selection_criteria:
+  16a70252-5e45-4502-9692-e0acb7cb641e:
+    id: node_type
+    bundles:
+      ercore_patent: ercore_patent
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 16a70252-5e45-4502-9692-e0acb7cb641e
+selection_logic: and
+weight: -5
+relationships: {  }

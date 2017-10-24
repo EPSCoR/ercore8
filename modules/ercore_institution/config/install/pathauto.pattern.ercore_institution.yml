@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_institution
+label: 'ERCore Institution'
+type: 'canonical_entities:node'
+pattern: 'institutions/[node:title]'
+selection_criteria:
+  81a4395b-071e-42f1-99b9-49352c486799:
+    id: node_type
+    bundles:
+      ercore_institution: ercore_institution
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 81a4395b-071e-42f1-99b9-49352c486799
+selection_logic: and
+weight: -5
+relationships: {  }

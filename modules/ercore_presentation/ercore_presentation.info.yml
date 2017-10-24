@@ -5,6 +5,7 @@ core: 8.x
 dependencies:
   - datetime
   - ercore_core
+  - ercore_event
   - ercore_program
   - ercore_publication
   - field
@@ -15,6 +16,7 @@ dependencies:
   - node
   - options
   - path
+  - pathauto
   - text
   - user
 version: 8.x-1.0

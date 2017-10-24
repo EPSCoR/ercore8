@@ -3,9 +3,11 @@ description: 'ERCore Components vocabulary and functions.'
 type: module
 core: 8.x
 dependencies:
+  - ctools
   - field
   - field_permissions
   - path
+  - pathauto
   - taxonomy
   - text
 version: 8.x-1.0

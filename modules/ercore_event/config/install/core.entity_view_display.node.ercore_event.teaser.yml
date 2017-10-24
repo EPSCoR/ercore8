@@ -15,32 +15,53 @@ dependencies:
     - field.field.node.ercore_event.field_ercore_programs
     - node.type.ercore_event
   module:
-    - text
+    - datetime_range
+    - options
     - user
 id: node.ercore_event.teaser
 targetEntityType: node
 bundle: ercore_event
 mode: teaser
 content:
-  body:
+  field_ercore_ev_date:
+    type: daterange_default
+    weight: 0
+    region: content
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
     settings:
-      trim_length: 600
+      timezone_override: ''
+      format_type: ercore_long
+      separator: '-'
     third_party_settings: {  }
+  field_ercore_event_type:
+    type: list_default
+    weight: 1
     region: content
-  links:
-    weight: 100
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_organizer:
+    type: entity_reference_label
+    weight: 2
     region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_ercore_programs:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
 hidden:
-  field_ercore_ev_date: true
+  body: true
   field_ercore_ev_document: true
   field_ercore_ev_engagement: true
   field_ercore_ev_location: true
   field_ercore_ev_program: true
   field_ercore_ev_reminders: true
   field_ercore_ev_url: true
-  field_ercore_event_type: true
-  field_ercore_organizer: true
-  field_ercore_programs: true
+  links: true

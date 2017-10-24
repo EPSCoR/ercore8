@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_highlight
+label: 'ERCore Highlight'
+type: 'canonical_entities:node'
+pattern: 'highlights/[node:field_ercore_hi_date:date:custom:Y]/[node:title]'
+selection_criteria:
+  9d41d65c-623f-4905-8f8d-bb86a4a873dc:
+    id: node_type
+    bundles:
+      ercore_j_highlight: ercore_j_highlight
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 9d41d65c-623f-4905-8f8d-bb86a4a873dc
+selection_logic: and
+weight: -5
+relationships: {  }

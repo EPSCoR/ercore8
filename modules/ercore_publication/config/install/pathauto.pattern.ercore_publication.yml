@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_publication
+label: 'ERCore Publication'
+type: 'canonical_entities:node'
+pattern: 'publications/[node:field_ercore_pb_type]/[node:title]'
+selection_criteria:
+  11e4ca62-3f46-48f9-99fb-4083320001e4:
+    id: node_type
+    bundles:
+      ercore_publication: ercore_publication
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 11e4ca62-3f46-48f9-99fb-4083320001e4
+selection_logic: and
+weight: -5
+relationships: {  }

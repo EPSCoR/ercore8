@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_honor
+label: 'ERCore Honor'
+type: 'canonical_entities:node'
+pattern: 'honors/[node:field_ercore_hn_date:date:custom:Y]/[node:title]'
+selection_criteria:
+  a8c1de00-2d64-4901-8a00-7608811a1dc5:
+    id: node_type
+    bundles:
+      ercore_j_honor: ercore_j_honor
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a8c1de00-2d64-4901-8a00-7608811a1dc5
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -11,213 +11,32 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_form_alter().
  */
 function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $user = \Drupal::currentUser();
-  $uid = \Drupal::currentUser()->id();
-  $forms = array(
-    'node_ercore_collaboration_form',
-    'node_ercore_event_form',
-    'node_ercore_j_highlight_form',
-    'node_ercore_j_honor_form',
-    'node_ercore_other_product_form',
-    'node_ercore_patent_form',
-    'node_ercore_presentation_form',
-    'node_ercore_proposal_form',
-    'node_ercore_publication_form',
-  );
-  if (in_array($form_id, $forms) && $form['nid']['#value'] == NULL) {
-    $form['field_ercore_organizer']['widget'][0]['#default_value'] = $uid;
-    $form['field_ercore_organizer']['widget'][0]['#target_type'] = 'user';
+  if ($form_id === 'user_form') {
+    $form['field_test_text']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_ercore_overall_roles"]' => array('value' => 'undergraduate'),
+      ),
+    );
   }
-
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Description.
+ *
+ * @param array $roles
+ *   User roles associated with an account.
+ *
+ * @return bool
+ *   Return a boolean if the user account belongs to an ERCore admin account.
  */
-function ercore_core_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
- // ksm($form);
-  $user = \Drupal::currentUser();
-  //ksm($user);
-  $roles = $user->getRoles();
-
+function ercore_core_is_admin(array $roles) {
   $admin_roles = array(
     'administrator',
     'administrative staff',
     'site manager',
   );
   if (!in_array($roles, $admin_roles)) {
-  //  $form['field_ercore_us_sen_role']['#disabled'] = TRUE;
+    return TRUE;
   }
-  $admin = TRUE;
-
-  // User field Advisor / Mentor #states.
-  $form['field_ercore_user_mentor']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_part_dates[0][subform][field_ercore_senior_role]"]' => array('value' => '4'),
-    ),
-  );
-  // User field Faculty Support #states.
-  $form['field_ercore_us_fac_support']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '0'),
-    ),
-   /* 'required' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '0'),
-    ),*/
-  );
-  // User field Anticipated Undergraduate Date #states.
-  /*$form['field_ercore_us_under_ant']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '5'),
-    ),
-    'required' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '5'),
-    ),
-  );
-  // User field Actual Undergraduate Date #states.
-  $form['field_ercore_us_under_act']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '5'),
-    ),
-  );
-  // User field Anticipated Masters Date #states.
-  $form['field_ercore_us_masters_ant']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '4'),
-    ),
-  );
-  // User field Actual Masters Date #states.
-  $form['field_ercore_us_masters_act']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '4'),
-    ),
-  );
-  // User field Anticipated Doctoral Date #states.
-  $form['field_ercore_us_doctor_ant']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '4'),
-    ),
-  );
-  // User field Actual Doctoral Date #states.
-  $form['field_ercore_us_doctor_act']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array('value' => '4'),
-    ),
-  );
-  // User RCR Training #states.
-  $form['field_ercore_us_rcr_bool']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array(
-        array('value' => '5'),
-        array('value' => '4'),
-      ),
-    ),
-  );
-  // User Boards & Committee field #states.
-  $form['field_ercore_us_committees']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array(
-        array('value' => '0'),
-        array('value' => '2'),
-      ),
-    ),
-  );
-  unset($form['field_ercore_us_leadership_team']['und']['#options']['_none']);
-  // User Management Team field #states.
-  $form['field_ercore_us_leadership_team']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array(
-        array('value' => '0'),
-        array('value' => '2'),
-      ),
-    ),
-    'required' => array(
-      ':input[name="field_ercore_us_sen_role[und]"]' => array(
-        array('value' => '0'),
-        array('value' => '2'),
-      ),
-    ),
-  );*/
-  // User RCR in Person Date #states.
-  $form['field_ercore_user_rcr_per']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_rcr_status"]' => array('value' => 1),
-    ),
-  );
-  // User RCR in Person Upload #states.
-  $form['field_ercore_user_rcr_per_up']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_rcr_status"]' => array('value' => 1),
-    ),
-  );
-  // User RCR online Date #states.
-  $form['field_ercore_user_rcr_on']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_rcr_status"]' => array('value' => 1),
-    ),
-  );
-  $form['field_ercore_user_rcr_on_up']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_rcr_status"]' => array('value' => 1),
-    ),
-  );
-  // User RCR Additional Doc #states.
-  $form['field_ercore_us_additional_doc']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_rcr_status"]' => array('value' => 1),
-    ),
-  );
-  // User Mentoring Signoff #states.
-  $form['field_ercore_us_ment_signoff']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_rcr_bool[und]"]' => array('value' => '3'),
-    ),
-    /*'required' => array(
-      ':input[name="field_ercore_us_rcr_bool[und]"]' => array('value' => '3'),
-    ),*/
-  );
-  // User Mentoring Plan Upload  #states.
-  /*$form['field_ercore_user_rcr_per_up']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_us_rcr_bool[und]"]' => array('value' => '3'),
-    ),
-    'required' => array(
-      ':input[name="field_ercore_us_rcr_bool[und]"]' => array('value' => '3'),
-    ),
-  );*/
-  // User Data Description #states.
-  $form['field_ercore_user_data_desc']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_collecting[value]"]' => array('checked' => TRUE),
-    ),
-  );
- /* $form['field_ercore_user_data_desc']['widget']['0']['value']['#states'] = array(
-    'required' => array(
-      ':input[name="field_ercore_user_collecting[value]"]' => array('checked' => TRUE),
-    ),
-  );*/
-  // User Data ongoing #states.
-  $form['field_ercore_user_data_ongoing']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_collecting[value]"]' => array('checked' => TRUE),
-    ),
-  );
-  // User Data Submission Date #states.
-  $form['field_ercore_user_data_date']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_collecting[value]"]' => array('checked' => TRUE),
-    ),
-  );
-  // User Data Manager #states.
-  $form['field_ercore_user_data_mgr']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_collecting[value]"]' => array('checked' => TRUE),
-    ),
-  );
-  // User Data URL #states.
-  $form['field_ercore_user_data_url']['#states'] = array(
-    'visible' => array(
-      ':input[name="field_ercore_user_collecting[value]"]' => array('checked' => TRUE),
-    ),
-  );
+  return FALSE;
 }
