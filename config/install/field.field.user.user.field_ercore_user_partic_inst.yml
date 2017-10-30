@@ -2,13 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ercore_user_partic_inst
-    - paragraphs.paragraphs_type.ercore_user_participation
-id: paragraph.ercore_user_participation.field_ercore_user_partic_inst
+    - field.storage.user.field_ercore_user_partic_inst
+  module:
+    - user
+id: user.user.field_ercore_user_partic_inst
 field_name: field_ercore_user_partic_inst
-entity_type: paragraph
-bundle: ercore_user_participation
-label: 'Participating Institution'
+entity_type: user
+bundle: user
+label: 'Participating  Institution'
 description: ''
 required: true
 translatable: false

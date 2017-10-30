@@ -1,0 +1,12 @@
+administer ercore module:
+  title: 'Administer ERCore Content'
+  description: 'Administer ERCore Configuration and Settings.'
+access ercore admin content:
+  title: 'Access ERCore Content: Administrative'
+  description: ''
+access ercore content:
+  title: 'Access ERCore Content'
+  description: 'Allows users with access to the In-Place editor to administer page manager pages. This permission is only needed for users without "use page manager" access.'
+access ercore excel sheets:
+  title:  'Access ERCore Excel sheets'
+  description: 'Download ERCore Data Exports'

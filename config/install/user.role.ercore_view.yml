@@ -5,4 +5,5 @@ id: ercore_view
 label: 'ERCore View Content Only'
 weight: -6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access ercore content'
