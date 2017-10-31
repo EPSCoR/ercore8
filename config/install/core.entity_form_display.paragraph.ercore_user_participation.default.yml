@@ -5,7 +5,6 @@ dependencies:
     - field.field.paragraph.ercore_user_participation.field_ercore_participation_dates
     - field.field.paragraph.ercore_user_participation.field_ercore_senior_role
     - field.field.paragraph.ercore_user_participation.field_ercore_user_component
-    - field.field.paragraph.ercore_user_participation.field_ercore_user_department
     - field.field.paragraph.ercore_user_participation.field_ercore_user_mentor
     - field.field.paragraph.ercore_user_participation.field_ercore_user_program
     - field.field.paragraph.ercore_user_participation.field_ercore_user_role_desc
@@ -38,14 +37,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: content
-  field_ercore_user_department:
-    weight: 4
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_ercore_user_mentor:
     weight: 1

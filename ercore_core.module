@@ -40,3 +40,4 @@ function ercore_core_is_admin(array $roles) {
   }
   return FALSE;
 }
+

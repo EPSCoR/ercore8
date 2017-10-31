@@ -12,6 +12,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_data_mgr
     - field.field.user.user.field_ercore_user_data_ongoing
     - field.field.user.user.field_ercore_user_data_url
+    - field.field.user.user.field_ercore_user_department
     - field.field.user.user.field_ercore_user_direct_fund
     - field.field.user.user.field_ercore_user_disabilities
     - field.field.user.user.field_ercore_user_doc_act
@@ -131,6 +132,7 @@ third_party_settings:
     group_ercore_institution:
       children:
         - field_ercore_user_partic_inst
+        - field_ercore_user_department
         - field_ercore_user_part_dates
         - group_ercore_education
       parent_name: group_ercore_profile
@@ -158,7 +160,7 @@ third_party_settings:
         - field_ercore_user_rcr_on
         - field_ercore_user_rcr_on_up
       parent_name: group_ercore_institution
-      weight: 35
+      weight: 36
       format_type: fieldset
       format_settings:
         id: ercore_education
@@ -264,6 +266,14 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  field_ercore_user_department:
+    type: string
+    weight: 34
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_ercore_user_direct_fund:
     type: number_integer
     weight: 16
@@ -282,7 +292,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_doc_act:
     type: datetime_default
-    weight: 41
+    weight: 42
     region: content
     label: inline
     settings:
@@ -449,7 +459,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_part_dates:
     type: entity_reference_revisions_entity_view
-    weight: 34
+    weight: 35
     region: content
     label: hidden
     settings:
@@ -489,7 +499,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_on:
     type: datetime_default
-    weight: 45
+    weight: 46
     region: content
     label: inline
     settings:
@@ -498,14 +508,14 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_on_up:
     type: file_default
-    weight: 46
+    weight: 47
     region: content
     label: inline
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_rcr_per:
     type: datetime_default
-    weight: 43
+    weight: 44
     region: content
     label: inline
     settings:
@@ -514,14 +524,14 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_per_up:
     type: file_default
-    weight: 44
+    weight: 45
     region: content
     label: inline
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_rcr_status:
     type: boolean
-    weight: 42
+    weight: 43
     region: content
     label: inline
     settings:

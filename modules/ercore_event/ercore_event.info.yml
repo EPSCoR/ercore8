@@ -3,7 +3,9 @@ description: 'Provides ERCore Engagement Event content type and related configur
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - computed_field
+  - csv_serialization
   - datetime
   - datetime_range
   - entity_reference_revisions
@@ -20,8 +22,10 @@ dependencies:
   - options
   - paragraphs
   - pathauto
+  - rest
   - select_or_other
   - semanticviews
+  - serialization
   - taxonomy
   - text
   - user

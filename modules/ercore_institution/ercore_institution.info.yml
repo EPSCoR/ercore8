@@ -10,8 +10,10 @@ dependencies:
   - menu_ui
   - node
   - options
+  - paragraphs
   - path
   - pathauto
+  - semanticviews
   - text
   - user
   - views

@@ -37,4 +37,5 @@ dependencies:
   - text
   - tour
   - user
+  - views
 package: ERCore

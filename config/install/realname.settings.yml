@@ -1,0 +1,1 @@
+pattern: '[user:field_ercore_user_name:given] [user:field_ercore_user_name:family] [user:field_ercore_user_name:generational]'
