@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.ercore_full_paragraph
+    - field.field.paragraph.ercore_collaborator.field_ercore_cr_dept
+    - field.field.paragraph.ercore_collaborator.field_ercore_cr_inst
+    - field.field.paragraph.ercore_collaborator.field_ercore_cr_name
+    - paragraphs.paragraphs_type.ercore_collaborator
+id: paragraph.ercore_collaborator.ercore_full_paragraph
+targetEntityType: paragraph
+bundle: ercore_collaborator
+mode: ercore_full_paragraph
+content:
+  field_ercore_cr_dept:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ercore_cr_inst:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_ercore_cr_name:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

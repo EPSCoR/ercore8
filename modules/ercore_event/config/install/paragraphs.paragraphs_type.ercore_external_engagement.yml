@@ -3,4 +3,6 @@ status: true
 dependencies: {  }
 id: ercore_external_engagement
 label: 'External Engagement'
+icon_uuid: null
+description: null
 behavior_plugins: {  }

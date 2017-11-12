@@ -1,0 +1,5 @@
+ercore-style:
+  version: VERSION
+  css:
+    layout:
+      css/ercore.css: {}

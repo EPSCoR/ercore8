@@ -1,0 +1,66 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.ercore_teaser_paragraph
+    - field.field.paragraph.ercore_location.field_ercore_loc_add1
+    - field.field.paragraph.ercore_location.field_ercore_loc_add2
+    - field.field.paragraph.ercore_location.field_ercore_loc_city
+    - field.field.paragraph.ercore_location.field_ercore_loc_name
+    - field.field.paragraph.ercore_location.field_ercore_loc_postal
+    - field.field.paragraph.ercore_location.field_ercore_loc_state
+    - paragraphs.paragraphs_type.ercore_location
+id: paragraph.ercore_location.ercore_teaser_paragraph
+targetEntityType: paragraph
+bundle: ercore_location
+mode: ercore_teaser_paragraph
+content:
+  field_ercore_loc_add1:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_loc_add2:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_loc_city:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ercore_loc_name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_loc_postal:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ercore_loc_state:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

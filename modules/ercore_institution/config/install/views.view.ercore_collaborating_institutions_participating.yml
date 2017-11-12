@@ -15,7 +15,7 @@ id: ercore_collaborating_institutions_participating
 label: 'ERCore: Collaborating Institutions: Participating'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-admin institution'
 base_table: node_field_data
 base_field: nid
 core: 8.x

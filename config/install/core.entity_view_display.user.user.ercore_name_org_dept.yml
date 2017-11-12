@@ -48,7 +48,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_veteran
     - field.field.user.user.user_picture
   module:
-    - name
     - user
 id: user.user.ercore_name_org_dept
 targetEntityType: user
@@ -63,29 +62,18 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_ercore_user_name:
-    weight: 0
-    label: hidden
-    settings:
-      format: default
-      markup: false
-      output: default
-      multiple: default
-      multiple_delimiter: ', '
-      multiple_and: text
-      multiple_delimiter_precedes_last: never
-      multiple_el_al_min: '3'
-      multiple_el_al_first: '1'
-    third_party_settings: {  }
-    type: name_default
-    region: content
   field_ercore_user_partic_inst:
     type: entity_reference_label
     weight: 1
     region: content
     label: hidden
     settings:
-      link: true
+      link: false
+    third_party_settings: {  }
+  realname:
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_ercore_overall_roles: true
@@ -115,6 +103,7 @@ hidden:
   field_ercore_user_master_ant: true
   field_ercore_user_mentor_plan: true
   field_ercore_user_mentor_plan_dt: true
+  field_ercore_user_name: true
   field_ercore_user_part_160: true
   field_ercore_user_part_dates: true
   field_ercore_user_phone_mobile: true

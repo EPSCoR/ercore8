@@ -11,7 +11,7 @@ id: ercore_160_hours_criteria
 label: 'ERCore 160 Hours Criteria'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-admin'
 base_table: users_field_data
 base_field: uid
 core: 8.x

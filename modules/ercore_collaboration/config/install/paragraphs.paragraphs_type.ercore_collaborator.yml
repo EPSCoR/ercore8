@@ -3,4 +3,6 @@ status: true
 dependencies: {  }
 id: ercore_collaborator
 label: Collaborator
+icon_uuid: null
+description: null
 behavior_plugins: {  }

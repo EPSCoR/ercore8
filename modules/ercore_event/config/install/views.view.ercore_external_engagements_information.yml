@@ -13,7 +13,7 @@ id: ercore_external_engagements_information
 label: 'ERCore: External Engagements - Information'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-admin external-engagement'
 base_table: node_field_data
 base_field: nid
 core: 8.x
@@ -353,6 +353,11 @@ display:
       menu:
         type: normal
         title: 'Manage External Engagements'
+        description: ''
+        expanded: false
+        parent: ercore_core.admin_views
+        weight: 0
+        context: '0'
         menu_name: ercore-admin-menu
     cache_metadata:
       max-age: 0

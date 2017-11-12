@@ -1,3 +1,4 @@
+# ERCore Menu General Links
 ercore_core.ercore:
   title: ERCore
   menu_name: ercore-admin-menu
@@ -54,7 +55,7 @@ ercore_core.user_guides:
   title: User Guides
   route_name: ercore_core.user_guides
   menu_name: ercore-admin-menu
-  expanded: TRUE
+  expanded: FALSE
   parent: ercore_core.ercore
   weight: 30
 
@@ -108,6 +109,43 @@ ercore_core.admin_guide:
   options:
     _admin_route: TRUE
 
+# ERCore Menu Export Links
+ercore_core.salary_support:
+  title: NSF Table A - Salary Support
+  route_name: ercore_core.salary_support
+  menu_name: ercore-admin-menu
+  parent: ercore_core.admin_views
+  weight: 25
+
+ercore_core.participants:
+  title: NSF Table B - Participants
+  route_name: ercore_core.participants
+  menu_name: ercore-admin-menu
+  parent: ercore_core.admin_views
+  weight: 30
+
+ercore_core.collaborations:
+  title: NSF Table C - Collaborations
+  route_name: ercore_core.collaborations
+  menu_name: ercore-admin-menu
+  parent: ercore_core.admin_views
+  weight: 35
+
+ercore_core.engagements:
+  title: NSF Table D - External Engagements
+  route_name: ercore_core.engagements
+  menu_name: ercore-admin-menu
+  parent: ercore_core.admin_views
+  weight: 40
+
+ercore_core.outputs:
+  title: NSF Table E - Outputs
+  route_name: ercore_core.outputs
+  menu_name: ercore-admin-menu
+  parent: ercore_core.admin_views
+  weight: 45
+
+# ERCore Admin Page Links
 ercore_core.admin_config_ui:
   title: 'ERCore'
   route_name: ercore_core.admin_config_ui

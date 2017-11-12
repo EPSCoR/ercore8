@@ -12,6 +12,7 @@ dependencies:
     - node.type.ercore_collaboration
   module:
     - datetime_range
+    - entity_reference_revisions
     - text
     - user
 id: node.ercore_collaboration.teaser
@@ -20,26 +21,56 @@ bundle: ercore_collaboration
 mode: teaser
 content:
   body:
-    label: hidden
+    label: above
     type: text_summary_or_trimmed
-    weight: 1
+    weight: 5
     settings:
-      trim_length: 600
+      trim_length: 200
     third_party_settings: {  }
     region: content
+  field_ercore_cn_collaborator:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    region: content
+    label: above
+    settings:
+      view_mode: ercore_full_paragraph
+      link: ''
+    third_party_settings: {  }
   field_ercore_cn_dates:
     type: daterange_default
     weight: 0
     region: content
-    label: above
+    label: inline
     settings:
       separator: '-'
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
+  field_ercore_components:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_ercore_organizer:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: ercore_name_org_dept
+      link: false
+    third_party_settings: {  }
+  field_ercore_programs:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
 hidden:
-  field_ercore_cn_collaborator: true
-  field_ercore_components: true
-  field_ercore_organizer: true
-  field_ercore_programs: true
   links: true

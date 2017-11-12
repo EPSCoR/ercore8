@@ -3,6 +3,7 @@ description: 'Provides ERCore Institution content type and related configuration
 type: module
 core: 8.x
 dependencies:
+  - ercore_collaboration
   - ercore_core
   - field
   - field_permissions
@@ -13,10 +14,13 @@ dependencies:
   - paragraphs
   - path
   - pathauto
+  - rest
   - semanticviews
+  - serialization
   - text
   - user
   - views
+  - views_data_export
 version: 8.x-1.0
 project: ercore
 package: ERCore

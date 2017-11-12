@@ -10,7 +10,7 @@ id: ercore_institutions_filter
 label: 'ERCore Institutions Filter'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-admin institution'
 base_table: node_field_data
 base_field: nid
 core: 8.x

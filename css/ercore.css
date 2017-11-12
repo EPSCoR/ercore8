@@ -1,0 +1,82 @@
+.field--name-field-ercore-cr-name {
+    font-weight: bold;
+}
+
+.field--name-realname {
+    font-weight: bold;
+}
+
+.field--name-field-ercore-ev-date time {
+font-size: 1.3em;
+font-weight: bold;
+}
+
+.field--name-field-ercore-user-partic-inst, .field--name-field-ercore-user-department {
+    display: inline-block;
+}
+
+.path-user .field--name-field-ercore-user-partic-inst, .path-user .field--name-field-ercore-user-department {
+    display: block;
+}
+
+.field--label-inline div.components {
+    display: inline-block;
+}
+
+.field--label-inline label {
+    font-weight: bold;
+}
+
+.field--label-inline ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    display: inline;
+    list-style: none;
+}
+
+.field--label-inline ul li {
+    display: inline;
+    padding: 0;
+}
+
+.field--label-inline div.field__items .field__item {
+    content: ",\0020";
+}
+
+.field--label-inline div.field__items .field__item:last-child:after {
+    content: "";
+}
+
+.field--label-inline div.field__items .field__item:nth-last-child(2):after {
+    content: "\0020 and \0020";
+}
+
+.field--name-field-ercore-cn-collaborator, .field--name-field-ercore-organizer {
+    margin: 5px 0;
+}
+
+.paragraph--type--ercore-collaborator, .field--name-field-ercore-organizer .field__item {
+    margin-left: 15px;
+}
+
+.ercore-download {
+    font-weight: bold;
+    font-style:  italic;
+    margin-top: 1rem;
+}
+
+.ercore-summary .view-filters label {
+    display: block;
+}
+
+.ercore-summary .view-filters .hasDatepicker {
+    width: 150px;
+}
+
+.ercore-summary .view-filters .form-item {
+    padding-right: 10px;
+}
+
+.ercore-summary .view-filters .form-actions button {
+    margin-top: 1.7rem;
+}

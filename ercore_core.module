@@ -41,3 +41,52 @@ function ercore_core_is_admin(array $roles) {
   return FALSE;
 }
 
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function ercore_core_theme_registry_alter(&$theme_registry) {
+  $modulepath = drupal_get_path('module', 'ercore_core');
+  // Find all .tpl.php files in this module's folder recursively.
+  $template_file_objects = drupal_find_theme_templates($theme_registry, '.html.twig', $modulepath);
+  // Iterate through all found template file objects.
+  foreach ($template_file_objects as $key => $template_file_object) {
+    $exploded_type = explode('--', $template_file_object['template']);
+    $type = str_replace('-', '_', $exploded_type[0]);
+    if (isset($theme_registry[$type]['preprocess functions'])) {
+      // Use field type as base value.
+      $functions = $theme_registry[$type]['preprocess functions'];
+      // If the template has not already been overridden by a theme.
+      if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+        // Alter the theme path and template elements.
+        $theme_registry[$key] = $template_file_object;
+        $theme_registry[$key]['theme path'] = $modulepath;
+        $theme_registry[$key]['type'] = 'base_theme_engine';
+        $theme_registry[$key]['preprocess functions'] = $functions;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function ercore_core_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'ercore_core/ercore-style';
+}
+
+/**
+ * Implements hook_preprocess_user().
+ */
+/*function ercore_core_preprocess_user(&$variables) {
+  if ($vars['node']->type == 'article' && $vars['view_mode'] == 'search_result') {
+    $vars['theme_hook_suggestions'][] = 'node__article__search_result';
+  }
+}*/
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+/*function ercore_core_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  // Add an interface-language specific suggestion to all theme hooks.
+  $suggestions[] = $hook . '__' . \Drupal::languageManager()->getCurrentLanguage()->getId();
+}*/

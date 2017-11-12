@@ -3,6 +3,8 @@ description: 'Provides ERCore Collaboration content type and related configurati
 type: module
 core: 8.x
 dependencies:
+  - csv_serialization
+  - datetime
   - datetime_range
   - entity_reference_revisions
   - ercore_component
@@ -13,12 +15,19 @@ dependencies:
   - field_permissions
   - menu_ui
   - node
+  - options
   - paragraphs
   - path
   - pathauto
+  - rest
+  - semanticviews
+  - serialization
   - taxonomy
   - text
   - user
+  - views
+  - views_data_export
+  - views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore

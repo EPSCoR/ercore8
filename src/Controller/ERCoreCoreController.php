@@ -210,13 +210,6 @@ function ercore_core_submenu_tree_all_data($parent) {
   // Build the typical default set of menu tree parameters.
   $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
 
-  // Setup current link.
-  $currentLinkId = reset($parameters->activeTrail);
-  $parameters->setRoot($currentLinkId);
-
-  // Load the tree based on this set of parameters.
-  $tree = $menu_tree->load($menu_name, $parameters);
-
   // Get the parent of current menu so we can use its
   // children as the links.
   $parameters->setRoot($parent);
@@ -258,7 +251,6 @@ function ercore_core_submenu_tree_all_data($parent) {
     }
   }
   $menu = $menu_tree->build($tree);
-  $return = 'Nothing';
   $items = $menu['#items'][$parent]['below'];
   $menu_items = [];
   foreach ($items as $item) {
@@ -279,7 +271,7 @@ function ercore_core_submenu_tree_all_data($parent) {
  * @return array
  *   Return render array of menu.
  */
-function ercore_core_format_nav_list(array $items) {;
+function ercore_core_format_nav_list(array $items) {
   $links = [];
   foreach ($items as $item) {
     $links[] = Link::fromTextAndUrl($item['title'], Url::fromUri('internal:/' . $item['url']))

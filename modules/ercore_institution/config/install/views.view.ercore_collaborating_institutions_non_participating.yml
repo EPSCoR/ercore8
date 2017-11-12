@@ -14,7 +14,7 @@ id: ercore_collaborating_institutions_non_participating
 label: 'ERCore: Collaborating Institutions - Non-participating'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-admin institution'
 base_table: paragraphs_item_revision_field_data
 base_field: revision_id
 core: 8.x

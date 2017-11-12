@@ -4,8 +4,17 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_presentation.body
+    - field.field.node.ercore_presentation.field_ercore_goals
+    - field.field.node.ercore_presentation.field_ercore_nsf
     - field.field.node.ercore_presentation.field_ercore_organizer
     - field.field.node.ercore_presentation.field_ercore_programs
+    - field.field.node.ercore_presentation.field_ercore_ps_date
+    - field.field.node.ercore_presentation.field_ercore_ps_event
+    - field.field.node.ercore_presentation.field_ercore_ps_link
+    - field.field.node.ercore_presentation.field_ercore_ps_others
+    - field.field.node.ercore_presentation.field_ercore_ps_status
+    - field.field.node.ercore_presentation.field_ercore_ps_type
+    - field.field.node.ercore_presentation.field_ercore_ps_upload
     - node.type.ercore_presentation
   module:
     - text
@@ -27,5 +36,14 @@ content:
     weight: 100
     region: content
 hidden:
+  field_ercore_goals: true
+  field_ercore_nsf: true
   field_ercore_organizer: true
   field_ercore_programs: true
+  field_ercore_ps_date: true
+  field_ercore_ps_event: true
+  field_ercore_ps_link: true
+  field_ercore_ps_others: true
+  field_ercore_ps_status: true
+  field_ercore_ps_type: true
+  field_ercore_ps_upload: true
