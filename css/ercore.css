@@ -1,3 +1,4 @@
+/* Fields */
 .field--name-field-ercore-cr-name {
     font-weight: bold;
 }
@@ -19,8 +20,14 @@ font-weight: bold;
     display: block;
 }
 
+.field--name-field-ercore-ev-url {}
+
 .field--label-inline div.components {
     display: inline-block;
+}
+
+.field--label-inline {
+    overflow: auto;
 }
 
 .field--label-inline label {
@@ -53,6 +60,17 @@ font-weight: bold;
 
 .field--name-field-ercore-cn-collaborator, .field--name-field-ercore-organizer {
     margin: 5px 0;
+}
+
+.content .field--name-field-ercore-hi-date {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.content .field--name-field-ercore-hi-image {
+    float: right;
+    margin: 0 0 1rem 1rem;
 }
 
 .paragraph--type--ercore-collaborator, .field--name-field-ercore-organizer .field__item {

@@ -20,12 +20,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ercore_hn_date:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       timezone_override: ''
@@ -34,7 +34,7 @@ content:
     type: datetime_default
     region: content
   field_ercore_organizer:
-    weight: 3
+    weight: 1
     label: above
     settings:
       view_mode: ercore_name_org_dept
@@ -51,8 +51,8 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 0
+    weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

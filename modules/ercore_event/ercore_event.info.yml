@@ -9,6 +9,7 @@ dependencies:
   - datetime
   - datetime_range
   - entity_reference_revisions
+  - ercore_collaboration
   - ercore_component
   - ercore_core
   - ercore_program
@@ -31,6 +32,7 @@ dependencies:
   - user
   - views
   - views_data_export
+  - views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore

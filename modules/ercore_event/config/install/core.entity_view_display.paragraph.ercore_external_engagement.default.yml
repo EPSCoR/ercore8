@@ -70,7 +70,6 @@ third_party_settings:
         - field_ercore_ee_t_f
         - field_ercore_ee_t_m
         - field_ercore_ee_t_u
-        - field_ercore_ee_t_um
         - field_ercore_ee_t_t
       parent_name: ''
       weight: 16

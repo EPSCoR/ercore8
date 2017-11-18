@@ -61,12 +61,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 15
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -75,19 +80,32 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: semanticviews_style
+        options:
+          grouping: {  }
+          group:
+            element_type: h3
+            attributes: class|title
+          list:
+            element_type: ''
+            attributes: ''
+          row:
+            element_type: div
+            attributes: class|ercore-summary-row
+            last_every_nth: '0'
+            first_class: first
+            last_class: last
+            striping_classes: 'odd even'
       row:
         type: semanticviews_row
         options:
           semantic_html:
-            title:
+            rendered_entity:
               element_type: div
-              attributes: ''
-          skip_blank: 0
+              attributes: class|ercore-teaser
+          skip_blank: 1
       fields:
         rendered_entity:
           id: rendered_entity
@@ -372,7 +390,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'No Collaborations have been created. <a href="/node/add/ercore-collaboration/">Create an collaboration</a>?'
+            value: 'No Collaborations have been created. <a href="/node/add/ercore-collaboration/">Create an collaboration?</a>?'
             format: basic_html
           plugin_id: text
       relationships:

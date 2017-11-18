@@ -55,6 +55,7 @@ dependencies:
     - link
     - name
     - paragraphs
+    - path
     - telephone
     - text
     - user
@@ -79,6 +80,7 @@ third_party_settings:
     group_ercore_us_contact:
       children:
         - field_ercore_user_name
+        - field_ercore_overall_roles
         - field_ercore_user_employee_id
         - field_ercore_user_phone_work
         - field_ercore_user_phone_mobile
@@ -235,14 +237,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_ercore_overall_roles:
-    weight: 53
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_ercore_user_address:
     type: entity_reference_paragraphs
-    weight: 9
+    weight: 10
     region: content
     settings:
       title: Paragraph
@@ -267,7 +269,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_data_date:
     type: datetime_default
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -281,7 +283,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_data_mgr:
     type: boolean_checkbox
-    weight: 5
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -295,7 +297,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_data_url:
     type: link_default
-    weight: 3
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
@@ -324,13 +326,13 @@ content:
     third_party_settings: {  }
   field_ercore_user_doc_act:
     type: datetime_default
-    weight: 28
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_doc_ant:
     type: datetime_default
-    weight: 27
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -342,7 +344,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_ercore_user_employee_id:
-    weight: 6
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -395,7 +397,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_link:
     type: link_default
-    weight: 10
+    weight: 11
     region: content
     settings:
       placeholder_url: ''
@@ -403,26 +405,26 @@ content:
     third_party_settings: {  }
   field_ercore_user_master_act:
     type: datetime_default
-    weight: 26
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_master_ant:
     type: datetime_default
-    weight: 25
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ercore_user_mentor_plan:
     type: file_generic
-    weight: 30
+    weight: 31
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_ercore_user_mentor_plan_dt:
     type: datetime_default
-    weight: 29
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -440,7 +442,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_part_dates:
     type: paragraphs
-    weight: 23
+    weight: 24
     region: content
     settings:
       title: Paragraph
@@ -460,14 +462,14 @@ content:
     region: content
   field_ercore_user_phone_mobile:
     type: telephone_default
-    weight: 8
+    weight: 9
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_ercore_user_phone_work:
     type: telephone_default
-    weight: 7
+    weight: 8
     region: content
     settings:
       placeholder: ''
@@ -486,7 +488,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_on_up:
     type: file_generic
-    weight: 11
+    weight: 10
     region: content
     settings:
       progress_indicator: throbber
@@ -524,7 +526,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_veteran:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -551,6 +553,6 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
 hidden: {  }

@@ -824,7 +824,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       group_by: true
-      css_class: 'ercore-summary ercore-institution'
+      css_class: 'ercore-summary ercore-institutions'
     cache_metadata:
       max-age: 0
       contexts:
@@ -1425,6 +1425,10 @@ display:
           plugin_id: field
       defaults:
         fields: false
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:

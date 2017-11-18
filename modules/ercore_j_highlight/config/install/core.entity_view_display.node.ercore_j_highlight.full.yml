@@ -29,7 +29,7 @@ content:
     third_party_settings: {  }
     region: content
   field_ercore_components:
-    weight: 4
+    weight: 3
     label: inline
     settings:
       link: false
@@ -38,7 +38,7 @@ content:
     region: content
   field_ercore_hi_date:
     weight: 0
-    label: inline
+    label: hidden
     settings:
       timezone_override: ''
       format_type: ercore_month_day_year
@@ -46,7 +46,7 @@ content:
     type: datetime_default
     region: content
   field_ercore_hi_image:
-    weight: 2
+    weight: 4
     label: hidden
     settings:
       image_style: large
@@ -63,7 +63,7 @@ content:
     type: entity_reference_label
     region: content
   field_ercore_programs:
-    weight: 3
+    weight: 2
     label: inline
     settings:
       link: false
@@ -72,7 +72,7 @@ content:
     region: content
   links:
     weight: 6
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

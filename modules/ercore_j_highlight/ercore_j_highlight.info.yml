@@ -3,9 +3,11 @@ description: 'Provides ERCore Highlight content type and related configuration. 
 type: module
 core: 8.x
 dependencies:
+  - csv_serialization
   - datetime
   - ercore_component
   - ercore_core
+  - ercore_institution
   - ercore_program
   - field
   - field_permissions
@@ -13,10 +15,16 @@ dependencies:
   - image
   - menu_ui
   - node
+  - options
   - path
   - pathauto
+  - rest
+  - semanticviews
+  - serialization
   - text
   - user
+  - views
+  - views_data_export
 version: 8.x-1.0
 project: ercore
 package: ERCore
