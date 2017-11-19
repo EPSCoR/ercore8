@@ -13,73 +13,31 @@ dependencies:
     - node.type.ercore_other_product
   module:
     - datetime
-    - link
-    - options
     - user
 id: node.ercore_other_product.default
 targetEntityType: node
 bundle: ercore_other_product
 mode: default
 content:
-  field_ercore_nsf:
-    weight: 6
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_ercore_op_date:
-    weight: 1
-    label: inline
+    weight: 0
+    label: hidden
     settings:
       timezone_override: ''
       format_type: ercore_month_day_year
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_ercore_op_description:
-    weight: 7
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
   field_ercore_op_non_epscor:
-    weight: 3
+    weight: 2
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_ercore_op_rii_support:
-    weight: 5
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_ercore_op_type:
-    weight: 0
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_ercore_op_website:
-    weight: 4
-    label: inline
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   field_ercore_organizer:
-    weight: 2
+    weight: 1
     label: above
     settings:
       view_mode: ercore_name_org_dept
@@ -87,9 +45,10 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  links:
-    weight: 8
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  field_ercore_nsf: true
+  field_ercore_op_description: true
+  field_ercore_op_rii_support: true
+  field_ercore_op_type: true
+  field_ercore_op_website: true
+  links: true

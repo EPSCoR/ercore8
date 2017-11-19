@@ -4,9 +4,11 @@ type: module
 core: 8.x
 dependencies:
   - block_content
+  - csv_serialization
   - datetime
   - datetime_range
   - ercore_core
+  - ercore_presentation
   - ercore_program
   - ercore_publication
   - field
@@ -24,6 +26,7 @@ dependencies:
   - user
   - views
   - views_data_export
+  - views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore

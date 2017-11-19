@@ -1,10 +1,9 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_proposal.body
-    - field.field.node.ercore_proposal.field_ercore_goals
     - field.field.node.ercore_proposal.field_ercore_organizer
     - field.field.node.ercore_proposal.field_ercore_pp_award_amount
     - field.field.node.ercore_proposal.field_ercore_pp_award_req_dec
@@ -22,38 +21,64 @@ dependencies:
     - field.field.node.ercore_proposal.field_ercore_programs
     - node.type.ercore_proposal
   module:
-    - text
+    - options
     - user
 id: node.ercore_proposal.teaser
 targetEntityType: node
 bundle: ercore_proposal
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
+  field_ercore_organizer:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: above
     settings:
-      trim_length: 600
+      view_mode: ercore_name_org_dept
+      link: false
     third_party_settings: {  }
+  field_ercore_pp_other_pi:
+    type: string
+    weight: 1
     region: content
-  links:
-    weight: 100
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pp_others:
+    type: entity_reference_entity_view
+    weight: 2
     region: content
+    label: above
+    settings:
+      view_mode: ercore_name_org_dept
+      link: false
+    third_party_settings: {  }
+  field_ercore_pp_proposal_status:
+    type: list_default
+    weight: 4
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_programs:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
 hidden:
-  field_ercore_goals: true
-  field_ercore_organizer: true
+  body: true
   field_ercore_pp_award_amount: true
   field_ercore_pp_award_req_dec: true
   field_ercore_pp_location: true
-  field_ercore_pp_other_pi: true
-  field_ercore_pp_others: true
   field_ercore_pp_proposal_date: true
   field_ercore_pp_proposal_denied: true
   field_ercore_pp_proposal_paid: true
   field_ercore_pp_proposal_pending: true
-  field_ercore_pp_proposal_status: true
   field_ercore_pp_proposal_submit: true
   field_ercore_pp_support: true
   field_ercore_pp_support_type: true
-  field_ercore_programs: true
+  links: true

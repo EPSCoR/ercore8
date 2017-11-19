@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.ercore_proposal.body
     - field.field.node.ercore_proposal.field_ercore_organizer
     - field.field.node.ercore_proposal.field_ercore_pp_award_amount
@@ -25,20 +26,20 @@ dependencies:
     - options
     - text
     - user
-id: node.ercore_proposal.default
+id: node.ercore_proposal.full
 targetEntityType: node
 bundle: ercore_proposal
-mode: default
+mode: full
 content:
   body:
     label: hidden
     type: text_default
-    weight: 0
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ercore_organizer:
-    weight: 2
+    weight: 0
     label: above
     settings:
       link: true
@@ -46,7 +47,7 @@ content:
     type: entity_reference_label
     region: content
   field_ercore_pp_award_amount:
-    weight: 14
+    weight: 13
     label: above
     settings:
       thousand_separator: ''
@@ -68,7 +69,7 @@ content:
     type: number_decimal
     region: content
   field_ercore_pp_location:
-    weight: 15
+    weight: 14
     label: above
     settings:
       link_to_entity: false
@@ -76,7 +77,7 @@ content:
     type: string
     region: content
   field_ercore_pp_other_pi:
-    weight: 3
+    weight: 1
     label: above
     settings:
       link_to_entity: false
@@ -84,15 +85,15 @@ content:
     type: string
     region: content
   field_ercore_pp_others:
-    weight: 4
+    type: entity_reference_label
+    weight: 2
+    region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_ercore_pp_proposal_date:
-    weight: 12
+    weight: 9
     label: above
     settings:
       separator: '-'
@@ -102,7 +103,7 @@ content:
     type: daterange_default
     region: content
   field_ercore_pp_proposal_denied:
-    weight: 11
+    weight: 10
     label: above
     settings:
       format_type: medium
@@ -111,7 +112,7 @@ content:
     type: datetime_default
     region: content
   field_ercore_pp_proposal_paid:
-    weight: 13
+    weight: 12
     label: above
     settings:
       format: default
@@ -121,7 +122,7 @@ content:
     type: boolean
     region: content
   field_ercore_pp_proposal_pending:
-    weight: 10
+    weight: 8
     label: above
     settings:
       format_type: medium
@@ -130,14 +131,14 @@ content:
     type: datetime_default
     region: content
   field_ercore_pp_proposal_status:
-    weight: 8
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_ercore_pp_proposal_submit:
-    weight: 9
+    weight: 11
     label: above
     settings:
       format_type: medium
@@ -154,14 +155,14 @@ content:
     type: string
     region: content
   field_ercore_pp_support_type:
-    weight: 7
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_ercore_programs:
-    weight: 1
+    weight: 3
     label: above
     settings:
       link: true

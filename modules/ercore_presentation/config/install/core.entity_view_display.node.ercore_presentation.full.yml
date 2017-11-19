@@ -4,7 +4,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_presentation.body
-    - field.field.node.ercore_presentation.field_ercore_goals
     - field.field.node.ercore_presentation.field_ercore_nsf
     - field.field.node.ercore_presentation.field_ercore_organizer
     - field.field.node.ercore_presentation.field_ercore_programs
@@ -121,5 +120,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_ercore_goals: true
+hidden: {  }

@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_publication.body
-    - field.field.node.ercore_publication.field_ercore_goals
     - field.field.node.ercore_publication.field_ercore_nsf
     - field.field.node.ercore_publication.field_ercore_organizer
     - field.field.node.ercore_publication.field_ercore_pb_arch_name
@@ -77,14 +76,6 @@ content:
     weight: 23
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_ercore_goals:
-    weight: 14
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_ercore_nsf:
     weight: 12

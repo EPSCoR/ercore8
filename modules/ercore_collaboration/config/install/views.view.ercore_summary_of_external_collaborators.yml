@@ -9,6 +9,8 @@ dependencies:
     - system.menu.ercore-admin-menu
   module:
     - csv_serialization
+    - datetime
+    - node
     - paragraphs
     - rest
     - serialization
@@ -463,6 +465,149 @@ display:
           entity_type: paragraph
           entity_field: type
           plugin_id: bundle
+        field_ercore_cn_dates_value:
+          id: field_ercore_cn_dates_value
+          table: node__field_ercore_cn_dates
+          field: field_ercore_cn_dates_value
+          relationship: reverse__node__field_ercore_cn_collaborator
+          group_type: group
+          admin_label: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_cn_dates_value_op
+            label: 'End Date'
+            description: ''
+            use_operator: false
+            operator: field_ercore_cn_dates_value_op
+            identifier: ercore_end_date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_ercore_cn_dates_end_value:
+          id: field_ercore_cn_dates_end_value
+          table: node__field_ercore_cn_dates
+          field: field_ercore_cn_dates_end_value
+          relationship: reverse__node__field_ercore_cn_collaborator
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_cn_dates_end_value_op
+            label: 'Start Date'
+            description: ''
+            use_operator: false
+            operator: field_ercore_cn_dates_end_value_op
+            identifier: ercore_start_date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_ercore_cr_inst_target_id:
+          id: field_ercore_cr_inst_target_id
+          table: paragraph__field_ercore_cr_inst
+          field: field_ercore_cr_inst_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_cr_inst_target_id_op
+            label: Institution
+            description: ''
+            use_operator: false
+            operator: field_ercore_cr_inst_target_id_op
+            identifier: field_ercore_cr_inst_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts: {  }
       title: 'ERCore Summary of External Collaborators'
       header: {  }
@@ -492,7 +637,17 @@ display:
             value: 'No Collaborations have been created. <a href="/node/add/ercore-collaboration/">Create an collaboration</a>?'
             format: basic_html
           plugin_id: text
-      relationships: {  }
+      relationships:
+        reverse__node__field_ercore_cn_collaborator:
+          id: reverse__node__field_ercore_cn_collaborator
+          table: paragraphs_item_field_data
+          field: reverse__node__field_ercore_cn_collaborator
+          relationship: none
+          group_type: group
+          admin_label: 'Paragraph to Parent Node'
+          required: false
+          entity_type: paragraph
+          plugin_id: entity_reverse
       arguments: {  }
       display_extenders: {  }
       css_class: 'ercore-summary ercore-collaborations'
@@ -501,6 +656,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.permissions
       tags:
@@ -575,6 +731,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - user.permissions
       tags:
         - 'config:field.storage.paragraph.field_ercore_cr_dept'
@@ -602,6 +759,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - user.permissions
       tags:

@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_presentation.body
-    - field.field.node.ercore_presentation.field_ercore_goals
     - field.field.node.ercore_presentation.field_ercore_nsf
     - field.field.node.ercore_presentation.field_ercore_organizer
     - field.field.node.ercore_presentation.field_ercore_programs
@@ -151,5 +150,4 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-hidden:
-  field_ercore_goals: true
+hidden: {  }

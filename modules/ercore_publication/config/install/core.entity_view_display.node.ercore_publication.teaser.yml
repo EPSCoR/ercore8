@@ -4,7 +4,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_publication.body
-    - field.field.node.ercore_publication.field_ercore_goals
     - field.field.node.ercore_publication.field_ercore_nsf
     - field.field.node.ercore_publication.field_ercore_organizer
     - field.field.node.ercore_publication.field_ercore_pb_arch_name
@@ -51,7 +50,6 @@ content:
     weight: 100
     region: content
 hidden:
-  field_ercore_goals: true
   field_ercore_nsf: true
   field_ercore_organizer: true
   field_ercore_pb_arch_name: true

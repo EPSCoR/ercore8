@@ -3,6 +3,7 @@ description: 'Provides ERCore Presentation content type and related configuratio
 type: module
 core: 8.x
 dependencies:
+  - csv_serialization
   - datetime
   - ercore_core
   - ercore_event
@@ -24,6 +25,7 @@ dependencies:
   - user
   - views
   - views_data_export
+  - views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore

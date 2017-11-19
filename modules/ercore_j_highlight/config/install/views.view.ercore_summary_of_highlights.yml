@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.body
     - field.storage.node.field_ercore_hi_date
     - field.storage.node.field_ercore_inst_category
-    - field.storage.node.field_ercore_organizer
     - field.storage.node.field_ercore_programs
     - node.type.ercore_j_highlight
     - system.menu.ercore-admin-menu
@@ -21,6 +20,7 @@ dependencies:
     - text
     - user
     - views_data_export
+    - views_field_view
 id: ercore_summary_of_highlights
 label: 'ERCore Summary of Highlights'
 module: views
@@ -201,7 +201,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_hi_date_value_op
-            identifier: field_ercore_hi_date_value
+            identifier: ercore_start_date
             required: false
             remember: false
             multiple: false
@@ -249,7 +249,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_hi_date_value_1_op
-            identifier: field_ercore_hi_date_value_1
+            identifier: ercore_end_date
             required: false
             remember: false
             multiple: false
@@ -276,6 +276,53 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
+        field_ercore_user_partic_inst_target_id:
+          id: field_ercore_user_partic_inst_target_id
+          table: user__field_ercore_user_partic_inst
+          field: field_ercore_user_partic_inst_target_id
+          relationship: field_ercore_organizer
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_user_partic_inst_target_id_op
+            label: Institution
+            description: ''
+            use_operator: false
+            operator: field_ercore_user_partic_inst_target_id_op
+            identifier: field_ercore_user_partic_inst_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts:
         created:
           id: created
@@ -309,7 +356,16 @@ display:
             value: 'No Highlights have been created. <a href="/node/add/ercore_j_highlight/">Create a highlight?</a>?'
             format: basic_html
           plugin_id: text
-      relationships: {  }
+      relationships:
+        field_ercore_organizer:
+          id: field_ercore_organizer
+          table: node__field_ercore_organizer
+          field: field_ercore_organizer
+          relationship: none
+          group_type: group
+          admin_label: 'Other to Organizer'
+          required: false
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       css_class: 'ercore-summary highlight'
@@ -595,14 +651,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_ercore_organizer:
-          id: field_ercore_organizer
-          table: node__field_ercore_organizer
-          field: field_ercore_organizer
+        view:
+          id: view
+          table: views
+          field: view
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Organizers
           exclude: false
           alter:
             alter_text: false
@@ -643,21 +699,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          view: ercore_user_summary_formatting
+          display: block_1
+          arguments: '{{ raw_fields.nid }} '
+          plugin_id: view
         body:
           id: body
           table: node__body
@@ -862,7 +907,6 @@ display:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_ercore_hi_date'
         - 'config:field.storage.node.field_ercore_inst_category'
-        - 'config:field.storage.node.field_ercore_organizer'
         - 'config:field.storage.node.field_ercore_programs'
   page_1:
     display_plugin: page

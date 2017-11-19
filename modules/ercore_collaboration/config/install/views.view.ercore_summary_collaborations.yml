@@ -5,7 +5,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.storage.node.field_ercore_cn_dates
     - field.storage.node.field_ercore_components
-    - field.storage.node.field_ercore_organizer
     - field.storage.node.field_ercore_programs
     - node.type.ercore_collaboration
     - system.menu.ercore-admin-menu
@@ -200,7 +199,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_cn_dates_end_value_op
-            identifier: field_ercore_cn_dates_end_value
+            identifier: ercore_start_date
             required: false
             remember: false
             multiple: false
@@ -248,7 +247,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_cn_dates_value_op
-            identifier: field_ercore_cn_dates_value
+            identifier: ercore_end_date
             required: false
             remember: false
             multiple: false
@@ -291,7 +290,7 @@ display:
           exposed: true
           expose:
             operator_id: field_ercore_user_partic_inst_target_id_op
-            label: 'Participating  Institution'
+            label: Institution
             description: ''
             use_operator: false
             operator: field_ercore_user_partic_inst_target_id_op
@@ -762,69 +761,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_ercore_organizer:
-          id: field_ercore_organizer
-          table: node__field_ercore_organizer
-          field: field_ercore_organizer
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: true
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: entity_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         nid_1:
           id: nid_1
           table: node_field_data
@@ -891,6 +827,58 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: field
+        view_1:
+          id: view_1
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Organizers
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          view: ercore_user_summary_formatting
+          display: block_1
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
         view:
           id: view
           table: views
@@ -1131,7 +1119,6 @@ display:
       tags:
         - 'config:field.storage.node.field_ercore_cn_dates'
         - 'config:field.storage.node.field_ercore_components'
-        - 'config:field.storage.node.field_ercore_organizer'
         - 'config:field.storage.node.field_ercore_programs'
   page_1:
     display_plugin: page

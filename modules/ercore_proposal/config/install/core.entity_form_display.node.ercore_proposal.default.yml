@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_proposal.body
-    - field.field.node.ercore_proposal.field_ercore_goals
     - field.field.node.ercore_proposal.field_ercore_organizer
     - field.field.node.ercore_proposal.field_ercore_pp_award_amount
     - field.field.node.ercore_proposal.field_ercore_pp_award_req_dec
@@ -32,6 +31,7 @@ third_party_settings:
       children:
         - field_ercore_organizer
         - field_ercore_pp_other_pi
+        - field_ercore_pp_others
         - group_ercore_pp_details
       parent_name: ''
       weight: 2
@@ -45,7 +45,6 @@ third_party_settings:
       label: 'Principle Investigators'
     group_ercore_pp_details:
       children:
-        - field_ercore_pp_others
         - field_ercore_pp_proposal_paid
         - field_ercore_pp_support
         - field_ercore_pp_award_req_dec
@@ -57,11 +56,10 @@ third_party_settings:
         - field_ercore_pp_proposal_date
         - field_ercore_pp_award_amount
         - field_ercore_pp_location
-        - field_ercore_goals
         - body
         - field_ercore_programs
       parent_name: group_ercore_pp_principle
-      weight: 17
+      weight: 18
       format_type: fieldset
       format_settings:
         id: ''
@@ -89,14 +87,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_ercore_goals:
-    weight: 28
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_ercore_organizer:
     weight: 15
     settings:
@@ -107,7 +97,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ercore_pp_award_amount:
-    weight: 26
+    weight: 27
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -121,7 +111,7 @@ content:
     type: number
     region: content
   field_ercore_pp_location:
-    weight: 27
+    weight: 28
     settings:
       size: 60
       placeholder: ''
@@ -137,21 +127,22 @@ content:
     type: string_textfield
     region: content
   field_ercore_pp_others:
-    weight: 16
+    weight: 17
     settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
     region: content
   field_ercore_pp_proposal_date:
-    weight: 25
+    weight: 26
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
     region: content
   field_ercore_pp_proposal_denied:
-    weight: 24
+    weight: 25
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -163,7 +154,7 @@ content:
     type: options_buttons
     region: content
   field_ercore_pp_proposal_pending:
-    weight: 23
+    weight: 24
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -175,7 +166,7 @@ content:
     type: options_select
     region: content
   field_ercore_pp_proposal_submit:
-    weight: 22
+    weight: 23
     settings: {  }
     third_party_settings: {  }
     type: datetime_default

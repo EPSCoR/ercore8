@@ -2,15 +2,37 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
+    - field.storage.node.body
+    - field.storage.node.field_ercore_pp_award_amount
+    - field.storage.node.field_ercore_pp_award_req_dec
+    - field.storage.node.field_ercore_pp_location
+    - field.storage.node.field_ercore_pp_other_pi
+    - field.storage.node.field_ercore_pp_proposal_date
+    - field.storage.node.field_ercore_pp_proposal_denied
+    - field.storage.node.field_ercore_pp_proposal_paid
+    - field.storage.node.field_ercore_pp_proposal_pending
+    - field.storage.node.field_ercore_pp_proposal_status
+    - field.storage.node.field_ercore_pp_proposal_submit
+    - field.storage.node.field_ercore_pp_support
+    - field.storage.node.field_ercore_pp_support_type
+    - field.storage.node.field_ercore_programs
+    - field.storage.node.field_ercore_ps_type
     - node.type.ercore_proposal
     - system.menu.ercore-admin-menu
   module:
+    - csv_serialization
+    - datetime
+    - datetime_range
     - node
+    - options
     - rest
     - semanticviews
     - serialization
+    - text
     - user
     - views_data_export
+    - views_field_view
 id: ercore_summary_of_proposals_and_grants
 label: 'ERCore Summary of Proposals and Grants'
 module: views
@@ -93,58 +115,62 @@ display:
         type: semanticviews_row
         options:
           semantic_html:
-            title:
+            rendered_entity:
               element_type: div
-              attributes: ''
+              attributes: class|ercore-teaser
           skip_blank: 1
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
           relationship: none
           group_type: group
           admin_label: ''
+          label: ''
           exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          view_mode: teaser
+          entity_type: node
+          plugin_id: rendered_entity
       filters:
         status:
           value: '1'
@@ -197,6 +223,149 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_ercore_pp_proposal_date_value:
+          id: field_ercore_pp_proposal_date_value
+          table: node__field_ercore_pp_proposal_date
+          field: field_ercore_pp_proposal_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_pp_proposal_date_value_op
+            label: 'End Date'
+            description: ''
+            use_operator: false
+            operator: field_ercore_pp_proposal_date_value_op
+            identifier: ercore_end_date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_ercore_pp_proposal_date_end_value:
+          id: field_ercore_pp_proposal_date_end_value
+          table: node__field_ercore_pp_proposal_date
+          field: field_ercore_pp_proposal_date_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_pp_proposal_date_end_value_op
+            label: 'Start Date'
+            description: ''
+            use_operator: false
+            operator: field_ercore_pp_proposal_date_end_value_op
+            identifier: ercore_start_date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_ercore_user_partic_inst_target_id:
+          id: field_ercore_user_partic_inst_target_id
+          table: user__field_ercore_user_partic_inst
+          field: field_ercore_user_partic_inst_target_id
+          relationship: field_ercore_organizer
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_user_partic_inst_target_id_op
+            label: Institution
+            description: ''
+            use_operator: false
+            operator: field_ercore_user_partic_inst_target_id_op
+            identifier: ercore_institution_filter
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts:
         created:
           id: created
@@ -241,19 +410,62 @@ display:
             value: 'No Proposals or Grants have been created. <a href="/node/add/ercore_proposal">Create a Proposal or Grant?</a>?'
             format: basic_html
           plugin_id: text
-      relationships: {  }
+      relationships:
+        field_ercore_organizer:
+          id: field_ercore_organizer
+          table: node__field_ercore_organizer
+          field: field_ercore_organizer
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       css_class: 'ercore-summary ercore-proposals'
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
+        - 'config:core.entity_view_display.node.ercore_admin.default'
+        - 'config:core.entity_view_display.node.ercore_admin.full'
+        - 'config:core.entity_view_display.node.ercore_admin.teaser'
+        - 'config:core.entity_view_display.node.ercore_collaboration.default'
+        - 'config:core.entity_view_display.node.ercore_collaboration.full'
+        - 'config:core.entity_view_display.node.ercore_collaboration.teaser'
+        - 'config:core.entity_view_display.node.ercore_event.default'
+        - 'config:core.entity_view_display.node.ercore_event.full'
+        - 'config:core.entity_view_display.node.ercore_event.teaser'
+        - 'config:core.entity_view_display.node.ercore_institution.default'
+        - 'config:core.entity_view_display.node.ercore_institution.full'
+        - 'config:core.entity_view_display.node.ercore_institution.teaser'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.default'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.full'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.teaser'
+        - 'config:core.entity_view_display.node.ercore_j_honor.default'
+        - 'config:core.entity_view_display.node.ercore_j_honor.full'
+        - 'config:core.entity_view_display.node.ercore_j_honor.teaser'
+        - 'config:core.entity_view_display.node.ercore_other_product.default'
+        - 'config:core.entity_view_display.node.ercore_other_product.full'
+        - 'config:core.entity_view_display.node.ercore_other_product.teaser'
+        - 'config:core.entity_view_display.node.ercore_patent.default'
+        - 'config:core.entity_view_display.node.ercore_patent.full'
+        - 'config:core.entity_view_display.node.ercore_patent.teaser'
+        - 'config:core.entity_view_display.node.ercore_presentation.default'
+        - 'config:core.entity_view_display.node.ercore_presentation.full'
+        - 'config:core.entity_view_display.node.ercore_presentation.teaser'
+        - 'config:core.entity_view_display.node.ercore_proposal.default'
+        - 'config:core.entity_view_display.node.ercore_proposal.full'
+        - 'config:core.entity_view_display.node.ercore_proposal.teaser'
+        - 'config:core.entity_view_display.node.ercore_publication.default'
+        - 'config:core.entity_view_display.node.ercore_publication.full'
+        - 'config:core.entity_view_display.node.ercore_publication.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'
   data_export_1:
     display_plugin: data_export
     id: data_export_1
@@ -269,19 +481,1185 @@ display:
           perm: 'access ercore excel sheets'
       defaults:
         access: false
+        fields: false
       pager:
         type: none
         options:
           offset: 0
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      fields:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Unique ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+        field_ercore_ps_type:
+          id: field_ercore_ps_type
+          table: node__field_ercore_ps_type
+          field: field_ercore_ps_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Type
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_proposal_status:
+          id: field_ercore_pp_proposal_status
+          table: node__field_ercore_pp_proposal_status
+          field: field_ercore_pp_proposal_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Status
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'EPSCoR PI/Co-PI'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view: ercore_user_summary_formatting
+          display: block_1
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
+        field_ercore_pp_other_pi:
+          id: field_ercore_pp_other_pi
+          table: node__field_ercore_pp_other_pi
+          field: field_ercore_pp_other_pi
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Non-EPSCoR PI/Co-PI'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        view_1:
+          id: view_1
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Other EPSCoR Researchers'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view: ercore_user_summary_formatting_other
+          display: block_1
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
+        field_ercore_programs:
+          id: field_ercore_programs
+          table: node__field_ercore_programs
+          field: field_ercore_programs
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Programs
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_award_req_dec:
+          id: field_ercore_pp_award_req_dec
+          table: node__field_ercore_pp_award_req_dec
+          field: field_ercore_pp_award_req_dec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Amount Requested'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+            decimal_separator: .
+            scale: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_award_amount:
+          id: field_ercore_pp_award_amount
+          table: node__field_ercore_pp_award_amount
+          field: field_ercore_pp_award_amount
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Award Amount'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+            decimal_separator: .
+            scale: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_proposal_date:
+          id: field_ercore_pp_proposal_date
+          table: node__field_ercore_pp_proposal_date
+          field: field_ercore_pp_proposal_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Award Dates'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: daterange_default
+          settings:
+            timezone_override: ''
+            format_type: ercore_short
+            separator: '-'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_proposal_denied:
+          id: field_ercore_pp_proposal_denied
+          table: node__field_ercore_pp_proposal_denied
+          field: field_ercore_pp_proposal_denied
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Denial Date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: true
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: ercore_short
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_proposal_pending:
+          id: field_ercore_pp_proposal_pending
+          table: node__field_ercore_pp_proposal_pending
+          field: field_ercore_pp_proposal_pending
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Pending Notification Date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: true
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: ercore_short
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_proposal_submit:
+          id: field_ercore_pp_proposal_submit
+          table: node__field_ercore_pp_proposal_submit
+          field: field_ercore_pp_proposal_submit
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Date Submitted'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: true
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: ercore_short
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_support:
+          id: field_ercore_pp_support
+          table: node__field_ercore_pp_support
+          field: field_ercore_pp_support
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Funding Agency'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_proposal_paid:
+          id: field_ercore_pp_proposal_paid
+          table: node__field_ercore_pp_proposal_paid
+          field: field_ercore_pp_proposal_paid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Salary Support'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: yes-no
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_support_type:
+          id: field_ercore_pp_support_type
+          table: node__field_ercore_pp_support_type
+          field: field_ercore_pp_support_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Support Type'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Description
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_pp_location:
+          id: field_ercore_pp_location
+          table: node__field_ercore_pp_location
+          field: field_ercore_pp_location
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Location
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_ercore_pp_award_amount'
+        - 'config:field.storage.node.field_ercore_pp_award_req_dec'
+        - 'config:field.storage.node.field_ercore_pp_location'
+        - 'config:field.storage.node.field_ercore_pp_other_pi'
+        - 'config:field.storage.node.field_ercore_pp_proposal_date'
+        - 'config:field.storage.node.field_ercore_pp_proposal_denied'
+        - 'config:field.storage.node.field_ercore_pp_proposal_paid'
+        - 'config:field.storage.node.field_ercore_pp_proposal_pending'
+        - 'config:field.storage.node.field_ercore_pp_proposal_status'
+        - 'config:field.storage.node.field_ercore_pp_proposal_submit'
+        - 'config:field.storage.node.field_ercore_pp_support'
+        - 'config:field.storage.node.field_ercore_pp_support_type'
+        - 'config:field.storage.node.field_ercore_programs'
+        - 'config:field.storage.node.field_ercore_ps_type'
   page_1:
     display_plugin: page
     id: page_1
@@ -292,7 +1670,7 @@ display:
       path: proposals
       menu:
         type: normal
-        title: Proposals
+        title: 'Proposals and Grants'
         description: ''
         expanded: false
         parent: ercore_core.ercore_content
@@ -302,9 +1680,47 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
+        - 'config:core.entity_view_display.node.ercore_admin.default'
+        - 'config:core.entity_view_display.node.ercore_admin.full'
+        - 'config:core.entity_view_display.node.ercore_admin.teaser'
+        - 'config:core.entity_view_display.node.ercore_collaboration.default'
+        - 'config:core.entity_view_display.node.ercore_collaboration.full'
+        - 'config:core.entity_view_display.node.ercore_collaboration.teaser'
+        - 'config:core.entity_view_display.node.ercore_event.default'
+        - 'config:core.entity_view_display.node.ercore_event.full'
+        - 'config:core.entity_view_display.node.ercore_event.teaser'
+        - 'config:core.entity_view_display.node.ercore_institution.default'
+        - 'config:core.entity_view_display.node.ercore_institution.full'
+        - 'config:core.entity_view_display.node.ercore_institution.teaser'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.default'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.full'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.teaser'
+        - 'config:core.entity_view_display.node.ercore_j_honor.default'
+        - 'config:core.entity_view_display.node.ercore_j_honor.full'
+        - 'config:core.entity_view_display.node.ercore_j_honor.teaser'
+        - 'config:core.entity_view_display.node.ercore_other_product.default'
+        - 'config:core.entity_view_display.node.ercore_other_product.full'
+        - 'config:core.entity_view_display.node.ercore_other_product.teaser'
+        - 'config:core.entity_view_display.node.ercore_patent.default'
+        - 'config:core.entity_view_display.node.ercore_patent.full'
+        - 'config:core.entity_view_display.node.ercore_patent.teaser'
+        - 'config:core.entity_view_display.node.ercore_presentation.default'
+        - 'config:core.entity_view_display.node.ercore_presentation.full'
+        - 'config:core.entity_view_display.node.ercore_presentation.teaser'
+        - 'config:core.entity_view_display.node.ercore_proposal.default'
+        - 'config:core.entity_view_display.node.ercore_proposal.full'
+        - 'config:core.entity_view_display.node.ercore_proposal.teaser'
+        - 'config:core.entity_view_display.node.ercore_publication.default'
+        - 'config:core.entity_view_display.node.ercore_publication.full'
+        - 'config:core.entity_view_display.node.ercore_publication.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'

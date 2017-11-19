@@ -5,7 +5,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.storage.node.body
     - field.storage.node.field_ercore_hn_date
-    - field.storage.node.field_ercore_organizer
     - field.storage.node.field_ercore_programs
     - node.type.ercore_j_honor
     - system.menu.ercore-admin-menu
@@ -19,6 +18,7 @@ dependencies:
     - text
     - user
     - views_data_export
+    - views_field_view
 id: ercore_summary_of_honors
 label: 'ERCore Summary of Honors and Awards'
 module: views
@@ -230,7 +230,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_hn_date_value_op
-            identifier: field_ercore_hn_date_value
+            identifier: ercore_start_date
             required: false
             remember: false
             multiple: false
@@ -278,7 +278,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_hn_date_value_1_op
-            identifier: field_ercore_hn_date_value_1
+            identifier: ercore_end_date
             required: false
             remember: false
             multiple: false
@@ -305,6 +305,53 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
+        field_ercore_user_partic_inst_target_id:
+          id: field_ercore_user_partic_inst_target_id
+          table: user__field_ercore_user_partic_inst
+          field: field_ercore_user_partic_inst_target_id
+          relationship: field_ercore_organizer
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_user_partic_inst_target_id_op
+            label: Institution
+            description: ''
+            use_operator: false
+            operator: field_ercore_user_partic_inst_target_id_op
+            identifier: field_ercore_user_partic_inst_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts:
         created:
           id: created
@@ -338,7 +385,16 @@ display:
             value: 'No Honors or Awards have been created. <a href="/node/add/ercore_j_honor/">Create an Honor or Award?</a>?'
             format: basic_html
           plugin_id: text
-      relationships: {  }
+      relationships:
+        field_ercore_organizer:
+          id: field_ercore_organizer
+          table: node__field_ercore_organizer
+          field: field_ercore_organizer
+          relationship: none
+          group_type: group
+          admin_label: 'honor to user'
+          required: false
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       css_class: 'ercore-summary highlight'
@@ -560,77 +616,14 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-        field_ercore_organizer:
-          id: field_ercore_organizer
-          table: node__field_ercore_organizer
-          field: field_ercore_organizer
+        view:
+          id: view
+          table: views
+          field: view
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        body:
-          id: body
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Description
+          label: Organizers
           exclude: false
           alter:
             alter_text: false
@@ -671,20 +664,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          view: ercore_user_summary_formatting
+          display: block_1
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
         field_ercore_programs:
           id: field_ercore_programs
           table: node__field_ercore_programs
@@ -812,6 +795,68 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Description
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       pager:
         type: none
         options:
@@ -828,7 +873,6 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_ercore_hn_date'
-        - 'config:field.storage.node.field_ercore_organizer'
         - 'config:field.storage.node.field_ercore_programs'
   page_1:
     display_plugin: page

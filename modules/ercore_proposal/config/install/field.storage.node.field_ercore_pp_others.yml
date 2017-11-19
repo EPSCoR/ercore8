@@ -4,17 +4,16 @@ dependencies:
   module:
     - field_permissions
     - node
+    - user
 third_party_settings:
   field_permissions:
     permission_type: public
 id: node.field_ercore_pp_others
 field_name: field_ercore_pp_others
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: user
 module: core
 locked: false
 cardinality: -1

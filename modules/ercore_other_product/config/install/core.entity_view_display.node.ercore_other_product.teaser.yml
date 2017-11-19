@@ -1,5 +1,5 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -13,21 +13,50 @@ dependencies:
     - field.field.node.ercore_other_product.field_ercore_organizer
     - node.type.ercore_other_product
   module:
+    - datetime
+    - options
     - user
 id: node.ercore_other_product.teaser
 targetEntityType: node
 bundle: ercore_other_product
 mode: teaser
 content:
-  links:
-    weight: 100
+  field_ercore_op_date:
+    type: datetime_default
+    weight: 0
     region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+  field_ercore_op_non_epscor:
+    type: string
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_op_type:
+    type: list_default
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_organizer:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: above
+    settings:
+      view_mode: ercore_name_org_dept
+      link: false
+    third_party_settings: {  }
 hidden:
   field_ercore_nsf: true
-  field_ercore_op_date: true
   field_ercore_op_description: true
-  field_ercore_op_non_epscor: true
   field_ercore_op_rii_support: true
-  field_ercore_op_type: true
   field_ercore_op_website: true
-  field_ercore_organizer: true
+  links: true

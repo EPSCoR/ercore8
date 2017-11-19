@@ -765,6 +765,150 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          group: 1
+        field_ercore_ev_date_end_value:
+          id: field_ercore_ev_date_end_value
+          table: node__field_ercore_ev_date
+          field: field_ercore_ev_date_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_ev_date_end_value_op
+            label: 'Start Date'
+            description: ''
+            use_operator: false
+            operator: field_ercore_ev_date_end_value_op
+            identifier: ercore_start_date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_ercore_ev_date_value:
+          id: field_ercore_ev_date_value
+          table: node__field_ercore_ev_date
+          field: field_ercore_ev_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_ev_date_value_op
+            label: 'End Date'
+            description: ''
+            use_operator: false
+            operator: field_ercore_ev_date_value_op
+            identifier: ercore_end_date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_ercore_user_partic_inst_target_id:
+          id: field_ercore_user_partic_inst_target_id
+          table: user__field_ercore_user_partic_inst
+          field: field_ercore_user_partic_inst_target_id
+          relationship: field_ercore_organizer
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_user_partic_inst_target_id_op
+            label: Institution
+            description: ''
+            use_operator: false
+            operator: field_ercore_user_partic_inst_target_id_op
+            identifier: field_ercore_user_partic_inst_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts:
         field_ercore_ev_date_value:
           id: field_ercore_ev_date_value
@@ -803,17 +947,31 @@ display:
           field: field_ercore_ev_engagement
           relationship: none
           group_type: group
-          admin_label: 'field_ercore_ev_engagement: Paragraph'
+          admin_label: 'Event to External Engagement'
           required: true
+          plugin_id: standard
+        field_ercore_organizer:
+          id: field_ercore_organizer
+          table: node__field_ercore_organizer
+          field: field_ercore_organizer
+          relationship: none
+          group_type: group
+          admin_label: 'Event to Organizer'
+          required: false
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       css_class: 'ercore-summary ercore-engagements'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -5051,6 +5209,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -5148,6 +5307,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions

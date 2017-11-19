@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.ercore_patent.body
     - field.field.node.ercore_patent.field_ercore_organizer
     - field.field.node.ercore_patent.field_ercore_programs
     - field.field.node.ercore_patent.field_ercore_pt_award
@@ -17,25 +16,46 @@ dependencies:
     - field.field.node.ercore_patent.field_ercore_pt_provisional
     - node.type.ercore_patent
   module:
+    - datetime
     - user
 id: node.ercore_patent.teaser
 targetEntityType: node
 bundle: ercore_patent
 mode: teaser
 content:
-  links:
-    weight: 100
+  field_ercore_organizer:
+    type: entity_reference_entity_view
+    weight: 1
     region: content
+    label: above
+    settings:
+      view_mode: ercore_name_org_dept
+      link: false
+    third_party_settings: {  }
+  field_ercore_programs:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_ercore_pt_license:
+    type: datetime_default
+    weight: 0
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
 hidden:
-  body: true
-  field_ercore_organizer: true
-  field_ercore_programs: true
   field_ercore_pt_award: true
   field_ercore_pt_description: true
   field_ercore_pt_disclosure: true
   field_ercore_pt_filing: true
-  field_ercore_pt_license: true
   field_ercore_pt_licensed: true
   field_ercore_pt_licensee: true
   field_ercore_pt_link: true
   field_ercore_pt_provisional: true
+  links: true
