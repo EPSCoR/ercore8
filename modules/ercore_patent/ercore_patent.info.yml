@@ -3,6 +3,7 @@ description: 'Provides ERCore Patent content type and related configuration. Pat
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - csv_serialization
   - datetime
   - ercore_core

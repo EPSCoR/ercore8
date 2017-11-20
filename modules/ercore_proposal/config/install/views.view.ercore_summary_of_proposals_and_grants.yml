@@ -21,6 +21,7 @@ dependencies:
     - node.type.ercore_proposal
     - system.menu.ercore-admin-menu
   module:
+    - better_exposed_filters
     - csv_serialization
     - datetime
     - datetime_range
@@ -64,7 +65,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
           reset_button: false
@@ -73,6 +74,33 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_hide: false
+            field_ercore_pp_proposal_date_value:
+              bef_format: bef_datepicker
+              more_options:
+                is_secondary: false
+            field_ercore_pp_proposal_date_end_value:
+              bef_format: bef_datepicker
+              more_options:
+                is_secondary: false
+            field_ercore_user_partic_inst_target_id:
+              bef_format: default
+              slider_options:
+                bef_slider_min: null
+                bef_slider_max: null
+                bef_slider_step: !!float 1
+                bef_slider_animate: ''
+                bef_slider_orientation: ''
+              more_options:
+                is_secondary: false
+          text_input_required_format: basic_html
       pager:
         type: full
         options:
@@ -394,7 +422,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<p class="ercore-download"><a href="/proposals/export">Download ERCore Proposals and Grants Summary</a></p>'
+          content: '<p class="ercore-download"><a href="/proposals/export">Download ERCore Proposal and Grant Summary</a></p>'
           plugin_id: text_custom
       empty:
         area:

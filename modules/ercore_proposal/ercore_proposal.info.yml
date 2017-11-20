@@ -3,6 +3,7 @@ description: 'Provides ERCore Proposal or Grant content type and related configu
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - block_content
   - csv_serialization
   - datetime

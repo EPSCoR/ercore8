@@ -1,5 +1,5 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.full
@@ -31,6 +31,10 @@ dependencies:
     - field.field.node.ercore_publication.field_ercore_programs
     - node.type.ercore_publication
   module:
+    - datetime
+    - file
+    - link
+    - options
     - text
     - user
 id: node.ercore_publication.full
@@ -41,52 +45,219 @@ content:
   body:
     label: above
     type: text_default
-    weight: 2
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_nsf:
+    type: list_default
+    weight: 12
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
   field_ercore_organizer:
-    weight: 1
+    weight: 3
     label: above
     settings:
-      link: true
+      view_mode: ercore_name_org_dept
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
-  field_ercore_programs:
+  field_ercore_pb_arch_name:
+    type: string
+    weight: 17
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_archived:
+    type: boolean
+    weight: 16
+    region: content
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  field_ercore_pb_ark:
+    type: string
+    weight: 19
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_citation:
+    type: string
+    weight: 9
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_coll_title:
+    type: string
+    weight: 21
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_data:
+    type: boolean
+    weight: 18
+    region: content
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  field_ercore_pb_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_short
+    third_party_settings: {  }
+  field_ercore_pb_doi:
+    type: string
+    weight: 10
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_epscor:
+    type: boolean
+    weight: 14
+    region: content
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  field_ercore_pb_issn:
+    type: string
+    weight: 11
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_journal_name:
+    type: string
+    weight: 22
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_journal_pages:
+    type: string
+    weight: 25
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_journal_volume:
+    type: string
+    weight: 23
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_link:
+    type: link
+    weight: 24
+    region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+  field_ercore_pb_nonepscor_aut:
+    type: string
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_peer_reviewed:
+    type: boolean
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+  field_ercore_pb_publisher:
+    type: string
+    weight: 20
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_rii_support:
+    type: list_default
+    weight: 7
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_pb_status:
+    type: list_default
+    weight: 13
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_pb_submit_date:
+    type: datetime_default
     weight: 0
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_short
+    third_party_settings: {  }
+  field_ercore_pb_type:
+    type: list_default
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_pb_upload:
+    type: file_default
+    weight: 15
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_ercore_programs:
+    weight: 5
     label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  links:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  field_ercore_nsf: true
-  field_ercore_pb_arch_name: true
-  field_ercore_pb_archived: true
-  field_ercore_pb_ark: true
-  field_ercore_pb_citation: true
-  field_ercore_pb_coll_title: true
-  field_ercore_pb_data: true
-  field_ercore_pb_date: true
-  field_ercore_pb_doi: true
-  field_ercore_pb_epscor: true
-  field_ercore_pb_issn: true
-  field_ercore_pb_journal_name: true
-  field_ercore_pb_journal_pages: true
-  field_ercore_pb_journal_volume: true
-  field_ercore_pb_link: true
-  field_ercore_pb_nonepscor_aut: true
-  field_ercore_pb_peer_reviewed: true
-  field_ercore_pb_publisher: true
-  field_ercore_pb_rii_support: true
-  field_ercore_pb_status: true
-  field_ercore_pb_submit_date: true
-  field_ercore_pb_type: true
-  field_ercore_pb_upload: true
+  links: true

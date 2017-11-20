@@ -69,9 +69,5 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  links:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true

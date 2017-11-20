@@ -19,13 +19,13 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
   field_ercore_hn_date:
-    weight: 1
-    label: hidden
+    weight: 0
+    label: inline
     settings:
       timezone_override: ''
       format_type: ercore_month_day_year
@@ -33,7 +33,7 @@ content:
     type: datetime_default
     region: content
   field_ercore_organizer:
-    weight: 3
+    weight: 2
     label: above
     settings:
       view_mode: ercore_name_org_dept
@@ -42,16 +42,12 @@ content:
     type: entity_reference_entity_view
     region: content
   field_ercore_programs:
-    weight: 2
+    weight: 1
     label: inline
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true

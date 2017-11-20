@@ -3,6 +3,7 @@ description: 'Provides ERCore Collaboration content type and related configurati
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - csv_serialization
   - datetime
   - datetime_range

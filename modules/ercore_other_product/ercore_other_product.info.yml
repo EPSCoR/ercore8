@@ -3,6 +3,7 @@ description: 'Provides ERCore Other Product content type and related configurati
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - csv_serialization
   - datetime
   - ercore_core

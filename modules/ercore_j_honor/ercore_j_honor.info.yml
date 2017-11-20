@@ -3,6 +3,7 @@ description: 'Provides ERCore Honors and Awards content type and related configu
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - csv_serialization
   - datetime
   - ercore_core

@@ -3,6 +3,8 @@ description: 'Provides ERCore Publication content type and related configuration
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
+  - csv_serialization
   - datetime
   - ercore_core
   - ercore_program
@@ -23,6 +25,7 @@ dependencies:
   - user
   - views
   - views_data_export
+  - views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore

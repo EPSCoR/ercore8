@@ -28,7 +28,7 @@ content:
   field_ercore_hn_date:
     type: datetime_default
     weight: 0
-    label: hidden
+    label: inline
     settings:
       timezone_override: ''
       format_type: ercore_month_day_year

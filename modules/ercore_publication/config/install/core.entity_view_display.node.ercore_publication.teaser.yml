@@ -1,5 +1,5 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -31,34 +31,56 @@ dependencies:
     - field.field.node.ercore_publication.field_ercore_programs
     - node.type.ercore_publication
   module:
-    - text
+    - datetime
+    - options
     - user
 id: node.ercore_publication.teaser
 targetEntityType: node
 bundle: ercore_publication
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
+  field_ercore_organizer:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: above
     settings:
-      trim_length: 600
+      view_mode: ercore_name_org_dept
+      link: false
     third_party_settings: {  }
+  field_ercore_pb_date:
+    type: datetime_default
+    weight: 0
     region: content
-  links:
-    weight: 100
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
+  field_ercore_pb_nonepscor_aut:
+    type: string
+    weight: 3
     region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_ercore_pb_type:
+    type: list_default
+    weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  body: true
   field_ercore_nsf: true
-  field_ercore_organizer: true
   field_ercore_pb_arch_name: true
   field_ercore_pb_archived: true
   field_ercore_pb_ark: true
   field_ercore_pb_citation: true
   field_ercore_pb_coll_title: true
   field_ercore_pb_data: true
-  field_ercore_pb_date: true
   field_ercore_pb_doi: true
   field_ercore_pb_epscor: true
   field_ercore_pb_issn: true
@@ -66,12 +88,11 @@ hidden:
   field_ercore_pb_journal_pages: true
   field_ercore_pb_journal_volume: true
   field_ercore_pb_link: true
-  field_ercore_pb_nonepscor_aut: true
   field_ercore_pb_peer_reviewed: true
   field_ercore_pb_publisher: true
   field_ercore_pb_rii_support: true
   field_ercore_pb_status: true
   field_ercore_pb_submit_date: true
-  field_ercore_pb_type: true
   field_ercore_pb_upload: true
   field_ercore_programs: true
+  links: true

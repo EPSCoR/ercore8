@@ -3,6 +3,7 @@ description: 'Provides ERCore Highlight content type and related configuration. 
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - csv_serialization
   - datetime
   - ercore_component

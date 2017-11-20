@@ -3,6 +3,7 @@ description: 'Provides ERCore Presentation content type and related configuratio
 type: module
 core: 8.x
 dependencies:
+  - better_exposed_filters
   - csv_serialization
   - datetime
   - ercore_core

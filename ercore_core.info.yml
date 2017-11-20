@@ -8,6 +8,7 @@ dependencies:
   - block_content
   - ckeditor
   - contact
+  - csv_serialization
   - datetime
   - datetime_range
   - editor
@@ -29,7 +30,9 @@ dependencies:
   - paragraphs
   - path
   - pathologic
+  - rest
   - select_or_other
+  - serialization
   - shortcut
   - system
   - taxonomy
@@ -38,4 +41,5 @@ dependencies:
   - tour
   - user
   - views
+  - views_data_export
 package: ERCore
