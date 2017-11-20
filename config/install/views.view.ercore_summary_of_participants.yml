@@ -634,7 +634,18 @@ display:
       sorts: {  }
       title: 'ERCore Summary of Participants'
       header: {  }
-      footer: {  }
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<p class="ercore-download"><a href="/participants/export">Download ERCore Participant Summary</a></p>'
+          plugin_id: text_custom
       empty: {  }
       relationships:
         field_ercore_user_part_dates:
@@ -3616,6 +3627,11 @@ display:
       menu:
         type: normal
         title: Participants
+        description: ''
+        expanded: false
+        parent: ercore_core.ercore_content
+        weight: 0
+        context: '0'
         menu_name: ercore-admin-menu
       defaults:
         fields: true
