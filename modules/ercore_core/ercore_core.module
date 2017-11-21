@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the ERCore module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'user_form') {
+    $form['field_test_text']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_ercore_overall_roles"]' => array('value' => 'undergraduate'),
+      ),
+    );
+  }
+}

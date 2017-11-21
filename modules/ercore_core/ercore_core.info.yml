@@ -43,3 +43,4 @@ dependencies:
   - views
   - views_data_export
 package: ERCore
+hidden: true

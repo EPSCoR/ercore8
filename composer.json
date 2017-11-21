@@ -1,0 +1,12 @@
+{
+  "name": "drupal/ercore",
+  "description": "Modules for EPSCoR reporting.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ]
+}

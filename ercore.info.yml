@@ -4,5 +4,19 @@ type: module
 core: 8.x
 version: 8.x-1.0
 dependencies:
-  - block
+  - ercore_component
+  - ercore_program
+  - ercore_core
+  - ercore_institution
+  - ercore_admin
+  - ercore_collaboration
+  - ercore_event
+  - ercore_j_highlight
+  - ercore_j_honor
+  - ercore_other_product
+  - ercore_patent
+  - ercore_presentation
+  - ercore_proposal
+  - ercore_publication
+project: ercore
 package: ERCore
