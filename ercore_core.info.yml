@@ -1,4 +1,4 @@
-name: ERCore
+name: ERCore Core
 description: 'ERCore Basic content types and functions.'
 type: module
 core: 8.x
