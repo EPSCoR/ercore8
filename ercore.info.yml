@@ -4,6 +4,8 @@ type: module
 core: 8.x
 version: 8.x-1.0
 dependencies:
+  - components
+  - entity_reference_exposed_filters
   - ercore_component
   - ercore_program
   - ercore_core
@@ -18,5 +20,6 @@ dependencies:
   - ercore_presentation
   - ercore_proposal
   - ercore_publication
+  - pathologic
 project: ercore
 package: ERCore

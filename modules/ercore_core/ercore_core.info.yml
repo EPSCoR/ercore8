@@ -7,7 +7,6 @@ dependencies:
   - block
   - block_content
   - ckeditor
-  - contact
   - csv_serialization
   - datetime
   - datetime_range
@@ -29,16 +28,13 @@ dependencies:
   - options
   - paragraphs
   - path
-  - pathologic
+  - real_name
   - rest
   - select_or_other
   - serialization
-  - shortcut
-  - system
   - taxonomy
   - telephone
   - text
-  - tour
   - user
   - views
   - views_data_export
