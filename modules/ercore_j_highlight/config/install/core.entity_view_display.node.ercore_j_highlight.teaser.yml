@@ -72,9 +72,5 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-  links:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true
