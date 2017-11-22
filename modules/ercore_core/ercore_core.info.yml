@@ -28,7 +28,7 @@ dependencies:
   - options
   - paragraphs
   - path
-  - real_name
+  - realname
   - rest
   - select_or_other
   - serialization
