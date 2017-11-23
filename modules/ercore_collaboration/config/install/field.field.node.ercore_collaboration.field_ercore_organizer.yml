@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_ercore_organizer
     - node.type.ercore_collaboration
-  content:
-    - 'user:user:cda1e6c9-0d94-4848-b265-8032091da6b7'
 id: node.ercore_collaboration.field_ercore_organizer
 field_name: field_ercore_organizer
 entity_type: node
@@ -14,14 +12,12 @@ label: 'EPSCoR Collaborator(s)'
 description: ''
 required: false
 translatable: true
-default_value:
-  -
-    target_uuid: cda1e6c9-0d94-4848-b265-8032091da6b7
+default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:user'
   handler_settings:
-    include_anonymous: true
+    include_anonymous: false
     filter:
       type: _none
     target_bundles: null
