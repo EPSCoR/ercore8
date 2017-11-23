@@ -10,7 +10,6 @@ dependencies:
   module:
     - better_exposed_filters
     - csv_serialization
-    - datetime
     - node
     - paragraphs
     - rest
@@ -65,14 +64,16 @@ display:
               secondary_label: 'Advanced options'
               autosubmit: false
               autosubmit_hide: false
-            field_ercore_cn_dates_value:
-              bef_format: bef_datepicker
-              more_options:
-                is_secondary: false
             field_ercore_cn_dates_end_value:
-              bef_format: bef_datepicker
+              bef_format: default
               more_options:
                 is_secondary: false
+                placeholder_text: ''
+            field_ercore_cn_dates_value:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
             field_ercore_cr_inst_target_id:
               bef_format: default
               slider_options:
@@ -80,7 +81,7 @@ display:
                 bef_slider_max: null
                 bef_slider_step: !!float 1
                 bef_slider_animate: ''
-                bef_slider_orientation: ''
+                bef_slider_orientation: horizontal
               more_options:
                 is_secondary: false
           text_input_required_format: basic_html
@@ -493,54 +494,7 @@ display:
           entity_type: paragraph
           entity_field: type
           plugin_id: bundle
-        field_ercore_cn_dates_value:
-          id: field_ercore_cn_dates_value
-          table: node__field_ercore_cn_dates
-          field: field_ercore_cn_dates_value
-          relationship: reverse__node__field_ercore_cn_collaborator
-          group_type: group
-          admin_label: ''
-          operator: '<='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
           group: 1
-          exposed: true
-          expose:
-            operator_id: field_ercore_cn_dates_value_op
-            label: 'End Date'
-            description: ''
-            use_operator: false
-            operator: field_ercore_cn_dates_value_op
-            identifier: ercore_end_date
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              ercore_guest: '0'
-              ercore_no_priviledge: '0'
-              ercore_view: '0'
-              ercore_edit: '0'
-              ercore_administrative: '0'
-              ercore_manage_site: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
         field_ercore_cn_dates_end_value:
           id: field_ercore_cn_dates_end_value
           table: node__field_ercore_cn_dates
@@ -548,12 +502,8 @@ display:
           relationship: reverse__node__field_ercore_cn_collaborator
           group_type: group
           admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
+          operator: '='
+          value: ''
           group: 1
           exposed: true
           expose:
@@ -568,7 +518,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
               ercore_guest: '0'
               ercore_no_priviledge: '0'
               ercore_view: '0'
@@ -576,6 +525,51 @@ display:
               ercore_administrative: '0'
               ercore_manage_site: '0'
               administrator: '0'
+              anonymous: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_ercore_cn_dates_value:
+          id: field_ercore_cn_dates_value
+          table: node__field_ercore_cn_dates
+          field: field_ercore_cn_dates_value
+          relationship: reverse__node__field_ercore_cn_collaborator
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_cn_dates_value_op
+            label: 'End Date'
+            description: ''
+            use_operator: false
+            operator: field_ercore_cn_dates_value_op
+            identifier: ercore_end_date
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+              anonymous: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -679,6 +673,10 @@ display:
       arguments: {  }
       display_extenders: {  }
       css_class: 'ercore-summary ercore-collaborations'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: 0
       contexts:
