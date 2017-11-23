@@ -1,0 +1,4 @@
+# ignore composer files
+composer.lock
+# ignore vendor, shoud be higher up, but can appear here in development.
+vendor
