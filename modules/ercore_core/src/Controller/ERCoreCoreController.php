@@ -35,6 +35,15 @@ class ERCoreCoreController extends ControllerBase {
   }
 
   /**
+   * Test pages.
+   */
+  public function ercoreTest() {
+    return [
+      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
+    ];
+  }
+
+  /**
    * Administrative Actions page.
    */
   public function ercoreAdminActions() {
@@ -77,16 +86,18 @@ class ERCoreCoreController extends ControllerBase {
   }
 
   /**
-   * User Guides.
+   * Admin Views.
    */
-  public function ercoreUserGuides() {
-    return ercore_core_submenu_tree_all_data('ercore_core.user_guides');
+  public function ercoreUg() {
+    return [
+      '#markup' => '<p>' . $this->t('Guides: The quick brown fox jumps over the lazy dog.') . '</p>',
+    ];
   }
 
   /**
    * User accounts page.
    */
-  public function ercoreUserAccounts() {
+  public function ercoreAccounts() {
     return [
       '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
     ];
@@ -95,7 +106,7 @@ class ERCoreCoreController extends ControllerBase {
   /**
    * User Entering Data page.
    */
-  public function ercoreUserEntering() {
+  public function ercoreEntering() {
     return [
       '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
     ];
@@ -104,7 +115,7 @@ class ERCoreCoreController extends ControllerBase {
   /**
    * User Viewing Data page.
    */
-  public function ercoreUserView() {
+  public function ercoreView() {
     return [
       '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
     ];
@@ -113,7 +124,7 @@ class ERCoreCoreController extends ControllerBase {
   /**
    * User Drupal page.
    */
-  public function ercoreUserDrupal() {
+  public function ercoreDrupal() {
     return [
       '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
     ];
@@ -122,7 +133,7 @@ class ERCoreCoreController extends ControllerBase {
   /**
    * User NSF page.
    */
-  public function ercoreUserNsf() {
+  public function ercoreNsf() {
     return [
       '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
     ];
