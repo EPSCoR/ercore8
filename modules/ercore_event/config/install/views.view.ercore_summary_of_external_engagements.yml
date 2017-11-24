@@ -67,7 +67,6 @@ dependencies:
     - better_exposed_filters
     - computed_field
     - csv_serialization
-    - datetime
     - datetime_range
     - node
     - paragraphs
@@ -826,12 +825,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '<='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
+          operator: '='
+          value: ''
           group: 1
           exposed: true
           expose:
@@ -846,7 +841,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
               ercore_guest: '0'
               ercore_no_priviledge: '0'
               ercore_view: '0'
@@ -854,6 +848,7 @@ display:
               ercore_administrative: '0'
               ercore_manage_site: '0'
               administrator: '0'
+              anonymous: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -874,12 +869,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '<='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
+          operator: '='
+          value: ''
           group: 1
           exposed: true
           expose:
@@ -894,7 +885,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
               ercore_guest: '0'
               ercore_no_priviledge: '0'
               ercore_view: '0'
@@ -902,6 +892,7 @@ display:
               ercore_administrative: '0'
               ercore_manage_site: '0'
               administrator: '0'
+              anonymous: '0'
           is_grouped: false
           group_info:
             label: ''

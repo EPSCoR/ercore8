@@ -5,4 +5,3 @@ id: ercore_guest
 label: Guest
 weight: -8
 is_admin: null
-permissions: {  }
