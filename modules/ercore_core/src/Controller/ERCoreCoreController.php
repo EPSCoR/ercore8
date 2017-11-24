@@ -89,9 +89,7 @@ class ERCoreCoreController extends ControllerBase {
    * Admin Views.
    */
   public function ercoreUg() {
-    return [
-      '#markup' => '<p>' . $this->t('Guides: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
+    return ercore_core_submenu_tree_all_data('ercore_core.ug1');
   }
 
   /**
