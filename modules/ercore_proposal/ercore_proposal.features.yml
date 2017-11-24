@@ -1,2 +1,5 @@
 bundle: ercore
+excluded:
+  - views.view.ercore_summary_of_proposals_and_grants
+  - views.view.ercore_user_summary_formatting_other
 required: true

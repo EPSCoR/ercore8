@@ -80,7 +80,6 @@ third_party_settings:
     group_ercore_us_contact:
       children:
         - field_ercore_user_name
-        - field_ercore_overall_roles
         - field_ercore_user_employee_id
         - field_ercore_user_phone_work
         - field_ercore_user_phone_mobile
@@ -140,9 +139,10 @@ third_party_settings:
       label: 'EPSCoR Involvement'
     group_ercore_us_institution:
       children:
+        - field_ercore_user_part_dates
+        - field_ercore_overall_roles
         - field_ercore_user_partic_inst
         - field_ercore_user_department
-        - field_ercore_user_part_dates
       parent_name: group_ercore_us_profile
       weight: 49
       format_type: tab
@@ -237,14 +237,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_ercore_overall_roles:
-    weight: 6
+    weight: 26
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_ercore_user_address:
     type: entity_reference_paragraphs
-    weight: 10
+    weight: 9
     region: content
     settings:
       title: Paragraph
@@ -304,7 +304,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
   field_ercore_user_department:
-    weight: 22
+    weight: 28
     settings:
       size: 60
       placeholder: ''
@@ -344,7 +344,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_ercore_user_employee_id:
-    weight: 7
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -442,7 +442,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_part_dates:
     type: paragraphs
-    weight: 24
+    weight: 25
     region: content
     settings:
       title: Paragraph
@@ -455,21 +455,21 @@ content:
       autocollapse: none
     third_party_settings: {  }
   field_ercore_user_partic_inst:
-    weight: 21
+    weight: 27
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_ercore_user_phone_mobile:
     type: telephone_default
-    weight: 9
+    weight: 8
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_ercore_user_phone_work:
     type: telephone_default
-    weight: 8
+    weight: 7
     region: content
     settings:
       placeholder: ''

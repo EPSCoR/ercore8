@@ -3,19 +3,37 @@ type: module
 core: 8.x
 dependencies:
   - better_exposed_filters
+  - computed_field
   - csv_serialization
   - datetime
   - datetime_range
+  - entity_reference_revisions
   - ercore_collaboration
   - ercore_core
+  - ercore_event
+  - ercore_institution
+  - ercore_j_highlight
+  - ercore_j_honor
+  - ercore_other_product
+  - ercore_patent
+  - ercore_presentation
   - ercore_program
+  - ercore_proposal
+  - ercore_publication
+  - file
+  - link
   - node
+  - options
+  - paragraphs
   - rest
   - semanticviews
   - serialization
+  - telephone
+  - text
   - user
   - views
   - views_data_export
   - views_field_view
 version: 8.x-1.0
 package: ERCore
+description: 'ERCore Summary and supporting Views'

@@ -4,15 +4,17 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.storage.node.body
-    - field.storage.node.field_ercore_hn_date
+    - field.storage.node.field_ercore_hi_date
+    - field.storage.node.field_ercore_inst_category
     - field.storage.node.field_ercore_programs
-    - node.type.ercore_j_honor
+    - node.type.ercore_j_highlight
     - system.menu.ercore-admin-menu
   module:
     - better_exposed_filters
     - csv_serialization
     - datetime
     - node
+    - options
     - rest
     - semanticviews
     - serialization
@@ -20,8 +22,8 @@ dependencies:
     - user
     - views_data_export
     - views_field_view
-id: ercore_summary_of_honors
-label: 'ERCore Summary of Honors and Awards'
+id: ercore_summary_of_highlights
+label: 'ERCore Summary of Highlights'
 module: views
 description: ''
 tag: ''
@@ -68,11 +70,11 @@ display:
               secondary_label: 'Advanced options'
               autosubmit: false
               autosubmit_hide: false
-            field_ercore_hn_date_value:
+            field_ercore_hi_date_value:
               bef_format: bef_datepicker
               more_options:
                 is_secondary: false
-            field_ercore_hn_date_value_1:
+            field_ercore_hi_date_value_1:
               bef_format: bef_datepicker
               more_options:
                 is_secondary: false
@@ -201,46 +203,15 @@ display:
           id: type
           table: node_field_data
           field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
           value:
-            ercore_j_honor: ercore_j_honor
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            ercore_j_highlight: ercore_j_highlight
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_ercore_hn_date_value:
-          id: field_ercore_hn_date_value
-          table: node__field_ercore_hn_date
-          field: field_ercore_hn_date_value
+        field_ercore_hi_date_value:
+          id: field_ercore_hi_date_value
+          table: node__field_ercore_hi_date
+          field: field_ercore_hi_date_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -253,11 +224,11 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_ercore_hn_date_value_op
+            operator_id: field_ercore_hi_date_value_op
             label: 'Start Date'
             description: ''
             use_operator: false
-            operator: field_ercore_hn_date_value_op
+            operator: field_ercore_hi_date_value_op
             identifier: ercore_start_date
             required: false
             remember: false
@@ -285,10 +256,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        field_ercore_hn_date_value_1:
-          id: field_ercore_hn_date_value_1
-          table: node__field_ercore_hn_date
-          field: field_ercore_hn_date_value
+        field_ercore_hi_date_value_1:
+          id: field_ercore_hi_date_value_1
+          table: node__field_ercore_hi_date
+          field: field_ercore_hi_date_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -301,11 +272,11 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_ercore_hn_date_value_1_op
+            operator_id: field_ercore_hi_date_value_1_op
             label: 'End Date'
             description: ''
             use_operator: false
-            operator: field_ercore_hn_date_value_1_op
+            operator: field_ercore_hi_date_value_1_op
             identifier: ercore_end_date
             required: false
             remember: false
@@ -396,7 +367,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'ERCore Summary of Honors and Awards'
+      title: 'ERCore Summary of Highlights'
       header: {  }
       footer: {  }
       empty:
@@ -410,7 +381,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'No Honors or Awards have been created. <a href="/node/add/ercore_j_honor/">Create an Honor or Award?</a>?'
+            value: 'No Highlights have been created. <a href="/node/add/ercore_j_highlight/">Create a highlight?</a>?'
             format: basic_html
           plugin_id: text
       relationships:
@@ -420,7 +391,7 @@ display:
           field: field_ercore_organizer
           relationship: none
           group_type: group
-          admin_label: 'honor to user'
+          admin_label: 'Other to Organizer'
           required: false
           plugin_id: standard
       arguments: {  }
@@ -450,8 +421,12 @@ display:
         - 'config:core.entity_view_display.node.ercore_institution.default'
         - 'config:core.entity_view_display.node.ercore_institution.full'
         - 'config:core.entity_view_display.node.ercore_institution.teaser'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.default'
         - 'config:core.entity_view_display.node.ercore_j_highlight.full'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.teaser'
+        - 'config:core.entity_view_display.node.ercore_j_honor.default'
         - 'config:core.entity_view_display.node.ercore_j_honor.full'
+        - 'config:core.entity_view_display.node.ercore_j_honor.teaser'
         - 'config:core.entity_view_display.node.ercore_other_product.default'
         - 'config:core.entity_view_display.node.ercore_other_product.full'
         - 'config:core.entity_view_display.node.ercore_other_product.teaser'
@@ -469,10 +444,6 @@ display:
         - 'config:core.entity_view_display.node.ercore_publication.teaser'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
-        - 'config:core.entity_view_display.node.ercore_j_highlight.default'
-        - 'config:core.entity_view_display.node.ercore_j_highlight.teaser'
-        - 'config:core.entity_view_display.node.ercore_j_honor.default'
-        - 'config:core.entity_view_display.node.ercore_j_honor.teaser'
   data_export_1:
     display_plugin: data_export
     id: data_export_1
@@ -480,8 +451,8 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: honors/export
-      filename: ercore-summary-honors.csv
+      path: highlights/export
+      filename: ercore-summary-highlights.csv
       access:
         type: perm
         options:
@@ -645,6 +616,70 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
+        field_ercore_hi_date:
+          id: field_ercore_hi_date
+          table: node__field_ercore_hi_date
+          field: field_ercore_hi_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Date Completed'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: ercore_month_day_year
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         view:
           id: view
           table: views
@@ -695,8 +730,132 @@ display:
           hide_alter_empty: true
           view: ercore_user_summary_formatting
           display: block_1
-          arguments: '{{ raw_fields.nid }}'
+          arguments: '{{ raw_fields.nid }} '
           plugin_id: view
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Description
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_inst_category:
+          id: field_ercore_inst_category
+          table: node__field_ercore_inst_category
+          field: field_ercore_inst_category
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Categories
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_ercore_programs:
           id: field_ercore_programs
           table: node__field_ercore_programs
@@ -760,132 +919,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_ercore_hn_date:
-          id: field_ercore_hn_date
-          table: node__field_ercore_hn_date
-          field: field_ercore_hn_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: true
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
-          settings:
-            timezone_override: ''
-            format_type: ercore_month_day_year
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        body:
-          id: body
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Description
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
       pager:
         type: none
         options:
@@ -901,7 +934,8 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_ercore_hn_date'
+        - 'config:field.storage.node.field_ercore_hi_date'
+        - 'config:field.storage.node.field_ercore_inst_category'
         - 'config:field.storage.node.field_ercore_programs'
   page_1:
     display_plugin: page
@@ -910,10 +944,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: honors
+      path: highlights
       menu:
         type: normal
-        title: 'Honors and Awards'
+        title: Highlights
         description: ''
         expanded: false
         parent: ercore_core.ercore_content
@@ -930,7 +964,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<p class="ercore-download"><a href="/honors/export">Download ERCore Honor and Award Summary</a></p>'
+          content: '<p class="ercore-download"><a href="/highlights/export">Download ERCore Highlight Summary</a></p>'
           plugin_id: text_custom
       defaults:
         footer: false

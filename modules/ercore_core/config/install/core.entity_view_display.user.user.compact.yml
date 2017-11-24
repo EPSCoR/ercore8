@@ -12,6 +12,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_data_mgr
     - field.field.user.user.field_ercore_user_data_ongoing
     - field.field.user.user.field_ercore_user_data_url
+    - field.field.user.user.field_ercore_user_department
     - field.field.user.user.field_ercore_user_direct_fund
     - field.field.user.user.field_ercore_user_disabilities
     - field.field.user.user.field_ercore_user_doc_act
@@ -74,6 +75,7 @@ hidden:
   field_ercore_user_data_mgr: true
   field_ercore_user_data_ongoing: true
   field_ercore_user_data_url: true
+  field_ercore_user_department: true
   field_ercore_user_direct_fund: true
   field_ercore_user_disabilities: true
   field_ercore_user_doc_act: true
@@ -108,3 +110,4 @@ hidden:
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true
   member_for: true
+  realname: true

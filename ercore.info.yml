@@ -20,6 +20,6 @@ dependencies:
   - ercore_presentation
   - ercore_proposal
   - ercore_publication
-  - pathologic
+  - ercore_summary_views
 project: ercore
 package: ERCore

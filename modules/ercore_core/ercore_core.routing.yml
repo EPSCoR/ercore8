@@ -47,51 +47,51 @@ ercore_core.participant_views:
   requirements:
     _permission: 'access ercore admin content'
 
-ercore_core.user_guides:
+ercore_core.ug1:
   path: 'ercore/guides'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreUserGuides'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreUg'
     _title: 'User Guides'
   requirements:
     _permission: 'access ercore content'
 
-ercore_core.user_accounts:
+ercore_core.ug11:
   path: 'ercore/guides/accounts'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreUserAccounts'
-    _title: 'User: Accounts'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreAccounts'
+    _title: 'User Guide: Accounts'
   requirements:
     _permission: 'access ercore content'
 
-ercore_core.user_entering:
+ercore_core.ug12:
   path: 'ercore/guides/entering'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreUserEntering'
-    _title: 'User: Entering Reporting Data'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreEntering'
+    _title: 'User Guide: Entering Reporting Data'
   requirements:
     _permission: 'access ercore content'
 
-ercore_core.user_view:
+ercore_core.ug13:
   path: 'ercore/guides/view'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreUserView'
-    _title: 'User: View Reporting Data'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreView'
+    _title: 'User Guide: View Reporting Data'
   requirements:
     _permission: 'access ercore content'
 
-ercore_core.user_drupal:
+ercore_core.ug14:
   path: 'ercore/guides/drupal'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreUserDrupal'
-    _title: 'User: Drupal Terms and Information'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreDrupal'
+    _title: 'User Guide: Drupal Terms and Information'
   requirements:
     _permission: 'access ercore content'
 
-ercore_core.user_nsf:
+ercore_core.ug15:
   path: 'ercore/guides/nsf'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreUserNsf'
-    _title: 'User: NSF'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreNsf'
+    _title: 'User Guide: NSF'
   requirements:
     _permission: 'access ercore content'
 
@@ -144,9 +144,10 @@ ercore_core.outputs:
   requirements:
     _permission: 'access ercore excel sheets'
 
+
 # ERCore Admin Pages.
 ercore_core.admin_config_ui:
-  path: '/admin/config/ercore'
+  path: 'admin/config/ercore'
   defaults:
     _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
     _title: 'ERCore'
@@ -154,7 +155,7 @@ ercore_core.admin_config_ui:
     _permission: 'administer ercore module'
 
 ercore_core.admin_settings_form:
-  path: '/admin/config/ercore/adminsettings'
+  path: 'admin/config/ercore/adminsettings'
   defaults:
     _form: '\Drupal\ercore_core\Form\ERCoreAdmin'
     _title: 'ERCore: EPSoR Grant Number'

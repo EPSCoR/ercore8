@@ -4,7 +4,7 @@ namespace Drupal\ercore_core\Form;
 
 /**
  * @file
- * Contains Drupal\ercore_core\Form\ERCoreAdmin.
+ * Contains Drupal\ercore\Form\ERCoreAdmin.
  */
 
 use Drupal\Core\Form\ConfigFormBase;
@@ -15,7 +15,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * Defines ERCore admin page.
  *
- * @package Drupal\ercore_core\Form
+ * @package Drupal\ercore\Form
  */
 class ERCoreAdmin extends ConfigFormBase {
 
@@ -24,7 +24,7 @@ class ERCoreAdmin extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'ercore_core.adminsettings',
+      'ercore.adminsettings',
     ];
   }
 
@@ -32,20 +32,20 @@ class ERCoreAdmin extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'ercore_core_admin_form';
+    return 'ercore_admin_form';
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('ercore_core.adminsettings');
+    $config = $this->config('ercore.adminsettings');
 
-    $form['ercore_core_epscor_number'] = [
+    $form['ercore_epscor_number'] = [
       '#type' => 'textfield',
       '#title' => $this->t('EPSCoR Grant Number'),
       '#description' => $this->t('The EPSCoR Grant Number for display and Forms.'),
-      '#default_value' => $config->get('ercore_core_epscor_number'),
+      '#default_value' => $config->get('ercore_epscor_number'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -57,8 +57,8 @@ class ERCoreAdmin extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    $this->config('ercore_core.adminsettings')
-      ->set('ercore_core_epscor_number', $form_state->getValue('ercore_core_epscor_number'))
+    $this->config('ercore.adminsettings')
+      ->set('ercore_epscor_number', $form_state->getValue('ercore_epscor_number'))
       ->save();
   }
 

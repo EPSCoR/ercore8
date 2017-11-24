@@ -1,2 +1,4 @@
 bundle: ercore
+excluded:
+  - views.view.ercore_summary_of_presentations
 required: true
