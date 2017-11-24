@@ -14,7 +14,6 @@ dependencies:
     - link
     - node
     - options
-    - paragraphs
     - rest
     - serialization
     - text
@@ -543,7 +542,7 @@ display:
           decimal: .
           separator: ''
           format_plural: 1
-          format_plural_string: "1 Collaboration\x03@count Collaborations"
+          format_plural_string: !!binary MSBDb2xsYWJvcmF0aW9uA0Bjb3VudCBDb2xsYWJvcmF0aW9ucw==
           prefix: ''
           suffix: ''
           click_sort_column: value
@@ -614,7 +613,7 @@ display:
           decimal: .
           separator: ', '
           format_plural: 1
-          format_plural_string: "1 Collaborating Individual\x03@count Collaborating Individuals"
+          format_plural_string: !!binary MSBDb2xsYWJvcmF0aW5nIEluZGl2aWR1YWwDQGNvdW50IENvbGxhYm9yYXRpbmcgSW5kaXZpZHVhbHM=
           prefix: ''
           suffix: ''
           click_sort_column: value
@@ -1366,7 +1365,7 @@ display:
           decimal: .
           separator: ''
           format_plural: 0
-          format_plural_string: "1\x03@count Collaborations"
+          format_plural_string: !!binary MQNAY291bnQgQ29sbGFib3JhdGlvbnM=
           prefix: ''
           suffix: ''
           click_sort_column: value
@@ -1437,7 +1436,7 @@ display:
           decimal: .
           separator: ''
           format_plural: 0
-          format_plural_string: "1 Collaborating Individual\x03@count Collaborating Individuals"
+          format_plural_string: !!binary MSBDb2xsYWJvcmF0aW5nIEluZGl2aWR1YWwDQGNvdW50IENvbGxhYm9yYXRpbmcgSW5kaXZpZHVhbHM=
           prefix: ''
           suffix: ''
           click_sort_column: value

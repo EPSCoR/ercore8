@@ -122,3 +122,4 @@ hidden:
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true
   member_for: true
+  realname: true
