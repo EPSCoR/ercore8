@@ -14,6 +14,7 @@ dependencies:
     - link
     - node
     - options
+    - paragraphs
     - rest
     - serialization
     - text
