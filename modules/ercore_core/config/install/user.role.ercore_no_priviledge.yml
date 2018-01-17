@@ -5,4 +5,3 @@ id: ercore_no_priviledge
 label: 'ERCore No Priviledges'
 weight: -7
 is_admin: null
-permissions: {  }

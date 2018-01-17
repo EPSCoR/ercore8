@@ -8,5 +8,23 @@
       "type": "composer",
       "url": "https://packages.drupal.org/8"
     }
-  ]
+  ],
+  "require": {
+    "drupal/components": "^1.0",
+    "drupal/computed_field": "^2.0@alpha",
+    "drupal/entity_reference_exposed_filters": "^1.0@alpha",
+    "drupal/field_group": "^1.0",
+    "drupal/field_permissions": "^1.0@beta",
+    "drupal/name": "^1.0@beta",
+    "drupal/pathauto": "^1.0",
+    "drupal/pathologic": "1.x-dev",
+    "drupal/realname": "^1.0@RC",
+    "drupal/select_or_other": "^1.0@alpha",
+    "league/csv": "^9.1"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
 }

@@ -579,3 +579,4 @@ content:
 hidden:
   field_ercore_overall_roles: true
   member_for: true
+  realname: true

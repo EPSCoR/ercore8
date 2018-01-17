@@ -9,4 +9,8 @@ excluded:
   - field.storage.paragraph.field_ercore_loc_postal
   - field.storage.paragraph.field_ercore_loc_state
   - field.storage.node.field_ercore_programs
+  - views.view.ercore_engagement_field
+  - views.view.ercore_external_engagements_information
+  - views.view.ercore_summary_event
+  - views.view.ercore_summary_of_external_engagements
 required: true

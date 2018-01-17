@@ -1,2 +1,10 @@
 bundle: ercore
+excluded:
+  - views.view.ercore_summary_of_participants
+  - views.view.ercore_user_summary_formatting
+  - core.entity_view_mode.block.token
+  - core.entity_view_mode.block_content.token
+  - core.entity_view_mode.contact_message.token
+  - core.entity_view_mode.file.token
+  - core.entity_view_mode.menu_link_content.token
 required: true
