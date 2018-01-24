@@ -19,6 +19,7 @@ dependencies:
   module:
     - better_exposed_filters
     - csv_serialization
+    - datetime
     - datetime_range
     - link
     - node

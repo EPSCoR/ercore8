@@ -11,6 +11,7 @@ dependencies:
   module:
     - better_exposed_filters
     - csv_serialization
+    - datetime
     - datetime_range
     - node
     - rest
@@ -561,7 +562,7 @@ display:
           decimal: .
           separator: ', '
           format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
+          format_plural_string: '!!binary MQNAY291bnQ='
           prefix: ''
           suffix: ''
           click_sort_column: value
@@ -634,7 +635,7 @@ display:
           decimal: .
           separator: ', '
           format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
+          format_plural_string: '!!binary MQNAY291bnQ='
           prefix: ''
           suffix: ''
           click_sort_column: value
