@@ -64,6 +64,7 @@ class ERCoreAdmin extends ConfigFormBase {
 
     $this->config('ercore.adminsettings')
       ->set('ercore_epscor_number', $form_state->getValue('ercore_epscor_number'))
+      ->set('ercore_start_date', $form_state->getValue('ercore_start_date'))
       ->save();
   }
 
