@@ -47,10 +47,10 @@ class ERCoreAdmin extends ConfigFormBase {
       '#description' => $this->t('The EPSCoR Grant Number for display and Forms.'),
       '#default_value' => $config->get('ercore_epscor_number'),
     ];
-    $form['epscor_start_date'] = array(
+    $form['ercore_epscor_start'] = array(
       '#title' => t('Grant Start Date'),
       '#type' => 'date',
-      '#default_value' => $config->get('ercore_start_date'),
+      '#default_value' => $config->get('ercore_epscor_start'),
     );
 
     return parent::buildForm($form, $form_state);
@@ -64,7 +64,7 @@ class ERCoreAdmin extends ConfigFormBase {
 
     $this->config('ercore.adminsettings')
       ->set('ercore_epscor_number', $form_state->getValue('ercore_epscor_number'))
-      ->set('ercore_start_date', $form_state->getValue('ercore_start_date'))
+      ->set('ercore_epscor_start', $form_state->getValue('ercore_epscor_start'))
       ->save();
   }
 
