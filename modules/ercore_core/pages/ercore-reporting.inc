@@ -13,8 +13,8 @@ include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin
  * Our menu maps this function to the path '/reporting'.
  */
 function ercore_reporting_callback() {
-  $zone = variable_get('date_default_timezone');
-  $ercore_date = variable_get('ercore_start_date');
+  $zone = \Drupal::state()->get('date_default_timezone');
+  $ercore_date = \Drupal::state()->get('ercore_epscor_start');
   $argument_date_format = variable_get('date_format_ercore_date_format_filter');
   $date_year_range = $ercore_date['year'] . ':+1';
   $default_dates = ercore_start_end_dates();
@@ -95,16 +95,18 @@ function ercore_reporting_callback() {
     '#suffix' => '</div>',
   );
   return $form;
-
 }
 
 /**
  * Theme function generates the summary table.
  *
  * @param array $variables
- *    A nested a array of date ranges.
+ *   A nested a array of date ranges.
+ *
+ * @return array
+ *   Variables array.
  */
-function ercore_summary_table($variables) {
+function ercore_summary_table(array $variables) {
   $default_dates = ercore_start_end_dates();
   $summary_values = variable_get('ercore_summary_types');
   $summary_options = array(
@@ -292,14 +294,14 @@ function ercore_reporting_callback_submit($form, &$form_state) {
  * Receives link values and generates links.
  *
  * @param array $link
- *    Uses View to control access.
+ *   Uses View to control access.
  * @param array $ranges
- *    Description.
+ *   Description.
  *
- * @return array $title
- *    Drupal link array.
+ * @return array
+ *   Drupal link array.
  */
-function ercore_format_label(&$link, &$ranges) {
+function ercore_format_label(array &$link, array &$ranges) {
   $argument_date_format = variable_get('date_format_ercore_date_format_filter');
   $report_title = $link['name'];
   $report_link = $link['path'];
@@ -330,10 +332,10 @@ function ercore_format_label(&$link, &$ranges) {
  * @param array $dates
  *   Receives date array for validation against string.
  *
- * @return bool boolean
+ * @return bool
  *   Returns boolean value based on date validation.
  */
-function ercore_reporting_date_callback(&$within_date, &$dates) {
+function ercore_reporting_date_callback(&$within_date, array &$dates) {
 
   if ($within_date == NULL) {
     return FALSE;

@@ -68,7 +68,7 @@ class ERCoreAdmin extends ConfigFormBase {
         '8' => 'August',
         '9' => 'September',
         '10' => 'October',
-        '11' => 'Novermber',
+        '11' => 'November',
         '12' => 'December',
       ],
     ];

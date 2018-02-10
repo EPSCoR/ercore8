@@ -1,1 +1,3 @@
-ercore_core_epscor_number: GrantNumber12345!
+ercore_epscor_number: GrantNumber12345!
+ercore_epscor_start:
+ercore_reporting_month: 1
