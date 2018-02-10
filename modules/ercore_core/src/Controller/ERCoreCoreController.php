@@ -26,15 +26,6 @@ class ERCoreCoreController extends ControllerBase {
   }
 
   /**
-   * Accomplishments page.
-   */
-  public function ercoreAccomplishments() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
-  }
-
-  /**
    * Test pages.
    */
   public function ercoreTest() {
