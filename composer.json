@@ -1,5 +1,5 @@
 {
-  "name": "drupal/ercore",
+  "name": "tschet/ercore",
   "description": "Modules for EPSCoR reporting.",
   "type": "drupal-module",
   "license": "GPL-2.0+",
@@ -10,17 +10,24 @@
     }
   ],
   "require": {
+    "drupal/better_exposed_filters": "^3.0@alpha",
     "drupal/components": "^1.0",
     "drupal/computed_field": "^2.0@alpha",
+    "drupal/csv_serialization": "^1.2",
     "drupal/entity_reference_exposed_filters": "^1.0@alpha",
+    "drupal/entity_reference_revisions": "^1.4",
+    "drupal/features": "^3.5",
     "drupal/field_group": "^1.0",
     "drupal/field_permissions": "^1.0@beta",
     "drupal/name": "^1.0@beta",
+    "drupal/paragraphs": "^1.2",
     "drupal/pathauto": "^1.0",
     "drupal/pathologic": "1.x-dev",
     "drupal/realname": "^1.0@RC",
     "drupal/select_or_other": "^1.0@alpha",
-    "league/csv": "^9.1"
+    "drupal/semanticviews": "^2.2",
+    "drupal/views_data_export": "^1.0@alpha",
+    "drupal/views_field_view": "^1.0@beta"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

@@ -11,7 +11,6 @@ dependencies:
   module:
     - better_exposed_filters
     - csv_serialization
-    - datetime
     - datetime_range
     - node
     - rest
@@ -1156,7 +1155,7 @@ display:
         title: Collaborations
         description: ''
         expanded: false
-        parent: ''
+        parent: ercore_core.ercore_content
         weight: 0
         context: '0'
         menu_name: ercore-admin-menu

@@ -2,3 +2,4 @@
 composer.lock
 # ignore vendor, shoud be higher up, but can appear here in development.
 vendor
+composer.phar
