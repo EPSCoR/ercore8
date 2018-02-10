@@ -55,6 +55,8 @@ class ERCoreAdmin extends ConfigFormBase {
     $form['ercore_reporting_month'] = [
       '#type' => 'select',
       '#title' => $this->t('Reporting period start month'),
+      '#description' => $this->t('Reporting month may differ from start month above.'),
+      '#default_value' => $config->get('ercore_reporting_month'),
       '#options' => [
         '1' => 'January',
         '2' => 'February',
