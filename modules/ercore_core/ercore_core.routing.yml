@@ -10,7 +10,7 @@ ercore_core.ercore:
 ercore_core.accomplishments:
   path: 'accomplishments'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreAccomplishments'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreAccomplishmentController::ercoreAccomplishments'
     _title: 'Accomplishments'
   requirements:
     _permission: 'access ercore content'
@@ -158,6 +158,6 @@ ercore_core.admin_settings_form:
   path: 'admin/config/ercore/adminsettings'
   defaults:
     _form: '\Drupal\ercore_core\Form\ERCoreAdmin'
-    _title: 'ERCore: EPSoR Grant Number'
+    _title: 'ERCore Administration'
   requirements:
     _permission: 'administer ercore module'

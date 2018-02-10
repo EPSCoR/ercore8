@@ -140,7 +140,7 @@ ercore_core.admin_config_ui:
   description: 'ERCore configuration.'
 
 ercore_core.admin_settings_form:
-  title: 'ERCore: EPSCoR Grant Number'
+  title: 'ERCore Administration'
   route_name: ercore_core.admin_settings_form
-  description: 'EPSCoR Grant Number'
+  description: 'EPSCoR dates and administrative settings.'
   parent: ercore_core.admin_config_ui
