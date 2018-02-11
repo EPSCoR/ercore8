@@ -5,10 +5,14 @@
  * File for the ERCore Admin Guide Page.
  */
 
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
 /**
  * Constructs the epscor admin guide.
  */
 function ercore_core_admin_guide() {
+  $user_guide_url = url::createFromRoute('ercore_core.ug1', array(), array());
   return array(
     '#markup' =>
     t('<p>This guide is aimed at site administrators and administrative staff.
@@ -17,7 +21,7 @@ administrators may customize the Core to meet jurisdictional needs. This
 document aims to describe the various tasks, views, operations, and procedures
 that an administrator may need to know about in order to properly administer the
 site.</p><p>You may also be interested in the more general
-<a href="/ercore/guides/user">ESCoR User Guide</a> which talks more about how
+<a href="@user_guide">ESCoR User Guide</a> which talks more about how
 researchers should enter data into the system.</p>
   <h2>Post-Installation Guide/Jurisdictional Customizations</h2>
     <p><strong>These are steps that should be taken immediately after installing
@@ -117,6 +121,6 @@ researchers should enter data into the system.</p>
  <h3>Public Profile settings (Optional)</h3>
   <p>Some states may wish to hide the uer profiles from public view.</p>
    <p>This may be accomplished by changing the "View user profiles" flag located
-   on the User Permissions page.</p>'),
+   on the User Permissions page.</p>', ['@user_guide' => $user_guide_url]),
   );
 }
