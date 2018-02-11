@@ -12,8 +12,8 @@
  *   Returns start/end dates in specfic format for forms.
  */
 function ercore_start_end_dates() {
-  $ercore_date = variable_get('ercore_start_date');
-  $argument_date_format = variable_get('date_format_ercore_date_format_filter');
+  $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
+  $argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_filter');
   $default = date_create(implode('/', $ercore_date));
   $default_date['start'] = date_format($default, $argument_date_format);
   $default_date['end'] = date($argument_date_format, strtotime('+1 year'));
@@ -27,7 +27,7 @@ function ercore_start_end_dates() {
  *   Returns start/end dates in specific format for forms.
  */
 function ercore_admin_view_start_end_dates() {
-  $ercore_date = variable_get('ercore_start_date');
+  $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   $argument_date_format = 'Y-m';
   $default = date_create(implode('/', $ercore_date));
   $default_date['start'] = date_format($default, $argument_date_format);
@@ -42,8 +42,8 @@ function ercore_admin_view_start_end_dates() {
  *   Returns start/end dates for display purposes.
  */
 function ercore_start_end_dates_displayed() {
-  $ercore_date = variable_get('ercore_start_date');
-  $argument_date_format = variable_get('date_format_ercore_date_format_month_day_year');
+  $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
+  $argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_display');
   $default = date_create(implode('/', $ercore_date));
   $dates['start'] = date_format($default, $argument_date_format);
   $dates['end'] = date($argument_date_format, strtotime('+1 year'));
@@ -73,7 +73,7 @@ function ercore_admin_default_start_end_dates() {
  *   Returns date string or Boolean FALSE.
  */
 function ercore_displayed_date_ranges(array &$dates) {
-  $display_date_format = variable_get('date_format_ercore_date_format_month_day_year');
+  $display_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_display');
   if (isset($dates[0])) {
     $new_dates = date($display_date_format, $dates[0][0]) . ' to ' . date($display_date_format, $dates[0][1]);
   }
@@ -93,8 +93,8 @@ function ercore_displayed_date_ranges(array &$dates) {
  *   Returns date array for forms.
  */
 function ercore_this_date_range() {
-  $reporting_month = variable_get('ercore_reporting_month');
-  $start_date = variable_get('ercore_start_date');
+  $reporting_month = \Drupal::config('ercore.settings')->get('ercore_reporting_month');
+  $start_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   $start_date = new DateTime($start_date['year'] . '-' . $start_date['month'] . '-' . $start_date['day'] . ' 00:00:00');
   $today_month = date('m');
   if ($today_month < $reporting_month) {
@@ -116,9 +116,9 @@ function ercore_this_date_range() {
  *   Returns date array for forms.
  */
 function ercore_admin_current_range_argument() {
-  $argument_date_format = variable_get('date_format_ercore_date_format_filter');
-  $reporting_month = variable_get('ercore_reporting_month');
-  $start_date = variable_get('ercore_start_date');
+  $argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_filter');
+  $reporting_month = \Drupal::config('ercore.settings')->get('ercore_reporting_month');
+  $start_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   $start_date = $start_date['year'] . '-' . $start_date['month'];
   $today_month = date('m');
   if ($today_month < $reporting_month) {
@@ -144,7 +144,7 @@ function ercore_admin_current_range_argument() {
  *   Returns select list array for use on NSF tables and summary form.
  */
 function ercore_select_list() {
-  $display_date_format = variable_get('date_format_ercore_date_format_month_day_year');
+  $display_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_display');
   $ranges = ercore_get_reporting_ranges();
   // This returns the list of available date ranges...
   $range = ercore_get_reporting_range();
@@ -170,8 +170,8 @@ function ercore_select_list() {
 function ercore_get_reporting_ranges() {
   static $ranges = array();
   if (!count($ranges)) {
-    $start_date = variable_get('ercore_start_date');
-    $reporting_month = intval(variable_get('ercore_reporting_month'));
+    $start_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
+    $reporting_month = intval(\Drupal::config('ercore.settings')->get('ercore_reporting_month'));
     $cur_month = date('n');
     $adjusted_date = mktime(0, 0, 0, $cur_month - $reporting_month + 7);
     // +half a year into the future (6) +1 offset.
@@ -200,7 +200,7 @@ function ercore_get_reporting_range($use_default = TRUE) {
   }
   else {
     if ($use_default) {
-      $reporting_month = intval(variable_get('ercore_reporting_month'));
+      $reporting_month = intval(\Drupal::config('ercore.settings')->get('ercore_reporting_month'));
       $cur_month = date('n');
       $adjusted_date = mktime(0, 0, 0, $cur_month - $reporting_month - 5);
       $year = date('Y', $adjusted_date);
@@ -225,10 +225,10 @@ function _generate_reporting_range(array $year) {
   static $start_date;
   static $reporting_month;
   if (!isset($start_date)) {
-    $start_date = variable_get('ercore_start_date');
+    $start_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   }
   if (!isset($reporting_month)) {
-    $reporting_month = intval(variable_get('ercore_reporting_month'));
+    $reporting_month = intval(\Drupal::config('ercore.settings')->get('ercore_reporting_month'));
   }
   $last_month = $reporting_month - 1;
   $last_day = date('t', strtotime($last_month . '/1/' . $year));
@@ -268,7 +268,7 @@ function _generate_reporting_range(array $year) {
  *   Returns unix date for internal function.
  */
 function ercore_admin_unix_date(array &$var) {
-  $zone = variable_get('date_default_timezone');
+  $zone = \Drupal::config('system.date')->get('timezone.default');
   $time = ' 00:00:00 ' . $zone;
   $new_time = strtotime($var . $time);
   return $new_time;
@@ -397,7 +397,7 @@ function ercore_admin_table_link(&$title, array &$path, array &$ranges) {
  *   Returns date argument string for use in NSF Tables.
  */
 function ercore_admin_download_path(array &$ranges) {
-  $argument_date_format = variable_get('date_format_ercore_date_format_filter');
+  $argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_filter');
   if (isset($ranges[0][0])) {
     $start = date($argument_date_format, $ranges[0][0]);
     $end = date($argument_date_format, $ranges[0][1]);
@@ -424,7 +424,7 @@ function ercore_admin_download_path(array &$ranges) {
  *   Returns unix date array for use in NSF Tables.
  */
 function ercore_admin_date_argument_to_array(&$date_range) {
-  $zone = variable_get('date_default_timezone');
+  $zone = \Drupal::config('system.date')->get('timezone.default');
   $time = ' 00:00:00 ' . $zone;
   $range = explode('--', $date_range);
   $new_range[0][0] = strtotime($range[0] . $time);

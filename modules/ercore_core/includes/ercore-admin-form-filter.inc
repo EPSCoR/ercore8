@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Repetitive $form element.
@@ -6,9 +7,9 @@
 
 require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin-var.inc';
 
-$zone = variable_get('date_default_timezone');
-$ercore_date = variable_get('ercore_start_date');
-$argument_date_format = variable_get('date_format_ercore_date_format_filter');
+$zone = \Drupal::config('system.date')->get('timezone.default');
+$ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
+$argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_filter');
 $date_year_range = $ercore_date['year'] . ':+1';
 $default_dates = ercore_start_end_dates();
 $select_list = ercore_select_list();

@@ -92,7 +92,7 @@ function ercore_table_e_download_callback_data(&$date_range, $sheet = 0) {
   error_reporting(E_ALL);
   ini_set('display_errors', TRUE);
   ini_set('display_startup_errors', TRUE);
-  $time_zone = variable_get('date_default_timezone');
+  $time_zone = \Drupal::config('system.date')->get('timezone.default');
   date_default_timezone_set("$time_zone");
 
   if (PHP_SAPI == 'cli') {
@@ -102,7 +102,7 @@ function ercore_table_e_download_callback_data(&$date_range, $sheet = 0) {
   // Create new PHPExcel object.
   $objphpexcel = new PHPExcel();
 
-  $author = variable_get('site_name');
+  $author = \Drupal::config('system.site')->get('name');
 
   $objreader = PHPExcel_IOFactory::createReader('Excel5');
   if (isset($template_path)) {
