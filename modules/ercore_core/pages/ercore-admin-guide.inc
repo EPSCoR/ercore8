@@ -28,8 +28,8 @@ function ercore_core_admin_guide() {
     'PHPExcel',
     Url::fromUri('http://phpexcel.codeplex.com/releases/view/107442'))
     ->toString();
-  $markup = [];
-  $markup['copy1'] = "<p>" . t('This guide is aimed at site administrators and
+
+  $markup = "<p>" . t('This guide is aimed at site administrators and
   administrative staff. This document helps describe some of the internal
   features of ER Core, and how administrators may customize the Core to meet 
   jurisdictional needs. This document aims to describe the various tasks,
@@ -37,47 +37,47 @@ function ercore_core_admin_guide() {
   in order to properly administer the site.') . '</p><p>' . t('You may also be 
   interested in the more general') . ' ' . $user_guide . ' ' . t(' which talks 
   more about how researchers should enter data into the system.') . '</p>';
-  $markup['heading1'] = '<h2>' . t('Post-Installation Guide/Jurisdictional Customizations')
+  $markup .= '<h2>' . t('Post-Installation Guide/Jurisdictional Customizations')
     . '</h2>';
-  $markup['copy2'] = '<p><strong>' . t('These are steps that should be taken
+  $markup .= '<p><strong>' . t('These are steps that should be taken
   immediately after installing the EPSCoR Reporting package. These 
-  customizations will help make the system a better fit your jurisdiction.') .
-    '</strong></p>';
-  $markup['heading2'] = '<h3>' . t('Administrative settings') . '</h3>';
-  $markup['copy2'] = '<p>' . t('Visit the') . ' ' . $admin_config . ' ' . t('for the
+  customizations will help
+make the system a better fit your jurisdiction.') . '</strong></p>';
+  $markup .= '<h3>' . t('Administrative settings') . '</h3>';
+  $markup .= '<p>' . t('Visit the') . ' ' . $admin_config . ' ' . t('for the
   ERCore module.') . '</p>';
-  $markup['copy3'] = '<ol><li>' . t('Set the EPSCoR start date') . '</li><li>' .
+  $markup .= '<ol><li>' . t('Set the EPSCoR start date') . '</li><li>' .
   t('Set the Reporting period start month') . '</li><li>' .
   t('Input the EPSCoR Grant Number') . '</li><li>' .
   t('Select which data types to display on the Summary table') . '</li><li>' .
   t('Choose to use and/or require the Components field') . '</li><li>' .
   t('Choose to use and/or require the Programs field') . '</li></ol>';
-  $markup['heading3'] = '<h3>' . t('Project Components') . '</h3>';
-  $markup['copy4'] = '<p>' . t("If you're using the Components field, change the list of
+  $markup .= '<h3>' . t('Project Components') . '</h3>';
+  $markup .= '<p>' . t("If you're using the Components field, change the list of
   Project Components (Taxonomy) (which may also be known as \"teams\"). Use the
   \"Add term\" button to add a new component. This will present you with a form,
   which includes a checkbox labeled \"Core Component\", this checkbox denotes
   whether the component should show up on every component selection list, or
   just on the user profile's select list.") . '</p>';
-  $markup['copy5'] = '<p>' . t('Ex. The "Administration" component is non-core, while
+  $markup .= '<p>' . t('Ex. The "Administration" component is non-core, while
   "CYBER", "ENDER", "ECOGEM", and "DEW" are all core teams for Hawaii.') .
   '</p>';
-  $markup['heading4'] = '<h3>' . t('Programs') . '</h3>';
-  $markup['copy6'] = '<p>' . t("If you're using the Programs field, change the list of
+  $markup .= '<h3>' . t('Programs') . '</h3>';
+  $markup .= '<p>' . t("If you're using the Programs field, change the list of
   Programs (Taxonomy).  Use the \"Add term\" button to add a new component.") . '</p>';
-  $markup['copy7'] = '<h3>' . t('Customize the list of ethnicities/races') . '</h3>';
-  $markup['heading5'] = '<p>' . t('Modify the') . ' <strong>' . t('Ethnicity') . '</strong> '
+  $markup .= '<h3>' . t('Customize the list of ethnicities/races') . '</h3>';
+  $markup .= '<p>' . t('Modify the') . ' <strong>' . t('Ethnicity') . '</strong> '
   . t('Field that your jurisdiction will want to track and report on.') .
   '</p><p>' . t('Ex. In Hawaii we also provide options for: Filipino, Pacific
   Islander, and Native Hawaiian') . '</p>';
-  $markup['heading6'] = '<h3>' . t('Committees/Advisory Boards') . '</h3>';
-  $markup['copy7'] = '<p>' . t('Change the') . ' <strong>' . t('Boards and Committees 
+  $markup .= '<h3>' . t('Committees/Advisory Boards') . '</h3>';
+  $markup .= '<p>' . t('Change the') . ' <strong>' . t('Boards and Committees 
   Field') . '</strong> ' . t('which oversee your EPSCoR grant.') . '</p><p>' .
   t('Ex. Hawaii has three advisory committees: Community Advisory Committee
   (CAC), Monitoring Assessment Panel (MAP), Statewide Committee (SWC)') .
   '</p>';
-  $markup['heading7'] = '<h3>' . t('Institutions') . '</h3>';
-  $markup['copy8'] = '<p>' . t('The reporting system needs to know certain information
+  $markup .= '<h3>' . t('Institutions') . '</h3>';
+  $markup .= '<p>' . t('The reporting system needs to know certain information
   about the institutions being attached to users, or collaborations.  We need to
   know where the users come from, and what kind of institution it is in order to
   automatically fulfill certain NSF requirements.') . '</p><p>' . t('The system
@@ -89,8 +89,8 @@ function ercore_core_admin_guide() {
   can add a new institution to the system by going to the Add Content link, then
   selecting ERCore Institution.') . '</p><p>' . t('You may also see a list of
   institutions currently in the system through the Institutions page.') . '</p>';
-  $markup['copy9'] = '<h3>' . t('Data Repository Managers') . '</h3>';
-  $markup['copy10'] = '<p><strong>' . t('Notifications are not currently included in this
+  $markup .= '<h3>' . t('Data Repository Managers') . '</h3>';
+  $markup .= '<p><strong>' . t('Notifications are not currently included in this
   version of ERCore.') . '</strong></p><p>' . t('After setting up user accounts
   for your administrators, you will be able to flag users whom should receive
   email notifications regarding researcher data collection events.') .
@@ -106,36 +106,38 @@ function ercore_core_admin_guide() {
   data collection
   notifications", which when clicked will remove the user from receiving these
   notifications.') . '</p>';
-  $markup['heading8'] = '<h3>' . t('Setup Excel Sheet Output') . '</h3>';
-  $markup['copy11'] = '<p>' . t('The system relies on an external library called') . ' '
+  $markup .= '<h3>' . t('Setup Excel Sheet Output') . '</h3>';
+  $markup .= '<p>' . t('The system relies on an external library called') . ' '
   . $phpexcel . ' ' . t('to export various excel sheets. The Library must be
   downloaded, then uploaded to this server.') . '</p><p>' . t('The PHPExcel kit
   should first be downloaded and decompressed, and the contents should then be
   uploaded to the server directory') .
   '<code>/sites/all/libraries/PHPExcel/</code>, creating the
   <code>/libraries/PHPExcel/</code> directory if necessary.</p>';
-  $markup['copy12'] = '<p>' . t('Once uploaded') . ' , <code>PHPExcel.php</code> ' .
+  $markup .= '<p>' . t('Once uploaded') . ' , <code>PHPExcel.php</code> ' .
   t('should be located at') .
   '<code>/sites/all/libraries/PHPExcel/Classes/PHPExcel.php</code>, the
    <code>IOFactory.php</code> should be located at
    <code>/sites/all/libraries/PHPExcel/Classes/PHPExcel/IOFactory.php</code>,
    and <code>changelog.txt</code> needs to be located at
    <code>/sites/all/libraries/PHPExcel/changelog.txt</code></p>';
-  $markup['copy13'] = '<p>' . t('You can then navigate to the Drupal Status Report page
+  $markup .= '<p>' . t('You can then navigate to the Drupal Status Report page
   to see if the library was detected.') . '</p>';
-  $markup['heading9'] = '<h3>' . t('Customize the list of Event Types (Optional)') .
+  $markup .= '<h3>' . t('Customize the list of Event Types (Optional)') .
   '</h3>';
-  $markup['copy14'] = '<p>' . t('Some states may wish to customize the') . ' <strong>' .
+  $markup .= '<p>' . t('Some states may wish to customize the') . ' <strong>' .
   t('Event Types Field') . '</strong> ' . t('which label calendar events.') .
   '</p>';
-  $markup['heading10'] = '<h4>' . t('Notice: The available values should be of the form') .
+  $markup .= '<h4>' . t('Notice: The available values should be of the form') .
   ':</h4>';
-  $markup['copy15'] = '<p><code>#|Label</code>: ' . t('Where # is an integer value which
+  $markup .= '<p><code>#|Label</code>: ' . t('Where # is an integer value which
   is used as the internal representation (stored in the database), and Label is
   what is shown to the user.') . '</p>';
-  $markup['heading11'] = '<h3>' . t('Public Profile settings (Optional)') . '</h3>';
-  $markup['copy16'] = '<p>' . t('Some states may wish to hide the uer profiles from
+  $markup .= '<h3>' . t('Public Profile settings (Optional)') . '</h3>';
+  $markup .= '<p>' . t('Some states may wish to hide the uer profiles from
   public view.') . '</p><p>' . t('This may be accomplished by changing the 
   "View user profiles" flag located on the User Permissions page.') . '</p>';
-  return $markup;
+  return array(
+    '#markup' => $markup,
+  );
 }
