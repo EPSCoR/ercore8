@@ -44,7 +44,7 @@ function ercore_admin_view_start_end_dates() {
 function ercore_start_end_dates_displayed() {
   $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   $argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_display');
-  $default = date_create(implode('/', $ercore_date));
+  $default = date_create($ercore_date);
   $dates['start'] = date_format($default, $argument_date_format);
   $dates['end'] = date($argument_date_format, strtotime('+1 year'));
   $new_dates = $dates['start'] . ' to ' . $dates['end'];
