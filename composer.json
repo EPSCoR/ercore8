@@ -23,6 +23,7 @@
     "drupal/paragraphs": "^1.2",
     "drupal/pathauto": "^1.0",
     "drupal/pathologic": "1.x-dev",
+    "drupal/phpexcel": "^3.0",
     "drupal/realname": "^1.0@RC",
     "drupal/select_or_other": "^1.0@alpha",
     "drupal/semanticviews": "^2.2",
