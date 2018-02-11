@@ -26,15 +26,6 @@ class ERCoreCoreController extends ControllerBase {
   }
 
   /**
-   * Test pages.
-   */
-  public function ercoreTest() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
-  }
-
-  /**
    * Administrative Actions page.
    */
   public function ercoreAdminActions() {
@@ -87,45 +78,40 @@ class ERCoreCoreController extends ControllerBase {
    * User accounts page.
    */
   public function ercoreAccounts() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-user-guide.inc';
+    return ercore_user_guide();
   }
 
   /**
    * User Entering Data page.
    */
   public function ercoreEntering() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-user-entering.inc';
+    return ercore_user_entering();
   }
 
   /**
    * User Viewing Data page.
    */
   public function ercoreView() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-user-viewing.inc';
+    return ercore_user_viewing();
   }
 
   /**
    * User Drupal page.
    */
   public function ercoreDrupal() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-user-drupal.inc';
+    return ercore_user_drupal();
   }
 
   /**
    * User NSF page.
    */
   public function ercoreNsf() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-user-NSF.inc';
+    return ercore_user_nsf();
   }
 
   /**

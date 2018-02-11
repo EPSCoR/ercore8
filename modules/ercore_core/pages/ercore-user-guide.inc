@@ -1,18 +1,20 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Admin Guide Page.
  */
+
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * Constructs the epscor admin guide.
  *
  * Our menu maps this function to the path 'ercore/guide/accounts'.
  */
-function ercore_user_guide_callback() {
-  return array(
-    '#markup' =>
-    t('<h2>Introduction</h2>
+function ercore_user_guide() {
+  $markup = "<h2>Introduction</h2>
 <p>This guide has been developed for first time users of the EPSCoR Core
 Reporting site (ERCore).  This site has been developed using Drupal 7, an
 open-source content management system. Whether you are a developer, tester,
@@ -23,12 +25,10 @@ is important for system administrators to understand to be able to deliver
 reporting data to NSF with confidence.</p><p>In general, most of the data
 requested by this reporting system will be viewable by the public, but in order
 to enter new, edit, or download the compiled tables you will need to have an
-account and be logged in.</p>
-<h2 id="request-account">Request an Account</h2>
+account and be logged in.</p>";
+  $markup .= "<h2 id=\"request-account\">Request an Account</h2>
 <ul>
-<li>In your web browser, visit your jurisdiction\'s hosted Drupal site. For UNH
-go to http://solstice.sr.unh.edu/</li>
-<li>Select on the "<em>Create new account</em>" link located in the gray box at
+<li>Select on the \"<em>Create new account</em>\" link located in the gray box at
 the top left hand side of the home page. <strong>This varies by site.</strong>
 </li>
 <li>There are 4 fields that require information:
@@ -47,21 +47,21 @@ the top left hand side of the home page. <strong>This varies by site.</strong>
 <li>Click on Create New Account when you are done. This generates an email sent
 to the Web Master who needs to approve the request. </li>
 <li>An email will be sent when your account is approved</li>
-</ul>
-<h2 id="log-in">Log In</h2>
+</ul>";
+  $markup .= "<h2 id=\"log-in\">Log In</h2>
 <p>Once the Web Master has approved your account, an email will be sent to you.
 In it will be directions to log in and include a link to visit the site.  In
 this example we use the New Hampshire\'s development site.  In your web browser,
 visit the URL to your jurisdiction\'s web site.  Your program administrator
-needs to give this to you.</p>
-<h2 id="user">User Profile</h2>
+needs to give this to you.</p>";
+  $markup .= "<h2 id=\"user\">User Profile</h2>
 <p>The system greatly depends on complete and accurate user data.  Please
 complete all the fields presented to you in the user profile.  The final data
 is only as good as the data you enter.</p>
 <p>After you login you will be taken to your User Profile home page.  At any
 point in time you need to get back to your user account, scroll to the top of
 any page and look in the black menu bar for your user name.  It actually
-says, "<em>Hello (user)</em>".  Click on your name and you will be taken to your
+says, \"<em>Hello (user)</em>\".  Click on your name and you will be taken to your
 user account.</p>
 <p>Near your user-name is a row of tabs. The most important of those are the View and
 the Edit tabs.  Clicking either will give you that functionality (click Edit to
@@ -72,7 +72,7 @@ Involvement,  Institution, and Data Collection.  Clicking on those tabs will
 take you to that information.  Once in a View of our choice, clicking on Edit
 will allow you to edit that content.</p>
 <h3>Contact Information</h3>
-<ol><li>Select on the "<em>Hello (Your name)</em>" link at the top right of any
+<ol><li>Select on the \"<em>Hello (Your name)</em>\" link at the top right of any
 page (after you are logged in)</li>
 <li>Select on the Edit tab</li>
 <li>Select on the Contact Information tab if you are not already there</li>
@@ -82,8 +82,8 @@ not be able to save the form unless all required fields have been completed.</li
 updated, and</li>
 <li>Phone fields (mobile and work), Work Address and Professional Link are
 optional fields.</li>
-</ol>
-<h3>Demographics</h3>
+</ol>";
+  $markup .= "<h3>Demographics</h3>
 <p>NSF requires that we try to obtain demographic data for all our participants,
 including those attending EPSCoR sponsored events.  Given such a requirement,
 it is OPTIONAL to you if you want to submit it or not.  This data will be
@@ -93,7 +93,7 @@ entries will be submitted to NSF.</p>
 <li>Select the appropriate radio buttons that best describes your demographics.
 <br /><em>In the case where you have multiple disabilities, citizenships or
 	races, select the one that best describes you.</em></li>
-<li>Check the "<em>I am a veteran</em>" check box if you are a veteran</li></ol>
+<li>Check the \"<em>I am a veteran</em>\" check box if you are a veteran</li></ol>
 <h3>EPSCoR Involvement</h3>
 <h4>Most Senior Project Role <em>(Required)</em></h4>
 <ul><li>Select the one position type that best describes your involvement with
@@ -108,8 +108,8 @@ Components can easily be changed by an administrator or Drupal developer.</p>
 <li>Select the project component of which you are involved</li>
 <li>Select multiple components if you are involved with more than one</li>
 <li>If a component you are involved with is not listed, contact your
-administrator</li></ul>
-<h4>Program(s) <em>(May be required or not present)</em></h4>
+administrator</li></ul>";
+  $markup .= "<h4>Program(s) <em>(May be required or not present)</em></h4>
 <p>Programs can be projects, teams, or workign groups and will vary by
 jurisdiction. Programs can easily be changed by an administrator or Drupal
 developer.</p>
@@ -129,8 +129,8 @@ would be the date that you started getting paid.</li></ul>
 <ul><li>Select the option that best fits your role.</li>
 <li>If yes, the option for Months of Direct Funding will appear. From the drop
 down, select how many months of direct funding you receive. Round up or down to
-the nearest month of funding you are expected to receive.</li></ul>
-<h4>Do you participate in EPSCoR research more than 160 hours per year</h4>
+the nearest month of funding you are expected to receive.</li></ul>";
+  $markup .= "<h4>Do you participate in EPSCoR research more than 160 hours per year</h4>
 <p>This ties into NSF Fast-lane and refers to whether or not you put in more
 than 160 hours of effort in a year to this EPSCoR grant, whether you are paid
 or not</p>
@@ -144,7 +144,7 @@ month of funding you are expected to receive.</li></ul>
 <ul><li>Include information about what you are doing, in which projects, who you are
 working with, location, dates and your contribution.</li></ul>
 <h3>RCR - Responsible Conduct of Research</h3>
-<ul><li>Select the "<em>I have completed the RCR training</em>" check box if you have taken
+<ul><li>Select the \"<em>I have completed the RCR training</em>\" check box if you have taken
 either in-person or on-line versions of the RCR training.</li></ul>
 <ul>
 <li>RCR In-Person: Enter the month, day and year of when you took the in-person
@@ -158,17 +158,17 @@ certificate</li></ul>
 <p>Department: Enter in the name of the department for which you are
 affiliated</p>
 <h3>Data Collection</h3>
-<p>Check the "<em>I plan to be collecting data through my research</em>" check
+<p>Check the \"<em>I plan to be collecting data through my research</em>\" check
 box if you anticipate collecting data as a result of your research.</p>
 <p>Has this user been put in touch with the Data Manager?: Check the
 appropriate button for your situation.  This will send notices to the
-EPSCoR administrator as well as the data repository manager.</p>
-<h3>Account Information</h3>
+EPSCoR administrator as well as the data repository manager.</p>";
+  $markup .= "<h3>Account Information</h3>
 <ol>
 <li>Username: The system user name is determined by the website administrator
 upon account creation. This is a required field </li>
 <li>Current Password: This is your current (non-visible) password and can be
-reset by clicking on the "<em>Request new password</em>" link near your Current
+reset by clicking on the \"<em>Request new password</em>\" link near your Current
 password field or by entering a new Password in the two fields below your E-mail
 address. <strong>Some jurisdictions may block this setting.</strong></li>
 <li>E-mail address: This will need to be A valid e-mail address. All e-mails
@@ -199,8 +199,8 @@ Reporting Core module. The standard roles are as follows:
 	Administrator, restricting access to the more technical aspects of Drupal and
 	EPSCoR reporting</li>
  	<li>Administrator: Access to any and all Drupal capabilities</li></ul>
-</li></ol>
-<h3>Administrative Overlay</h3>
+</li></ol>";
+  $markup .= "<h3>Administrative Overlay</h3>
 <p>Disregard this option if you see it.</p>
 <h3>Upload a photo</h3>
 <p>Click on the Choose file button to browse and upload a photo.</p>
@@ -212,6 +212,8 @@ to your location.</p>
 incorrectly or not answered, an error message will be displayed at the top of
 the page. Read it and address the issue.  If for some reason you cannot address
 the issue, call your EPSCoR administrator or your Drupal web site manager for
-help.</p>'),
+help.</p>";
+  return array(
+    '#markup' => $markup,
   );
 }

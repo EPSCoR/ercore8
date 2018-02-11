@@ -1,21 +1,27 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Admin Guide Page.
  */
+
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * Constructs the epscor admin guide.
  *
  * Our menu maps this function to the path 'ercore/guides/reporting'.
  */
-function ercore_user_drupal_callback() {
-  return array(
-    '#markup' =>
-    t('<dl>
+function ercore_user_drupal() {
+  $drupal = Link::fromTextAndUrl(
+    'Drupal',
+    Url::fromUri('http://drupal.org'))
+    ->toString();
+  $markup = "<dl>
 <dt>Auto Complete</dt>
 <dd>A field on a form that searches for data already in the database such as
-a User\'s name.  If you were to start typing "dav" of David Kimball, matching
+a User's name.  If you were to start typing \"dav\" of David Kimball, matching
 user names would be displayed in a list directly below the autocomplete field.
 You may use your mouse or cursor to select one of the results.</dd>
 <dd>Note: even though you can type in any string of text, unless there
@@ -30,8 +36,8 @@ may not have an account.</dd>
  <dd>A content type is used to specify the different groups of content Drupal
  can collect. Examples of Content Types are ERCore Calendar Event,
  Collaboration, page, etc.</dd>
- <dt>Drupal</dt>
- <dd><a href="http://drupal.org">Drupal</a> is a free and open - source content
+ <dt>Drupal</dt>";
+  $markup .= "<dd>" . $drupal . ' ' . "is a free and open - source content
  management framework(CMF) written in PHP and distributed under the GNU General
  Public License.</dd>
  <dt>Module</dt>
@@ -52,7 +58,7 @@ Each Content Type will have a form associated with it. The term form is
 generic.</dd>
 <dt>Node</dt>
 <dd>A Node refers to the group of information or data that comes into the
-database through a form. You might consider this another name for "page". If
+database through a form. You might consider this another name for \"page\". If
 you wanted to create an Event, the Event Node would be all the information that
 the user can input through the Event form about that specific event. Each time
 a new event is created it is assigned a unique Node ID, which is used to
@@ -78,7 +84,7 @@ edit, delete or create new and whether or not you need to be logged in or not
 to do so.  User pernissions are grouped by roles to allow the site administrator
 to quickly assign or restrict access to common types of users.</dd>
 <dt>View</dt><dd>A display or grouping of data formatted and controlled by the
-Drupal module "Views". A View may be a small portion of a page, an entire page,
+Drupal module \"Views\". A View may be a small portion of a page, an entire page,
 or a group of pages. Exported data may be aggregated and prepared by a View.
 </dd>
 <dt>Widget</dt>
@@ -86,6 +92,8 @@ or a group of pages. Exported data may be aggregated and prepared by a View.
 specific function.  A common widget is the calendar widget.  The calendar widget
 has	the fields for day, month and year, where you can enter that data manually
 or you can click a day on a mini-calendar.</dd>
-</dl>'),
+</dl>";
+  return array(
+    '#markup' => $markup,
   );
 }

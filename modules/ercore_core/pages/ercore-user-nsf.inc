@@ -1,18 +1,26 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Admin Guide Page.
  */
+
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * Constructs the epscor admin guide.
  *
  * Our menu maps this function to the path 'ercore/guides/reporting'.
  */
-function ercore_user_nsf_callback() {
-  return array(
-    '#markup' =>
-    t('<p>The following are a few key terms used in EPSCoR reporting, which may
+function ercore_user_nsf() {
+  $admin_config = link::createFromRoute(
+    'ERCore Reporting Module Settings',
+    'ercore_core.admin_settings_form',
+    array(),
+    array())
+    ->toString();
+  $markup = "<p>The following are a few key terms used in EPSCoR reporting, which may
 or may not be defined by NSF, yet must be and have been defined by the ERCore
 collaborative group in order for the Drupal ERCore to properly handle this data.
 EPSCoR administrators must understand the ERCore criterion in order to have
@@ -29,13 +37,13 @@ of EPSCoR, the ERCore Drupal Committee defines a Participant as:
 	<li>Contribute equal to or greater than 160 hours (one person month) in a year
 	(reporting period).</li>
 	</ul>
-</dd>
-<dt>Participant (ERCore)</dt>
+</dd>";
+  $markup .= "<dt>Participant (ERCore)</dt>
 <dd>Once the user\'s account meets the following criteria, the system adds 1 to
 the appropriate category in Table A - Participants. The criteria is:
 	<ul>
   <li>User must be marked as Active </li>
-  <li>User must have the "Authenticated EPSCoR" user role </li>
+  <li>User must have the <em>\"Authenticated EPSCoR\"</em> user role </li>
   <li>User must belong to a Participating Institution </li>
   <li>User must contribute at least 160 hours per year(1 person - month of
   effort)</li>
@@ -45,10 +53,9 @@ the appropriate category in Table A - Participants. The criteria is:
 <dd>Participating institutions are those institutions that receive direct
 support from the RII award including sub - awards.</dd>
 <dt>Participating Institution (ERCore)</dt>
-<dd>Institution node must be marked as participating (checkbox, an
-administrative function).  For each institution that has its "
-<em>participating</em>" field checked, the system is then able to properly
-place participants in Table A, by institution.</dd>
+<dd>Institution node must be marked as participating (checkbox, an 
+administrative function).  For each institution that has its <em>\"participating
+\"</em> field checked, the system is then able to properly place participants in Table A, by institution.</dd>
 <dt>Collaboration (NSF)</dt>
 <dd>NSF does not formally define what a collaboration is for EPSCoR.</dd>
 <dd>Note: in the absence of a formal NSF definition of a collaboration
@@ -58,8 +65,8 @@ institutions, organizations or agencies that lead to a definable outcome. In a
 collaboration, each party contributes intellectually and brings complementary
 capabilities and resources. Examples can include activities such as research
 projects, outreach events, database development or web dissemination of
-research data and results.</dd>
-<dt>Collaboration (ERCore)</dt>
+research data and results.</dd>";
+  $markup .= "<dt>Collaboration (ERCore)</dt>
 <dd>A collaboration is the composition of different internal and external
 elements. Each of these elements have criteria that must be met. Once all the
 required elements meet the criteria, a collaboration is established and a count
@@ -114,18 +121,18 @@ following criteria must be met:
   <li>Have the difference between the most recent reporting period and the
   user\'s start date be less than 365 days</li>
   </ol>
-</dd>
-<dt>Project Start Date (ERCore)</dt>
+</dd>";
+  $markup .= "<dt>Project Start Date (ERCore)</dt>
 <dd>The start date is set by administration after the installation of the
-ERCore in the <a href="/admin/config/ercore/admin">ERCore Reporting Module
-Settings</a> page. This is also listed on the Drupal Configuration page.  It is
+ERCore in the " . $admin_config . " page. This is also listed on the Drupal Configuration page.  It is
 arbitrarily set and can be changed at any point.</dd>
 <dt>Reporting Period (ERCore)</dt>
 <dd>The Reporting Period uses the Year of the Start Date, plus a month
 (arbitrarily set by site administration), and the first day of that month. The
-Reporting Period starting month is set in the
-<a href="/admin/config/ercore/admin">ERCore Reporting Module
-Settings</a> page. The Reporting Period starting day is 1 and cannot be changed.
-</dd></dl>'),
+Reporting Period starting month is set in the " . $admin_config . " page. The 
+Reporting Period starting day is 1 and cannot be changed.
+</dd></dl>";
+  return array(
+    '#markup' => $markup,
   );
 }

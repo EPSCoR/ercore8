@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Data Integrity.
@@ -10,7 +11,7 @@ require_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin
  * Display ERCore data data integrity Views.
  *
  * @return array
- *    Returns form array for page display.
+ *   Returns form array for page display.
  */
 function ercore_data_integrity_callback() {
   $form = array();
@@ -27,7 +28,7 @@ function ercore_data_integrity_callback() {
 /**
  * This theme function (see theme.inc) generates the summary table.
  *
- * @return array $summary
+ * @return array
  *   Returns render array of results.
  */
 function ercore_integrity() {
@@ -87,7 +88,7 @@ function ercore_integrity() {
       'class' => 'data-wrapper',
       'id' => 'ercore_integrity_duplicates',
     ),
-    '#value' =>  $duplicates,
+    '#value' => $duplicates,
     '#theme' => 'html_tag',
   );
 
@@ -116,13 +117,14 @@ function ercore_duplicates() {
       }
     }
   }
-      $nodes = node_load_multiple($nids);
+  $nodes = node_load_multiple($nids);
 
   $type = 'ol';
-// The following attributes apply to the list tag (e.g.,  or )
+  // The following attributes apply to the list tag (e.g.,  or ).
   $attributes = array(
     'id' => 'integrity_duplicates',
-    'class' => 'integrity', // a string or indexed (string) array with the classes for the list tag
+    // A string or indexed (string) array with the classes for the list tag.
+    'class' => 'integrity',
   );
 
   $items = array();
@@ -131,6 +133,12 @@ function ercore_duplicates() {
       'data' => l($node->title, 'node/' . $node->nid),
     );
   }
-return theme('item_list', array('items' => $items, 'title' => NULL, 'type' => $type, 'attributes' => $attributes));
+  return theme('item_list', array(
+    'items' => $items,
+    'title' => NULL,
+    'type' => $type,
+    'attributes' => $attributes,
+  )
+  );
 
 }
