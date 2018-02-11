@@ -656,7 +656,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'No Collaborations have been created. <a href="/node/add/ercore-collaboration/">Create an collaboration</a>?'
+            value: 'No Collaborations have been created. <a href="[site:url]node/add/ercore-collaboration/">Create an collaboration</a>?'
             format: basic_html
           plugin_id: text
       relationships:

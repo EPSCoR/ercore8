@@ -44,6 +44,7 @@ dependencies:
     - field.storage.user.field_ercore_user_veteran
     - system.menu.ercore-admin-menu
   module:
+    - better_exposed_filters
     - csv_serialization
     - datetime
     - datetime_range
@@ -88,15 +89,44 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: false
+              autosubmit_hide: false
+            field_ercore_user_name_given:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            field_ercore_user_name_family:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            field_ercore_user_partic_inst_target_id:
+              bef_format: default
+              slider_options:
+                bef_slider_min: null
+                bef_slider_max: null
+                bef_slider_step: !!float 1
+                bef_slider_animate: ''
+                bef_slider_orientation: horizontal
+              more_options:
+                is_secondary: false
+          text_input_required_format: basic_html
       pager:
         type: none
         options:
@@ -670,6 +700,141 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        field_ercore_user_name_given:
+          id: field_ercore_user_name_given
+          table: user__field_ercore_user_name
+          field: field_ercore_user_name_given
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_user_name_given_op
+            label: 'First Name'
+            description: ''
+            use_operator: false
+            operator: field_ercore_user_name_given_op
+            identifier: field_ercore_user_name_given
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+              anonymous: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_ercore_user_name_family:
+          id: field_ercore_user_name_family
+          table: user__field_ercore_user_name
+          field: field_ercore_user_name_family
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_user_name_family_op
+            label: 'Last Name'
+            description: ''
+            use_operator: false
+            operator: field_ercore_user_name_family_op
+            identifier: field_ercore_user_name_family
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+              anonymous: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_ercore_user_partic_inst_target_id:
+          id: field_ercore_user_partic_inst_target_id
+          table: user__field_ercore_user_partic_inst
+          field: field_ercore_user_partic_inst_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ercore_user_partic_inst_target_id_op
+            label: 'Participating  Institution'
+            description: ''
+            use_operator: false
+            operator: field_ercore_user_partic_inst_target_id_op
+            identifier: field_ercore_user_partic_inst_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              ercore_guest: '0'
+              ercore_no_priviledge: '0'
+              ercore_view: '0'
+              ercore_edit: '0'
+              ercore_administrative: '0'
+              ercore_manage_site: '0'
+              administrator: '0'
+              anonymous: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts: {  }
       title: 'ERCore Summary of Participants'
       header: {  }
@@ -685,7 +850,20 @@ display:
           tokenize: false
           content: '<p class="ercore-download"><a href="/participants/export">Download ERCore Participant Summary</a></p>'
           plugin_id: text_custom
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No qualifying participant have been added. <a href="[site:url]admin/people/create">Add a participant</a>?'
+            format: basic_html
+          plugin_id: text
       relationships:
         field_ercore_user_part_dates:
           id: field_ercore_user_part_dates
@@ -698,11 +876,16 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - user.permissions
       tags:
         - 'config:field.storage.paragraph.field_ercore_participation_dates'
@@ -3613,6 +3796,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - user.permissions
       tags:
         - 'config:field.storage.paragraph.field_ercore_participation_dates'
@@ -3679,6 +3863,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - user.permissions
       tags:
         - 'config:field.storage.paragraph.field_ercore_participation_dates'
