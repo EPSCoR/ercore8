@@ -381,7 +381,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'No Highlights have been created. <a href="/node/add/ercore_j_highlight/">Create a highlight?</a>?'
+            value: 'No Highlights have been created. <a href="[site:url]node/add/ercore_j_highlight/">Create a highlight?</a>?'
             format: basic_html
           plugin_id: text
       relationships:

@@ -394,7 +394,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'No Other Research Products have been created. <a href="/node/add/ercore_other_product">Create a Research Product?</a>?'
+            value: 'No Other Research Products have been created. <a href="[site:url]node/add/ercore_other_product">Create a Research Product?</a>?'
             format: basic_html
           plugin_id: text
       relationships:

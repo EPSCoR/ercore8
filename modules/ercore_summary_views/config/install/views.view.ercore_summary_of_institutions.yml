@@ -831,7 +831,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'No Collaborations have been created. <a href="/node/add/ercore_institution">Create an Institution</a>?'
+            value: 'No Collaborations have been created. <a href="[site:url]node/add/ercore_institution">Create an Institution</a>?'
             format: basic_html
           plugin_id: text
       relationships:

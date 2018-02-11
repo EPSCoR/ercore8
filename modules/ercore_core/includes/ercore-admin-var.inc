@@ -9,12 +9,12 @@
  * Generates start and end dates for views and displays YYYY-MM-DD.
  *
  * @return array
- *   Returns start/end dates in specfic format for forms.
+ *   Returns start/end dates in specific format for forms.
  */
 function ercore_start_end_dates() {
   $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
-  $argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_filter');
-  $default = date_create(implode('/', $ercore_date));
+  $argument_date_format = 'Y-m-d';
+  $default = date_create($ercore_date);
   $default_date['start'] = date_format($default, $argument_date_format);
   $default_date['end'] = date($argument_date_format, strtotime('+1 year'));
   return $default_date;
@@ -29,7 +29,7 @@ function ercore_start_end_dates() {
 function ercore_admin_view_start_end_dates() {
   $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   $argument_date_format = 'Y-m';
-  $default = date_create(implode('/', $ercore_date));
+  $default = date_create($ercore_date);
   $default_date['start'] = date_format($default, $argument_date_format);
   $default_date['end'] = date($argument_date_format, strtotime('+1 year'));
   return $default_date;
@@ -44,7 +44,7 @@ function ercore_admin_view_start_end_dates() {
 function ercore_start_end_dates_displayed() {
   $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   $argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_display');
-  $default = date_create(implode('/', $ercore_date));
+  $default = date_create($ercore_date);
   $dates['start'] = date_format($default, $argument_date_format);
   $dates['end'] = date($argument_date_format, strtotime('+1 year'));
   $new_dates = $dates['start'] . ' to ' . $dates['end'];
