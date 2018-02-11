@@ -8,11 +8,11 @@
 include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
 
 /**
- * Constructs the epscor reporting page.
+ * Constructs the epscor accomplishments page.
  *
- * Our menu maps this function to the path '/reporting'.
+ * Our menu maps this function to the path '/accomplishments'.
  */
-function ercore_reporting_callback() {
+function ercore_accomplishments_callback() {
   $zone = \Drupal::state()->get('date_default_timezone');
   $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   $argument_date_format = \Drupal::config('ercore.settings')

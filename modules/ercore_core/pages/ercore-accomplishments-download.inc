@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Reporting download page.
  */
 
-require_once libraries_get_path('PHPExcel') . '/Classes/PHPExcel.php';
+module_load_include('inc', 'phpexcel');
 require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin-var.inc';
 
 /**
@@ -16,7 +17,7 @@ require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin
  * @throws \PHPExcel_Reader_Exception
  *   Error messages for PHPExcel errors.
  */
-function ercore_reporting_download_callback($date_range) {
+function ercore_accomplishments_download_callback(array $date_range) {
   require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-a-download.inc';
   require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-b-download.inc';
   require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-c-download.inc';
