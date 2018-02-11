@@ -12,19 +12,18 @@ use Drupal\Core\Url;
  * Constructs the epscor admin guide.
  */
 function ercore_core_admin_guide() {
-  $user_guide_url = url::fromRoute('ercore_core.ug1', array(), array());
-  return array(
-    '#markup' =>
-    t('<p>This guide is aimed at site administrators and administrative staff.
+  $user_guide = link::createFromRoute('User Guide', 'ercore_core.ug1', array(), array());
+  $markup =
+    "<p>" . t('This guide is aimed at site administrators and administrative staff.
 This document helps describe some of the internal features of ER Core, and how
 administrators may customize the Core to meet jurisdictional needs. This
 document aims to describe the various tasks, views, operations, and procedures
 that an administrator may need to know about in order to properly administer the
-site.</p><p>You may also be interested in the more general
-<a href="@user_guide">ESCoR User Guide</a> which talks more about how
-researchers should enter data into the system.</p>
-  <h2>Post-Installation Guide/Jurisdictional Customizations</h2>
-    <p><strong>These are steps that should be taken immediately after installing
+site.') . '</p><p>' . t('You may also be interested in the more general') . ' '
+    . $user_guide . ' ' . t(' which talks more about how researchers should 
+    enter data into the system.') . '</p>';
+  $markup .= '<h2>' . t('Post-Installation Guide/Jurisdictional Customizations')
+    . '</h2><p><strong>' . t('These are steps that should be taken immediately after installing
     the EPSCoR Reporting package. These customizations will help make the system
     a better fit your jurisdiction.</strong></p>
     <h3>Administrative settings</h3>
@@ -121,6 +120,8 @@ researchers should enter data into the system.</p>
  <h3>Public Profile settings (Optional)</h3>
   <p>Some states may wish to hide the uer profiles from public view.</p>
    <p>This may be accomplished by changing the "View user profiles" flag located
-   on the User Permissions page.</p>', ['@user_guide' => $user_guide_url]),
+   on the User Permissions page.</p>');
+  return array(
+    '#markup' => $markup,
   );
 }
