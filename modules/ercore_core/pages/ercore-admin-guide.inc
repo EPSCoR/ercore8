@@ -12,7 +12,7 @@ use Drupal\Core\Url;
  * Constructs the epscor admin guide.
  */
 function ercore_core_admin_guide() {
-  $user_guide = link::createFromRoute('User Guide', 'ercore_core.ug1', array(), array());
+  $user_guide = link::createFromRoute('User Guide', 'ercore_core.ug1', array(), array())->toString();
   $markup =
     "<p>" . t('This guide is aimed at site administrators and administrative staff.
 This document helps describe some of the internal features of ER Core, and how
