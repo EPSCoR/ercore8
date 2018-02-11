@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Admin Guide Page.
@@ -6,10 +7,8 @@
 
 /**
  * Constructs the epscor admin guide.
- *
- * Our menu maps this function to the path 'epscor/admin-guide'.
  */
-function ercore_admin_guide_callback() {
+function ercore_core_admin_guide() {
   return array(
     '#markup' =>
     t('<p>This guide is aimed at site administrators and administrative staff.

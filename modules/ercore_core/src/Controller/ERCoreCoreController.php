@@ -132,9 +132,8 @@ class ERCoreCoreController extends ControllerBase {
    * User Admin Guide page.
    */
   public function ercoreAdminGuide() {
-    return [
-      '#markup' => '<p>' . $this->t('Simple page: The quick brown fox jumps over the lazy dog.') . '</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-admin-guide.inc';
+    return ercore_core_admin_guide();
   }
 
 }
