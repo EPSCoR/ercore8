@@ -14,8 +14,9 @@ include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin
  */
 function ercore_reporting_callback() {
   $zone = \Drupal::state()->get('date_default_timezone');
-  $ercore_date = \Drupal::state()->get('ercore_epscor_start');
-  $argument_date_format = variable_get('date_format_ercore_date_format_filter');
+  $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
+  $argument_date_format = \Drupal::config('ercore.settings')
+    ->get('ercore_admin_date_filter');
   $date_year_range = $ercore_date['year'] . ':+1';
   $default_dates = ercore_start_end_dates();
   $select_list = ercore_select_list();
@@ -108,7 +109,6 @@ function ercore_reporting_callback() {
  */
 function ercore_summary_table(array $variables) {
   $default_dates = ercore_start_end_dates();
-  $summary_values = variable_get('ercore_summary_types');
   $summary_options = array(
     'ercore_collaboration' => array(
       'name' => 'Collaborations',
@@ -182,37 +182,36 @@ function ercore_summary_table(array $variables) {
     $summary_table['#header'][] = date($short_date, $date_value[0]) . "<br />through<br />" . date($short_date, $date_value[1]);
   }
   foreach ($summary_options as $sum_key => $sum_type) {
-    $summary_check = $summary_values[$sum_key];
     $field_value = $sum_type['field'];
     $data = array();
-    if ($summary_check != '0') {
-      $view_name = 'data_' . $sum_key;
-      $view = views_get_view_result($view_name, 'count');
-      $data[] = ercore_format_label($sum_type, $ranges);
-      if (isset($view)) {
-        $data[] = count($view);
-      }
-      if (is_array($ranges)) {
-        foreach ($ranges as $ranges_key => $dates) {
-          $count = 0;
-          foreach ($view as $view_row) {
-            if ($field_value == 'All') {
-              $count = $count + 1;
-            }
-            else {
-              if (isset($view_row->$field_value)) {
-                $field = $view_row->$field_value;
-                $within = $field[0]['raw']['value'];
-                if (ercore_reporting_date_callback($within, $dates)) {
-                  $count = $count + 1;
-                }
+
+    $view_name = 'data_' . $sum_key;
+    $view = views_get_view_result($view_name, 'count');
+    $data[] = ercore_format_label($sum_type, $ranges);
+    if (isset($view)) {
+      $data[] = count($view);
+    }
+    if (is_array($ranges)) {
+      foreach ($ranges as $ranges_key => $dates) {
+        $count = 0;
+        foreach ($view as $view_row) {
+          if ($field_value == 'All') {
+            $count = $count + 1;
+          }
+          else {
+            if (isset($view_row->$field_value)) {
+              $field = $view_row->$field_value;
+              $within = $field[0]['raw']['value'];
+              if (ercore_reporting_date_callback($within, $dates)) {
+                $count = $count + 1;
               }
             }
           }
-          $data[] = $count;
         }
+        $data[] = $count;
       }
     }
+
     $summary_table['#rows'][] = $data;
   }
 
@@ -302,7 +301,8 @@ function ercore_reporting_callback_submit($form, &$form_state) {
  *   Drupal link array.
  */
 function ercore_format_label(array &$link, array &$ranges) {
-  $argument_date_format = variable_get('date_format_ercore_date_format_filter');
+  $argument_date_format = \Drupal::config('ercore.settings')
+    ->get('ercore_admin_date_filter');
   $report_title = $link['name'];
   $report_link = $link['path'];
 

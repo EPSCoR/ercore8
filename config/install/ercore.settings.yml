@@ -1,3 +1,5 @@
 ercore_epscor_number: GrantNumber12345!
 ercore_epscor_start: 2018-01-01
 ercore_reporting_month: 1
+ercore_admin_date_filter: Y-m
+ercore_admin_date_display: F j, Y

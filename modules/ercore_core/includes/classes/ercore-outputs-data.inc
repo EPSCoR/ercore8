@@ -39,7 +39,7 @@ class ErcoreOutputs {
   public function ercoreOutputsBuild(&$object, &$data, &$date_range) {
     // Three step default date to compensate for yyyy/mm date format rounding.
     $default_string = ercore_start_end_dates();
-    $zone = variable_get('date_default_timezone');
+    $zone = \Drupal::config('system.date')->get('timezone.default');
     $date['start'] = $default_string['start'] . ' 00:00:00 ' . $zone;
     $date['end'] = $default_string['end'] . ' 00:00:00 ' . $zone;
     $default_array = ercore_admin_date_array_to_unix($date);
@@ -239,7 +239,7 @@ class ErcoreOutputs {
         return $within;
       }
       else {
-        $zone = variable_get('date_default_timezone');
+        $zone = \Drupal::config('system.date')->get('timezone.default');
         $test = $within_date;
         $within_date = strtotime($within_date . $zone);
         return (($dates[0][0]) <= $within_date && ($dates[0][1]) >= $within_date);
