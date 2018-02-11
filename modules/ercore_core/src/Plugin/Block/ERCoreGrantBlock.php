@@ -20,7 +20,7 @@ class ERCoreGrantBlock extends BlockBase {
    */
   public function build() {
     $build = [];
-    $grant = \Drupal::config('ercore_core.adminsettings')->get('ercore_epscor_number');
+    $grant = \Drupal::config('ercore.settings')->get('ercore_epscor_number');
     $build['ercore_grant_block_ercore_grant_number']['#markup'] = '<p class="grant">This material is based upon work supported by the National Science Foundation under Grant Number <em class="grant-number">' . $grant . '</em>.<br />
 Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>';
 

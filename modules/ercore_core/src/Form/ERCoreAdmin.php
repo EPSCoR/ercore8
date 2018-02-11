@@ -24,7 +24,7 @@ class ERCoreAdmin extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'ercore.adminsettings',
+      'ercore.settings',
     ];
   }
 
@@ -39,7 +39,7 @@ class ERCoreAdmin extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('ercore.adminsettings');
+    $config = $this->config('ercore.settings');
     $form['ercore_epscor_start'] = array(
       '#title' => t('Grant Start Date'),
       '#description' => $this->t('The start date for form processing and exports.'),
@@ -81,7 +81,7 @@ class ERCoreAdmin extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    $this->config('ercore.adminsettings')
+    $this->config('ercore.settings')
       ->set('ercore_epscor_number', $form_state->getValue('ercore_epscor_number'))
       ->set('ercore_epscor_start', $form_state->getValue('ercore_epscor_start'))
       ->set('ercore_reporting_month', $form_state->getValue('ercore_reporting_month'))
