@@ -6,6 +6,8 @@
  */
 
 use Drupal\ds\Plugin\DsField\Date;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * Generates a Date object for te start date.
@@ -165,7 +167,7 @@ function ercore_admin_current_range_argument() {
 function ercore_select_list() {
   $display_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_display');
   $ranges = ercore_get_reporting_ranges();
-  // Returns the list of available date ranges...
+  // Returns the list of available date ranges.
   $range = ercore_get_reporting_range();
   // Gets the selected reporting period, defaults to current reporting period.
   $range_is_set = _reporting_range_is_set();
@@ -399,9 +401,9 @@ function ercore_nsf_tables_change_date($form, $form_state) {
  */
 function ercore_admin_table_link(&$title, array &$path, array &$ranges) {
   $date = ercore_admin_download_path($ranges);
-  $url = $path[0];
-  $link = l($title, $url . $date, array('attributes' => array('class' => array('admin-table-link'))));
-
+  $url = $path[0] . $date;
+  $attributes = ['attributes' => ['class' => ['admin-table-link']]];
+  $link = Link::fromTextAndUrl($title, $url);
   return $link;
 }
 
