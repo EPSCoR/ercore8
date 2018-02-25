@@ -406,9 +406,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.node.article.default'
-        - 'config:core.entity_view_display.node.article.rss'
-        - 'config:core.entity_view_display.node.article.teaser'
         - 'config:core.entity_view_display.node.ercore_admin.default'
         - 'config:core.entity_view_display.node.ercore_admin.full'
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
@@ -977,9 +974,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.node.article.default'
-        - 'config:core.entity_view_display.node.article.rss'
-        - 'config:core.entity_view_display.node.article.teaser'
         - 'config:core.entity_view_display.node.ercore_admin.default'
         - 'config:core.entity_view_display.node.ercore_admin.full'
         - 'config:core.entity_view_display.node.ercore_admin.teaser'

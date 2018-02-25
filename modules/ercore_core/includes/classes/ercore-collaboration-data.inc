@@ -5,7 +5,7 @@
  * ERcore Collaboration Class for the ERCore Admin module.
  */
 
-require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin-var.inc';
+require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
 
 /**
  * Class defines node export object.

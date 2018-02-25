@@ -5,7 +5,7 @@
  * Repetitive $form element.
  */
 
-require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin-var.inc';
+require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
 
 $zone = \Drupal::config('system.date')->get('timezone.default');
 $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');

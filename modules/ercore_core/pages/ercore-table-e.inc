@@ -4,7 +4,7 @@
  * File for the ERCore NSF Table E.
  */
 
-include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
+include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
 
 /**
  * Display NSF Table E data in preparation for exporting to Excel.
@@ -16,7 +16,7 @@ function nsf_table_e_callback() {
   $form = array();
   $theme_variable = 'ercore_table_e';
   // Used within the following include.
-  include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-form-filter.inc";
+  include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-form-filter.inc";
   return $form;
 }
 

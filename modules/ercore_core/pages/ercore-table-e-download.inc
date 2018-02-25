@@ -5,8 +5,8 @@
  */
 
 require_once libraries_get_path('PHPExcel') . '/Classes/PHPExcel.php';
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/classes/ercore-outputs-data.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/classes/ercore-outputs-data.inc";
 
 /**
  * Excel export callback for output data.
@@ -86,7 +86,7 @@ function ercore_table_e_download_callback_data(&$date_range, $sheet = 0) {
 
   $date_array = ercore_admin_date_argument_to_array($passing_string);
   $title = 'E - Outputs';
-  $template_path = drupal_get_path('module', 'ercore_admin') . "/excel-templates/outputs-template.xls";
+  $template_path = drupal_get_path('module', 'ercore_core') . "/excel-templates/outputs-template.xls";
 
   // Error reporting.
   error_reporting(E_ALL);

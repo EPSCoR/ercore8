@@ -6,8 +6,8 @@
  */
 
 module_load_include('inc', 'phpexcel');
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/classes/ercore-engagement-data.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/classes/ercore-engagement-data.inc";
 
 /**
  * Excel export callback for engagement data.
@@ -64,7 +64,7 @@ function ercore_table_d_download_callback($date_range) {
 function ercore_table_d_download_callback_data(&$date_range, $sheet = 0) {
 
   $title = 'D - External Engagements';
-  $template_path = drupal_get_path('module', 'ercore_admin') . "/excel-templates/external-engagement-template.xls";
+  $template_path = drupal_get_path('module', 'ercore_core') . "/excel-templates/external-engagement-template.xls";
 
   // Error reporting.
   error_reporting(E_ALL);

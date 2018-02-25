@@ -5,7 +5,7 @@
  * File for the ERCore Reporting page.
  */
 
-include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
+include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
 
 /**
  * Constructs the epscor accomplishments page.
@@ -90,11 +90,11 @@ function ercore_accomplishments_callback() {
       'effect' => 'fade',
     ),
   );
-  $form['table'] = array(
+ /* $form['table'] = array(
     '#theme' => 'ercore_summary_table',
     '#prefix' => '<div id="ercore_summary_table">',
     '#suffix' => '</div>',
-  );
+  );*/
   return $form;
 }
 

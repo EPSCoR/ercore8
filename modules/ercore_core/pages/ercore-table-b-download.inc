@@ -5,8 +5,8 @@
  */
 
 require_once libraries_get_path('PHPExcel') . '/Classes/PHPExcel.php';
-require_once drupal_get_path('module', 'ercore_admin') . '/includes/classes/ercore-participant-grouping.inc';
-require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin-var.inc';
+require_once drupal_get_path('module', 'ercore_core') . '/includes/classes/ercore-participant-grouping.inc';
+require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
 /**
  * Excel export callback for participant data.
  *
@@ -76,7 +76,7 @@ function ercore_table_b_download_callback_data(&$date_range, $sheet = 0) {
   }
 
   $title = 'B - Participants';
-  $template_path = drupal_get_path('module', 'ercore_admin') . "/excel-templates/participants-template.xls";
+  $template_path = drupal_get_path('module', 'ercore_core') . "/excel-templates/participants-template.xls";
 
   // Error reporting.
   error_reporting(E_ALL);
@@ -165,13 +165,13 @@ function ercore_table_b_download_callback_data(&$date_range, $sheet = 0) {
     ));
     $worksheet->mergeCells($merge_cells_second);
     if ($date_string != NULL) {
-      $date_array = ercore_admin_date_argument_to_array($date_string);
+      $date_array = ercore_core_date_argument_to_array($date_string);
     }
     else {
       $date_array = NULL;
     }
     // Include to allow access to ercore_table_b_data.
-    include_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-b.inc';
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-b.inc';
     $collection = ercore_table_b_data($nid, $date_array);
     ercore_fill_cells($objphpexcel->getActiveSheet(), $collection, $row);
   }

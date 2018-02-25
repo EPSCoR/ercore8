@@ -4,7 +4,7 @@
  * File for the ERCore NSF Table D.
  */
 
-include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
+include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
 
 /**
  * Display NSF Table D data in preparation for exporting to Excel.
@@ -40,7 +40,7 @@ For the sake of bevity, the headings display the names used internally by the sy
 <li>ST: Students Reached via Teach Training</li></ul></div>",
     '#theme' => 'html_tag',
   );
-  include_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-form-filter.inc";
+  include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-form-filter.inc";
   return $form;
 }
 

@@ -20,9 +20,8 @@ class ERCoreCoreExportController extends ControllerBase {
    * ERCore Salary Support.
    */
   public function ercoreSalarySupport() {
-    return [
-      '#markup' => '<p>Salary form</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-a.inc';
+    return nsf_table_a_callback();
   }
 
   /**

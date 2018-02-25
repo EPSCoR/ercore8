@@ -5,7 +5,7 @@
  * File for the ERCore Data Integrity.
  */
 
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
 
 /**
  * Display ERCore data data integrity Views.

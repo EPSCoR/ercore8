@@ -214,9 +214,9 @@ function ercore_get_reporting_ranges() {
  *   Returns date array or boolean FALSE.
  */
 function ercore_get_reporting_range($use_default = TRUE) {
-  drupal_session_start();
-  if (array_key_exists('ercore_start_date', $_SESSION) && array_key_exists('ercore_end_date', $_SESSION)) {
-    return array($_SESSION['ercore_start_date'], $_SESSION['ercore_end_date']);
+  $temp_store = \Drupal::service('user.private_tempstore')->get('ercore_core');
+  if (array_key_exists('ercore_start_date', $temp_store) && array_key_exists('ercore_end_date', $temp_store)) {
+    return array($temp_store['ercore_start_date'], $temp_store['ercore_end_date']);
   }
   else {
     if ($use_default) {
@@ -224,7 +224,10 @@ function ercore_get_reporting_range($use_default = TRUE) {
       $cur_month = date('n');
       $adjusted_date = mktime(0, 0, 0, $cur_month - $reporting_month - 5);
       $year = date('Y', $adjusted_date);
-      return _generate_reporting_range($year);
+      $range = _generate_reporting_range($year);
+      $temp_store->set('ercore_start_date', $range[0]);
+      $temp_store->set('ercore_end_date', $range[1]);
+      return $range;
     }
     else {
       return FALSE;
@@ -235,13 +238,13 @@ function ercore_get_reporting_range($use_default = TRUE) {
 /**
  * This returns a date range as a pair of unix timestamps in an array.
  *
- * @param array $year
+ * @param string $year
  *   Receives date value.
  *
  * @return array
  *   Returns date array for internal function.
  */
-function _generate_reporting_range(array $year) {
+function _generate_reporting_range($year) {
   static $start_date;
   static $reporting_month;
   if (!isset($start_date)) {
@@ -267,8 +270,8 @@ function _generate_reporting_range(array $year) {
     );
   }
   else {
-    $date1 = $reporting_month . '/1/' . $year;
-    $next_year = $year + 1;
+    $date1 = $reporting_month . '/1/' . $year[0];
+    $next_year = $year[0] + 1;
     $date2 = $last_month . '/' . $last_day . '/' . $next_year;
 
     return array(
@@ -281,13 +284,13 @@ function _generate_reporting_range(array $year) {
 /**
  * Receives php date and returns Unix timestamp.
  *
- * @param array $var
+ * @param string $var
  *   Receives date value.
  *
  * @return array
  *   Returns unix date for internal function.
  */
-function ercore_admin_unix_date(array &$var) {
+function ercore_admin_unix_date(&$var) {
   $zone = \Drupal::config('system.date')->get('timezone.default');
   $time = ' 00:00:00 ' . $zone;
   $new_time = strtotime($var . $time);

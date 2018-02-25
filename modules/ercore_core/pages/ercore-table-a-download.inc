@@ -1,11 +1,12 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Table A Download pages.
  */
 
 require_once libraries_get_path('PHPExcel') . '/Classes/PHPExcel.php';
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
 
 
 /**
@@ -79,7 +80,7 @@ function ercore_table_a_download_callback_data(&$date_range, $sheet = 0) {
   $date_string = $passing_value;
 
   $title = 'A - Salary Support';
-  $template_path = drupal_get_path('module', 'ercore_admin') . "/excel-templates/salary-support-template.xls";
+  $template_path = drupal_get_path('module', 'ercore_core') . "/excel-templates/salary-support-template.xls";
 
   // Error reporting.
   error_reporting(E_ALL);

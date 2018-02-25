@@ -10,6 +10,7 @@ dependencies:
   module:
     - better_exposed_filters
     - csv_serialization
+    - datetime
     - node
     - paragraphs
     - rest

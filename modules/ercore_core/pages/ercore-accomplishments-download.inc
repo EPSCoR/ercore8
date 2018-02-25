@@ -6,7 +6,7 @@
  */
 
 module_load_include('inc', 'phpexcel');
-require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin-var.inc';
+require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
 
 /**
  * Excel export callback for output data.
@@ -18,11 +18,11 @@ require_once drupal_get_path('module', 'ercore_admin') . '/includes/ercore-admin
  *   Error messages for PHPExcel errors.
  */
 function ercore_accomplishments_download_callback(array $date_range) {
-  require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-a-download.inc';
-  require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-b-download.inc';
-  require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-c-download.inc';
-  require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-d-download.inc';
-  require_once drupal_get_path('module', 'ercore_admin') . '/pages/ercore-table-e-download.inc';
+  require_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-a-download.inc';
+  require_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-b-download.inc';
+  require_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-c-download.inc';
+  require_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-d-download.inc';
+  require_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-e-download.inc';
 
   if ($date_range != NULL) {
     $date_range = trim($date_range);

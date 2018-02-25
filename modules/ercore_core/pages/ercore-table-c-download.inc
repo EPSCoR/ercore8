@@ -5,8 +5,8 @@
  */
 
 require_once libraries_get_path('PHPExcel') . '/Classes/PHPExcel.php';
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/ercore-admin-var.inc";
-require_once drupal_get_path('module', 'ercore_admin') . "/includes/classes/ercore-collaboration-data.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
+require_once drupal_get_path('module', 'ercore_core') . "/includes/classes/ercore-collaboration-data.inc";
 
 /**
  * Excel export callback for collaboration data.
@@ -78,7 +78,7 @@ function ercore_table_c_download_callback_data(&$date_range, $sheet = 0) {
   }
 
   $title = 'C - Collaborations';
-  $template_path = drupal_get_path('module', 'ercore_admin') . "/excel-templates/collaborations-template.xls";
+  $template_path = drupal_get_path('module', 'ercore_core') . "/excel-templates/collaborations-template.xls";
 
   // Error reporting.
   error_reporting(E_ALL);
