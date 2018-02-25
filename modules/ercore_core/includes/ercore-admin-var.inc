@@ -5,14 +5,14 @@
  * Administrative variables for ERCore Admin module.
  */
 
-use Drupal\ds\Plugin\DsField\Date;
+use Drupal\Core\Datetime;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 
 /**
  * Generates a Date object for te start date.
  *
- * @return \Drupal\ds\Plugin\DsField\Date
+ * @return \Drupal\Core\Datetime
  *   Returns start Date object.
  */
 function ercore_start_date() {

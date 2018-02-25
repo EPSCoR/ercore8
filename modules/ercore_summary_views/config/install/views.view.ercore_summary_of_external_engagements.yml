@@ -67,7 +67,6 @@ dependencies:
     - better_exposed_filters
     - computed_field
     - csv_serialization
-    - datetime
     - datetime_range
     - node
     - paragraphs

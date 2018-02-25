@@ -11,7 +11,6 @@ dependencies:
   module:
     - better_exposed_filters
     - csv_serialization
-    - datetime
     - datetime_range
     - node
     - rest
@@ -470,8 +469,6 @@ display:
         - 'config:core.entity_view_display.node.ercore_publication.default'
         - 'config:core.entity_view_display.node.ercore_publication.full'
         - 'config:core.entity_view_display.node.ercore_publication.teaser'
-        - 'config:core.entity_view_display.node.page.default'
-        - 'config:core.entity_view_display.node.page.teaser'
   data_export_1:
     display_plugin: data_export
     id: data_export_1
@@ -1213,5 +1210,3 @@ display:
         - 'config:core.entity_view_display.node.ercore_publication.default'
         - 'config:core.entity_view_display.node.ercore_publication.full'
         - 'config:core.entity_view_display.node.ercore_publication.teaser'
-        - 'config:core.entity_view_display.node.page.default'
-        - 'config:core.entity_view_display.node.page.teaser'
