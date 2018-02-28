@@ -9,42 +9,11 @@ use Drupal\Core\Datetime;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 
-/**
- * Generates a Date object for te start date.
- *
- * @return \Drupal\Core\Datetime
- *   Returns start Date object.
- */
-function ercore_start_date() {
-  $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
-  return date_create($ercore_date . ' 00:00:00');
-}
 
-/**
- * Generates start date year for processing elsewhere.
- *
- * @return int
- *   Returns Start year.
- */
-function ercore_start_year() {
-  $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
-  $e_dates = explode('-', $ercore_date);
-  return $e_dates[0];
-}
 
-/**
- * Generates start and end dates for views and displays YYYY-MM-DD.
- *
- * @return array
- *   Returns start/end dates in specific format for forms.
- */
-function ercore_start_end_dates() {
-  $argument_date_format = 'Y-m-d';
-  $default = ercore_start_date();
-  $default_date['start'] = date_format($default, $argument_date_format);
-  $default_date['end'] = date($argument_date_format, strtotime('+1 year'));
-  return $default_date;
-}
+
+
+
 
 /**
  * Generates start and end dates for views and displays YYYY-MM.
