@@ -58,9 +58,10 @@ content:
     weight: 1
     label: above
     settings:
-      link: true
+      view_mode: ercore_name_org_dept
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_ercore_programs:
     weight: 2
