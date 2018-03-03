@@ -1005,4 +1005,3 @@ display:
         - 'config:core.entity_view_display.node.ercore_publication.default'
         - 'config:core.entity_view_display.node.ercore_publication.full'
         - 'config:core.entity_view_display.node.ercore_publication.teaser'
-
