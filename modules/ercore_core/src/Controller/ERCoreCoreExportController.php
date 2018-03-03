@@ -28,36 +28,32 @@ class ERCoreCoreExportController extends ControllerBase {
    * ERCore Participants.
    */
   public function ercoreParticipants() {
-    return [
-      '#markup' => '<p>Participants form</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-b.inc';
+    return nsf_table_b_callback();
   }
 
   /**
    * ERCore Collaborations.
    */
   public function ercoreCollaborations() {
-    return [
-      '#markup' => '<p>Collaborations form</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-c.inc';
+    return nsf_table_c_callback();
   }
 
   /**
    * ERCore Engagements.
    */
   public function ercoreEngagements() {
-    return [
-      '#markup' => '<p>Engagements form</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-d.inc';
+    return nsf_table_d_callback();
   }
 
   /**
    * ERCore Outputs.
    */
   public function ercoreOutputs() {
-    return [
-      '#markup' => '<p>Outputs form</p>',
-    ];
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-e.inc';
+    return nsf_table_e_callback();
   }
 
 }

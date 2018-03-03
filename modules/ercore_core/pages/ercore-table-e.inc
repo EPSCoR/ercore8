@@ -1,16 +1,15 @@
 <?php
+
 /**
  * @file
  * File for the ERCore NSF Table E.
  */
 
-include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
-
 /**
  * Display NSF Table E data in preparation for exporting to Excel.
  *
  * @return array
- *    Returns form array for page display.
+ *   Returns form array for page display.
  */
 function nsf_table_e_callback() {
   $form = array();
@@ -24,9 +23,12 @@ function nsf_table_e_callback() {
  * This theme function NSF Table E generates the table.
  *
  * @param array $variables
- *    A nested a array of date ranges.
+ *   A nested a array of date ranges.
+ *
+ * @return array
+ *   Returns Collection object for NSF Table E data.
  */
-function ercore_table_e($variables) {
+function ercore_table_e(array $variables) {
   $default_range = ercore_start_end_dates();
   $date_range = $variables['ranges'];
   $title = 'Download NSF Table E';
@@ -63,7 +65,6 @@ function ercore_table_e($variables) {
     '#access' => array('access ercore excel sheets'),
 
   );
-
   $summary['data_wrapper']['data_patents'] = array(
     '#tag' => 'div',
     '#attributes' => array(

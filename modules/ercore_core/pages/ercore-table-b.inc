@@ -1,16 +1,17 @@
 <?php
+
 /**
  * @file
  * File for the ERCore NSF Table B.
  */
 
-require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
 require_once drupal_get_path('module', 'ercore_core') . '/includes/classes/ercore-participant-grouping.inc';
+
 /**
  * Display NSF Table B data in preparation for exporting to Excel.
  *
  * @return array
- *    Returns form array for page display.
+ *   Returns form array for page display.
  */
 function nsf_table_b_callback() {
   $form = array();
@@ -76,15 +77,16 @@ function ercore_table_b_headers() {
   );
   return $header;
 }
+
 /**
  * Building Data Objects for NSF Table B.
  *
  * @param int $nid
- *    Node ID of Institution.
+ *   Node ID of Institution.
  * @param string $date_range
- *    Optional date range filter from hook menu.
+ *   Optional date range filter from hook menu.
  *
- * @return array $institution_data
+ * @return array
  *   Returns data array of results.
  */
 function ercore_table_b_data(&$nid, &$date_range) {
@@ -136,9 +138,9 @@ function ercore_table_b_data(&$nid, &$date_range) {
  * Data formatting for placement in Participant data export.
  *
  * @param object $collection
- *    Data object prepared for data entry.
+ *   Data object prepared for data entry.
  *
- * @return array $data
+ * @return array
  *   Returns Collection object for NSF Table B data.
  */
 function ercore_table_b_cells(&$collection) {
@@ -202,12 +204,12 @@ function ercore_table_b_cells(&$collection) {
  * This theme function (see theme.inc) generates the summary table.
  *
  * @param array $variables
- *    A nested a array of date ranges.
+ *   A nested a array of date ranges.
  *
- * @return array $summary
+ * @return array
  *   Returns data array of results.
  */
-function ercore_table_b($variables) {
+function ercore_table_b(array $variables) {
   $date_range = $variables['ranges'];
   $data = views_get_view_result('ercore_export_table_b_institutions', 'panel_pane_1');
   $header = ercore_table_b_headers();

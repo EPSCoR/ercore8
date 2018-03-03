@@ -5,7 +5,7 @@
  * ERcore Outputs Class for the ERCore Admin module.
  */
 
-require_once drupal_get_path('module', 'ercore_copre') . '/includes/ercore-admin-var.inc';
+use Drupal\ercore\ercoreStartDate;
 
 /**
  * Class defines outputs node export object.

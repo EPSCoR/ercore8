@@ -5,85 +5,84 @@
  * Repetitive $form element.
  */
 
-require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
+use Drupal\ercore\ercoreStartDate;
 
-$zone = \Drupal::config('system.date')->get('timezone.default');
-$ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
-$argument_date_format = \Drupal::config('ercore.settings')->get('ercore_admin_date_filter');
-$date_year_range = $ercore_date['year'] . ':+1';
-$default_dates = ercore_start_end_dates();
-$select_list = ercore_select_list();
+$dates = new ercoreStartDate();
+$select_list = $dates->ercoreSelectList();
+$date_year_range = $dates->startYear . ':+1';
 
-$form['reporting-year'] = array(
+$form['reporting-year'] = [
   '#type' => 'fieldset',
   '#title' => t('Reporting Year'),
   '#tree' => TRUE,
-  '#attributes' => array('class' => array('fieldset-class')),
+  '#attributes' => [
+    'class' => [
+      'fieldset-class',
+    ],
+  ],
   '#collapsible' => TRUE,
   '#collapsed' => FALSE,
-);
-$form['reporting-year']['range'] = array(
+];
+$form['reporting-year']['range'] = [
   '#type' => 'select',
   '#title' => t('Reporting Period'),
   '#options' => $select_list,
   '#default_value' => 0,
-  '#ajax' => array(
+  '#ajax' => [
     'callback' => 'ercore_change_reporting_year',
     'wrapper' => "$theme_variable",
     'method' => 'replace',
     'effect' => 'fade',
-  ),
-);
+  ],
+];
 
 $form['dates'] = array(
-  '#type' => 'fieldset',
-  '#title' => t('Date range'),
-  '#tree' => TRUE,
-  '#attributes' => array('class' => array('fieldset-class')),
-  '#collapsible' => TRUE,
-  '#collapsed' => TRUE,
+  '#type' => 'details',
+  '#title' => t('Dates'),
+  '#description' => t('Manually set a date range.'),
+  '#open' => FALSE,
 );
 
-$form['dates']['start_date'] = array(
-  '#type' => 'date_popup',
+$form['dates']['start_date'] = [
+  '#type' => 'date',
   '#title' => t('Start Date'),
-  '#date_format' => $argument_date_format,
-  '#default_value' => $default_dates['start'],
-  '#date_timezone' => $zone,
+  '#date_format' => $dates->argumentFormat,
+  '#default_value' => $dates->start,
+  '#date_timezone' => $dates->zone,
   '#date_year_range' => $date_year_range,
   '#date_label_position' => 'none',
-);
-$form['dates']['end_date'] = array(
-  '#type' => 'date_popup',
+];
+$form['dates']['end_date'] = [
+  '#type' => 'date',
   '#title' => t('End Date'),
-  '#date_format' => $argument_date_format,
-  '#default_value' => $default_dates['end'],
-  '#date_timezone' => $zone,
+  '#date_format' => $dates->argumentFormat,
+  '#default_value' => $dates->end,
+  '#date_timezone' => $date->zone,
   '#date_year_range' => $date_year_range,
   '#date_label_position' => 'none',
-);
-$form['dates']['submit'] = array(
+];
+$form['dates']['submit'] = [
   '#type' => 'submit',
   '#value' => t('Save'),
-  '#ajax' => array(
+  '#ajax' => [
     'callback' => 'ercore_nsf_tables_change_date',
     'wrapper' => "$theme_variable",
     'method' => 'replace',
     'effect' => 'fade',
-  ),
-);
-$form['dates']['reset'] = array(
+  ],
+];
+$form['dates']['reset'] = [
   '#type' => 'submit',
   '#value' => t('Reset'),
-  '#ajax' => array(
+  '#ajax' => [
     'callback' => 'ercore_nsf_tables_change_date',
     'wrapper' => "$theme_variable",
     'method' => 'replace',
     'effect' => 'fade',
-  ),
-);
-$form['table'] = array(
+  ],
+];
+$form['table'] = [
   '#theme' => "$theme_variable",
   '#prefix' => "<div id=\"$theme_variable\">",
   '#suffix' => '</div>',
-);
+];

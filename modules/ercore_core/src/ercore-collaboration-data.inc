@@ -1,11 +1,8 @@
 <?php
 
-/**
- * @file
- * ERcore Collaboration Class for the ERCore Admin module.
- */
+namespace Drupal\ercore\ercore_core;
 
-require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
+use Drupal\ercore\ercoreStartDate;
 
 /**
  * Class defines node export object.
@@ -34,10 +31,10 @@ class ErcoreCollaboration {
    * @param array $data
    *   Receives data for placement in data object.
    *
-   * @return object $object
+   * @return object
    *   Returns collaboration data object.
    */
-  public function ercoreCollaborationBuild(&$object, &$data) {
+  public function ercoreCollaborationBuild(&$object, array &$data) {
     $within_inst = array();
     $ext_inst = array();
     $for_inst = array();

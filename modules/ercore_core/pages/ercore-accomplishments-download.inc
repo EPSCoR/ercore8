@@ -5,8 +5,9 @@
  * File for the ERCore Reporting download page.
  */
 
+use Drupal\ercore\ercoreStartDate;
+
 module_load_include('inc', 'phpexcel');
-require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
 
 /**
  * Excel export callback for output data.

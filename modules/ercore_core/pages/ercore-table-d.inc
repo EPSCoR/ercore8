@@ -1,16 +1,15 @@
 <?php
+
 /**
  * @file
  * File for the ERCore NSF Table D.
  */
 
-include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
-
 /**
  * Display NSF Table D data in preparation for exporting to Excel.
  *
- * @return array $form
- *    Returns form array for page display.
+ * @return array
+ *   Returns form array for page display.
  */
 function nsf_table_d_callback() {
   $form = array();
@@ -48,12 +47,12 @@ For the sake of bevity, the headings display the names used internally by the sy
  * This theme function generates the NSF Table D summary table.
  *
  * @param array $variables
- *    A nested a array of date ranges.
+ *   A nested a array of date ranges.
  *
- * @return array $data
- *   Returns Collection object for NSF Table B data.
+ * @return array
+ *   Returns Collection object for NSF Table D data.
  */
-function ercore_table_d($variables) {
+function ercore_table_d(array $variables) {
   $date_range = $variables['ranges'];
   $title = 'Download NSF Table D';
   if (isset($date_range[0])) {

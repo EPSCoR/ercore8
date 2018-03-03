@@ -1,17 +1,15 @@
 <?php
+
 /**
  * @file
  * File for the ERCore NSF Table C.
  */
 
-require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
-
-
 /**
  * Display NSF Table C data in preparation for exporting to Excel.
  *
- * @return array $form
- *    Returns form array for page display.
+ * @return array
+ *   Returns form array for page display.
  */
 function nsf_table_c_callback() {
   $form = array();
@@ -25,12 +23,12 @@ function nsf_table_c_callback() {
  * This theme function (see theme.inc) generates the summary table.
  *
  * @param array $variables
- *    A nested a array of date ranges.
+ *   A nested a array of date ranges.
  *
- * @return array $summary
+ * @return array
  *   Returns $summary form array
  */
-function ercore_table_c($variables) {
+function ercore_table_c(array $variables) {
   $date_range = $variables['ranges'];
   $title = 'Download NSF Table C';
   if (isset($date_range[0])) {

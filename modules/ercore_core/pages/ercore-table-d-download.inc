@@ -5,8 +5,9 @@
  * File for the ERCore Table D Download pages.
  */
 
+use Drupal\ercore\ercoreStartDate;
+
 module_load_include('inc', 'phpexcel');
-require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
 require_once drupal_get_path('module', 'ercore_core') . "/includes/classes/ercore-engagement-data.inc";
 
 /**

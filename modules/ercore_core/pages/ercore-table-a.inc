@@ -5,8 +5,6 @@
  * File for the ERCore NSF Table A.
  */
 
-require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
-
 /**
  * Display NSF Table A data in preparation for exporting to Excel.
  *

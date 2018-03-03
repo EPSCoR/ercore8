@@ -5,7 +5,9 @@
  * File for the ERCore Data Integrity.
  */
 
-require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
+use Drupal\ercore\ercoreStartDate;
+
+module_load_include('inc', 'phpexcel');
 
 /**
  * Display ERCore data data integrity Views.

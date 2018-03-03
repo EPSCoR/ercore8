@@ -1,11 +1,13 @@
 <?php
+
 /**
  * @file
  * File for the ERCore Table E Download pages.
  */
 
-require_once libraries_get_path('PHPExcel') . '/Classes/PHPExcel.php';
-require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
+use Drupal\ercore\ercoreStartDate;
+
+module_load_include('inc', 'phpexcel');
 require_once drupal_get_path('module', 'ercore_core') . "/includes/classes/ercore-outputs-data.inc";
 
 /**

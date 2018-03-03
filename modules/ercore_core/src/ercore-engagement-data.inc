@@ -5,7 +5,7 @@
  * ERcore Engagement Class for the ERCore Admin module.
  */
 
-require_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-var.inc';
+use Drupal\ercore\ercoreStartDate;
 
 /**
  * Class defines Engagement node export object.

@@ -5,9 +5,9 @@
  * File for the ERCore Table A Download pages.
  */
 
-require_once libraries_get_path('PHPExcel') . '/Classes/PHPExcel.php';
-require_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-var.inc";
+use Drupal\ercore\ercoreStartDate;
 
+module_load_include('inc', 'phpexcel');
 
 /**
  * Excel export callback for output data.

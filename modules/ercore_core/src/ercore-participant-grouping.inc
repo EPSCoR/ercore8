@@ -5,6 +5,8 @@
  * ERcore Participant Aggregation Class file for the ERCore Admin module.
  */
 
+use Drupal\ercore\ercoreStartDate;
+
 /**
  * Class defines participant group object.
  */
