@@ -7,7 +7,15 @@ id: ercore_event
 label: 'ERCore Event'
 type: 'canonical_entities:node'
 pattern: 'events/[node:field_ercore_ev_date:start_date:custom:Y]/[node:field_ercore_ev_date:start_date:custom:m]/[node:title]'
-selection_criteria: {  }
+selection_criteria:
+  ab2ede52-8185-419b-b748-a533cdc1e233:
+    id: node_type
+    bundles:
+      ercore_event: ercore_event
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ab2ede52-8185-419b-b748-a533cdc1e233
 selection_logic: and
 weight: 0
 relationships: {  }

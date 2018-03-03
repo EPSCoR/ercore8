@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ercore_admin_pages
+label: 'ERCore Admin Pages'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parents]/[node:title]'
+selection_criteria:
+  fe44c8a0-e50b-4979-b8e8-44fc2b155981:
+    id: node_type
+    bundles:
+      ercore_admin: ercore_admin
+    negate: false
+    context_mapping:
+      node: node
+    uuid: fe44c8a0-e50b-4979-b8e8-44fc2b155981
+selection_logic: and
+weight: -5
+relationships: {  }
