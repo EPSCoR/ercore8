@@ -34,15 +34,6 @@ function ercore_data_integrity_callback() {
  *   Returns render array of results.
  */
 function ercore_integrity() {
-  $summary['collaborations'] = array(
-    '#tag' => 'div',
-    '#attributes' => array(
-      'class' => 'data-wrapper',
-      'id' => 'ercore_integrity_collaborations',
-    ),
-    '#value' => views_embed_view('ercore_integrity_collaboration', 'panel_pane_1'),
-    '#theme' => 'html_tag',
-  );
   $summary['event1'] = array(
     '#tag' => 'div',
     '#attributes' => array(

@@ -6,6 +6,8 @@
  */
 
 use Drupal\ercore\ercoreStartDate;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 module_load_include('inc', 'phpexcel');
 
@@ -15,46 +17,54 @@ module_load_include('inc', 'phpexcel');
  * Our menu maps this function to the path '/accomplishments'.
  */
 function ercore_accomplishments_callback() {
-  $zone = \Drupal::state()->get('date_default_timezone');
-  $ercore_date = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
-  $argument_date_format = \Drupal::config('ercore.settings')
-    ->get('ercore_admin_date_filter');
-  $date_year_range = $ercore_date['year'] . ':+1';
-  $default_dates = ercore_start_end_dates();
-  $select_list = ercore_select_list();
+  $dates = new ercoreStartDate();
+  $select_list = $dates->ercoreSelectList();
+  $date_year_range = $dates->startYear . ':+1';
+  $zone = $dates->zone;
+  $argument_date_format = $dates->argumentFormat;
+  $default_dates = $dates->startEndDates();
 
-  $form = array();
-  $form['reporting-year'] = array(
+
+  $form = [];
+  $form['reporting-year'] = [
     '#type' => 'fieldset',
     '#title' => t('Reporting Year'),
     '#tree' => TRUE,
-    '#attributes' => array('class' => array('fieldset-class')),
+    '#attributes' => [
+      'class' => [
+        'fieldset-class',
+      ],
+    ],
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
-  );
-  $form['reporting-year']['range'] = array(
+  ];
+  $form['reporting-year']['range'] = [
     '#type' => 'select',
     '#title' => t('Reporting Period'),
     '#options' => $select_list,
     '#default_value' => 0,
-    '#ajax' => array(
+    '#ajax' => [
       'callback' => 'ercore_change_reporting_year',
       'wrapper' => 'ercore_summary_table',
       'method' => 'replace',
       'effect' => 'fade',
-    ),
-  );
+    ],
+  ];
 
-  $form['dates'] = array(
+  $form['dates'] = [
     '#type' => 'fieldset',
     '#title' => t('Date range'),
     '#tree' => TRUE,
-    '#attributes' => array('class' => array('fieldset-class')),
+    '#attributes' => [
+      'class' => [
+        'fieldset-class',
+      ],
+    ],
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
-  );
+  ];
 
-  $form['dates']['start_date'] = array(
+  $form['dates']['start_date'] = [
     '#type' => 'date_popup',
     '#title' => t('Start Date'),
     '#date_format' => $argument_date_format,
@@ -62,8 +72,8 @@ function ercore_accomplishments_callback() {
     '#date_timezone' => $zone,
     '#date_year_range' => $date_year_range,
     '#date_label_position' => 'none',
-  );
-  $form['dates']['end_date'] = array(
+  ];
+  $form['dates']['end_date'] = [
     '#type' => 'date_popup',
     '#title' => t('End Date'),
     '#date_format' => $argument_date_format,
@@ -71,32 +81,32 @@ function ercore_accomplishments_callback() {
     '#date_timezone' => $zone,
     '#date_year_range' => $date_year_range,
     '#date_label_position' => 'none',
-  );
-  $form['dates']['submit'] = array(
+  ];
+  $form['dates']['submit'] = [
     '#type' => 'submit',
     '#value' => t('Save'),
-    '#ajax' => array(
+    '#ajax' => [
       'callback' => 'ercore_change_date_range',
       'wrapper' => 'ercore_summary_table',
       'method' => 'replace',
       'effect' => 'fade',
-    ),
-  );
-  $form['dates']['reset'] = array(
+    ],
+  ];
+  $form['dates']['reset'] = [
     '#type' => 'submit',
     '#value' => t('Reset'),
-    '#ajax' => array(
+    '#ajax' => [
       'callback' => 'ercore_change_date_range',
       'wrapper' => 'ercore_summary_table',
       'method' => 'replace',
       'effect' => 'fade',
-    ),
-  );
- /* $form['table'] = array(
+    ],
+  ];
+  $form['table'] = [
     '#theme' => 'ercore_summary_table',
     '#prefix' => '<div id="ercore_summary_table">',
     '#suffix' => '</div>',
-  );*/
+  ];
   return $form;
 }
 
@@ -110,74 +120,73 @@ function ercore_accomplishments_callback() {
  *   Variables array.
  */
 function ercore_summary_table(array $variables) {
-  $default_dates = ercore_start_end_dates();
-  $summary_options = array(
-    'ercore_collaboration' => array(
+  $summary_options = [
+    'ercore_collaboration' => [
       'name' => 'Collaborations',
       'path' => 'collaborations',
       'field' => 'field_field_ercore_cn_dates',
-    ),
-    'ercore_proposal' => array(
+    ],
+    'ercore_proposal' => [
       'name' => 'Grants and Proposals*',
       'path' => 'proposals',
       'field' => 'All',
-    ),
-    'ercore_engagement' => array(
+    ],
+    'ercore_engagement' => [
       'name' => 'External Engagements',
       'path' => 'external-engagements',
       'field' => 'field_field_ercore_ev_date',
-    ),
-    'ercore_institution' => array(
+    ],
+    'ercore_institution' => [
       'name' => 'Institutions',
       'path' => 'institutions',
       'field' => 'All',
-    ),
-    'ercore_other_product' => array(
+    ],
+    'ercore_other_product' => [
       'name' => 'Other Research Products',
       'path' => 'other-research-products',
       'field' => 'field_field_ercore_op_date',
-    ),
-    'ercore_patent' => array(
+    ],
+    'ercore_patent' => [
       'name' => 'Patents',
       'path' => 'patents',
       'field' => 'field_field_ercore_pt_award',
-    ),
-    'ercore_presentation' => array(
+    ],
+    'ercore_presentation' => [
       'name' => 'Presentation',
       'path' => 'presentations',
       'field' => 'field_field_ercore_ps_date',
-    ),
-    'ercore_publication' => array(
+    ],
+    'ercore_publication' => [
       'name' => 'Publications',
       'path' => 'publications',
       'field' => 'field_field_ercore_pb_date',
-    ),
-    'ercore_honor' => array(
+    ],
+    'ercore_honor' => [
       'name' => 'Honors and Awards',
       'path' => 'honors',
       'field' => 'field_field_ercore_hn_date',
-    ),
-    'ercore_event' => array(
+    ],
+    'ercore_event' => [
       'name' => 'Calendar Events',
       'path' => 'calendar',
       'field' => 'field_field_ercore_ev_date',
-    ),
-    'ercore_highlight' => array(
+    ],
+    'ercore_highlight' => [
       'name' => 'Highlights',
       'path' => 'highlghts',
       'field' => 'field_field_ercore_hi_date',
-    ),
-    'ercore_participant' => array(
+    ],
+    'ercore_participant' => [
       'name' => 'Participants',
       'path' => 'participants',
       'field' => 'field_field_ercore_us_part_date',
-    ),
-  );
+    ],
+  ];
 
   $ranges = $variables['ranges'];
   $short_date = 'm/d/Y';
 
-  $summary_table = array('#theme' => 'table');
+  $summary_table = ['#theme' => 'table'];
   $summary_table['#header'][] = "Categories of Accomplishments";
   $summary_table['#header'][] = "Inception<br />through<br />" . date($short_date);
   foreach ($ranges as $date_key => $date_value) {
@@ -185,7 +194,7 @@ function ercore_summary_table(array $variables) {
   }
   foreach ($summary_options as $sum_key => $sum_type) {
     $field_value = $sum_type['field'];
-    $data = array();
+    $data = [];
 
     $view_name = 'data_' . $sum_key;
     $view = views_get_view_result($view_name, 'count');
@@ -193,7 +202,7 @@ function ercore_summary_table(array $variables) {
     if (isset($view)) {
       $data[] = count($view);
     }
-    if (is_array($ranges)) {
+    if (is_[$ranges]) {
       foreach ($ranges as $ranges_key => $dates) {
         $count = 0;
         foreach ($view as $view_row) {
@@ -217,10 +226,6 @@ function ercore_summary_table(array $variables) {
     $summary_table['#rows'][] = $data;
   }
 
-  /* $default_string = ercore_start_end_dates();
-  $default_dates = ercore_admin_date_array_to_unix($default_string);
-   */
-
   if (!isset($variables['ranges'][0])) {
     $date_label = NULL;
     $range_display = 'Date range is undefined.';
@@ -229,42 +234,42 @@ function ercore_summary_table(array $variables) {
     $range_display = 'Date range is ' . ercore_displayed_date_ranges($variables['ranges']) . '.';
   }
 
-  $path = array('/ercore/reporting/download/');
+  $path = ['/ercore/reporting/download/'];
   $title = 'Download EPSCoR Reporting Core Tables';
   $table_link = ercore_admin_table_link($title, $path, $ranges);
 
-  $summary['range_display'] = array(
+  $summary['range_display'] = [
     '#tag' => 'p',
-    '#attributes' => array(
+    '#attributes' => [
       'class' => 'range-display',
-    ),
+    ],
     '#value' => $range_display,
     '#theme' => 'html_tag',
-    '#access' => array('access ercore excel sheets'),
-
-  );
+    '#access' => [
+      'access ercore excel sheets',
+    ],
+  ];
   $summary['table'] = $summary_table;
 
-  $summary['asterisk'] = array(
+  $summary['asterisk'] = [
     '#tag' => 'p',
-    '#attributes' => array(
+    '#attributes' => [
       'class' => 'reporting asterisk',
-    ),
+    ],
     '#value' => "* Grant & Proposal counts include all grants regardless of status.",
     '#theme' => 'html_tag',
-    '#access' => array('access ercore excel sheets'),
-
-  );
-  $summary['linking'] = array(
+    '#access' => ['access ercore excel sheets'],
+  ];
+  $summary['linking'] = [
     '#tag' => 'p',
-    '#attributes' => array(
+    '#attributes' => [
       'class' => 'table-header table-c data-link',
-    ),
+    ],
     '#value' => $table_link,
     '#theme' => 'html_tag',
-    '#access' => array('access ercore excel sheets'),
+    '#access' => ['access ercore excel sheets'],
 
-  );
+  ];
   return render($summary);
 }
 
@@ -303,25 +308,36 @@ function ercore_reporting_callback_submit($form, &$form_state) {
  *   Drupal link array.
  */
 function ercore_format_label(array &$link, array &$ranges) {
-  $argument_date_format = \Drupal::config('ercore.settings')
-    ->get('ercore_admin_date_filter');
+  $dates = new ercoreStartDate();
   $report_title = $link['name'];
   $report_link = $link['path'];
 
   if (isset($ranges[0][0])) {
-    $start = date($argument_date_format, $ranges[0][0]);
-    $end = date($argument_date_format, $ranges[0][1]);
-    $destination = array(
-      'query' => array(
+    $start = date($dates->argumentFormat, $ranges[0][0]);
+    $end = date($dates->argumentFormat, $ranges[0][1]);
+    $option = [
+      'query' => [
         'start-date[value][date]' => $start,
         'end-date[value][date]' => $end,
-      ),
-    );
+      ],
+      'attributes' => [
+        'class' => [
+          'reporting-section',
+        ],
+      ],
+    ];
   }
   else {
-    $destination = array('query' => NULL);
+    $option = [
+      'attributes' => [
+        'class' => [
+          'reporting-section',
+        ],
+      ],
+    ];
   }
-  $link = l($report_title, $report_link, $destination, array('attributes' => array('class' => array('reporting-section'))));
+  $url = Url::fromUri($report_link, $option);
+  $link = Link::fromTextAndUrl($report_title, $url);
 
   return $link;
 }
