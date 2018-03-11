@@ -17,96 +17,19 @@ module_load_include('inc', 'phpexcel');
  * Our menu maps this function to the path '/accomplishments'.
  */
 function ercore_accomplishments_callback() {
+  $form = [];
   $dates = new ercoreStartDate();
   $select_list = $dates->ercoreSelectList();
   $date_year_range = $dates->startYear . ':+1';
   $zone = $dates->zone;
   $argument_date_format = $dates->argumentFormat;
   $default_dates = $dates->startEndDates();
+  
+  $theme_variable = 'ercore_table_summary';
+  // Used within the following include.
+  include_once drupal_get_path('module', 'ercore_core') . '/includes/ercore-admin-form-filter.inc';
 
-
-  $form = [];
-  $form['reporting-year'] = [
-    '#type' => 'fieldset',
-    '#title' => t('Reporting Year'),
-    '#tree' => TRUE,
-    '#attributes' => [
-      'class' => [
-        'fieldset-class',
-      ],
-    ],
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-  ];
-  $form['reporting-year']['range'] = [
-    '#type' => 'select',
-    '#title' => t('Reporting Period'),
-    '#options' => $select_list,
-    '#default_value' => 0,
-    '#ajax' => [
-      'callback' => 'ercore_change_reporting_year',
-      'wrapper' => 'ercore_summary_table',
-      'method' => 'replace',
-      'effect' => 'fade',
-    ],
-  ];
-
-  $form['dates'] = [
-    '#type' => 'fieldset',
-    '#title' => t('Date range'),
-    '#tree' => TRUE,
-    '#attributes' => [
-      'class' => [
-        'fieldset-class',
-      ],
-    ],
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
-  ];
-
-  $form['dates']['start_date'] = [
-    '#type' => 'date_popup',
-    '#title' => t('Start Date'),
-    '#date_format' => $argument_date_format,
-    '#default_value' => $default_dates['start'],
-    '#date_timezone' => $zone,
-    '#date_year_range' => $date_year_range,
-    '#date_label_position' => 'none',
-  ];
-  $form['dates']['end_date'] = [
-    '#type' => 'date_popup',
-    '#title' => t('End Date'),
-    '#date_format' => $argument_date_format,
-    '#default_value' => $default_dates['end'],
-    '#date_timezone' => $zone,
-    '#date_year_range' => $date_year_range,
-    '#date_label_position' => 'none',
-  ];
-  $form['dates']['submit'] = [
-    '#type' => 'submit',
-    '#value' => t('Save'),
-    '#ajax' => [
-      'callback' => 'ercore_change_date_range',
-      'wrapper' => 'ercore_summary_table',
-      'method' => 'replace',
-      'effect' => 'fade',
-    ],
-  ];
-  $form['dates']['reset'] = [
-    '#type' => 'submit',
-    '#value' => t('Reset'),
-    '#ajax' => [
-      'callback' => 'ercore_change_date_range',
-      'wrapper' => 'ercore_summary_table',
-      'method' => 'replace',
-      'effect' => 'fade',
-    ],
-  ];
-  $form['table'] = [
-    '#theme' => 'ercore_summary_table',
-    '#prefix' => '<div id="ercore_summary_table">',
-    '#suffix' => '</div>',
-  ];
+  
   return $form;
 }
 

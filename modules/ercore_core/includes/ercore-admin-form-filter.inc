@@ -57,7 +57,7 @@ $form['dates']['end_date'] = [
   '#title' => t('End Date'),
   '#date_format' => $dates->argumentFormat,
   '#default_value' => $dates->end,
-  '#date_timezone' => $date->zone,
+  '#date_timezone' => $dates->zone,
   '#date_year_range' => $date_year_range,
   '#date_label_position' => 'none',
 ];

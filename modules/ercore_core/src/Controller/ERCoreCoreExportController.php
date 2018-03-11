@@ -17,6 +17,14 @@ class ERCoreCoreExportController extends ControllerBase {
   }
 
   /**
+   * ERCore Accomplishments.
+   */
+  public function ercoreAccomplishments() {
+    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-accomplishments.inc';
+    return ercore_accomplishments_callback();
+  }
+
+  /**
    * ERCore Salary Support.
    */
   public function ercoreSalarySupport() {

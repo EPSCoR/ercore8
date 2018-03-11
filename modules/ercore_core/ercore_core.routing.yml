@@ -10,7 +10,7 @@ ercore_core.ercore:
 ercore_core.accomplishments:
   path: 'accomplishments'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreAccomplishmentController::ercoreAccomplishments'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreAccomplishments'
     _title: 'Accomplishments'
   requirements:
     _permission: 'access ercore content'
