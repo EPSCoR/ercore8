@@ -10,7 +10,7 @@
  */
 function ercore_install() {
   \Drupal::service('config.factory')->getEditable('ercore.settings')
-    ->set('ercore_epscor_start', '2018-03-08')
+    ->set('ercore_epscor_start', '03/08/2018')
     ->set('ercore_reporting_month', 1)
     ->save();
 }

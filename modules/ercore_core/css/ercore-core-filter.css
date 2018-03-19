@@ -1,0 +1,15 @@
+#edit-filter-type--wrapper fieldset .form-item, #edit-filter-type--wrapper #edit-filter-type .form-item {
+  float: left;
+  margin-right: 20px;
+}
+#edit-filter-type--wrapper #range-form-container .form-item label,
+#edit-filter-type--wrapper #edit-filter-type--wrapper legend,
+#edit-filter-type--wrapper #edit-filter-type--wrapper .fieldset-wrapper {
+  float: left;
+  margin: 4px 5px 0 0;
+}
+
+#edit-filter-type--wrapper legend span {
+  display: inline-block;
+  margin-top: 8px;
+}

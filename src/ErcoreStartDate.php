@@ -12,140 +12,174 @@ use Drupal\Core\Datetime\DrupalDateTime;
 class ErcoreStartDate {
 
   /**
-   * ERCore start datetime value.
-   *
-   * @var \Drupal\Core\Datetime\DrupalDateTime
-   */
-  public $start = '';
-
-  /**
-   * ERCore end datetime value.
-   *
-   * @var \Drupal\Core\Datetime\DrupalDateTime
-   */
-  public $end = '';
-
-  /**
-   * Reporting month.
-   *
-   * @var int
-   */
-  public $reportingMonth = '';
-
-  /**
-   * Year.
-   *
-   * @var int
-   */
-  public $startYear = '';
-
-  /**
-   * Year-Month.
-   *
-   * @var string
-   */
-  public $startYearMonth = '';
-
-  /**
-   * Start date as string.
-   *
-   * @var string
-   */
-  public $startString = '';
-
-  /**
-   * End date as string.
-   *
-   * @var string
-   */
-  public $endString = '';
-
-  /**
-   * End date as Y-m string.
-   *
-   * @var string
-   */
-  public $endYearMonth = '';
-
-  /**
-   * Start date as string for display.
-   *
-   * @var string
-   */
-  public $startDisplay = '';
-
-  /**
-   * End date as string for display.
-   *
-   * @var string
-   */
-  public $endDisplay = '';
-
-  /**
-   * Start date as unix timestamp.
-   *
-   * @var string
-   */
-  public $startUnix = '';
-
-  /**
-   * End date as unix timestamp.
-   *
-   * @var string
-   */
-  public $endUnix = '';
-
-  /**
    * Argument format.
    *
    * @var string
    */
-  public $argumentFormat = 'Y-m-d';
+  static public $argumentFormat = 'Y-m-d';
 
   /**
    * Display format.
    *
    * @var string
    */
-  public $displayFormat = 'F j, Y';
+  static public $displayFormat = 'F j, Y';
 
   /**
-   * Time Zone.
+   * Field format.
    *
    * @var string
    */
-  public $zone = '';
+  static public $fieldFormat = 'd/m/Y';
 
   /**
-   * ErcoreStartDate constructor.
+   * Returns the basic start date string.
+   *
+   * @returns string
+   *   Returns base start time date object.
    */
-  public function __construct() {
-    $start = \Drupal::config('ercore.settings')->get('ercore_epscor_start');
-    $this->reportingMonth = \Drupal::config('ercore.settings')
-      ->get('ercore_reporting_month');
-    $this->start = DrupalDateTime::createFromFormat($this->argumentFormat, $start);
-    $exploded = explode('-', $start);
-    $this->startYear = $exploded[0];
-    $this->startYearMonth = $exploded[0] . '-' . $exploded[1];
-    $this->startString = $start;
-    $this->startUnix = $this->start->format('U');
-    $this->endUnix = strtotime(date($this->argumentFormat, mktime()) . " + 365 day");
-    $this->end = DrupalDateTime::createFromTimestamp($this->endUnix);
-    $this->endYearMonth = $this->end->format('Y-m');
-    $this->endString = $this->end->format($this->argumentFormat);
-    $this->startDisplay = $this->start->format($this->displayFormat);
-    $this->endDisplay = $this->end->format($this->displayFormat);
-    $this->zone = \Drupal::config('system.date')->get('timezone.default');
+  public static function startString() {
+    return \Drupal::config('ercore.settings')->get('ercore_epscor_start');
   }
 
   /**
-   * Returns the basic start date.
+   * Returns reporting month.
+   *
+   * @returns int
+   *   Returns integer of reporting month.
+   */
+  public static function reportingMonth() {
+    return \Drupal::config('ercore.settings')->get('ercore_reporting_month');
+  }
+
+  /**
+   * Returns the start date.
    *
    * @returns DrupalDateTime
    *   Returns base start time date object.
    */
-  public function startDate() {
-    return $this->start;
+  public static function startDate() {
+    return DrupalDateTime::createFromFormat(self::$argumentFormat, self::startString());
+  }
+
+  /**
+   * Returns the start date in unix format.
+   *
+   * @returns int
+   *   Returns base start time date object.
+   */
+  public static function startUnix() {
+    return self::startDate()->format('U');
+  }
+
+  /**
+   * Returns the start date in $field format.
+   *
+   * @returns string
+   *   Returns start time in $field format.
+   */
+  public static function startField() {
+    return self::startDate()->format(self::$fieldFormat);
+  }
+
+  /**
+   * Returns the start date in $display format.
+   *
+   * @returns string
+   *   Returns start date in $display format.
+   */
+  public static function startDisplay() {
+    return self::startDate()->format(self::$displayFormat);
+  }
+
+  /**
+   * Start date value in Year-Month format.
+   *
+   * @returns string
+   *   Returns string of start Year-Month.
+   */
+  public static function startYearMonth() {
+    return self::startDate()->format('Y-m');
+  }
+
+  /**
+   * Start date value in Year format.
+   *
+   * @returns int
+   *   Returns string of start Year
+   */
+  public static function startYear() {
+    return self::startDate()->format('Y');
+  }
+
+  /**
+   * Returns end date in Unix format.
+   *
+   * @returns int
+   *   Returns unix timestamp formatted end date, one year from today.
+   */
+  public static function endDateUnix() {
+    return strtotime(date(self::$argumentFormat, time()) . " + 365 day");
+  }
+
+  /**
+   * Returns end date as DrupalDateTime.
+   *
+   * @returns DrupalDateTime
+   *   Returns DrupalDateTime end date, one year from today.
+   */
+  public static function endDate() {
+    return DrupalDateTime::createFromTimestamp(self::endDateUnix());
+  }
+
+  /**
+   * Returns end date formatting to argument format.
+   *
+   * @returns string
+   *   Returns string of end date, one year from today.
+   */
+  public static function endString() {
+    return self::endDate()->format(self::$argumentFormat);
+  }
+
+  /**
+   * Returns the end date in $field format.
+   *
+   * @returns string
+   *   Returns end time in $field format.
+   */
+  public static function endField() {
+    return self::endDate()->format(self::$fieldFormat);
+  }
+
+  /**
+   * Returns the end date in $display format.
+   *
+   * @returns string
+   *   Returns end date in $display format.
+   */
+  public static function endDisplay() {
+    return self::endDate()->format(self::$displayFormat);
+  }
+
+  /**
+   * End date value in Year-Month format.
+   *
+   * @returns string
+   *   Returns string of end Year-Month.
+   */
+  public static function endYearMonth() {
+    return self::endDate()->format('Y-m');
+  }
+
+  /**
+   * End date value in Year format.
+   *
+   * @returns int
+   *   Returns string of end Year
+   */
+  public static function endYear() {
+    return self::endDate()->format('Y');
   }
 
   /**
@@ -154,9 +188,21 @@ class ErcoreStartDate {
    * @return array
    *   Returns start/end dates as date objects.
    */
-  public function startEndDates() {
-    $date['start'] = $this->start;
-    $date['end'] = $this->end;
+  public static function startEndDates() {
+    $date['start'] = self::startString();
+    $date['end'] = self::endString();
+    return $date;
+  }
+
+  /**
+   * Generates start and end dates for fields DD/MM/YYYY.
+   *
+   * @return array
+   *   Returns start/end dates as date objects.
+   */
+  public static function fieldStartEndDates() {
+    $date['start'] = self::startField();
+    $date['end'] = self::endField();
     return $date;
   }
 
@@ -166,10 +212,20 @@ class ErcoreStartDate {
    * @return array
    *   Returns start/end dates in specific format for forms.
    */
-  public function startEndDatesString() {
-    $date['start'] = $this->startString;
-    $date['end'] = $this->endString;
+  public static function startEndDatesString() {
+    $date['start'] = self::startString();
+    $date['end'] = self::endString();
     return $date;
+  }
+
+  /**
+   * Default Time Zone.
+   *
+   * @returns string
+   *   Returns default time zone value.
+   */
+  public static function zone() {
+    return \Drupal::config('system.date')->get('timezone.default');
   }
 
   /**
@@ -178,9 +234,9 @@ class ErcoreStartDate {
    * @return array
    *   Returns start/end dates in specific format for forms.
    */
-  public function adminStartEndDates() {
-    $default_date['start'] = $this->startYearMonth;
-    $default_date['end'] = $this->endYearMonth;
+  public static function adminStartEndDates() {
+    $default_date['start'] = self::startYearMonth();
+    $default_date['end'] = self::endYearMonth();
     return $default_date;
   }
 
@@ -190,9 +246,9 @@ class ErcoreStartDate {
    * @return array
    *   Returns start/end dates in specific format for forms.
    */
-  public function startEndDatesDisplay() {
-    $date['start'] = $this->startDisplay;
-    $date['end'] = $this->endDisplay;
+  public static function startEndDatesDisplay() {
+    $date['start'] = self::startDisplay();
+    $date['end'] = self::endDisplay();
     return $date;
   }
 
@@ -202,9 +258,9 @@ class ErcoreStartDate {
    * @return array
    *   Returns start/end dates in specific format for forms.
    */
-  public function startEndDatesUnix() {
-    $date['start'] = $this->startUnix;
-    $date['end'] = $this->endUnix;
+  public static function startEndDatesUnix() {
+    $date['start'] = self::startUnix();
+    $date['end'] = self::endUnix();
     return $date;
   }
 
@@ -214,15 +270,15 @@ class ErcoreStartDate {
    * @return array
    *   Returns date array for forms.
    */
-  public function ercoreDateRangeStart() {
+  public static function ercoreDateRangeStart() {
     $today_month = date('m');
-    $reporting_month = $this->reportingMonth;
-    $start_date = $this->startYearMonth;
+    $reporting_month = self::reportingMonth();
+    $start_date = self::startYearMonth();
     if ($today_month < $reporting_month) {
-      $current_start = DrupalDateTime::createFromFormat($this->argumentFormat, (date('Y') - 1) . '-' . $reporting_month . '-01');
+      $current_start = DrupalDateTime::createFromFormat(self::$argumentFormat, (date('Y') - 1) . '-' . $reporting_month . '-01');
     }
     else {
-      $current_start = DrupalDateTime::createFromFormat($this->argumentFormat, date('Y') . '-' . $reporting_month . '-01');
+      $current_start = DrupalDateTime::createFromFormat(self::$argumentFormat, date('Y') . '-' . $reporting_month . '-01');
     }
     if ($start_date > $current_start) {
       $current_start = $start_date;
@@ -236,9 +292,9 @@ class ErcoreStartDate {
    * @return array
    *   Returns date array for forms.
    */
-  public function ercoreCurrentRangeArgument() {
-    $month = $this->reportingMonth;
-    $start_date = $this->startYearMonth;
+  public static function ercoreCurrentRangeArgument() {
+    $month = self::reportingMonth();
+    $start_date = self::startYearMonth();
     $today_month = date('m');
     if ($today_month < $month) {
       $current_range['start'] = (date('Y') - 1) . '-' . $month;
@@ -259,27 +315,40 @@ class ErcoreStartDate {
    * Generates an array of reporting periods (ercore-accomplishments.inc).
    *
    * @return array
+   *   Returns select list array for use ERCoreDateFilter selection.
+   */
+  public static function ercoreSelectList() {
+    // Returns the list of available date ranges.
+    $ranges = self::ercoreGetReportingRanges();
+    // A reporting period selected or default.
+    $select_list = [
+      'Select',
+    ];
+    foreach ($ranges as $key => $value) {
+      $select_list[] = date(self::$displayFormat, $value[0]) . ' to ' . date(self::$displayFormat, $value[1]);
+    }
+    return $select_list;
+  }
+
+  /**
+   * Generates an array of reporting periods (ercore-accomplishments.inc).
+   *
+   * @return array
    *   Returns select list array for use on NSF tables and summary form.
    */
-  public function ercoreSelectList() {
-    $range_is_set = NULL;
-    $temp_store = \Drupal::service('user.private_tempstore')
-      ->get('ercore_core');
+  public static function ercoreSelectListArguments() {
     // Returns the list of available date ranges.
-    $ranges = $this->ercoreGetReportingRanges();
-    // Gets the selected reporting period, defaults to current reporting period.
-    $range = $this->ercoreGetReportingRange();
+    $ranges = self::ercoreGetReportingRanges();
     // A reporting period selected or default.
-    if (array_key_exists('set_range', $temp_store)) {
-      $range_is_set = $temp_store['set_range'];
-    }
-    // A reporting period selected or default.
-    $select_list = ['Select'];
+    $select_list[0] = [
+      self::startString(),
+      self::endString(),
+    ];
     foreach ($ranges as $key => $value) {
-      $select_list[] = date($this->displayFormat, $value[0]) . ' to ' . date($this->displayFormat, $value[1]);
-      if (!empty($range_is_set) && $range == $value) {
-        $selected = $key + 1;
-      }
+      $select_list[] = [
+        date(self::$argumentFormat, $value[0]),
+        date(self::$argumentFormat, $value[1]),
+      ];
     }
     return $select_list;
   }
@@ -290,52 +359,18 @@ class ErcoreStartDate {
    * @return array
    *   Returns date array for reporting page.
    */
-  public function ercoreGetReportingRanges() {
-    static $ranges = [];
+  public static function ercoreGetReportingRanges() {
+    $ranges = [];
     if (!count($ranges)) {
       $current_month = date('n');
-      $adjusted_date = mktime(0, 0, 0, $current_month - $this->reportingMonth + 7);
+      $adjusted_date = time(0, 0, 0, $current_month - self::reportingMonth() + 7);
       // +half a year into the future (6) +1 offset.
       $current_year = date('Y', $adjusted_date);
-      for ($year = $current_year; $year >= $this->startYear; $year--) {
-        $ranges[] = $this->generateReportingRange($year);
+      for ($year = $current_year; $year >= self::startYear(); $year--) {
+        $ranges[] = self::generateReportingRange($year);
       }
     }
     return $ranges;
-  }
-
-  /**
-   * Generates a date range corresponding to the starting date.
-   *
-   * @param bool $use_default
-   *   Defines reporting ranges if default is true.
-   *
-   * @return array
-   *   Returns date array or boolean FALSE.
-   */
-  public function ercoreGetReportingRange($use_default = TRUE) {
-    $temp_store = \Drupal::service('user.private_tempstore')
-      ->get('ercore_core');
-    if (array_key_exists('ercore_start_date', $temp_store) && array_key_exists('ercore_end_date', $temp_store)) {
-      return [
-        $temp_store['ercore_start_date'],
-        $temp_store['ercore_end_date'],
-      ];
-    }
-    else {
-      if ($use_default) {
-        $cur_month = date('n');
-        $adjusted_date = mktime(0, 0, 0, $cur_month - $this->reportingMonth - 5);
-        $year = date('Y', $adjusted_date);
-        $range = $this->generateReportingRange($year);
-        $temp_store->set('ercore_start_date', $range[0]);
-        $temp_store->set('ercore_end_date', $range[1]);
-        return $range;
-      }
-      else {
-        return FALSE;
-      }
-    }
   }
 
   /**
@@ -347,20 +382,20 @@ class ErcoreStartDate {
    * @return array
    *   Returns date array for internal function.
    */
-  public function generateReportingRange($year) {
-    $last_month = $this->reportingMonth - 1;
+  public static function generateReportingRange($year) {
+    $last_month = self::reportingMonth() - 1;
     $last_day = date('t', strtotime($last_month . '/1/' . $year));
 
-    if ($year == $this->startYear) {
-      $second = $last_month . '-' . $last_day . '-' . ($this->startYear + 1);
+    if ($year == self::startYear()) {
+      $second = $last_month . '-' . $last_day . '-' . (self::startYear() + 1);
       $second_year = DrupalDateTime::createFromFormat('n-j-Y', $second);
       return [
-        $this->startUnix,
+        self::startUnix(),
         $second_year->format('U'),
       ];
     }
     else {
-      $first = ($this->reportingMonth - 0) . '-1-' . $year;
+      $first = (self::reportingMonth() - 0) . '-1-' . $year;
       $next = $last_month . '-' . $last_day . '-' . ($year + 1);
       $date1 = DrupalDateTime::createFromFormat('n-j-Y', $first);
       $date2 = DrupalDateTime::createFromFormat('n-j-Y', $next);
@@ -369,202 +404,6 @@ class ErcoreStartDate {
         $date2->format('U'),
       ];
     }
-  }
-
-  /**
-   * Generates date ranges for reporting period. (ercore_change_date_range).
-   */
-  public function summaryTableRanges() {
-    if ($range = $this->ercoreGetReportingRange(FALSE)) {
-      return array($range);
-    }
-    else {
-      return $this->ercoreGetReportingRanges();
-    }
-  }
-
-  /**
-   * Ajax callback: ercore-reporting.inc and ercore-admin-form-filter.inc.
-   */
-  public function ercoreChangeReportingYear($form, $form_state) {
-    $ranges = $this->ercoreGetReportingRanges();
-    $selected = $form_state['input']['reporting-year']['range'] - 1;
-    if ($selected == -1) {
-      unset($_SESSION['ercore_start_date']);
-      unset($_SESSION['ercore_end_date']);
-    }
-    else {
-      $_SESSION['ercore_start_date'] = $ranges[$selected][0];
-      $_SESSION['ercore_end_date'] = $ranges[$selected][1];
-      $ranges = array($ranges[$selected]);
-    }
-    $form['table']['#ranges'] = $ranges;
-    return $form['table'];
-  }
-
-  /**
-   * Ajax callback function for ercore-reporting.inc.
-   */
-  public function ercoreChangeDateRange($form, $form_state) {
-    $ranges = [];
-    if ($form_state['values']['op'] == t('Save')) {
-      $s = strtotime($form_state['values']['dates']['start_date']);
-      $e = strtotime($form_state['values']['dates']['end_date']);
-      if ($s <= $e) {
-        $_SESSION['ercore_start_date'] = $s;
-        $_SESSION['ercore_end_date'] = $e;
-        $_SESSION['default_reporting_form'] = TRUE;
-        $ranges = [[$s, $e]];
-      }
-      else {
-        drupal_set_message("Start date must be earlier than end date.", 'error');
-      }
-    }
-    else {
-      unset($_SESSION['ercore_start_date']);
-      unset($_SESSION['ercore_end_date']);
-      $_SESSION['default_reporting_form'] = FALSE;
-      $ranges = $this->summaryTableRanges();
-    }
-    $form['table']['#ranges'] = $ranges;
-    return $form['table'];
-  }
-
-  /**
-   * Ajax callback function for ercore-admin-form-filter.inc.
-   */
-  public function ercoreNsfTablesChangeDate($form, $form_state) {
-    $ranges = [];
-    if ($form_state['values']['op'] == t('Save')) {
-      $s = strtotime($form_state['values']['dates']['start_date']);
-      $e = strtotime($form_state['values']['dates']['end_date']);
-      if ($s <= $e) {
-        $_SESSION['ercore_start_date'] = $s;
-        $_SESSION['ercore_end_date'] = $e;
-        $ranges = array(array($s, $e));
-      }
-      else {
-        drupal_set_message("Start date must be earlier than end date.", 'error');
-      }
-    }
-    else {
-      unset($_SESSION['ercore_start_date']);
-      unset($_SESSION['ercore_end_date']);
-      $ranges = NULL;
-    }
-    $form['table']['#ranges'] = $ranges;
-    return $form['table'];
-  }
-
-  /**
-   * Receives link values and generates links to PHPExcel exported reports.
-   *
-   * @param string $title
-   *   Link Title.
-   * @param array $path
-   *   Path for linking.
-   * @param array $ranges
-   *   Date range for use with views and $forms.
-   *
-   * @return array
-   *   Drupal link array.
-   */
-  public function ercoreAdminTableLink(&$title, array &$path, array &$ranges) {
-    $date = $this->ercoreAdminDownloadPath($ranges);
-    $url = $path[0] . $date;
-    $link = Link::fromTextAndUrl($title, $url);
-    return $link;
-  }
-
-  /**
-   * Receives date array and generates date arguments for NSF Tables.
-   *
-   * @param array $ranges
-   *   Description.
-   *
-   * @return string
-   *   Returns date argument string for use in NSF Tables.
-   */
-  public function ercoreAdminDownloadPath(array &$ranges) {
-    if (isset($ranges[0][0])) {
-      $start = date($this->argumentFormat, $ranges[0][0]);
-      $end = date($this->argumentFormat, $ranges[0][1]);
-      $date = $start . '--' . $end;
-    }
-    elseif (isset($ranges['start'])) {
-      $start = $ranges['start'];
-      $end = $ranges['end'];
-      $date = $start . '--' . $end;
-    }
-    else {
-      $date = NULL;
-    }
-    return $date;
-  }
-
-  /**
-   * Receives dater string, returns date array for NSF tables.
-   *
-   * @param string $date_range
-   *   String of date values.
-   *
-   * @return array
-   *   Returns unix date array for use in NSF Tables.
-   */
-  public function ercoreAdminDateArgumentToArray(&$date_range) {
-    $time = ' 00:00:00 ' . $this->zone;
-    $range = explode('--', $date_range);
-    $new_range[0][0] = strtotime($range[0] . $time);
-    $new_range[0][1] = strtotime($range[1] . $time);
-    return $new_range;
-  }
-
-  /**
-   * Receives Drupal date array, returns array with altered array structure.
-   *
-   * @param array $date_range
-   *   Drupal date array.
-   *
-   * @return array
-   *   Returns date array with altered format.
-   */
-  public function ercoreAdminDateArrayConverter(array &$date_range) {
-    $new_range[0][0] = $date_range['start'];
-    $new_range[0][1] = $date_range['end'];
-    return $new_range;
-  }
-
-  /**
-   * Receives Drupal data array and returns unix date array.
-   *
-   * @param array $date_range
-   *   Array of date values.
-   *
-   * @return array
-   *   Returns unix date array for use in NSF Tables.
-   */
-  public function ercoreAdminDateArrayToUnix(array &$date_range) {
-    $new_range = [];
-    foreach ($date_range as $key => $date) {
-      $new_range[$key] = strtotime($date);
-    }
-    return $new_range;
-  }
-
-  /**
-   * Date range callback to verify dates within a given range.
-   *
-   * @param string $date_within
-   *   A date to compare to the $date_range.
-   * @param string $date_range
-   *   A $date_range to check $date_within against.
-   *
-   * @return bool
-   *   Returns boolean value, is $date_within within $date_range
-   */
-  public function ercoreDateRangeCheck(&$date_within, &$date_range) {
-    $date_within = strtotime($date_within);
-    return (($date_range[0][0] <= $date_within) && ($date_range[0][1] >= $date_within));
   }
 
 }

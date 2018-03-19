@@ -17,11 +17,17 @@ class ERCoreCoreExportController extends ControllerBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
+    return 'ercore_core_data_export';
+  }
+
+  /**
    * ERCore Accomplishments.
    */
   public function ercoreAccomplishments() {
-    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-accomplishments.inc';
-    return ercore_accomplishments_callback();
+    return ['#markup' => 'Accomplishment exports go here.'];
   }
 
   /**

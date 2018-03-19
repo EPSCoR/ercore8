@@ -10,7 +10,7 @@ ercore_core.ercore:
 ercore_core.accomplishments:
   path: 'accomplishments'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreAccomplishments'
+    _form: '\Drupal\ercore_core\Form\ERCoreAccomplishments'
     _title: 'Accomplishments'
   requirements:
     _permission: 'access ercore content'
@@ -107,7 +107,7 @@ ercore_core.admin_guide:
 ercore_core.salary_support:
   path: 'ercore/admin-views/salary_support'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreSalarySupport'
+    _form: '\Drupal\ercore_core\Form\ERCoreTableA'
     _title: 'NSF Table A - Salary Support'
   requirements:
     _permission: 'access ercore excel sheets'
@@ -115,7 +115,7 @@ ercore_core.salary_support:
 ercore_core.participants:
   path: 'ercore/admin-views/participants'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreParticipants'
+    _form: '\Drupal\ercore_core\Form\ERCoreTableB'
     _title: 'NSF Table B - Participants'
   requirements:
     _permission: 'access ercore excel sheets'
@@ -123,7 +123,7 @@ ercore_core.participants:
 ercore_core.collaborations:
   path: 'ercore/admin-views/collaborations'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreCollaborations'
+    _form: '\Drupal\ercore_core\Form\ERCoreTableC'
     _title: 'NSF Table C - Collaborations'
   requirements:
     _permission: 'access ercore excel sheets'
@@ -131,7 +131,7 @@ ercore_core.collaborations:
 ercore_core.engagements:
   path: 'ercore/admin-views/engagements'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreEngagements'
+    _form: '\Drupal\ercore_core\Form\ERCoreTableD'
     _title: 'NSF Table D - External Engagements'
   requirements:
     _permission: 'access ercore excel sheets'
@@ -139,11 +139,10 @@ ercore_core.engagements:
 ercore_core.outputs:
   path: 'ercore/admin-views/outputs'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreOutputs'
+    _form: '\Drupal\ercore_core\Form\ERCoreTableE'
     _title: 'NSF Table E - Outputs'
   requirements:
     _permission: 'access ercore excel sheets'
-
 
 # ERCore Admin Pages.
 ercore_core.admin_config_ui:
@@ -161,3 +160,11 @@ ercore_core.admin_settings_form:
     _title: 'ERCore Administration'
   requirements:
     _permission: 'administer ercore module'
+
+ercore_core.date_filter:
+  path: 'admin/config/ercore/date-filter'
+  defaults:
+    _form: '\Drupal\ercore_core\Form\ERCoreDateFilter'
+    _title: 'ERCore Date Filter'
+  requirements:
+    _permission: 'access ercore content'
