@@ -10,6 +10,8 @@ namespace Drupal\ercore_core\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\ercore\ErcoreStartDate;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * Class ERCoreAccomplishments.
@@ -31,6 +33,9 @@ class ERCoreAccomplishments extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $url = Url::fromRoute('ercore_core.accomplishments_export');
+    $link = Link::fromTextAndUrl('Download EPSCoR Reporting Core Tables.', $url);
+    $form['#attached']['library'][] = 'ercore_core/ercore-core-exports.library';
     $form['date_filter'] = \Drupal::formBuilder()->getForm('Drupal\ercore_core\Form\ERCoreDateFilter');
     $form['data_table'] = [
       '#type' => 'fieldset',
@@ -40,6 +45,10 @@ class ERCoreAccomplishments extends FormBase {
     $form['data_table']['description'] = [
       '#markup' => 'Results will go here.',
     ];
+    $form['export_link'] = [
+      '#markup' => '<p class="epscor-download">' . $link->toString() . '</p>',
+    ];
+
     return $form;
   }
 

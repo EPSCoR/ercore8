@@ -3,3 +3,8 @@ ercore-core-filter.library:
   css:
     base:
       css/ercore-core-filter.css: {}
+ercore-core-exports.library:
+  version: 1.x
+  css:
+    base:
+      css/ercore-core-exports.css: {}

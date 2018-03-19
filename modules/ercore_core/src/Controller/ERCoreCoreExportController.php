@@ -33,41 +33,36 @@ class ERCoreCoreExportController extends ControllerBase {
   /**
    * ERCore Salary Support.
    */
-  public function ercoreSalarySupport() {
-    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-a.inc';
-    return nsf_table_a_callback();
+  public function ercoreSalaryExport() {
+    return ['#markup' => 'Salary export exports go here.'];
   }
 
   /**
    * ERCore Participants.
    */
-  public function ercoreParticipants() {
-    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-b.inc';
-    return nsf_table_b_callback();
+  public function ercoreParticipantExport() {
+    return ['#markup' => 'Participant export exports go here.'];
   }
 
   /**
    * ERCore Collaborations.
    */
-  public function ercoreCollaborations() {
-    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-c.inc';
-    return nsf_table_c_callback();
+  public function ercoreCollaborationExport() {
+    return ['#markup' => 'Collaborations export exports go here.'];
   }
 
   /**
    * ERCore Engagements.
    */
-  public function ercoreEngagements() {
-    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-d.inc';
-    return nsf_table_d_callback();
+  public function ercoreEngagementExport() {
+    return ['#markup' => 'Engagements export exports go here.'];
   }
 
   /**
    * ERCore Outputs.
    */
-  public function ercoreOutputs() {
-    include_once drupal_get_path('module', 'ercore_core') . '/pages/ercore-table-e.inc';
-    return nsf_table_e_callback();
+  public function ercoreOutputExport() {
+    return ['#markup' => 'Outputs export exports go here.'];
   }
 
 }

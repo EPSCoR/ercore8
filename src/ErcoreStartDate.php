@@ -3,6 +3,7 @@
 namespace Drupal\ercore;
 
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Render\Element\Link;
 
 /**
  * Class ErcoreStartDate.
@@ -216,6 +217,17 @@ class ErcoreStartDate {
     $date['start'] = self::startString();
     $date['end'] = self::endString();
     return $date;
+  }
+
+  /**
+   * Generates start-end dates as views arguments.
+   *
+   * @return string
+   *   Returns start/end dates in string YYYY-MM-DD--YYYY-MM-DD.
+   */
+  public static function startEndDatesUrlString() {
+    $dates = self::startString() . '--' . self::endString();
+    return $dates;
   }
 
   /**
