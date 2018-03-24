@@ -1,5 +1,5 @@
 {
-  "name": "tschet/ercore",
+  "name": "EPSCoR/ercore",
   "description": "Modules for EPSCoR reporting.",
   "type": "drupal-module",
   "license": "GPL-2.0+",
@@ -10,6 +10,7 @@
     }
   ],
   "require": {
+    "cweagans/composer-patches": "^1.6",
     "drupal/better_exposed_filters": "^3.0@alpha",
     "drupal/components": "^1.0",
     "drupal/computed_field": "^2.0@alpha",
@@ -34,5 +35,12 @@
   "prefer-stable": true,
   "config": {
     "sort-packages": true
+  },
+  "extra": {
+    "patches": {
+      "drupal/datetime_range": {
+        "Fix date ranges": "https://www.drupal.org/files/issues/2794481-52.patch"
+      }
+    }
   }
 }
