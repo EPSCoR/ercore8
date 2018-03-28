@@ -2,13 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ercore_user_component
-    - paragraphs.paragraphs_type.ercore_user_participation
+    - field.storage.user.field_ercore_user_component
     - taxonomy.vocabulary.ercore_component_vocab
-id: paragraph.ercore_user_participation.field_ercore_user_component
+  module:
+    - user
+id: user.user.field_ercore_user_component
 field_name: field_ercore_user_component
-entity_type: paragraph
-bundle: ercore_user_participation
+entity_type: user
+bundle: user
 label: Component(s)
 description: ''
 required: false
@@ -21,7 +22,8 @@ settings:
     target_bundles:
       ercore_component_vocab: ercore_component_vocab
     sort:
-      field: _none
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

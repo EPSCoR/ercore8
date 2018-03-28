@@ -6,6 +6,7 @@ dependencies:
   - ctools
   - field
   - field_permissions
+  - paragraphs
   - path
   - pathauto
   - taxonomy
@@ -13,4 +14,3 @@ dependencies:
 version: 8.x-1.0
 project: ercore
 package: ERCore
-

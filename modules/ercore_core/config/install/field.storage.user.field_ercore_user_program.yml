@@ -2,20 +2,19 @@ langcode: en
 status: true
 dependencies:
   module:
-    - entity_reference_revisions
     - field_permissions
-    - paragraphs
+    - taxonomy
     - user
 third_party_settings:
   field_permissions:
     permission_type: public
-id: user.field_ercore_user_part_dates
-field_name: field_ercore_user_part_dates
+id: user.field_ercore_user_program
+field_name: field_ercore_user_program
 entity_type: user
-type: entity_reference_revisions
+type: entity_reference
 settings:
-  target_type: paragraph
-module: entity_reference_revisions
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: -1
 translatable: true

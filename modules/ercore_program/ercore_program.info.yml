@@ -7,6 +7,7 @@ dependencies:
   - field
   - field_permissions
   - node
+  - paragraphs
   - path
   - pathauto
   - taxonomy

@@ -2,13 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ercore_user_program
-    - paragraphs.paragraphs_type.ercore_user_participation
+    - field.storage.user.field_ercore_user_program
     - taxonomy.vocabulary.ercore_program_vocab
-id: paragraph.ercore_user_participation.field_ercore_user_program
+  module:
+    - user
+id: user.user.field_ercore_user_program
 field_name: field_ercore_user_program
-entity_type: paragraph
-bundle: ercore_user_participation
+entity_type: user
+bundle: user
 label: Program(s)
 description: ''
 required: true
@@ -21,7 +22,8 @@ settings:
     target_bundles:
       ercore_program_vocab: ercore_program_vocab
     sort:
-      field: _none
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

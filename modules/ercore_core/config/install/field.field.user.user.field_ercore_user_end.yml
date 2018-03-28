@@ -2,19 +2,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_ercore_overall_roles
+    - field.storage.user.field_ercore_user_end
   module:
-    - options
+    - datetime
     - user
-id: user.user.field_ercore_overall_roles
-field_name: field_ercore_overall_roles
+id: user.user.field_ercore_user_end
+field_name: field_ercore_user_end
 entity_type: user
 bundle: user
-label: 'ERCore Overall Roles'
+label: 'Participation End'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_string
+field_type: datetime

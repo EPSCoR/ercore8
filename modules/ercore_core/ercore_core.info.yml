@@ -14,6 +14,7 @@ dependencies:
   - editor
   - entity_reference_revisions
   - ercore_component
+  - ercore_institution
   - ercore_program
   - features
   - field

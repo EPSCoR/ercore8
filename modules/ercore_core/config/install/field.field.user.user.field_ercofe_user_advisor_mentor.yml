@@ -2,12 +2,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ercore_user_mentor
-    - paragraphs.paragraphs_type.ercore_user_participation
-id: paragraph.ercore_user_participation.field_ercore_user_mentor
-field_name: field_ercore_user_mentor
-entity_type: paragraph
-bundle: ercore_user_participation
+    - field.storage.user.field_ercofe_user_advisor_mentor
+  module:
+    - user
+id: user.user.field_ercofe_user_advisor_mentor
+field_name: field_ercofe_user_advisor_mentor
+entity_type: user
+bundle: user
 label: 'Advisor / Mentor'
 description: ''
 required: false

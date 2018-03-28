@@ -1,2 +1,4 @@
 bundle: ercore
+excluded:
+  - field.storage.paragraph.field_ercore_user_component
 required: true
