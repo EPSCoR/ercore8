@@ -2,6 +2,7 @@ bundle: ercore
 excluded:
   - views.view.ercore_summary_of_participants
   - views.view.ercore_user_summary_formatting
+  - views.view.ercore_summary_of_collaborations
   - field.storage.paragraph.field_ercore_cr_dept
   - field.storage.paragraph.field_ercore_cr_name
   - field.storage.paragraph.field_ercore_participation_dates

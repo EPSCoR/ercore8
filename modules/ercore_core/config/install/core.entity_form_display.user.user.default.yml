@@ -2,9 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_ercofe_user_advisor_mentor
-    - field.field.user.user.field_ercofe_user_role_desc
     - field.field.user.user.field_ercore_user_address
+    - field.field.user.user.field_ercore_user_advisor_mentor
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
     - field.field.user.user.field_ercore_user_component
@@ -45,6 +44,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_rcr_per
     - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
+    - field.field.user.user.field_ercore_user_role_desc
     - field.field.user.user.field_ercore_user_start
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
@@ -232,8 +232,8 @@ third_party_settings:
         - field_ercore_user_senior_role
         - field_ercore_user_start
         - field_ercore_user_end
-        - field_ercofe_user_advisor_mentor
-        - field_ercofe_user_role_desc
+        - field_ercore_user_advisor_mentor
+        - field_ercore_user_role_desc
         - field_ercore_user_program
         - field_ercore_user_component
       parent_name: group_ercore_us_account
@@ -260,23 +260,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ercofe_user_advisor_mentor:
-    weight: 9
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_ercofe_user_role_desc:
-    weight: 10
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_ercore_user_address:
     type: entity_reference_paragraphs
     weight: 9
@@ -289,6 +272,15 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+  field_ercore_user_advisor_mentor:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_ercore_user_boards:
     type: options_buttons
     weight: 57
@@ -557,6 +549,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_ercore_user_role_desc:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
   field_ercore_user_start:
     weight: 7
     settings: {  }

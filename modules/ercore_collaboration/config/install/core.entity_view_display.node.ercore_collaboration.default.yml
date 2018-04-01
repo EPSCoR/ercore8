@@ -5,6 +5,8 @@ dependencies:
     - field.field.node.ercore_collaboration.body
     - field.field.node.ercore_collaboration.field_ercore_cn_collaborator
     - field.field.node.ercore_collaboration.field_ercore_cn_dates
+    - field.field.node.ercore_collaboration.field_ercore_collaboration_end
+    - field.field.node.ercore_collaboration.field_ercore_collaboration_start
     - field.field.node.ercore_collaboration.field_ercore_components
     - field.field.node.ercore_collaboration.field_ercore_organizer
     - field.field.node.ercore_collaboration.field_ercore_programs
@@ -75,4 +77,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_ercore_collaboration_end: true
+  field_ercore_collaboration_start: true

@@ -2,9 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_ercofe_user_advisor_mentor
-    - field.field.user.user.field_ercofe_user_role_desc
     - field.field.user.user.field_ercore_user_address
+    - field.field.user.user.field_ercore_user_advisor_mentor
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
     - field.field.user.user.field_ercore_user_component
@@ -45,6 +44,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_rcr_per
     - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
+    - field.field.user.user.field_ercore_user_role_desc
     - field.field.user.user.field_ercore_user_start
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
@@ -62,20 +62,13 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_ercofe_user_advisor_mentor:
+  field_ercore_user_advisor_mentor:
     weight: 3
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_ercofe_user_role_desc:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
     region: content
   field_ercore_user_component:
     weight: 4
@@ -117,6 +110,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_ercore_user_role_desc:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_ercore_user_start:
     weight: 8

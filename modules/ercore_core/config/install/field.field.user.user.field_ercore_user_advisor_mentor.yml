@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_ercofe_user_advisor_mentor
+    - field.storage.user.field_ercore_user_advisor_mentor
   module:
     - user
-id: user.user.field_ercofe_user_advisor_mentor
-field_name: field_ercofe_user_advisor_mentor
+id: user.user.field_ercore_user_advisor_mentor
+field_name: field_ercore_user_advisor_mentor
 entity_type: user
 bundle: user
 label: 'Advisor / Mentor'

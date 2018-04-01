@@ -2,12 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ercore_participation_dates
-    - field.storage.paragraph.field_ercore_senior_role
-    - field.storage.paragraph.field_ercore_user_component
-    - field.storage.paragraph.field_ercore_user_mentor
-    - field.storage.paragraph.field_ercore_user_program
-    - field.storage.paragraph.field_ercore_user_role_desc
     - field.storage.user.field_ercore_user_address
     - field.storage.user.field_ercore_user_boards
     - field.storage.user.field_ercore_user_collecting
@@ -47,11 +41,9 @@ dependencies:
     - better_exposed_filters
     - csv_serialization
     - datetime
-    - datetime_range
     - entity_reference_revisions
     - link
     - options
-    - paragraphs
     - rest
     - serialization
     - telephone
@@ -882,17 +874,13 @@ display:
           1: AND
       group_by: true
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user.permissions
       tags:
-        - 'config:field.storage.paragraph.field_ercore_participation_dates'
-        - 'config:field.storage.paragraph.field_ercore_senior_role'
-        - 'config:field.storage.paragraph.field_ercore_user_component'
-        - 'config:field.storage.paragraph.field_ercore_user_program'
         - 'config:field.storage.user.field_ercore_user_department'
         - 'config:field.storage.user.field_ercore_user_partic_inst'
   data_export_1:
@@ -3800,12 +3788,6 @@ display:
         - url
         - user.permissions
       tags:
-        - 'config:field.storage.paragraph.field_ercore_participation_dates'
-        - 'config:field.storage.paragraph.field_ercore_senior_role'
-        - 'config:field.storage.paragraph.field_ercore_user_component'
-        - 'config:field.storage.paragraph.field_ercore_user_mentor'
-        - 'config:field.storage.paragraph.field_ercore_user_program'
-        - 'config:field.storage.paragraph.field_ercore_user_role_desc'
         - 'config:field.storage.user.field_ercore_user_address'
         - 'config:field.storage.user.field_ercore_user_boards'
         - 'config:field.storage.user.field_ercore_user_collecting'
@@ -3860,16 +3842,12 @@ display:
       defaults:
         fields: true
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user.permissions
       tags:
-        - 'config:field.storage.paragraph.field_ercore_participation_dates'
-        - 'config:field.storage.paragraph.field_ercore_senior_role'
-        - 'config:field.storage.paragraph.field_ercore_user_component'
-        - 'config:field.storage.paragraph.field_ercore_user_program'
         - 'config:field.storage.user.field_ercore_user_department'
         - 'config:field.storage.user.field_ercore_user_partic_inst'

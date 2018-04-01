@@ -333,7 +333,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -360,7 +360,7 @@ display:
         context: '0'
         menu_name: ercore-admin-menu
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

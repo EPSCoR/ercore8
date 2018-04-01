@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_ercofe_user_role_desc
+    - field.storage.user.field_ercore_user_role_desc
   module:
     - text
     - user
-id: user.user.field_ercofe_user_role_desc
-field_name: field_ercofe_user_role_desc
+id: user.user.field_ercore_user_role_desc
+field_name: field_ercore_user_role_desc
 entity_type: user
 bundle: user
 label: 'Description of Role and Contributions'

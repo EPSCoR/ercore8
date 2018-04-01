@@ -13,6 +13,7 @@ dependencies:
   - datetime_range
   - editor
   - entity_reference_revisions
+  - ercore_collaboration
   - ercore_component
   - ercore_institution
   - ercore_program
@@ -33,6 +34,7 @@ dependencies:
   - realname
   - rest
   - select_or_other
+  - semanticviews
   - serialization
   - shortcut
   - system

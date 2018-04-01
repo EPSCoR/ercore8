@@ -3,9 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.full
-    - field.field.user.user.field_ercofe_user_advisor_mentor
-    - field.field.user.user.field_ercofe_user_role_desc
     - field.field.user.user.field_ercore_user_address
+    - field.field.user.user.field_ercore_user_advisor_mentor
     - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
     - field.field.user.user.field_ercore_user_component
@@ -46,6 +45,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_rcr_per
     - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
+    - field.field.user.user.field_ercore_user_role_desc
     - field.field.user.user.field_ercore_user_start
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
@@ -152,7 +152,7 @@ third_party_settings:
       children:
         - field_ercore_user_mentor_plan_dt
         - field_ercore_user_mentor_plan
-        - field_ercofe_user_advisor_mentor
+        - field_ercore_user_advisor_mentor
         - field_ercore_user_under_ant
         - field_ercore_user_under_act
         - field_ercore_user_master_ant
@@ -180,7 +180,7 @@ third_party_settings:
         - field_ercore_user_lead_team
         - field_ercore_user_boards
         - field_ercore_user_hired_date
-        - field_ercofe_user_role_desc
+        - field_ercore_user_role_desc
         - field_ercore_user_component
         - field_ercore_user_program
         - field_ercore_user_epscore_paid
@@ -203,21 +203,6 @@ targetEntityType: user
 bundle: user
 mode: full
 content:
-  field_ercofe_user_advisor_mentor:
-    type: entity_reference_label
-    weight: 36
-    region: content
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-  field_ercofe_user_role_desc:
-    type: text_default
-    weight: 18
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
   field_ercore_user_address:
     type: entity_reference_revisions_entity_view
     weight: 11
@@ -226,6 +211,14 @@ content:
     settings:
       view_mode: default
       link: ''
+    third_party_settings: {  }
+  field_ercore_user_advisor_mentor:
+    type: entity_reference_label
+    weight: 36
+    region: content
+    label: inline
+    settings:
+      link: true
     third_party_settings: {  }
   field_ercore_user_boards:
     type: list_default
@@ -583,6 +576,13 @@ content:
       format: default
       format_custom_false: ''
       format_custom_true: ''
+    third_party_settings: {  }
+  field_ercore_user_role_desc:
+    type: text_default
+    weight: 18
+    region: content
+    label: above
+    settings: {  }
     third_party_settings: {  }
   field_ercore_user_start:
     type: datetime_default
