@@ -2,19 +2,17 @@ langcode: en
 status: true
 dependencies:
   module:
-    - datetime_range
     - field_permissions
-    - node
+    - user
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_ercore_cn_dates
-field_name: field_ercore_cn_dates
-entity_type: node
-type: daterange
-settings:
-  datetime_type: date
-module: datetime_range
+id: user.field_ercore_prefer_no_answer
+field_name: field_ercore_prefer_no_answer
+entity_type: user
+type: boolean
+settings: {  }
+module: core
 locked: false
 cardinality: 1
 translatable: true

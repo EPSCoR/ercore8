@@ -12,10 +12,165 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'user_form') {
-    $form['field_test_text']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_overall_roles"]' => array('value' => 'undergraduate'),
-      ),
-    );
+    // Post Doc.
+    $form['field_ercore_user_doc_act']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'post-doc'],
+      ],
+    ];
+    $form['field_ercore_user_doc_ant']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'post-doc'],
+      ],
+    ];
+    $form['field_ercore_user_mentor_plan']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'post-doc'],
+      ],
+    ];
+    $form['field_ercore_user_mentor_plan_dt']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'post-doc'],
+      ],
+    ];
+
+    // Graduate.
+    $form['field_ercore_user_master_act']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'graduate'],
+      ],
+    ];
+    $form['field_ercore_user_master_ant']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'graduate'],
+      ],
+    ];
+
+    // Undergraduate.
+    $form['field_ercore_user_under_act']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'undergraduate'],
+      ],
+    ];
+    $form['field_ercore_user_under_ant']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'undergraduate'],
+      ],
+    ];
+
+    // Advisor & Mentor.
+    $form['field_ercore_user_advisor_mentor']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'post-doc'],
+          ['value' => 'graduate'],
+        ],
+      ],
+    ];
+
+    // Faculty / Non-Technical.
+    // Boards and Committees.
+    $form['field_ercore_user_boards']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'faculty'],
+          ['value' => 'non-technical'],
+        ],
+      ],
+    ];
+
+    // Management team.
+    $form['field_ercore_user_lead_team']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'faculty'],
+          ['value' => 'non-technical'],
+        ],
+      ],
+      'required' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'faculty'],
+          ['value' => 'non-technical'],
+        ],
+      ],
+    ];
+
+    // RCR.
+    $form['field_ercore_user_rcr_status']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'undergraduate'],
+          ['value' => 'graduate'],
+        ],
+      ],
+    ];
+    $form['field_ercore_user_rcr_per']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_user_rcr_status"]' => ['value' => 1],
+      ],
+    ];
+    $form['field_ercore_user_rcr_per_up']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_user_rcr_status"]' => ['value' => 1],
+      ],
+    ];
+    $form['field_ercore_user_rcr_on']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_user_rcr_status"]' => ['value' => 1],
+      ],
+    ];
+    $form['field_ercore_user_rcr_on_up']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_user_rcr_status"]' => ['value' => 1],
+      ],
+    ];
+
+    // Salary support.
+    // Remove n/a option from field_ercore_us_fac_support.
+    unset($form['field_ercore_user_fac_support']['widget']['#options']['_none']);
+
+    // Faculty.
+    $form['field_ercore_user_fac_support']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'faculty'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'faculty'],
+      ],
+    ];
+
+    // Data collection.
+    $form['field_er_type_of_data']['#states'] = [
+      'visible' => [
+        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+      ],
+      'required' => [
+        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+      ],
+    ];
+    $form['field_er_data_frequency']['#states'] = [
+      'visible' => [
+        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+      ],
+    ];
+    $form['ffield_er_data_submit_date']['#states'] = [
+      'visible' => [
+        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+      ],
+    ];
+    $form['field_er_has_this_user']['#states'] = [
+      'visible' => [
+        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+      ],
+    ];
+    $form['field_er_data_url']['#states'] = [
+      'visible' => [
+        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+      ],
+    ];
+    // Primary email.
+    $mail = $form['account']['mail']['#default_value'];
+    $primary = '<div class="form-wrapper"><div class="form-item"><div class="label">Primary Email</div> ' . $mail . '</div><div class="description">Primary Drupal email, editable on Account Information tab.</div></div>';
+    $form['field_ercore_user_second_email']['#prefix'] = $primary;
   }
 }

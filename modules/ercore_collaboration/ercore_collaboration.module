@@ -4,3 +4,74 @@
  * @file
  * Hook implementations for the ERCore Collaborations module.
  */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function ercore_collaboration_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'node_ercore_collaboration_edit_form' || $form_id === 'node_ercore_collaboration_form') {
+    $form['#validate'][] = 'ercore_collaboration_node_form_validate';
+  }
+}
+
+/**
+ * Custom validation hook.
+ */
+function ercore_collaboration_node_form_validate(&$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('field_ercore_collaboration_end') < $form_state->getValue('field_ercore_collaboration_start')) {
+    $form_state->setErrorByName('field_ercore_collaboration_end', t('The Collaboration End Date must be higher than Start Date'));
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the Institutions options on Summary view.
+ */
+function ercore_collaboration_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // If not the view we are looking, move on.
+  if ($form['#id'] !== 'views-exposed-form-ercore-summary-of-collaborations-page-1') {
+    return FALSE;
+  }
+
+  // Query nodes.
+  $storage = Drupal::getContainer()
+    ->get('entity_type.manager')
+    ->getStorage('node');
+  $nids = $storage->getQuery();
+
+  // Gather published artist nodes and sort by title.
+  $nids = $nids->condition('type', 'ercore_institution')
+    ->condition('status', 1)
+    ->sort('title')
+    ->execute();
+
+  // If there are no nodes, move on.
+  if (!$nids) {
+    return FALSE;
+  }
+
+  // Start building out the options for our select list.
+  $options = [];
+  $nodes = $storage->loadMultiple($nids);
+
+  // Push titles into select list.
+  foreach ($nodes as $node) {
+    $options[$node->id()] = $node->getTitle();
+  }
+dpm('hit?');
+  // Start building out our new form element.
+  $inst_field = 'field_ercore_user_partic_inst_target_id';
+  $form[$inst_field]['#type'] = 'select';
+  $form[$inst_field]['#multiple'] = FALSE;
+
+  // Specify the empty option for our select list.
+  $form[$inst_field]['#empty_option'] = t('Institution');
+
+  // Add the $options from above to our select list.
+  $form[$inst_field]['#options'] = $options;
+  unset($form[$inst_field]['#size']);
+  ksm($form);
+}

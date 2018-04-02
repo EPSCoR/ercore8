@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.ercore_institution_only
+    - field.field.user.user.field_ercore_senior_role
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_advisor_mentor
     - field.field.user.user.field_ercore_user_boards
@@ -50,7 +51,6 @@ dependencies:
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
-    - field.field.user.user.field_most_senior_project_role
     - field.field.user.user.user_picture
   module:
     - user
@@ -68,6 +68,7 @@ content:
       link: true
     third_party_settings: {  }
 hidden:
+  field_ercore_senior_role: true
   field_ercore_user_address: true
   field_ercore_user_advisor_mentor: true
   field_ercore_user_boards: true
@@ -114,7 +115,6 @@ hidden:
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true
-  field_most_senior_project_role: true
   member_for: true
   realname: true
   user_picture: true
