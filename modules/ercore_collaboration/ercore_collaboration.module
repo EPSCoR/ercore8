@@ -61,7 +61,7 @@ function ercore_collaboration_form_views_exposed_form_alter(&$form, FormStateInt
   foreach ($nodes as $node) {
     $options[$node->id()] = $node->getTitle();
   }
-dpm('hit?');
+
   // Start building out our new form element.
   $inst_field = 'field_ercore_user_partic_inst_target_id';
   $form[$inst_field]['#type'] = 'select';
@@ -73,5 +73,4 @@ dpm('hit?');
   // Add the $options from above to our select list.
   $form[$inst_field]['#options'] = $options;
   unset($form[$inst_field]['#size']);
-  ksm($form);
 }
