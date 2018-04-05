@@ -12,7 +12,7 @@
  *   Returns form array for page display.
  */
 function nsf_table_c_callback() {
-  $form = array();
+  $form = [];
   $theme_variable = 'ercore_table_c';
   // Used within the following include.
   include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-form-filter.inc";

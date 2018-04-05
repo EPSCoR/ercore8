@@ -2,19 +2,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ercore_ev_date
+    - field.storage.node.field_ercore_ev_date_start
     - node.type.ercore_event
   module:
-    - datetime_range
-id: node.ercore_event.field_ercore_ev_date
-field_name: field_ercore_ev_date
+    - datetime
+id: node.ercore_event.field_ercore_ev_date_start
+field_name: field_ercore_ev_date_start
 entity_type: node
 bundle: ercore_event
-label: Date
+label: 'Start Date'
 description: ''
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: daterange
+field_type: datetime

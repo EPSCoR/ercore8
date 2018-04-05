@@ -12,7 +12,7 @@
  *   Returns form array for page display.
  */
 function nsf_table_d_callback() {
-  $form = array();
+  $form = [];
   $theme_variable = 'ercore_table_d';
   // Used within the following include.
   $form['help'] = array(
