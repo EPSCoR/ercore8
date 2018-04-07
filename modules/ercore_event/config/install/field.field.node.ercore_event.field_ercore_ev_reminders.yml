@@ -10,13 +10,11 @@ entity_type: node
 bundle: ercore_event
 label: 'Will this event be attended by non-EPSCoR participants'
 description: ''
-required: false
+required: true
 translatable: false
-default_value:
-  -
-    value: 0
+default_value: {  }
 default_value_callback: ''
 settings:
-  on_label: 'On'
-  off_label: 'Off'
+  on_label: 'Yes'
+  off_label: 'No'
 field_type: boolean

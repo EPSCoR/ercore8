@@ -6,11 +6,12 @@ dependencies:
     - field.field.node.ercore_proposal.body
     - field.field.node.ercore_proposal.field_ercore_organizer
     - field.field.node.ercore_proposal.field_ercore_pp_award_amount
+    - field.field.node.ercore_proposal.field_ercore_pp_award_end
     - field.field.node.ercore_proposal.field_ercore_pp_award_req_dec
+    - field.field.node.ercore_proposal.field_ercore_pp_award_start
     - field.field.node.ercore_proposal.field_ercore_pp_location
     - field.field.node.ercore_proposal.field_ercore_pp_other_pi
     - field.field.node.ercore_proposal.field_ercore_pp_others
-    - field.field.node.ercore_proposal.field_ercore_pp_proposal_date
     - field.field.node.ercore_proposal.field_ercore_pp_proposal_denied
     - field.field.node.ercore_proposal.field_ercore_pp_proposal_paid
     - field.field.node.ercore_proposal.field_ercore_pp_proposal_pending
@@ -22,7 +23,6 @@ dependencies:
     - node.type.ercore_proposal
   module:
     - datetime
-    - datetime_range
     - options
     - text
     - user
@@ -34,7 +34,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 15
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -48,7 +48,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_ercore_pp_award_amount:
-    weight: 13
+    weight: 15
     label: above
     settings:
       thousand_separator: ''
@@ -58,6 +58,15 @@ content:
     third_party_settings: {  }
     type: number_decimal
     region: content
+  field_ercore_pp_award_end:
+    type: datetime_default
+    weight: 11
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_year
+    third_party_settings: {  }
   field_ercore_pp_award_req_dec:
     weight: 6
     label: above
@@ -69,8 +78,17 @@ content:
     third_party_settings: {  }
     type: number_decimal
     region: content
+  field_ercore_pp_award_start:
+    type: datetime_default
+    weight: 10
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
   field_ercore_pp_location:
-    weight: 14
+    weight: 16
     label: above
     settings:
       link_to_entity: false
@@ -94,27 +112,17 @@ content:
       view_mode: ercore_name_org_dept
       link: false
     third_party_settings: {  }
-  field_ercore_pp_proposal_date:
-    weight: 9
-    label: above
-    settings:
-      separator: '-'
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: daterange_default
-    region: content
   field_ercore_pp_proposal_denied:
-    weight: 10
+    weight: 12
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: ercore_month_day_year
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_ercore_pp_proposal_paid:
-    weight: 12
+    weight: 14
     label: above
     settings:
       format: default
@@ -127,8 +135,8 @@ content:
     weight: 8
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: ercore_month_day_year
     third_party_settings: {  }
     type: datetime_default
     region: content
@@ -140,11 +148,11 @@ content:
     type: list_default
     region: content
   field_ercore_pp_proposal_submit:
-    weight: 11
+    weight: 13
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: ercore_month_day_year
     third_party_settings: {  }
     type: datetime_default
     region: content
