@@ -12,7 +12,6 @@ use Drupal\user\Entity\User;
  * Implements hook_form_alter().
  */
 function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  dpm($form_id);
   // Set current user to default valuie of organizer field.
   $forms = [
     'node_ercore_collaboration_form',
