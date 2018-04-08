@@ -1,0 +1,5 @@
+ercore-event-form:
+  version: VERSION
+  css:
+    layout:
+      css/ercore-event-form.css: {}

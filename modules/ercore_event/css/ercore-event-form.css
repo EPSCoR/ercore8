@@ -1,0 +1,20 @@
+.field--name-field-ercore-ev-reminders .form-item  label {
+    font-weight: bold;
+}
+
+.field--name-field-ercore-ev-engagement.hide {
+    display: none;
+}
+
+#field-ercore-ev-engagement-add-more-wrapper {
+    margin-top: 15px;
+}
+
+#field-ercore-ev-engagement-add-more-wrapper .paragraph-type-title {
+    font-weight: bold;
+    font-size: 120%;
+    min-width: inherit;
+    white-space: inherit;
+    overflow: inherit;
+    text-overflow: unset;
+}
