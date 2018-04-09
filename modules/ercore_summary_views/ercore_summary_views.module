@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Module file for ercore_summary_views.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the Institutions options on Summary views.
+ */
+function ercore_summary_views_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // This is not the view you are looking, move along.
+  $form_ids = [
+    'views-exposed-form-ercore-summary-of-collaborations-page-1',
+    'views-exposed-form-ercore-summary-of-events-page-1',
+    'views-exposed-form-ercore-summary-of-external-collaborators-page-1',
+    'views-exposed-form-ercore-summary-of-highlights-page-1',
+    'views-exposed-form-ercore-summary-of-honors-page-1',
+    'views-exposed-form-ercore-summary-of-other-research-products-page-1',
+    'views-exposed-form-ercore-summary-of-participants-page-1',
+    'views-exposed-form-ercore-summary-of-patents-page-1',
+    'views-exposed-form-ercore-summary-of-presentations-page-1',
+    'views-exposed-form-ercore-summary-of-publications-page-1',
+  ];
+  if (!in_array($form['#id'], $form_ids)) {
+    return FALSE;
+  }
+  // Query nodes.
+  $storage = Drupal::getContainer()
+    ->get('entity_type.manager')
+    ->getStorage('node');
+  $nids = $storage->getQuery();
+
+  // Gather published artist nodes and sort by title.
+  $nids = $nids->condition('type', 'ercore_institution')
+    ->condition('status', 1)
+    ->sort('title')
+    ->execute();
+
+  // If there are no nodes, move on.
+  if (!$nids) {
+    return FALSE;
+  }
+
+  // Start building out the options for our select list.
+  $options = [];
+  $nodes = $storage->loadMultiple($nids);
+
+  // Push titles into select list.
+  foreach ($nodes as $node) {
+    $options[$node->id()] = $node->getTitle();
+  }
+  // Start building out our new form element.
+  $inst_field = 'field_ercore_user_partic_inst_target_id';
+  // External collaborators uses different Institution field.
+  if ($form['#id'] === 'views-exposed-form-ercore-summary-of-external-collaborators-page-1') {
+    $inst_field = 'field_ercore_cr_inst_target_id';
+  }
+  $form[$inst_field]['#type'] = 'select';
+  $form[$inst_field]['#multiple'] = FALSE;
+
+  // Specify the empty option for our select list.
+  $form[$inst_field]['#empty_option'] = t('Institution');
+
+  // Add the $options from above to our select list.
+  $form[$inst_field]['#options'] = $options;
+  unset($form[$inst_field]['#size']);
+}

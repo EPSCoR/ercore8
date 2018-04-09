@@ -54,7 +54,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -416,14 +416,14 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        field_ercore_collaboration_start_value:
-          id: field_ercore_collaboration_start_value
-          table: node__field_ercore_collaboration_start
-          field: field_ercore_collaboration_start_value
+        field_ercore_collaboration_end_value:
+          id: field_ercore_collaboration_end_value
+          table: node__field_ercore_collaboration_end
+          field: field_ercore_collaboration_end_value
           relationship: reverse__node__field_ercore_organizer
           group_type: group
           admin_label: ''
-          operator: '<='
+          operator: '>='
           value:
             min: ''
             max: ''
@@ -432,12 +432,12 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_ercore_collaboration_start_value_op
-            label: 'End Date'
+            operator_id: field_ercore_collaboration_end_value_op
+            label: 'Start Date'
             description: ''
             use_operator: false
-            operator: field_ercore_collaboration_start_value_op
-            identifier: ercore_end
+            operator: field_ercore_collaboration_end_value_op
+            identifier: ercore_start
             required: false
             remember: false
             multiple: false
@@ -467,14 +467,14 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        field_ercore_collaboration_end_value:
-          id: field_ercore_collaboration_end_value
-          table: node__field_ercore_collaboration_end
-          field: field_ercore_collaboration_end_value
+        field_ercore_collaboration_start_value:
+          id: field_ercore_collaboration_start_value
+          table: node__field_ercore_collaboration_start
+          field: field_ercore_collaboration_start_value
           relationship: reverse__node__field_ercore_organizer
           group_type: group
           admin_label: ''
-          operator: '>='
+          operator: '<='
           value:
             min: ''
             max: ''
@@ -483,12 +483,12 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_ercore_collaboration_end_value_op
-            label: Start
+            operator_id: field_ercore_collaboration_start_value_op
+            label: 'End Date'
             description: ''
             use_operator: false
-            operator: field_ercore_collaboration_end_value_op
-            identifier: ercore_start
+            operator: field_ercore_collaboration_start_value_op
+            identifier: ercore_end
             required: false
             remember: false
             multiple: false
@@ -612,6 +612,10 @@ display:
           plugin_id: entity_reverse
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

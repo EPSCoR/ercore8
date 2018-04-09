@@ -3,7 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.storage.node.field_ercore_ev_date
+    - field.storage.node.field_ercore_ev_date_end
+    - field.storage.node.field_ercore_ev_date_start
     - field.storage.node.field_ercore_ev_reminders
     - field.storage.node.field_ercore_ev_url
     - field.storage.node.field_ercore_event_type
@@ -17,9 +18,8 @@ dependencies:
     - node.type.ercore_event
     - system.menu.ercore-admin-menu
   module:
-    - better_exposed_filters
     - csv_serialization
-    - datetime_range
+    - datetime
     - link
     - node
     - options
@@ -61,7 +61,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: bef
+        type: basic
         options:
           submit_button: Apply
           reset_button: true
@@ -70,33 +70,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
-          text_input_required: 'Select any filter and click on Apply to see results'
-          bef:
-            general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-              autosubmit: false
-              autosubmit_hide: false
-            field_ercore_ev_date_end_value:
-              bef_format: bef_datepicker
-              more_options:
-                is_secondary: false
-            field_ercore_ev_date_value:
-              bef_format: bef_datepicker
-              more_options:
-                is_secondary: false
-            field_ercore_user_partic_inst_target_id:
-              bef_format: default
-              slider_options:
-                bef_slider_min: null
-                bef_slider_max: null
-                bef_slider_step: !!float 1
-                bef_slider_animate: ''
-                bef_slider_orientation: ''
-              more_options:
-                is_secondary: false
-          text_input_required_format: basic_html
       pager:
         type: full
         options:
@@ -219,13 +192,17 @@ display:
           group: 1
         field_ercore_ev_date_end_value:
           id: field_ercore_ev_date_end_value
-          table: node__field_ercore_ev_date
+          table: node__field_ercore_ev_date_end
           field: field_ercore_ev_date_end_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
           group: 1
           exposed: true
           expose:
@@ -234,7 +211,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_ev_date_end_value_op
-            identifier: ercore_start_date
+            identifier: ercore_date
             required: false
             remember: false
             multiple: false
@@ -248,6 +225,9 @@ display:
               ercore_manage_site: '0'
               administrator: '0'
               anonymous: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -261,24 +241,28 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        field_ercore_ev_date_value:
-          id: field_ercore_ev_date_value
-          table: node__field_ercore_ev_date
-          field: field_ercore_ev_date_value
+        field_ercore_ev_date_start_value:
+          id: field_ercore_ev_date_start_value
+          table: node__field_ercore_ev_date_start
+          field: field_ercore_ev_date_start_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
           group: 1
           exposed: true
           expose:
-            operator_id: field_ercore_ev_date_value_op
+            operator_id: field_ercore_ev_date_start_value_op
             label: 'End Date'
             description: ''
             use_operator: false
-            operator: field_ercore_ev_date_value_op
-            identifier: ercore_end_date
+            operator: field_ercore_ev_date_start_value_op
+            identifier: ercore_end
             required: false
             remember: false
             multiple: false
@@ -292,6 +276,9 @@ display:
               ercore_manage_site: '0'
               administrator: '0'
               anonymous: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -305,7 +292,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-          entity_type: node
         field_ercore_user_partic_inst_target_id:
           id: field_ercore_user_partic_inst_target_id
           table: user__field_ercore_user_partic_inst
@@ -354,19 +340,19 @@ display:
             group_items: {  }
           plugin_id: numeric
       sorts:
-        field_ercore_ev_date_value:
-          id: field_ercore_ev_date_value
-          table: node__field_ercore_ev_date
-          field: field_ercore_ev_date_value
+        field_ercore_ev_date_start_value:
+          id: field_ercore_ev_date_start_value
+          table: node__field_ercore_ev_date_start
+          field: field_ercore_ev_date_start_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
+          granularity: second
           plugin_id: datetime
-          entity_type: node
       title: 'ERCore Summary of Engagement Events'
       header: {  }
       footer:
@@ -439,15 +425,14 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.node.ercore_event.default'
+        - 'config:core.entity_view_display.node.ercore_event.teaser'
         - 'config:core.entity_view_display.node.ercore_admin.default'
         - 'config:core.entity_view_display.node.ercore_admin.full'
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
         - 'config:core.entity_view_display.node.ercore_collaboration.default'
         - 'config:core.entity_view_display.node.ercore_collaboration.full'
-        - 'config:core.entity_view_display.node.ercore_collaboration.teaser'
-        - 'config:core.entity_view_display.node.ercore_event.default'
         - 'config:core.entity_view_display.node.ercore_event.full'
-        - 'config:core.entity_view_display.node.ercore_event.teaser'
         - 'config:core.entity_view_display.node.ercore_institution.default'
         - 'config:core.entity_view_display.node.ercore_institution.full'
         - 'config:core.entity_view_display.node.ercore_institution.teaser'
@@ -620,83 +605,18 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-        field_ercore_ev_date:
-          id: field_ercore_ev_date
-          table: node__field_ercore_ev_date
-          field: field_ercore_ev_date
-          relationship: none
-          group_type: group
-          admin_label: 'Start Date'
-          label: 'Start Date'
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ field_ercore_ev_date__value }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: true
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: true
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: '0'
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: '0'
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: daterange_default
-          settings:
-            timezone_override: ''
-            format_type: ercore_short
-            separator: '-'
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_ercore_ev_date_1:
-          id: field_ercore_ev_date_1
-          table: node__field_ercore_ev_date
-          field: field_ercore_ev_date
+        field_ercore_ev_date_start:
+          id: field_ercore_ev_date_start
+          table: node__field_ercore_ev_date_start
+          field: field_ercore_ev_date_start
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'End Date'
+          label: Start
           exclude: false
           alter:
-            alter_text: true
-            text: '{{ field_ercore_ev_date_1__end_value }} '
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -717,7 +637,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -733,12 +653,75 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: end_value
-          type: daterange_default
+          click_sort_column: value
+          type: datetime_default
           settings:
             timezone_override: ''
             format_type: ercore_short
-            separator: '-'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_ercore_ev_date_end:
+          id: field_ercore_ev_date_end
+          table: node__field_ercore_ev_date_end
+          field: field_ercore_ev_date_end
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: End
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: ercore_short
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1478,7 +1461,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_ercore_ev_date'
+        - 'config:field.storage.node.field_ercore_ev_date_end'
+        - 'config:field.storage.node.field_ercore_ev_date_start'
         - 'config:field.storage.node.field_ercore_ev_reminders'
         - 'config:field.storage.node.field_ercore_ev_url'
         - 'config:field.storage.node.field_ercore_event_type'
@@ -1520,7 +1504,6 @@ display:
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
         - 'config:core.entity_view_display.node.ercore_collaboration.default'
         - 'config:core.entity_view_display.node.ercore_collaboration.full'
-        - 'config:core.entity_view_display.node.ercore_collaboration.teaser'
         - 'config:core.entity_view_display.node.ercore_event.default'
         - 'config:core.entity_view_display.node.ercore_event.full'
         - 'config:core.entity_view_display.node.ercore_event.teaser'
