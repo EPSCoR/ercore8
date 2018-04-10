@@ -9,7 +9,6 @@ dependencies:
     - node.type.ercore_j_honor
     - system.menu.ercore-admin-menu
   module:
-    - better_exposed_filters
     - csv_serialization
     - datetime
     - node
@@ -24,7 +23,7 @@ id: ercore_summary_of_honors
 label: 'ERCore Summary of Honors and Awards'
 module: views
 description: ''
-tag: 'ercore ercore-summary honor'
+tag: ''
 base_table: node_field_data
 base_field: nid
 core: 8.x
@@ -51,7 +50,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: bef
+        type: basic
         options:
           submit_button: Apply
           reset_button: true
@@ -60,33 +59,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
-          text_input_required: 'Select any filter and click on Apply to see results'
-          bef:
-            general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-              autosubmit: false
-              autosubmit_hide: false
-            field_ercore_hn_date_value:
-              bef_format: bef_datepicker
-              more_options:
-                is_secondary: false
-            field_ercore_hn_date_value_1:
-              bef_format: bef_datepicker
-              more_options:
-                is_secondary: false
-            field_ercore_user_partic_inst_target_id:
-              bef_format: default
-              slider_options:
-                bef_slider_min: null
-                bef_slider_max: null
-                bef_slider_step: !!float 1
-                bef_slider_animate: ''
-                bef_slider_orientation: ''
-              more_options:
-                is_secondary: false
-          text_input_required_format: basic_html
       pager:
         type: full
         options:
@@ -435,12 +407,13 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.node.ercore_j_honor.default'
+        - 'config:core.entity_view_display.node.ercore_j_honor.teaser'
         - 'config:core.entity_view_display.node.ercore_admin.default'
         - 'config:core.entity_view_display.node.ercore_admin.full'
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
         - 'config:core.entity_view_display.node.ercore_collaboration.default'
         - 'config:core.entity_view_display.node.ercore_collaboration.full'
-        - 'config:core.entity_view_display.node.ercore_collaboration.teaser'
         - 'config:core.entity_view_display.node.ercore_event.default'
         - 'config:core.entity_view_display.node.ercore_event.full'
         - 'config:core.entity_view_display.node.ercore_event.teaser'
@@ -450,9 +423,7 @@ display:
         - 'config:core.entity_view_display.node.ercore_j_highlight.default'
         - 'config:core.entity_view_display.node.ercore_j_highlight.full'
         - 'config:core.entity_view_display.node.ercore_j_highlight.teaser'
-        - 'config:core.entity_view_display.node.ercore_j_honor.default'
         - 'config:core.entity_view_display.node.ercore_j_honor.full'
-        - 'config:core.entity_view_display.node.ercore_j_honor.teaser'
         - 'config:core.entity_view_display.node.ercore_other_product.default'
         - 'config:core.entity_view_display.node.ercore_other_product.full'
         - 'config:core.entity_view_display.node.ercore_other_product.teaser'
@@ -476,7 +447,7 @@ display:
     display_options:
       display_extenders: {  }
       path: honors/export
-      filename: ercore-summary-honors.csv
+      filename: ercore-honors-summary.csv
       access:
         type: perm
         options:
@@ -943,7 +914,6 @@ display:
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
         - 'config:core.entity_view_display.node.ercore_collaboration.default'
         - 'config:core.entity_view_display.node.ercore_collaboration.full'
-        - 'config:core.entity_view_display.node.ercore_collaboration.teaser'
         - 'config:core.entity_view_display.node.ercore_event.default'
         - 'config:core.entity_view_display.node.ercore_event.full'
         - 'config:core.entity_view_display.node.ercore_event.teaser'

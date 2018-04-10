@@ -1,5 +1,5 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.node.field_ercore_organizer
@@ -78,7 +78,7 @@ id: ercore_summary_of_external_engagements
 label: 'ERCore Summary of External Engagements'
 module: views
 description: ''
-tag: 'ercore ercore-summary engagement'
+tag: ''
 base_table: node_field_data
 base_field: nid
 core: 8.x

@@ -12,7 +12,7 @@ id: ercore_engagement_field
 label: 'ERCore: Engagement Field'
 module: views
 description: ''
-tag: 'ercore ercore-summary collaboration collaborator'
+tag: 'ercore ercore-summary collaboration'
 base_table: paragraphs_item_field_data
 base_field: id
 core: 8.x

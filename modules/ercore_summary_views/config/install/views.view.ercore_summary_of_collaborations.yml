@@ -24,7 +24,7 @@ id: ercore_summary_of_collaborations
 label: 'ERCore Summary of Collaborations'
 module: views
 description: ''
-tag: 'ercore ercore-summary collaboration'
+tag: ''
 base_table: users_field_data
 base_field: uid
 core: 8.x
@@ -38,7 +38,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access user profiles'
+          perm: 'access ercore content'
       cache:
         type: tag
         options: {  }
@@ -63,7 +63,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 50
+          items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
@@ -673,7 +673,7 @@ display:
           relationship: reverse__node__field_ercore_organizer
           group_type: group
           admin_label: ''
-          label: 'Node ID'
+          label: 'Unique ID'
           exclude: false
           alter:
             alter_text: false
@@ -1244,6 +1244,15 @@ display:
           plugin_id: field
       defaults:
         fields: false
+        access: false
+      pager:
+        type: none
+        options:
+          offset: 0
+      access:
+        type: perm
+        options:
+          perm: 'access ercore excel sheets'
     cache_metadata:
       max-age: -1
       contexts:

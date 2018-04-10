@@ -23,6 +23,7 @@ dependencies:
   - ercore_publication
   - file
   - link
+  - name
   - node
   - options
   - paragraphs

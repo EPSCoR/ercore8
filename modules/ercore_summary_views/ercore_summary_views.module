@@ -24,6 +24,7 @@ function ercore_summary_views_form_views_exposed_form_alter(&$form, FormStateInt
     'views-exposed-form-ercore-summary-of-participants-page-1',
     'views-exposed-form-ercore-summary-of-patents-page-1',
     'views-exposed-form-ercore-summary-of-presentations-page-1',
+    'views-exposed-form-ercore-summary-of-proposals-and-grants-page-1',
     'views-exposed-form-ercore-summary-of-publications-page-1',
   ];
   if (!in_array($form['#id'], $form_ids)) {

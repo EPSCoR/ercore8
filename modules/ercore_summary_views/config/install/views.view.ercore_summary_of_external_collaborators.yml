@@ -19,7 +19,7 @@ dependencies:
     - user
     - views_data_export
 id: ercore_summary_of_external_collaborators
-label: ercore_summary_of_external_collaborators
+label: 'ERCore Summary of External Collaborators'
 module: views
 description: ''
 tag: 'ercore ercore-summary collaboration collaborator'
@@ -36,7 +36,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access ercore content'
       cache:
         type: tag
         options: {  }
@@ -59,12 +59,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -73,9 +78,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: table
       row:
@@ -88,7 +91,7 @@ display:
           relationship: field_ercore_cn_collaborator
           group_type: group
           admin_label: ''
-          label: UUID
+          label: 'Unique ID'
           exclude: false
           alter:
             alter_text: false
@@ -849,7 +852,7 @@ display:
           relationship: field_ercore_cn_collaborator
           group_type: group
           admin_label: ''
-          label: UUID
+          label: 'Unique ID'
           exclude: false
           alter:
             alter_text: false
@@ -1340,6 +1343,15 @@ display:
           plugin_id: field
       defaults:
         fields: false
+        access: false
+      access:
+        type: perm
+        options:
+          perm: 'access ercore excel sheets'
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
