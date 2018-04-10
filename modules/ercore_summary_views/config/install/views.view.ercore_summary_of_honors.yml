@@ -24,7 +24,7 @@ id: ercore_summary_of_honors
 label: 'ERCore Summary of Honors and Awards'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-summary honor'
 base_table: node_field_data
 base_field: nid
 core: 8.x

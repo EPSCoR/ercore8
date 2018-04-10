@@ -59,7 +59,7 @@ id: ercore_summary_of_participants
 label: 'ERCore Summary of Participants'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-summary participant'
 base_table: users_field_data
 base_field: uid
 core: 8.x

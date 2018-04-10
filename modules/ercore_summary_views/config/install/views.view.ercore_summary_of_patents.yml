@@ -28,7 +28,7 @@ id: ercore_summary_of_patents
 label: 'ERCore Summary of Patents'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-summary patent'
 base_table: node_field_data
 base_field: nid
 core: 8.x

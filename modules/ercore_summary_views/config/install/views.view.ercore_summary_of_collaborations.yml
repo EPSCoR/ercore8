@@ -24,7 +24,7 @@ id: ercore_summary_of_collaborations
 label: 'ERCore Summary of Collaborations'
 module: views
 description: ''
-tag: ''
+tag: 'ercore ercore-summary collaboration'
 base_table: users_field_data
 base_field: uid
 core: 8.x
