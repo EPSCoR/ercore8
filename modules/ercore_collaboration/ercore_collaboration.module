@@ -4,3 +4,23 @@
  * @file
  * Hook implementations for the ERCore Collaborations module.
  */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function ercore_collaboration_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'node_ercore_collaboration_edit_form' || $form_id === 'node_ercore_collaboration_form') {
+    $form['#validate'][] = 'ercore_collaboration_node_form_validate';
+  }
+}
+
+/**
+ * Custom validation hook.
+ */
+function ercore_collaboration_node_form_validate(&$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('field_ercore_collaboration_end') < $form_state->getValue('field_ercore_collaboration_start')) {
+    $form_state->setErrorByName('field_ercore_collaboration_end', t('The Collaboration End Date must be higher than Start Date'));
+  }
+}

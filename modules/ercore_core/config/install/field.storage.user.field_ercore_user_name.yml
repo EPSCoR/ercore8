@@ -29,9 +29,9 @@ settings:
     credentials: false
   labels:
     title: Title
-    given: Given
+    given: 'First Name'
     middle: 'Middle name(s)'
-    family: Family
+    family: 'Last Name'
     generational: Generational
     credentials: Credentials
   max_length:

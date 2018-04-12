@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: ercore_user_participation
-label: 'User Participation'
-icon_uuid: null
-description: null
-behavior_plugins: {  }

@@ -5,13 +5,14 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_collaboration.body
     - field.field.node.ercore_collaboration.field_ercore_cn_collaborator
-    - field.field.node.ercore_collaboration.field_ercore_cn_dates
+    - field.field.node.ercore_collaboration.field_ercore_collaboration_end
+    - field.field.node.ercore_collaboration.field_ercore_collaboration_start
     - field.field.node.ercore_collaboration.field_ercore_components
     - field.field.node.ercore_collaboration.field_ercore_organizer
     - field.field.node.ercore_collaboration.field_ercore_programs
     - node.type.ercore_collaboration
   module:
-    - datetime_range
+    - datetime
     - entity_reference_revisions
     - text
     - user
@@ -36,16 +37,24 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_ercore_cn_dates:
+  field_ercore_collaboration_end:
+    type: datetime_default
     weight: 1
-    label: hidden
+    region: content
+    label: inline
     settings:
       timezone_override: ''
-      format_type: ercore_month_year
-      separator: '-'
+      format_type: ercore_month_day_year
     third_party_settings: {  }
-    type: daterange_default
+  field_ercore_collaboration_start:
+    type: datetime_default
+    weight: 0
     region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: ercore_month_day_year
+    third_party_settings: {  }
   field_ercore_components:
     weight: 5
     label: inline
@@ -72,7 +81,7 @@ content:
     third_party_settings: {  }
     region: content
   links:
-    weight: 0
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

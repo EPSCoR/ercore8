@@ -14,7 +14,7 @@ require_once drupal_get_path('module', 'ercore_core') . '/includes/classes/ercor
  *   Returns form array for page display.
  */
 function nsf_table_b_callback() {
-  $form = array();
+  $form = [];
   $theme_variable = 'ercore_table_b';
   // Used within the following include.
   include_once drupal_get_path('module', 'ercore_core') . "/includes/ercore-admin-form-filter.inc";
@@ -38,7 +38,7 @@ function nsf_table_b_callback() {
  *   Array of Project Roles.
  */
 function ercore_table_b_headers() {
-  $header = array();
+  $header = [];
   $header['senior'] = array(
     'data' => 'Senior Project Role',
     'class' => array('ercore', 'type'),

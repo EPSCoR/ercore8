@@ -6,11 +6,12 @@ dependencies:
     - field.field.node.ercore_proposal.body
     - field.field.node.ercore_proposal.field_ercore_organizer
     - field.field.node.ercore_proposal.field_ercore_pp_award_amount
+    - field.field.node.ercore_proposal.field_ercore_pp_award_end
     - field.field.node.ercore_proposal.field_ercore_pp_award_req_dec
+    - field.field.node.ercore_proposal.field_ercore_pp_award_start
     - field.field.node.ercore_proposal.field_ercore_pp_location
     - field.field.node.ercore_proposal.field_ercore_pp_other_pi
     - field.field.node.ercore_proposal.field_ercore_pp_others
-    - field.field.node.ercore_proposal.field_ercore_pp_proposal_date
     - field.field.node.ercore_proposal.field_ercore_pp_proposal_denied
     - field.field.node.ercore_proposal.field_ercore_pp_proposal_paid
     - field.field.node.ercore_proposal.field_ercore_pp_proposal_pending
@@ -72,9 +73,10 @@ content:
 hidden:
   body: true
   field_ercore_pp_award_amount: true
+  field_ercore_pp_award_end: true
   field_ercore_pp_award_req_dec: true
+  field_ercore_pp_award_start: true
   field_ercore_pp_location: true
-  field_ercore_pp_proposal_date: true
   field_ercore_pp_proposal_denied: true
   field_ercore_pp_proposal_paid: true
   field_ercore_pp_proposal_pending: true

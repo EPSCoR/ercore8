@@ -3,10 +3,12 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.ercore_name_org_dept
-    - field.field.user.user.field_ercore_overall_roles
+    - field.field.user.user.field_ercore_prefer_no_answer
+    - field.field.user.user.field_ercore_senior_role
     - field.field.user.user.field_ercore_user_address
-    - field.field.user.user.field_ercore_user_boards
+    - field.field.user.user.field_ercore_user_advisor_mentor
     - field.field.user.user.field_ercore_user_collecting
+    - field.field.user.user.field_ercore_user_component
     - field.field.user.user.field_ercore_user_data_date
     - field.field.user.user.field_ercore_user_data_desc
     - field.field.user.user.field_ercore_user_data_mgr
@@ -19,6 +21,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_doc_ant
     - field.field.user.user.field_ercore_user_effort_months
     - field.field.user.user.field_ercore_user_employee_id
+    - field.field.user.user.field_ercore_user_end
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
@@ -33,16 +36,19 @@ dependencies:
     - field.field.user.user.field_ercore_user_mentor_plan_dt
     - field.field.user.user.field_ercore_user_name
     - field.field.user.user.field_ercore_user_part_160
-    - field.field.user.user.field_ercore_user_part_dates
     - field.field.user.user.field_ercore_user_partic_inst
     - field.field.user.user.field_ercore_user_phone_mobile
     - field.field.user.user.field_ercore_user_phone_work
+    - field.field.user.user.field_ercore_user_program
     - field.field.user.user.field_ercore_user_race
     - field.field.user.user.field_ercore_user_rcr_on
     - field.field.user.user.field_ercore_user_rcr_on_up
     - field.field.user.user.field_ercore_user_rcr_per
     - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
+    - field.field.user.user.field_ercore_user_role_desc
+    - field.field.user.user.field_ercore_user_second_email
+    - field.field.user.user.field_ercore_user_start
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
     - field.field.user.user.field_ercore_user_veteran
@@ -76,10 +82,12 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_ercore_overall_roles: true
+  field_ercore_prefer_no_answer: true
+  field_ercore_senior_role: true
   field_ercore_user_address: true
-  field_ercore_user_boards: true
+  field_ercore_user_advisor_mentor: true
   field_ercore_user_collecting: true
+  field_ercore_user_component: true
   field_ercore_user_data_date: true
   field_ercore_user_data_desc: true
   field_ercore_user_data_mgr: true
@@ -91,6 +99,7 @@ hidden:
   field_ercore_user_doc_ant: true
   field_ercore_user_effort_months: true
   field_ercore_user_employee_id: true
+  field_ercore_user_end: true
   field_ercore_user_epscore_paid: true
   field_ercore_user_ethnicity: true
   field_ercore_user_fac_support: true
@@ -105,15 +114,18 @@ hidden:
   field_ercore_user_mentor_plan_dt: true
   field_ercore_user_name: true
   field_ercore_user_part_160: true
-  field_ercore_user_part_dates: true
   field_ercore_user_phone_mobile: true
   field_ercore_user_phone_work: true
+  field_ercore_user_program: true
   field_ercore_user_race: true
   field_ercore_user_rcr_on: true
   field_ercore_user_rcr_on_up: true
   field_ercore_user_rcr_per: true
   field_ercore_user_rcr_per_up: true
   field_ercore_user_rcr_status: true
+  field_ercore_user_role_desc: true
+  field_ercore_user_second_email: true
+  field_ercore_user_start: true
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true
   field_ercore_user_veteran: true

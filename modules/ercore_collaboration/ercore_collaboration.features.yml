@@ -3,6 +3,7 @@ excluded:
   - views.view.ercore_collaborating_institutions_non_participating
   - views.view.ercore_collaborating_institutions_participating
   - views.view.ercore_collaborations_field
-  - views.view.ercore_summary_collaborations
   - views.view.ercore_summary_of_external_collaborators
+  - field.field.node.ercore_collaboration.field_ercore_cn_dates
+  - field.storage.node.field_ercore_cn_dates
 required: true

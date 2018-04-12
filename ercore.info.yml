@@ -8,8 +8,8 @@ dependencies:
   - entity_reference_exposed_filters
   - ercore_component
   - ercore_program
-  - ercore_core
   - ercore_institution
+  - ercore_core
   - ercore_admin
   - ercore_collaboration
   - ercore_event

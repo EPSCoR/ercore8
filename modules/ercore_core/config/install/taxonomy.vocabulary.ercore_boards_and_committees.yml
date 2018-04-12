@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Boards and Committees'
+vid: ercore_boards_and_committees
+description: ''
+hierarchy: 0
+weight: 0

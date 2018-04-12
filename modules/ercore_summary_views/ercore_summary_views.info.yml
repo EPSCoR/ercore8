@@ -5,6 +5,7 @@ dependencies:
   - better_exposed_filters
   - computed_field
   - csv_serialization
+  - date_popup
   - datetime
   - datetime_range
   - entity_reference_revisions
@@ -22,6 +23,7 @@ dependencies:
   - ercore_publication
   - file
   - link
+  - name
   - node
   - options
   - paragraphs

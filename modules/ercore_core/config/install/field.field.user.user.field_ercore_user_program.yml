@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_program
+    - taxonomy.vocabulary.ercore_program_vocab
+  module:
+    - user
+id: user.user.field_ercore_user_program
+field_name: field_ercore_user_program
+entity_type: user
+bundle: user
+label: Program(s)
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ercore_program_vocab: ercore_program_vocab
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

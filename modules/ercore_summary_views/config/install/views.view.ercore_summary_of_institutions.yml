@@ -10,7 +10,6 @@ dependencies:
     - node.type.ercore_institution
     - system.menu.ercore-admin-menu
   module:
-    - better_exposed_filters
     - link
     - node
     - options
@@ -51,7 +50,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: bef
+        type: basic
         options:
           submit_button: Apply
           reset_button: true
@@ -60,43 +59,10 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
-          text_input_required: 'Select any filter and click on Apply to see results'
-          bef:
-            general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-              autosubmit: false
-              autosubmit_hide: false
-            field_ercore_inst_type_value:
-              bef_format: default
-              more_options:
-                bef_select_all_none: false
-                bef_collapsible: false
-                is_secondary: false
-                rewrite:
-                  filter_rewrite_values: ''
-            field_ercore_inst_category_value:
-              bef_format: default
-              more_options:
-                bef_select_all_none: false
-                bef_collapsible: false
-                is_secondary: false
-                rewrite:
-                  filter_rewrite_values: ''
-            field_ercore_inst_participating_value:
-              bef_format: default
-              more_options:
-                bef_select_all_none: false
-                bef_collapsible: false
-                is_secondary: false
-                rewrite:
-                  filter_rewrite_values: ''
-          text_input_required_format: basic_html
       pager:
         type: full
         options:
-          items_per_page: 15
+          items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
@@ -860,7 +826,7 @@ display:
       group_by: true
       css_class: 'ercore-summary ercore-institutions'
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -880,7 +846,7 @@ display:
     display_options:
       display_extenders: {  }
       path: institutions/export
-      filename: ercore-summary-institutions.csv
+      filename: ercore-institutions-summary.csv
       fields:
         nid:
           id: nid
@@ -1459,10 +1425,15 @@ display:
           plugin_id: field
       defaults:
         fields: false
+        access: false
       pager:
         type: none
         options:
           offset: 0
+      access:
+        type: perm
+        options:
+          perm: 'access ercore excel sheets'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1496,7 +1467,7 @@ display:
         context: '0'
         menu_name: ercore-admin-menu
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

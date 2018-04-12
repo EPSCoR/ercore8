@@ -10,10 +10,12 @@
     }
   ],
   "require": {
+    "cweagans/composer-patches": "^1.6",
     "drupal/better_exposed_filters": "^3.0@alpha",
     "drupal/components": "^1.0",
     "drupal/computed_field": "^2.0@alpha",
     "drupal/csv_serialization": "^1.2",
+    "drupal/date_popup": "^1.0",
     "drupal/entity_reference_exposed_filters": "^1.0@alpha",
     "drupal/entity_reference_revisions": "^1.4",
     "drupal/features": "^3.5",
@@ -34,5 +36,12 @@
   "prefer-stable": true,
   "config": {
     "sort-packages": true
+  },
+  "extra": {
+    "patches": {
+      "drupal/datetime_range": {
+        "Fix date ranges": "https://www.drupal.org/files/issues/2794481-52.patch"
+      }
+    }
   }
 }

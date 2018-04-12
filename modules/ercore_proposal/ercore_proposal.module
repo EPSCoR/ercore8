@@ -14,54 +14,80 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function ercore_proposal_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_proposal_form' || $form_id === 'node_ercore_proposal_edit_form') {
-    $form['field_ercore_pp_proposal_submit']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array(
-          array('value' => 'Submitted'),
-          array('value' => 'Pending'),
-          array('value' => 'Awarded'),
-          array('value' => 'Expired'),
-          array('value' => 'Denied'),
-        ),
-      ),
-    );
-    $form['field_ercore_pp_proposal_pending']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array('value' => 'Pending'),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array('value' => 'Pending'),
-      ),
-    );
-    $form['field_ercore_pp_proposal_denied']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array('value' => 'Denied'),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array('value' => 'Denied'),
-      ),
-    );
-    $form['field_ercore_pp_proposal_date']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array(
-          array('value' => 'Awarded'),
-          array('value' => 'Expired'),
-        ),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array(
-          array('value' => 'Awarded'),
-          array('value' => 'Expired'),
-        ),
-      ),
-    );
-    $form['field_ercore_pp_award_amount']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array('value' => 'Awarded'),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pp_proposal_status"]' => array('value' => 'Awarded'),
-      ),
-    );
+    $form['field_ercore_pp_proposal_submit']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => [
+          ['value' => 'Submitted'],
+          ['value' => 'Pending'],
+          ['value' => 'Awarded'],
+          ['value' => 'Expired'],
+          ['value' => 'Denied'],
+        ],
+      ],
+    ];
+    $form['field_ercore_pp_proposal_pending']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => ['value' => 'Pending'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => ['value' => 'Pending'],
+      ],
+    ];
+    $form['field_ercore_pp_proposal_denied']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => ['value' => 'Denied'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => ['value' => 'Denied'],
+      ],
+    ];
+    $form['field_ercore_pp_award_start']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => [
+          ['value' => 'Awarded'],
+          ['value' => 'Expired'],
+        ],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => [
+          ['value' => 'Awarded'],
+          ['value' => 'Expired'],
+        ],
+      ],
+    ];
+    $form['field_ercore_pp_award_end']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => [
+          ['value' => 'Awarded'],
+          ['value' => 'Expired'],
+        ],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => [
+          ['value' => 'Awarded'],
+          ['value' => 'Expired'],
+        ],
+      ],
+    ];
+    $form['field_ercore_pp_award_amount']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => ['value' => 'Awarded'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pp_proposal_status"]' => ['value' => 'Awarded'],
+      ],
+    ];
+    $form['#validate'][] = 'ercore_proposal_form_validate';
+  }
+}
+
+/**
+ * Validates submission values in the FORM_ID() form.
+ */
+function ercore_proposal_form_validate(array &$form, FormStateInterface $form_state) {
+  $value1 = $form_state->getValue('field_ercore_pp_award_start');
+  $value2 = $form_state->getValue('field_ercore_pp_award_end');
+  if (!empty($value2['0']['value']) && $value2['0']['value'] < $value1['0']['value']) {
+    $form_state->setErrorByName('field_ercore_pp_award_end', t('End date must be after start date.'));
   }
 }
