@@ -3,10 +3,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.ercore_institution_only
+    - field.field.user.user.field_ercore_prefer_no_answer
     - field.field.user.user.field_ercore_senior_role
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_advisor_mentor
-    - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
     - field.field.user.user.field_ercore_user_component
     - field.field.user.user.field_ercore_user_data_date
@@ -47,6 +47,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_rcr_per_up
     - field.field.user.user.field_ercore_user_rcr_status
     - field.field.user.user.field_ercore_user_role_desc
+    - field.field.user.user.field_ercore_user_second_email
     - field.field.user.user.field_ercore_user_start
     - field.field.user.user.field_ercore_user_under_act
     - field.field.user.user.field_ercore_user_under_ant
@@ -68,10 +69,10 @@ content:
       link: true
     third_party_settings: {  }
 hidden:
+  field_ercore_prefer_no_answer: true
   field_ercore_senior_role: true
   field_ercore_user_address: true
   field_ercore_user_advisor_mentor: true
-  field_ercore_user_boards: true
   field_ercore_user_collecting: true
   field_ercore_user_component: true
   field_ercore_user_data_date: true
@@ -111,6 +112,7 @@ hidden:
   field_ercore_user_rcr_per_up: true
   field_ercore_user_rcr_status: true
   field_ercore_user_role_desc: true
+  field_ercore_user_second_email: true
   field_ercore_user_start: true
   field_ercore_user_under_act: true
   field_ercore_user_under_ant: true

@@ -5,10 +5,4 @@ excluded:
   - views.view.ercore_summary_of_collaborations
   - field.storage.paragraph.field_ercore_cr_dept
   - field.storage.paragraph.field_ercore_cr_name
-  - field.storage.paragraph.field_ercore_participation_dates
-  - field.storage.paragraph.field_ercore_senior_role
-  - field.storage.paragraph.field_ercore_user_component
-  - field.storage.paragraph.field_ercore_user_mentor
-  - field.storage.paragraph.field_ercore_user_program
-  - field.storage.paragraph.field_ercore_user_role_desc
 required: true

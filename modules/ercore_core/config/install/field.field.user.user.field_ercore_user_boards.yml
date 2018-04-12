@@ -3,18 +3,27 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_ercore_user_boards
+    - taxonomy.vocabulary.ercore_boards_and_committees
   module:
-    - options
     - user
 id: user.user.field_ercore_user_boards
 field_name: field_ercore_user_boards
 entity_type: user
 bundle: user
 label: 'Boards and Committees'
-description: 'Please select which boards or committees you are or will be a member of.'
+description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: list_string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ercore_boards_and_committees: ercore_boards_and_committees
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

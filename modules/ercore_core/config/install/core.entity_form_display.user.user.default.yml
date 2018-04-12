@@ -128,7 +128,6 @@ third_party_settings:
         - group_ercore_us_participation
         - field_ercore_user_advisor_mentor
         - field_ercore_user_lead_team
-        - field_ercore_user_boards
         - field_ercore_user_epscore_paid
         - field_ercore_user_part_160
         - field_ercore_user_fac_support
@@ -139,6 +138,7 @@ third_party_settings:
         - field_ercore_user_role_desc
         - group_ercore_us_education
         - group_ercore_us_certification
+        - field_ercore_user_boards
       parent_name: group_ercore_us_profile
       weight: 50
       format_type: tab
@@ -298,11 +298,11 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ercore_user_boards:
-    type: options_buttons
-    weight: 5
-    region: content
+    weight: 53
     settings: {  }
     third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_ercore_user_collecting:
     type: boolean_checkbox
     weight: 1

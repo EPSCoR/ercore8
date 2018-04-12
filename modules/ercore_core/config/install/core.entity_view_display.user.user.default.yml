@@ -89,6 +89,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_ercore_user_boards:
+    weight: 13
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_ercore_user_component:
     weight: 4
     label: above
@@ -164,7 +172,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_ercore_user_address: true
-  field_ercore_user_boards: true
   field_ercore_user_collecting: true
   field_ercore_user_data_date: true
   field_ercore_user_data_desc: true
