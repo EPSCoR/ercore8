@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_event.body
+    - field.field.node.ercore_event.field_ercore_components
     - field.field.node.ercore_event.field_ercore_ev_date_end
     - field.field.node.ercore_event.field_ercore_ev_date_start
     - field.field.node.ercore_event.field_ercore_ev_document
@@ -33,6 +34,14 @@ content:
     weight: 8
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_ercore_components:
+    weight: 6
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_ercore_ev_date_end:
     weight: 1
@@ -123,7 +132,7 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 6
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

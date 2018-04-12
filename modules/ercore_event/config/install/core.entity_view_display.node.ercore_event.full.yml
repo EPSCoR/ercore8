@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_event.body
+    - field.field.node.ercore_event.field_ercore_components
     - field.field.node.ercore_event.field_ercore_ev_date_end
     - field.field.node.ercore_event.field_ercore_ev_date_start
     - field.field.node.ercore_event.field_ercore_ev_document
@@ -31,10 +32,18 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_components:
+    type: entity_reference_label
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
   field_ercore_ev_date_end:
     type: datetime_default
     weight: 1
@@ -54,7 +63,7 @@ content:
       format_type: long
     third_party_settings: {  }
   field_ercore_ev_document:
-    weight: 7
+    weight: 8
     label: inline
     settings:
       use_description_as_link_text: true
@@ -63,7 +72,7 @@ content:
     region: content
   field_ercore_ev_engagement:
     type: entity_reference_revisions_entity_view
-    weight: 10
+    weight: 11
     label: hidden
     settings:
       view_mode: ercore_full_paragraph
@@ -72,7 +81,7 @@ content:
     region: content
   field_ercore_ev_location:
     type: entity_reference_revisions_entity_view
-    weight: 9
+    weight: 10
     label: above
     settings:
       view_mode: ercore_full_paragraph
@@ -124,7 +133,7 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
