@@ -1,0 +1,3 @@
+services:
+  ercore_event.ercore_import_engagement:
+    class: Drupal\ercore_event\ErcoreImportEngagement
