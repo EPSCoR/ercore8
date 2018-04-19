@@ -83,7 +83,7 @@ third_party_settings:
         id: ercore_ee_ari
         classes: ercore_ee_fs
         description: ''
-        required_fields: true
+        required_fields: false
       label: 'Academic Research Institutions (ARI)'
     group_ercore_ee_pui:
       children:
@@ -102,7 +102,7 @@ third_party_settings:
         id: ercore_ee_pui
         classes: ercore_ee_fs
         description: ''
-        required_fields: true
+        required_fields: false
       label: 'Primary Undergraduate Institutions (PUI)'
     group_ercore_ee_msi:
       children:
@@ -121,7 +121,7 @@ third_party_settings:
         id: ercore_ee_msi
         classes: ercore_ee_fs
         description: ''
-        required_fields: true
+        required_fields: false
       label: 'Minority Serving Institutions (MSI)'
     group_ercore_ee_k12:
       children:
@@ -144,7 +144,7 @@ third_party_settings:
         id: ercore_ee_k12
         classes: ercore_ee-fs
         description: ''
-        required_fields: true
+        required_fields: false
       label: 'K-12 Institutions (K-12)'
     group_ercore_ee_other:
       children:
@@ -159,19 +159,19 @@ third_party_settings:
         id: ercore_ee_other
         classes: ercore_ee_fs
         description: ''
-        required_fields: true
+        required_fields: false
       label: Other
     group_ercore_ee_upload:
       children:
         - field_ercore_ee_excel
       parent_name: ''
       weight: 1
-      format_type: fieldset
+      format_type: details
       format_settings:
         id: ercore_ee_upload
         classes: ercore_ee_fs
         description: ''
-        required_fields: true
+        required_fields: false
       label: 'Upload File'
     group_ercore_ee_manual:
       children:
@@ -182,12 +182,12 @@ third_party_settings:
         - group_ercore_ee_other
       parent_name: ''
       weight: 2
-      format_type: fieldset
+      format_type: details
       format_settings:
-        id: erore_ee_manual
+        id: ercore_ee_manual
         classes: ercore_ee_fs
         description: ''
-        required_fields: true
+        required_fields: false
       label: 'Manually Enter External Engagement Data'
 id: paragraph.ercore_external_engagement.default
 targetEntityType: paragraph
