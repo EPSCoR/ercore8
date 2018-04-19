@@ -1,6 +1,5 @@
 bundle: ercore
 excluded:
-  - core.entity_view_display.paragraph.ercore_collaborator.preview
   - views.view.ercore_institutions_filter
   - views.view.ercore_summary_of_institutions
 required: true
