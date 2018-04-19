@@ -17,9 +17,9 @@ dependencies:
   - ercore_j_honor
   - ercore_other_product
   - ercore_patent
+  - ercore_publication
   - ercore_presentation
   - ercore_proposal
-  - ercore_publication
   - ercore_summary_views
 project: ercore
 package: ERCore
