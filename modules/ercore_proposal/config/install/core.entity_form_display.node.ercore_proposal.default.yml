@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_proposal.body
+    - field.field.node.ercore_proposal.field_ercore_components
     - field.field.node.ercore_proposal.field_ercore_organizer
     - field.field.node.ercore_proposal.field_ercore_pp_award_amount
     - field.field.node.ercore_proposal.field_ercore_pp_award_end
@@ -53,15 +54,15 @@ third_party_settings:
         - field_ercore_pp_proposal_submit
         - field_ercore_pp_proposal_pending
         - field_ercore_pp_proposal_denied
-        - field_ercore_pp_proposal_date
         - field_ercore_pp_award_start
         - field_ercore_pp_award_end
         - field_ercore_pp_award_amount
         - field_ercore_pp_location
         - body
         - field_ercore_programs
+        - field_ercore_components
       parent_name: group_ercore_pp_principle
-      weight: 18
+      weight: 19
       format_type: fieldset
       format_settings:
         id: ''
@@ -76,7 +77,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 30
+    weight: 29
     settings:
       rows: 9
       summary_rows: 3
@@ -89,6 +90,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_components:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_ercore_organizer:
     weight: 15
     settings:
@@ -99,14 +106,14 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ercore_pp_award_amount:
-    weight: 28
+    weight: 27
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_ercore_pp_award_end:
-    weight: 27
+    weight: 26
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -119,13 +126,13 @@ content:
     type: number
     region: content
   field_ercore_pp_award_start:
-    weight: 26
+    weight: 25
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_ercore_pp_location:
-    weight: 29
+    weight: 28
     settings:
       size: 60
       placeholder: ''
@@ -133,7 +140,7 @@ content:
     type: string_textfield
     region: content
   field_ercore_pp_other_pi:
-    weight: 16
+    weight: 17
     settings:
       size: 60
       placeholder: ''
@@ -141,7 +148,7 @@ content:
     type: string_textfield
     region: content
   field_ercore_pp_others:
-    weight: 17
+    weight: 18
     settings:
       match_operator: CONTAINS
       size: 60
@@ -194,7 +201,7 @@ content:
     type: options_select
     region: content
   field_ercore_programs:
-    weight: 31
+    weight: 30
     settings: {  }
     third_party_settings: {  }
     type: options_select

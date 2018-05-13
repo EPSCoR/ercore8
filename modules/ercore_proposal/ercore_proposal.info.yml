@@ -8,6 +8,7 @@ dependencies:
   - csv_serialization
   - datetime
   - datetime_range
+  - ercore_component
   - ercore_core
   - ercore_presentation
   - ercore_program
