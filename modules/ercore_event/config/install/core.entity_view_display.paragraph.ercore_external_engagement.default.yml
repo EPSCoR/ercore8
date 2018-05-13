@@ -12,6 +12,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_u
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_disable_file_alt
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_estimated
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_excel
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_f
@@ -261,6 +262,16 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+    region: content
+  field_ercore_ee_disable_file_alt:
+    weight: 40
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_ercore_ee_estimated:
     type: boolean

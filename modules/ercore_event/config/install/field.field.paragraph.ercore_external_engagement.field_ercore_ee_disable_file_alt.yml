@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ercore_ee_disable_file_alt
+    - paragraphs.paragraphs_type.ercore_external_engagement
+id: paragraph.ercore_external_engagement.field_ercore_ee_disable_file_alt
+field_name: field_ercore_ee_disable_file_alt
+entity_type: paragraph
+bundle: ercore_external_engagement
+label: 'Disable file alterations'
+description: 'Once a file is uploaded, check this box to allow manual changes. Uncheck if a new file upload is necessary.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -12,6 +12,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_u
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_disable_file_alt
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_estimated
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_excel
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_f
@@ -164,6 +165,7 @@ third_party_settings:
     group_ercore_ee_upload:
       children:
         - field_ercore_ee_excel
+        - field_ercore_ee_disable_file_alt
       parent_name: ''
       weight: 1
       format_type: details
@@ -181,7 +183,7 @@ third_party_settings:
         - group_ercore_ee_k12
         - group_ercore_ee_other
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: details
       format_settings:
         id: ercore_ee_manual
@@ -250,6 +252,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  field_ercore_ee_disable_file_alt:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_ercore_ee_estimated:
     weight: 0
     settings:
@@ -266,56 +275,56 @@ content:
     region: content
   field_ercore_ee_k12_dir_f:
     type: number
-    weight: 4
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_dir_m:
     type: number
-    weight: 5
+    weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_dir_mn:
     type: number
-    weight: 7
+    weight: 8
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_dir_u:
     type: number
-    weight: 6
+    weight: 7
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_tch_f:
     type: number
-    weight: 8
+    weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_tch_m:
     type: number
-    weight: 9
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_tch_mn:
     type: number
-    weight: 11
+    weight: 12
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_k12_tch_u:
     type: number
-    weight: 10
+    weight: 11
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -336,7 +345,7 @@ content:
     region: content
   field_ercore_ee_k12_ttr_mn:
     type: number
-    weight: 3
+    weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -349,7 +358,7 @@ content:
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_fac_f:
-    weight: 5
+    weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -357,21 +366,21 @@ content:
     region: content
   field_ercore_ee_msi_fac_m:
     type: number
-    weight: 4
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_fac_mn:
     type: number
-    weight: 7
+    weight: 8
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_msi_fac_u:
     type: number
-    weight: 6
+    weight: 7
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -434,28 +443,28 @@ content:
     region: content
   field_ercore_ee_pui_fac_f:
     type: number
-    weight: 15
+    weight: 16
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_pui_fac_m:
     type: number
-    weight: 16
+    weight: 17
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_pui_fac_mn:
     type: number
-    weight: 18
+    weight: 19
     settings:
       placeholder: ''
     third_party_settings: {  }
     region: content
   field_ercore_ee_pui_fac_u:
     type: number
-    weight: 17
+    weight: 18
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -489,7 +498,7 @@ content:
     third_party_settings: {  }
     region: content
   field_ercore_ee_t_mn:
-    weight: 19
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: computed_number_widget

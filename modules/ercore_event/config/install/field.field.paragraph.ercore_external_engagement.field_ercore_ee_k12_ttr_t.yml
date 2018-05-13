@@ -10,7 +10,7 @@ id: paragraph.ercore_external_engagement.field_ercore_ee_k12_ttr_t
 field_name: field_ercore_ee_k12_ttr_t
 entity_type: paragraph
 bundle: ercore_external_engagement
-label: 'K-12: Students Reached via Teach Training - Total'
+label: 'K-12: Student Reached via Teach Training - Total'
 description: ''
 required: true
 translatable: false

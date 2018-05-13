@@ -129,31 +129,28 @@ class ErcoreEngagement {
    *   Receives array of engagement data.
    */
   public function addEngagements(array $row) {
-    if (isset($row[6]) && strtoupper($row[6]) === 'Y') {
+    if (!empty($row[6]) && strtoupper($row[6]) === 'Y') {
       return;
     }
     $row[2] = $row['External Engagement Reporting Sheet'];
     unset($row['External Engagement Reporting Sheet']);
     $inst = 'other';
-    if (isset($row[2])) {
+    if (!empty($row[2])) {
       $inst = $this->instCodes[$row[2]];
-    }
-    else {
-      return;
     }
     $type = 'other';
     if ($inst === 'k12') {
-      if (isset($row[3])) {
+      if (!empty($row[3])) {
         $type = $this->k12Code[$row[3]];
       }
     }
     else {
-      if (isset($row[3])) {
+      if (!empty($row[3])) {
         $type = $this->personCode[$row[3]];
       }
     }
     $gender = 'U';
-    if (isset($row[4])) {
+    if (!empty($row[4])) {
       $gender = strtoupper($row[4]);
     }
     if ($inst !== 'other') {
@@ -161,11 +158,11 @@ class ErcoreEngagement {
       $minority = $inst . 'Mn';
     }
     else {
-      $var = 'other' . $gender;
+      $var = $inst . $gender;
       $minority = $inst . 'Mn';
     }
     $this->$var = $this->$var + 1;
-    if (isset($row[5]) && $row[5] === 'y') {
+    if (!empty($row[5]) && $row[5] === 'y') {
       $this->$minority = $this->$minority + 1;
     }
   }

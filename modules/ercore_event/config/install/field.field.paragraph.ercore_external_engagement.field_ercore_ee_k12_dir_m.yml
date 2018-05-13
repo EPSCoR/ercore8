@@ -8,7 +8,7 @@ id: paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_m
 field_name: field_ercore_ee_k12_dir_m
 entity_type: paragraph
 bundle: ercore_external_engagement
-label: 'K-12: Students Reached Directly - Male'
+label: 'K-12: Student Reached Directly - Male'
 description: ''
 required: true
 translatable: false
