@@ -3,6 +3,7 @@
 namespace Drupal\ercore_event;
 
 use Drupal\file\Entity\File;
+use Drupal\ercore_event\ErcoreEngagement;
 
 /**
  * Class ErcoreImportEngagement.
@@ -32,8 +33,13 @@ class ErcoreImportEngagement {
     }
     $fid = $engagement[0]['subform']['field_ercore_ee_excel'][0]['fids'][0];
     $file_uri = File::load($fid)->getFileUri();
-    $data = parseFile($file_uri);
-    ksm($data);
+    $rows = $this->parseFile($file_uri);
+    $values = new ErcoreEngagement();
+    foreach ($rows as $row) {
+      $values->addEngagements($row);
+    }
+    $engagement[0]['subform'] = $this->setEngagementCounts($engagement[0]['subform'], $values);
+    ksm($engagement);
   }
 
   /**
@@ -48,99 +54,64 @@ class ErcoreImportEngagement {
   private function parseFile($file_uri) {
     module_load_include('inc', 'phpexcel');
     $data = phpexcel_import($file_uri);
-    return $data;
-   // ksm($data);
- /*   $obj_reader = PHPExcel_IOFactory::createReader('Excel5');
-    $obj_php_excel = $obj_reader->load($path);
-    $worksheet = $obj_php_excel->getActiveSheet();
-
-    // Makes sure that it's the expected excel sheet.
-    if ($worksheet->getCellByColumnAndRow(2, 1)
-        ->getValue() != "External Engagement Reporting Sheet"
-    ) {
-      return;
+    if (array_keys($data[0][0])[2] === 'External Engagement Reporting Sheet') {
+      return array_slice($data[0], 12);
     }
-    $instcodes = array('1' => 'ari', '2' => 'pui', '3' => 'msi', '4' => 'k12i');
-    $personcodes1 = array(
-      '1' => 'tec',
-      '2' => 'stud',
-      '3' => 'tec',
-    );
-    $personcodes2 = array(
-      '1' => 'fac',
-      '2' => 'stu',
-      '3' => 'fac',
-    );
-    $gendercodes = array('m' => 'm', 'f' => 'f', '' => 'u');
-    $minoritycodes = array('y' => 'mn');
+  }
 
-    // Clear out all of the values in preparation for new values.
-    foreach (array(
-               'ari_fac',
-               'ari_stu',
-               'pui_fac',
-               'pui_stu',
-               'msi_fac',
-               'msi_stu',
-               'k12i_tec',
-               'k12i_stud',
-               'k12i_stut',
-               'oth',
-             ) as $prefix) {
-      foreach (array("t", "m", "f", "u", "mn") as $attr) {
-        $field_collection_item->{"field_ercore_ee_{$prefix}_{$attr}"}['und'][0]['value'] = 0;
-      }
-    }
-
-    $highestrow = $worksheet->getHighestRow();
-    // Last filled out row of the template...
-    for ($y = 14; $y <= $highestrow; $y++) {
-      // 14 is the start of the data row; get() function is defined below.
-      $name = $worksheet->getCellByColumnAndRow(1, $y)->getValue();
-      $inst_code = $worksheet->getCellByColumnAndRow(2, $y)->getValue();
-      $inst = _ercore_get($instcodes, $inst_code);
-      $personcodes = $inst == 'k12i' ? $personcodes1 : $personcodes2;
-      $person_code = $worksheet->getCellByColumnAndRow(3, $y)->getValue();
-      $person = _ercore_get($personcodes, $person_code);
-      $gender = _ercore_get($gendercodes, strtolower($worksheet->getCellByColumnAndRow(4, $y)
-        ->getValue()));
-      $minority = _ercore_get($minoritycodes, strtolower($worksheet->getCellByColumnAndRow(5, $y)
-        ->getValue()));
-      $paid = strtolower($worksheet->getCellByColumnAndRow(6, $y)
-        ->getValue());
-      // Has no bearing on this form.
-      if (!$name && !$inst_code && !$person_code && !$minority) {
-        // If the information dries up, just assume this is the end of the list.
-        break;
-      }
-
-      // We can't count paid participants...
-      if (substr($paid, 0, 1) != 'y') {
-        // Someone might put in "yes" and not just "y"...
-        if (!$person || !$inst) {
-          $col = "oth";
-        }
-        else {
-          $col = $inst . '_' . $person;
-        }
-
-        if ($gender) {
-          $field_collection_item->{"field_ercore_ee_{$col}_{$gender}"}['und'][0]['value']++;
-        }
-        else {
-          $field_collection_item->{"field_ercore_ee_{$col}_u"}['und'][0]['value']++;
-        }
-        if ($minority) {
-          $field_collection_item->{"field_ercore_ee_{$col}_mn"}['und'][0]['value']++;
-        }
-      }
-    }
-    $vars = $file->filename;
-
-    watchdog('ercore', $vars, WATCHDOG_INFO);
-    drupal_set_message(t('The attachment was processed and the External
-    Engagements have been filled out. Please verify that the counts are
-    correct.'));*/
+  /**
+   * Save engagement entity.
+   *
+   * @param array $subform
+   *   Engagement data to be saved.
+   * @param \Drupal\ercore_event\ErcoreEngagement $values
+   *   The values parsed from the excel file.
+   *
+   * @return array
+   *   Return modified array.
+   */
+  private function setEngagementCounts(array $subform, ErcoreEngagement $values) {
+    $subform['field_ercore_ee_ari_fac_f'][0]['value'] = $values->ariFacF;
+    $subform['field_ercore_ee_ari_fac_m'][0]['value'] = $values->ariFacM;
+    $subform['field_ercore_ee_ari_fac_mn'][0]['value'] = $values->ariFacMn;
+    $subform['field_ercore_ee_ari_fac_u'][0]['value'] = $values->ariFacU;
+    $subform['field_ercore_ee_ari_stu_f'][0]['value'] = $values->ariStuF;
+    $subform['field_ercore_ee_ari_stu_m'][0]['value'] = $values->ariStuM;
+    $subform['field_ercore_ee_ari_stu_mn'][0]['value'] = $values->ariStuMn;
+    $subform['field_ercore_ee_ari_stu_u'][0]['value'] = $values->ariStuU;
+    $subform['field_ercore_ee_pui_fac_f'][0]['value'] = $values->puiFacF;
+    $subform['field_ercore_ee_pui_fac_m'][0]['value'] = $values->puiFacM;
+    $subform['field_ercore_ee_pui_fac_mn'][0]['value'] = $values->puiFacMn;
+    $subform['field_ercore_ee_pui_fac_u'][0]['value'] = $values->puiFacU;
+    $subform['field_ercore_ee_pui_stu_f'][0]['value'] = $values->puiStuF;
+    $subform['field_ercore_ee_pui_stu_m'][0]['value'] = $values->puiStuM;
+    $subform['field_ercore_ee_pui_stu_mn'][0]['value'] = $values->puiStuMn;
+    $subform['field_ercore_ee_pui_stu_u'][0]['value'] = $values->puiStuU;
+    $subform['field_ercore_ee_msi_fac_f'][0]['value'] = $values->msiFacF;
+    $subform['field_ercore_ee_msi_fac_m'][0]['value'] = $values->msiFacM;
+    $subform['field_ercore_ee_msi_fac_mn'][0]['value'] = $values->msiFacMn;
+    $subform['field_ercore_ee_msi_fac_u'][0]['value'] = $values->msiFacU;
+    $subform['field_ercore_ee_msi_stu_f'][0]['value'] = $values->msiStuF;
+    $subform['field_ercore_ee_msi_stu_m'][0]['value'] = $values->msiStuM;
+    $subform['field_ercore_ee_msi_stu_mn'][0]['value'] = $values->msiStuMn;
+    $subform['field_ercore_ee_msi_stu_u'][0]['value'] = $values->msiStuU;
+    $subform['field_ercore_ee_other_f'][0]['value'] = $values->otherF;
+    $subform['field_ercore_ee_other_m'][0]['value'] = $values->otherM;
+    $subform['field_ercore_ee_other_mn'][0]['value'] = $values->otherMn;
+    $subform['field_ercore_ee_other_u'][0]['value'] = $values->otherU;
+    $subform['field_ercore_ee_k12_dir_f'][0]['value'] = $values->k12DirF;
+    $subform['field_ercore_ee_k12_dir_m'][0]['value'] = $values->k12DirM;
+    $subform['field_ercore_ee_k12_dir_mn'][0]['value'] = $values->k12DirMn;
+    $subform['field_ercore_ee_k12_dir_u'][0]['value'] = $values->k12DirU;
+    $subform['field_ercore_ee_k12_tch_f'][0]['value'] = $values->k12TchF;
+    $subform['field_ercore_ee_k12_tch_m'][0]['value'] = $values->k12TchM;
+    $subform['field_ercore_ee_k12_tch_mn'][0]['value'] = $values->k12TchMn;
+    $subform['field_ercore_ee_k12_tch_u'][0]['value'] = $values->k12TchU;
+    $subform['field_ercore_ee_k12_ttr_f'][0]['value'] = $values->k12TtrF;
+    $subform['field_ercore_ee_k12_ttr_m,'][0]['value'] = $values->k12TtrM;
+    $subform['field_ercore_ee_k12_ttr_mn'][0]['value'] = $values->k12TtrMn;
+    $subform['field_ercore_ee_k12_ttr_u'][0]['value'] = $values->k12TtrU;
+    return $subform;
   }
 
 }

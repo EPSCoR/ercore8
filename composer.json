@@ -21,6 +21,7 @@
     "drupal/features": "^3.5",
     "drupal/field_group": "^1.0",
     "drupal/field_permissions": "^1.0@beta",
+    "drupal/libraries": "^3.0@alpha",
     "drupal/name": "^1.0@beta",
     "drupal/paragraphs": "^1.2",
     "drupal/pathauto": "^1.0",
@@ -30,7 +31,8 @@
     "drupal/select_or_other": "^1.0@alpha",
     "drupal/semanticviews": "^2.2",
     "drupal/views_data_export": "^1.0@alpha",
-    "drupal/views_field_view": "^1.0@beta"
+    "drupal/views_field_view": "^1.0@beta",
+    "phpoffice/phpexcel": "1.7",
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

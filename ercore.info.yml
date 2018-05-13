@@ -21,5 +21,7 @@ dependencies:
   - ercore_presentation
   - ercore_proposal
   - ercore_summary_views
+  - libraries
+  - phpexcel
 project: ercore
 package: ERCore

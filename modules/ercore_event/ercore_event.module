@@ -65,7 +65,7 @@ function ercore_event_node_form_submit($form, FormStateInterface $form_state) {
   $entity = $form_state->getFormObject()->getEntity();
   $engagement = $entity->get('field_ercore_ev_engagement')->getValue();
   if (!empty($engagement)) {
-   /* Drupal::service('ercore_event.ercore_import_engagement')
-      ->processEngagement($engagement);*/
+    Drupal::service('ercore_event.ercore_import_engagement')
+      ->processEngagement($engagement);
   }
 }
