@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Url;
 
 require_once drupal_get_path('module', 'ercore_event') . '/includes/ercore_event_computed.inc';
 
@@ -66,6 +67,8 @@ function ercore_event_form_node_form_alter(&$form, FormStateInterface $form_stat
       }
     }
   }
+  $file_path = '/' . drupal_get_path('module', 'ercore_event') . '/files/External_Engagement_Reporting_Sheet.xls';
+  $form['field_ercore_ev_engagement']['widget'][0]['subform']['field_ercore_ee_excel']['#prefix'] = '<p>Download the <a href="' . $file_path . '">External Engagement Reporting Sheet</a> and fill out the data at your event. Once the sheet is completed you may then upload the excel sheet below, and the system will do the rest</p>';
 }
 
 /**
