@@ -1,11 +1,8 @@
-uuid: ae07821e-c130-48fc-a4f3-c06c4cf41cb3
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-_core:
-  default_config_hash: pqTAflmZHZAF180ouJb6mwUjJwU9ujMk6lCD24JNYuo
 id: paragraph.ercore_full_paragraph
 label: 'Full Paragraph'
 targetEntityType: paragraph

@@ -19,7 +19,7 @@ settings:
     middle: true
     family: true
     generational: true
-    credentials: true
+    credentials: false
   minimum_components:
     given: true
     family: true

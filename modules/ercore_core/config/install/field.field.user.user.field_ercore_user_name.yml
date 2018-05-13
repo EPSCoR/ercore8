@@ -14,14 +14,7 @@ label: Name
 description: ''
 required: true
 translatable: false
-default_value:
-  -
-    title: ''
-    given: ''
-    middle: ''
-    family: ''
-    generational: ''
-    credentials: ''
+default_value: {  }
 default_value_callback: ''
 settings:
   size:
@@ -37,7 +30,7 @@ settings:
     middle: description
     family: description
     generational: description
-    credentials: description
+    credentials: none
   field_type:
     title: select
     given: text
