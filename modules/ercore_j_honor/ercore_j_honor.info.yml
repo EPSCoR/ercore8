@@ -6,6 +6,7 @@ dependencies:
   - better_exposed_filters
   - csv_serialization
   - datetime
+  - ercore_component
   - ercore_core
   - ercore_institution
   - ercore_j_highlight

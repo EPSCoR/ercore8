@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_j_honor.body
+    - field.field.node.ercore_j_honor.field_ercore_components
     - field.field.node.ercore_j_honor.field_ercore_hn_date
     - field.field.node.ercore_j_honor.field_ercore_organizer
     - field.field.node.ercore_j_honor.field_ercore_programs
@@ -18,7 +19,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 5
     settings:
       rows: 9
       summary_rows: 3
@@ -27,9 +28,15 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_ercore_components:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_ercore_hn_date:
     weight: 1
@@ -54,7 +61,7 @@ content:
     region: content
   path:
     type: path
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -62,21 +69,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     third_party_settings: {  }
     region: content
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 11
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     third_party_settings: {  }
     region: content
   title:
@@ -89,7 +96,7 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
