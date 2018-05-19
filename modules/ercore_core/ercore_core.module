@@ -159,32 +159,32 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
     ];
 
     // Data collection.
-    $form['field_er_type_of_data']['#states'] = [
+    $form['field_ercore_user_data_desc']['#states'] = [
       'visible' => [
-        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+        ':input[name="field_ercore_user_collecting[value]"]' => ['checked' => TRUE],
       ],
       'required' => [
-        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+        ':input[name="field_ercore_user_collecting[value]"]' => ['checked' => TRUE],
       ],
     ];
-    $form['field_er_data_frequency']['#states'] = [
+    $form['field_ercore_user_data_ongoing']['#states'] = [
       'visible' => [
-        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+        ':input[name="field_ercore_user_collecting[value]"]' => ['checked' => TRUE],
       ],
     ];
-    $form['ffield_er_data_submit_date']['#states'] = [
+    $form['field_ercore_user_data_date']['#states'] = [
       'visible' => [
-        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+        ':input[name="field_ercore_user_collecting[value]"]' => ['checked' => TRUE],
       ],
     ];
-    $form['field_er_has_this_user']['#states'] = [
+    $form['field_ercore_user_data_mgr']['#states'] = [
       'visible' => [
-        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+        ':input[name="field_ercore_user_collecting[value]"]' => ['checked' => TRUE],
       ],
     ];
-    $form['field_er_data_url']['#states'] = [
+    $form['field_ercore_user_data_url']['#states'] = [
       'visible' => [
-        ':input[name="field_er_collecting_data_bool"]' => ['value' => 1],
+        ':input[name="field_ercore_user_collecting[value]"]' => ['checked' => TRUE],
       ],
     ];
     // Primary email.
