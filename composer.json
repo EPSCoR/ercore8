@@ -26,24 +26,15 @@
     "drupal/paragraphs": "^1.2",
     "drupal/pathauto": "^1.0",
     "drupal/pathologic": "1.x-dev",
-    "drupal/phpexcel": "^3.0",
     "drupal/realname": "^1.0@RC",
     "drupal/select_or_other": "^1.0@alpha",
     "drupal/semanticviews": "^2.2",
     "drupal/views_data_export": "^1.0@alpha",
-    "drupal/views_field_view": "^1.0@beta",
-    "phpoffice/phpexcel": "1.7",
+    "drupal/views_field_view": "^1.0@beta"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
     "sort-packages": true
-  },
-  "extra": {
-    "patches": {
-      "drupal/datetime_range": {
-        "Fix date ranges": "https://www.drupal.org/files/issues/2794481-52.patch"
-      }
-    }
   }
 }

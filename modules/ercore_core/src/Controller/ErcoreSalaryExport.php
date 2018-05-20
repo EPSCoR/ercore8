@@ -88,4 +88,19 @@ class ErcoreSalaryExport {
 
   }
 
+  /**
+   * Uses PHPExcel to parse .xls file.
+   *
+   * @return array
+   *   Returns data array from Excel file.
+   */
+  private function parseFile() {
+    $file_uri = drupal_get_path('module', 'ercore_core') . '/files';
+    $data = phpexcel_import($file_uri);
+    if (array_keys($data[0][0])[2] === 'External Engagement Reporting Sheet') {
+      return array_slice($data[0], 12);
+    }
+    return $data;
+  }
+
 }
