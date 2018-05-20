@@ -5,7 +5,7 @@
  * Hook implementations for the ERCore module.
  */
 
-use Drupal\Core\Form\FormStateInterface;
+use Drupal\ercore\ErcoreStartDate;
 
 /**
  * Description.
@@ -59,4 +59,19 @@ function ercore_theme_registry_alter(&$theme_registry) {
  */
 function ercore_page_attachments(array &$attachments) {
   $attachments['#attached']['library'][] = 'ercore/ercore-style';
+}
+
+/**
+ * Get filter dates.
+ *
+ * @return array
+ *   Array of date objects.
+ */
+function ercore_get_filter_dates() {
+  $dates = \Drupal::service('user.private_tempstore')
+    ->get('ercore_core');
+  return [
+    'start' => $dates->get('ercore_value_start'),
+    'end' => $dates->get('ercore_value_end'),
+  ];
 }

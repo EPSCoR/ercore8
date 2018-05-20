@@ -4,14 +4,14 @@ namespace Drupal\ercore_core\Form;
 
 /**
  * @file
- * Contains Drupal\ercore\Form\ERCoreTableA.
+ * Contains Drupal\ercore_core\Form\ERCoreTableA.
  */
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\ercore\ErcoreStartDate;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\ercore_core\ErcoreSalary;
 
 /**
  * Class ERCoreTableA.
@@ -35,6 +35,7 @@ class ERCoreTableA extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $url = Url::fromRoute('ercore_core.salary_support_export');
     $link = Link::fromTextAndUrl('Download NSF Table A.', $url);
+    $data = $this->formatResults();
     $form['#attached']['library'][] = 'ercore_core/ercore-core-exports.library';
     $form['date_filter'] = \Drupal::formBuilder()->getForm('Drupal\ercore_core\Form\ERCoreDateFilter');
     $form['data_table'] = [
@@ -43,7 +44,7 @@ class ERCoreTableA extends FormBase {
       '#open' => TRUE,
     ];
     $form['data_table']['description'] = [
-      '#markup' => 'Results will go here.',
+      '#markup' => $data,
     ];
     $form['export_link'] = [
       '#markup' => '<p class="epscor-download">' . $link->toString() . '</p>',
@@ -56,6 +57,20 @@ class ERCoreTableA extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // We don't use this, but the interface requires us to implement it.
+  }
+
+  /**
+   * Format Results.
+   */
+  public function formatResults() {
+    $data = ErcoreSalary::filterUserIds();
+    $results = '';
+    foreach ($data as $result) {
+      $user = '/user/' . $result['id'];
+      $name = Link::fromTextAndUrl($result['name'], Url::fromUserInput($user))->toString()->getGeneratedLink();
+      $results .= '<li>' . $name . '</li>';
+    }
+    return '<ul>' . $results . '</ul>';
   }
 
 }

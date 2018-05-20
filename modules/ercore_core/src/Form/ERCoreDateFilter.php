@@ -48,6 +48,14 @@ class ERCoreDateFilter extends FormBase {
     $filter_type = $this->temp->get('ercore_filter_type');
     $temp_start = $this->temp->get('ercore_filter_start');
     $temp_end = $this->temp->get('ercore_filter_end');
+    $temp_value_start = $this->temp->get('ercore_value_start');
+    if (!isset($temp_value_start)) {
+      $this->temp->set('ercore_value_start', ErcoreStartDate::startUnix());
+    }
+    $temp_value_end = $this->temp->get('ercore_value_end');
+    if (!isset($temp_value_end)) {
+      $this->temp->set('ercore_value_end', ErcoreStartDate::endUnix());
+    }
     if (isset($temp_start)) {
       $start = $temp_start;
     }
@@ -155,16 +163,20 @@ class ERCoreDateFilter extends FormBase {
       $start = $form_state->getValue('start_date');
       if (!empty($start)) {
         $this->temp->set('ercore_filter_start', $form_state->getValue('start_date'));
+        $this->temp->set('ercore_value_start', ErcoreStartDate::dateArgumentToUnix($start));
       }
       else {
         $this->temp->set('ercore_filter_start', ErcoreStartDate::startString());
+        $this->temp->set('ercore_value_start', ErcoreStartDate::startUnix());
       }
       $end = $form_state->getValue('end_date');
       if (!empty($end)) {
         $this->temp->set('ercore_filter_end', $form_state->getValue('end_date'));
+        $this->temp->set('ercore_value_end', ErcoreStartDate::dateArgumentToUnix($end));
       }
       else {
         $this->temp->set('ercore_filter_end', ErcoreStartDate::endString());
+        $this->temp->set('ercore_value_end', ErcoreStartDate::endUnix());
       }
     }
     else {
@@ -194,6 +206,8 @@ class ERCoreDateFilter extends FormBase {
     $this->temp->set('ercore_chosen_range', 0);
     $this->temp->set('ercore_filter_start', ErcoreStartDate::startString());
     $this->temp->set('ercore_filter_end', ErcoreStartDate::endString());
+    $this->temp->set('ercore_value_start', ErcoreStartDate::startUnix());
+    $this->temp->set('ercore_value_end', ErcoreStartDate::endUnix());
     drupal_set_message('Filter reset.');
   }
 

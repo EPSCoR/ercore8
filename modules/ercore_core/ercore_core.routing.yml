@@ -123,7 +123,7 @@ ercore_core.salary_support:
 ercore_core.salary_support_export:
   path: 'ercore/admin-views/salary-support/export'
   defaults:
-    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreExportController::ercoreSalaryExport'
+    _controller: '\Drupal\ercore_core\Controller\ERCoreSalaryExport::ExportExcel'
     _title: 'NSF Table A - Salary Support'
   requirements:
     _permission: 'access ercore excel sheets'

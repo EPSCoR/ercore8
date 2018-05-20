@@ -114,23 +114,23 @@ class ErcoreStartDate {
   }
 
   /**
-   * Returns end date in Unix format.
-   *
-   * @returns int
-   *   Returns unix timestamp formatted end date, one year from today.
-   */
-  public static function endDateUnix() {
-    return strtotime(date(self::$argumentFormat, time()) . " + 365 day");
-  }
-
-  /**
    * Returns end date as DrupalDateTime.
    *
    * @returns DrupalDateTime
    *   Returns DrupalDateTime end date, one year from today.
    */
   public static function endDate() {
-    return DrupalDateTime::createFromTimestamp(self::endDateUnix());
+    return DrupalDateTime::createFromTimestamp(self::endUnix());
+  }
+
+  /**
+   * Returns end date in Unix format.
+   *
+   * @returns int
+   *   Returns unix timestamp formatted end date, one year from today.
+   */
+  public static function endUnix() {
+    return strtotime(date(self::$argumentFormat, time()) . " + 365 day");
   }
 
   /**
@@ -366,6 +366,26 @@ class ErcoreStartDate {
   }
 
   /**
+   * Generates an array of reporting periods in Unix format.
+   *
+   * @return array
+   *   Returns select list array for date comparisons.
+   */
+  public static function ercoreSelectListUnix() {
+    // Returns the list of available date ranges.
+    $ranges = self::ercoreGetReportingRanges();
+    // A reporting period selected or default.
+    $select_list[0] = self::startEndDatesUnix();
+    foreach ($ranges as $key => $value) {
+      $select_list[] = [
+        'start' => $value[0],
+        'end' => $value[1],
+      ];
+    }
+    return $select_list;
+  }
+
+  /**
    * Generates a date ranges of reporting period. (ercore-accomplishments.inc).
    *
    * @return array
@@ -397,7 +417,6 @@ class ErcoreStartDate {
   public static function generateReportingRange($year) {
     $last_month = self::reportingMonth() - 1;
     $last_day = date('t', strtotime($last_month . '/1/' . $year));
-
     if ($year == self::startYear()) {
       $second = $last_month . '-' . $last_day . '-' . (self::startYear() + 1);
       $second_year = DrupalDateTime::createFromFormat('n-j-Y', $second);
@@ -416,6 +435,16 @@ class ErcoreStartDate {
         $date2->format('U'),
       ];
     }
+  }
+
+  /**
+   * Receives a date in Argument format, returns Unix.
+   *
+   * @return int
+   *   Returns Unix date integer.
+   */
+  public static function dateArgumentToUnix($date) {
+    return DrupalDateTime::createFromFormat(self::$argumentFormat, $date)->format('U');
   }
 
 }

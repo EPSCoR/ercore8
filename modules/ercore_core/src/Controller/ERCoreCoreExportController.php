@@ -31,13 +31,6 @@ class ERCoreCoreExportController extends ControllerBase {
   }
 
   /**
-   * ERCore Salary Support.
-   */
-  public function ercoreSalaryExport() {
-    return ['#markup' => 'Salary export exports go here.'];
-  }
-
-  /**
    * ERCore Participants.
    */
   public function ercoreParticipantExport() {
