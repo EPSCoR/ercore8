@@ -2,7 +2,7 @@
 
 namespace Drupal\ercore_core\Controller;
 
-module_load_include('inc', 'phpexcel');
+use Drupal\ercore_core\ErcoreExcel;
 
 /**
  * Export Salary data.
@@ -95,8 +95,8 @@ class ErcoreSalaryExport {
    *   Returns data array from Excel file.
    */
   private function parseFile() {
-    $file_uri = drupal_get_path('module', 'ercore_core') . '/files';
-    $data = phpexcel_import($file_uri);
+    $file_path = drupal_get_path('module', 'ercore_core') . '/files/Salary-Support.xls';
+    $data = phpexcel_import($file_path);
     if (array_keys($data[0][0])[2] === 'External Engagement Reporting Sheet') {
       return array_slice($data[0], 12);
     }

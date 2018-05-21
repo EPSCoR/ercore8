@@ -132,8 +132,9 @@ class ErcoreEngagement {
     if (!empty($row[6]) && strtoupper($row[6]) === 'Y') {
       return;
     }
-    $row[2] = $row['External Engagement Reporting Sheet'];
-    unset($row['External Engagement Reporting Sheet']);
+    elseif (empty($row[2]) && empty($row[3]) && empty($row[4]) && empty($row[5]) && empty($row[6])) {
+      return;
+    }
     $inst = 'other';
     if (!empty($row[2])) {
       $inst = $this->instCodes[$row[2]];

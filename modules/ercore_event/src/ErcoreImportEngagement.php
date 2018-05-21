@@ -4,6 +4,7 @@ namespace Drupal\ercore_event;
 
 use Drupal\file\Entity\File;
 use Drupal\paragraphs\Entity\Paragraph;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 /**
  * Class ErcoreImportEngagement.
@@ -45,17 +46,23 @@ class ErcoreImportEngagement {
   /**
    * Uses PHPExcel to parse .xls file.
    *
-   * @param int $file_uri
-   *   Field Collection item object to access files and fields.
+   * @param string $file_path
+   *   Receives file path.
    *
    * @return array
    *   Returns data array from Excel file.
    */
-  private function parseFile($file_uri) {
-    module_load_include('inc', 'phpexcel');
-    $data = phpexcel_import($file_uri);
-    if (array_keys($data[0][0])[2] === 'External Engagement Reporting Sheet') {
-      return array_slice($data[0], 12);
+  private function parseFile($file_path) {
+    $type = IOFactory::identify($file_path);
+    /** @var \PhpOffice\PhpSpreadsheet\Reader\BaseReader $reader */
+    $reader = IOFactory::createReader($type);
+    /** @var \PhpOffice\PhpSpreadsheet\Spreadsheet $workbook */
+    $file = $reader->load($file_path);
+    $sheet = $file->getActiveSheet();
+    $title = $sheet->getCellByColumnAndRow(3, 1, FALSE);
+    if ($title->hasValidValue() && $title->getValue() === 'External Engagement Reporting Sheet') {
+      $array = $sheet->toArray();
+      return array_slice($array, 12);
     }
   }
 
