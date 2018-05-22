@@ -20,10 +20,17 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
       ercore_external_engagement: ercore_external_engagement
     target_bundles_drag_drop:
       ercore_external_engagement:
         enabled: true
         weight: 2
+      ercore_collaborator:
+        weight: 4
+        enabled: false
+      ercore_location:
+        weight: 6
+        enabled: false
 field_type: entity_reference_revisions
