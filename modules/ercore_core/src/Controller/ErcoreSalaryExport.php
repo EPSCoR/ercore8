@@ -13,15 +13,8 @@ class ErcoreSalaryExport {
    * Export Excel file for Salary Support.
    */
   public static function exportExcel() {
-    header("Content-Type: application/vnd.ms-excel");
-    header("Content-Disposition: attachment; filename=my_excel_filename.xls");
-    header("Pragma: no-cache");
-    header("Expires: 0");
-
-    flush();
-
-    $spreadsheet = new \PHPExcel();
-
+    ErcoreExcel::index();
+/*
     // Set properties.
     $spreadsheet->getProperties()
       ->setCreator('Test')
@@ -84,7 +77,7 @@ class ErcoreSalaryExport {
 
     ob_end_clean();
     $writer->save('php://output');
-    exit();
+    exit();*/
 
   }
 
