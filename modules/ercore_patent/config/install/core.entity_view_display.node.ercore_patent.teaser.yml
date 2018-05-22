@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.ercore_patent.field_ercore_components
     - field.field.node.ercore_patent.field_ercore_organizer
     - field.field.node.ercore_patent.field_ercore_programs
     - field.field.node.ercore_patent.field_ercore_pt_award
@@ -23,6 +24,14 @@ targetEntityType: node
 bundle: ercore_patent
 mode: teaser
 content:
+  field_ercore_components:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
   field_ercore_organizer:
     type: entity_reference_entity_view
     weight: 1
