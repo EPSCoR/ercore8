@@ -826,7 +826,7 @@ display:
       group_by: true
       css_class: 'ercore-summary ercore-institutions'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1467,7 +1467,7 @@ display:
         context: '0'
         menu_name: ercore-admin-menu
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

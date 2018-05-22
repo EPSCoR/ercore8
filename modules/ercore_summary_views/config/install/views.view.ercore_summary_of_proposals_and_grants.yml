@@ -466,12 +466,11 @@ display:
         - 'config:core.entity_view_display.node.ercore_patent.teaser'
         - 'config:core.entity_view_display.node.ercore_presentation.default'
         - 'config:core.entity_view_display.node.ercore_presentation.full'
-        - 'config:core.entity_view_display.node.ercore_presentation.teaser'
-        - 'config:core.entity_view_display.node.ercore_proposal.full'
-        - 'config:core.entity_view_display.node.ercore_publication.full'
         - 'config:core.entity_view_display.node.ercore_proposal.default'
+        - 'config:core.entity_view_display.node.ercore_proposal.full'
         - 'config:core.entity_view_display.node.ercore_proposal.teaser'
         - 'config:core.entity_view_display.node.ercore_publication.default'
+        - 'config:core.entity_view_display.node.ercore_publication.full'
         - 'config:core.entity_view_display.node.ercore_publication.teaser'
   data_export_1:
     display_plugin: data_export
@@ -1782,7 +1781,6 @@ display:
         - 'config:core.entity_view_display.node.ercore_patent.teaser'
         - 'config:core.entity_view_display.node.ercore_presentation.default'
         - 'config:core.entity_view_display.node.ercore_presentation.full'
-        - 'config:core.entity_view_display.node.ercore_presentation.teaser'
         - 'config:core.entity_view_display.node.ercore_proposal.default'
         - 'config:core.entity_view_display.node.ercore_proposal.full'
         - 'config:core.entity_view_display.node.ercore_proposal.teaser'
