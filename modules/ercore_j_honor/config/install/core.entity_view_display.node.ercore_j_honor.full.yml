@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ercore_j_honor.body
+    - field.field.node.ercore_j_honor.field_ercore_components
     - field.field.node.ercore_j_honor.field_ercore_hn_date
     - field.field.node.ercore_j_honor.field_ercore_organizer
     - field.field.node.ercore_j_honor.field_ercore_programs
@@ -20,10 +21,18 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_components:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
   field_ercore_hn_date:
     weight: 0
     label: hidden
