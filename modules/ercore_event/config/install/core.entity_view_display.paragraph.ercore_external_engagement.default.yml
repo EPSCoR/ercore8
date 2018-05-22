@@ -73,7 +73,7 @@ third_party_settings:
         - field_ercore_ee_t_u
         - field_ercore_ee_t_t
       parent_name: ''
-      weight: 16
+      weight: 1
       format_type: fieldset
       format_settings:
         id: ercore_ee_totals
@@ -84,7 +84,7 @@ third_party_settings:
       children:
         - group_ercore_ee_ari
       parent_name: ''
-      weight: 17
+      weight: 2
       format_type: accordion
       format_settings:
         id: ercore_ee_subtotals
@@ -117,7 +117,7 @@ third_party_settings:
         - field_ercore_ee_other_u
         - field_ercore_ee_other_mn
       parent_name: ''
-      weight: 18
+      weight: 3
       format_type: accordion_item
       format_settings:
         id: ercore_ee_othjer
@@ -136,7 +136,7 @@ third_party_settings:
         - field_ercore_ee_pui_fac_u
         - field_ercore_ee_pui_fac_mn
       parent_name: ''
-      weight: 19
+      weight: 4
       format_type: accordion_item
       format_settings:
         id: ercore_ee_pui
@@ -155,7 +155,7 @@ third_party_settings:
         - field_ercore_ee_msi_stu_u
         - field_ercore_ee_msi_stu_mn
       parent_name: ''
-      weight: 20
+      weight: 5
       format_type: accordion_item
       format_settings:
         id: ercore_ee_msi
@@ -178,7 +178,7 @@ third_party_settings:
         - field_ercore_ee_k12_ttr_u
         - field_ercore_ee_k12_ttr_mn
       parent_name: ''
-      weight: 22
+      weight: 6
       format_type: accordion_item
       format_settings:
         id: ercore_ee_k12
@@ -263,19 +263,9 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     region: content
-  field_ercore_ee_disable_file_alt:
-    weight: 40
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_ercore_ee_estimated:
     type: boolean
-    weight: 15
+    weight: 0
     label: hidden
     settings:
       format: custom
@@ -594,7 +584,7 @@ content:
     type: computed_integer
     region: content
   field_ercore_ee_t_mn:
-    weight: 39
+    weight: 7
     label: above
     settings:
       cache_unit: -1
@@ -640,6 +630,7 @@ content:
 hidden:
   field_ercore_ee_ari_fac_t: true
   field_ercore_ee_ari_stu_t: true
+  field_ercore_ee_disable_file_alt: true
   field_ercore_ee_excel: true
   field_ercore_ee_k12_dir_t: true
   field_ercore_ee_k12_tch_t: true

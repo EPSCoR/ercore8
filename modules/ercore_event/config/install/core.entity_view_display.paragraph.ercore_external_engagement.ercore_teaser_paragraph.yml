@@ -13,6 +13,7 @@ dependencies:
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_mn
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_t
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_ari_stu_u
+    - field.field.paragraph.ercore_external_engagement.field_ercore_ee_disable_file_alt
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_estimated
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_excel
     - field.field.paragraph.ercore_external_engagement.field_ercore_ee_k12_dir_f
@@ -68,6 +69,16 @@ targetEntityType: paragraph
 bundle: ercore_external_engagement
 mode: ercore_teaser_paragraph
 content:
+  field_ercore_ee_disable_file_alt:
+    type: boolean
+    weight: 42
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_ercore_ee_estimated:
     type: boolean
     weight: 5
