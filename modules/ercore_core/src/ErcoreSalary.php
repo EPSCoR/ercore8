@@ -62,6 +62,14 @@ class ErcoreSalary {
       if (!$user->get('field_ercore_user_start')->isEmpty()) {
         $user_start = $user->get('field_ercore_user_start')->getValue();
         $user_end = $user->get('field_ercore_user_end')->getValue();
+        $institution = $user
+          ->get('field_ercore_user_partic_inst')
+          ->first()
+          ->get('entity')
+          ->getTarget()
+          ->getValue();
+        $institution_id = $institution->id();
+        $institution_name = $institution->getTitle();
         $name = $user->getUsername();
         $realname = $user->get('field_ercore_user_name');
         if (!$realname->isEmpty()) {
@@ -77,6 +85,8 @@ class ErcoreSalary {
         $users[$id] = [
           'id' => $id,
           'name' => $name,
+          'institution_id' => $institution_id,
+          'institution' => $institution_name,
           'start' => ErcoreStartDate::dateArgumentToUnix($user_start[0]['value']),
           'end' => $user_end,
         ];
@@ -98,7 +108,7 @@ class ErcoreSalary {
     foreach ($users as $uid => $user) {
       if (($user['start'] <= $dates['end'] && $user['end'] >= $dates['start'])
       || ($user['start'] <= $dates['end'] && empty($user['end']))) {
-        $filtered[] = $user;
+        $filtered[$user['institution']][] = $user;
       }
     }
     return $filtered;

@@ -65,10 +65,18 @@ class ERCoreTableA extends FormBase {
   public function formatResults() {
     $data = ErcoreSalary::filterUserIds();
     $results = '';
-    foreach ($data as $result) {
-      $user = '/user/' . $result['id'];
-      $name = Link::fromTextAndUrl($result['name'], Url::fromUserInput($user))->toString()->getGeneratedLink();
-      $results .= '<li>' . $name . '</li>';
+    foreach ($data as $name => $institution) {
+      $results .= '<li><strong>' . $name . '</strong><ul>';
+      foreach ($institution as $result) {
+        $user = '/user/' . $result['id'];
+        $name = Link::fromTextAndUrl($result['name'], Url::fromUserInput($user))
+          ->toString()
+          ->getGeneratedLink();
+        $results .= '<li>' . $name . '</li>';
+        if (!next($institution)) {
+          $results .= '</ul></li>';
+        }
+      }
     }
     return '<ul>' . $results . '</ul>';
   }
