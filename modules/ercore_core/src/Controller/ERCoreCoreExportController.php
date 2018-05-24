@@ -3,6 +3,7 @@
 namespace Drupal\ercore_core\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\ercore_core\ErcoreExcel;
 
 /**
  * Controller routines for page example routes.
@@ -27,35 +28,72 @@ class ERCoreCoreExportController extends ControllerBase {
    * ERCore Accomplishments.
    */
   public function ercoreAccomplishments() {
-    return ['#markup' => 'Accomplishment exports go here.'];
+    $file_name = 'Report';
+    $file_path = drupal_get_path('module', 'ercore_core') . '/files/Report.xls';
+    $spreadsheet = ErcoreExcel::getFile($file_path);
+    $sheet = $spreadsheet->getActiveSheet();
+    // Modify stuff.
+    ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
 
+  /**
+   * ERCore Collaborations.
+   */
+  public function ercoreSalaryExport() {
+    $file_name = 'Salary-Support';
+    $file_path = drupal_get_path('module', 'ercore_core') . '/files/Salary-Support.xls';
+    $spreadsheet = ErcoreExcel::getFile($file_path);
+    $sheet = $spreadsheet->getActiveSheet();
+    // Modify stuff.
+    ErcoreExcel::returnFile($file_name, $spreadsheet);
+  }
+  
   /**
    * ERCore Participants.
    */
   public function ercoreParticipantExport() {
-    return ['#markup' => 'Participant export exports go here.'];
+    $file_name = 'Participants';
+    $file_path = drupal_get_path('module', 'ercore_core') . '/files/Participants.xls';
+    $spreadsheet = ErcoreExcel::getFile($file_path);
+    $sheet = $spreadsheet->getActiveSheet();
+    // Modify stuff.
+    ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
 
   /**
    * ERCore Collaborations.
    */
   public function ercoreCollaborationExport() {
-    return ['#markup' => 'Collaborations export exports go here.'];
+    $file_name = 'Collaborations';
+    $file_path = drupal_get_path('module', 'ercore_core') . '/files/Collaborations.xls';
+    $spreadsheet = ErcoreExcel::getFile($file_path);
+    $sheet = $spreadsheet->getActiveSheet();
+    // Modify stuff.
+    ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
 
   /**
    * ERCore Engagements.
    */
   public function ercoreEngagementExport() {
-    return ['#markup' => 'Engagements export exports go here.'];
+    $file_name = 'External-Engagement';
+    $file_path = drupal_get_path('module', 'ercore_core') . '/files/External-Engagement.xls';
+    $spreadsheet = ErcoreExcel::getFile($file_path);
+    $sheet = $spreadsheet->getActiveSheet();
+    // Modify stuff.
+    ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
 
   /**
    * ERCore Outputs.
    */
-  public function ercoreOutputExport() {
-    return ['#markup' => 'Outputs export exports go here.'];
+  public function ercoreOutputsExport() {
+    $file_name = 'Outputs';
+    $file_path = drupal_get_path('module', 'ercore_core') . '/files/Outputs.xls';
+    $spreadsheet = ErcoreExcel::getFile($file_path);
+    $sheet = $spreadsheet->getActiveSheet();
+    // Modify stuff.
+    ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
 
 }
