@@ -33,7 +33,16 @@ class ERCoreCoreExportController extends ControllerBase {
     $file_name = 'Report';
     $file_path = drupal_get_path('module', 'ercore_core') . '/files/Report.xls';
     $spreadsheet = ErcoreExcel::getFile($file_path);
-    $sheet = $spreadsheet->getActiveSheet();
+    $spreadsheet->setActiveSheetIndexByName('A - Salary Support');
+    $spreadsheet = self::ercoreSalaryData($spreadsheet);
+    /*"
+string(16) "B - Participants"
+string(18) "C - Collaborations"
+string(23) "D - External Engagement"
+string(11) "E - Outputs"
+string(16) "F - Expenditures"
+string(16) "G - Cost sharing"
+string(21) "H - Leveraged Support"*/
     // Modify stuff.
     ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
