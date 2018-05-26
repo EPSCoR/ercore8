@@ -7,7 +7,7 @@ use Drupal\ercore\ercoreStartDate;
 /**
  * Class defines node export object.
  */
-class ErcoreCollaboration {
+class ErcoreCollaborations {
   public $type = '';
   public $withinInst = '0';
   public $withinColl = '0';

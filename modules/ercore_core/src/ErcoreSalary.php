@@ -71,6 +71,11 @@ class ErcoreSalary {
         $institution_id = $institution->id();
         $institution_name = $institution->getTitle();
         $name = $user->getUsername();
+        $department = '';
+        if (!$user->get('field_ercore_user_department')->isEmpty()) {
+          $department_value = $user->get('field_ercore_user_department')->first()->getValue();
+          $department = $department_value['value'];
+        }
         $realname = $user->get('field_ercore_user_name');
         if (!$realname->isEmpty()) {
           $real = $realname->getValue();
@@ -87,6 +92,7 @@ class ErcoreSalary {
           'name' => $name,
           'institution_id' => $institution_id,
           'institution' => $institution_name,
+          'department' => $department,
           'start' => ErcoreStartDate::dateArgumentToUnix($user_start[0]['value']),
           'end' => $user_end,
         ];
