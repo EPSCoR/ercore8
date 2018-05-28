@@ -68,7 +68,7 @@ class ERCoreTableB extends FormBase {
     $results = '';
     foreach ($data as $institution) {
       $results .= '<table class="ercore-table-b"><caption>' . $institution['name'] . '</caption>';
-      $results .= '<thead><tr><th>Senior Project Role</th><th>Total Individuals</th><th>Male</th><th>Female</th><th>Black or African American</th><th>Hispanic</th><th>Other Ethnicity</th><th>Disabilities</th><th>New Hires*</th> </tr></thead><tbody>';
+      $results .= '<thead><tr><th>Senior Project Role</th><th>Total Individuals</th><th>Male</th><th>Female</th><th>Black or African American</th><th>Hispanic</th><th>Other Ethnicity</th><th>Disabilities</th><th>New Hires*</th></tr></thead><tbody>';
       foreach ($institution['data'] as $row) {
         $results .= '<tr><th>' . $row->name . '</th>';
         $results .= '<td>' . $row->total . '</td>';
@@ -87,11 +87,9 @@ class ERCoreTableB extends FormBase {
         }
         if (!next($institution['data'])) {
           if ($institution['name'] === 'Totals') {
-            $results .= '<tr><th>Advisory Board(s)**</th><td>0</td><td>0</td><<td>0</td>/<td>0</td>t<td>0</td>r<td>0</td>><td>0</td><<td>0</td>/table>';
+            $results .= '<tr><th>Advisory Board(s)**</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>';
           }
-          else {
-            $results .= '</table>';
-          }
+          $results .= '</tbody></table>';
         }
       }
     }

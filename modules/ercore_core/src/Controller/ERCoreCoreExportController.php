@@ -36,8 +36,9 @@ class ERCoreCoreExportController extends ControllerBase {
     $spreadsheet = ErcoreExcel::getFile($file_path);
     $spreadsheet->setActiveSheetIndexByName('A - Salary Support');
     $spreadsheet = self::ercoreSalaryData($spreadsheet);
+    $spreadsheet->setActiveSheetIndexByName('B - Participants');
+    $spreadsheet = self::ercoreParticipantData($spreadsheet);
     /*"
-string(16) "B - Participants"
 string(18) "C - Collaborations"
 string(23) "D - External Engagement"
 string(11) "E - Outputs"
@@ -180,8 +181,8 @@ string(21) "H - Leveraged Support"*/
     $spreadsheet->getActiveSheet()
       ->removeRow($row)
       ->removeRow($row);
-    $advisory = [0, 0, 0, 0, 0, 0, 0, 0];
-    $spreadsheet->getActiveSheet()->fromArray($advisory, NULL, 'C' . ($row + 1));
+    $advisory = ['0', '0', '0', '0', '0', '0', '0', '0'];
+    $spreadsheet->getActiveSheet()->fromArray($advisory, NULL, 'C' . $row);
     return $spreadsheet;
   }
 
