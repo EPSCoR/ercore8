@@ -9,26 +9,6 @@ use Drupal\ercore\ErcoreStartDate;
  * Class defines export object.
  */
 class ErcoreSalary {
-  /**
-   * All users with salary support checked.
-   *
-   * @var array
-   */
-  public $allIds = [];
-
-  /**
-   * Filtered users with salary support checked.
-   *
-   * @var array
-   */
-  public $filteredIds = [];
-
-  /**
-   * Filter dates to use for exports.
-   *
-   * @var array
-   */
-  public $range = [];
 
   /**
    * Constructor.

@@ -3,3 +3,10 @@ p.epscor-download {
     font-style: italic;
     margin-top: 24px;
 }
+table.ercore-table-b caption {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+table td.grayed {
+    background-color: #999;
+}

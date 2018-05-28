@@ -4,6 +4,7 @@ namespace Drupal\ercore_core\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\ercore_core\ErcoreExcel;
+use Drupal\ercore_core\ErcoreParticipantBuild;
 use Drupal\ercore_core\ErcoreSalary;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
@@ -48,7 +49,7 @@ string(21) "H - Leveraged Support"*/
   }
 
   /**
-   * ERCore Collaborations.
+   * ERCore Collaborations - Table A.
    */
   public function ercoreSalaryExport() {
     $file_name = 'Salary-Support';
@@ -58,7 +59,7 @@ string(21) "H - Leveraged Support"*/
   }
 
   /**
-   * Process Salary Data.
+   * Process Salary Data - Table A.
    *
    * @param \PhpOffice\PhpSpreadsheet\Spreadsheet $spreadsheet
    *   Receives template for data to be added to.
@@ -104,7 +105,7 @@ string(21) "H - Leveraged Support"*/
       $spreadsheet->getActiveSheet()
         ->getStyle('L' . $row)->getFill()->getStartColor()->setARGB('D3D3D3');
       $spreadsheet->getActiveSheet()
-        ->setCellValue('A' . ($row), 'Total for ' . $university);
+        ->setCellValue('A' . $row, 'Total for ' . $university);
       $row++;
     }
     $spreadsheet->getActiveSheet()
@@ -114,19 +115,78 @@ string(21) "H - Leveraged Support"*/
   }
 
   /**
-   * ERCore Participants.
+   * ERCore Participants - Table B.
    */
   public function ercoreParticipantExport() {
     $file_name = 'Participants';
     $file_path = drupal_get_path('module', 'ercore_core') . '/files/Participants.xls';
     $spreadsheet = ErcoreExcel::getFile($file_path);
-    $sheet = $spreadsheet->getActiveSheet();
-    // Modify stuff.
+    $spreadsheet = self::ercoreParticipantData(ErcoreExcel::getFile($file_path));
     ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
 
   /**
-   * ERCore Collaborations.
+   * Process Participant Data - Table B.
+   *
+   * @param \PhpOffice\PhpSpreadsheet\Spreadsheet $spreadsheet
+   *   Receives template for data to be added to.
+   *
+   * @return \PhpOffice\PhpSpreadsheet\Spreadsheet
+   *   Return spreadsheet with data.
+   */
+  public function ercoreParticipantData(Spreadsheet $spreadsheet) {
+    $institutions = ErcoreParticipantBuild::getData();
+    $row = 4;
+    $row_count = count($institutions) * 7;
+    $spreadsheet->getActiveSheet()->insertNewRowBefore($row + 1, $row_count);
+    foreach ($institutions as $institution) {
+      $spreadsheet->getActiveSheet()
+        ->mergeCells('A' . $row . ':A' . ($row + 6));
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('A' . $row, $institution['name']);
+      foreach ($institution['data'] as $type) {
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('B' . $row, $type->name);
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('C' . $row, $type->total);
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('D' . $row, $type->male);
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('E' . $row, $type->female);
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('F' . $row, $type->black);
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('G' . $row, $type->hispanic);
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('H' . $row, $type->other);
+        $spreadsheet->getActiveSheet()
+          ->setCellValue('I' . $row, $type->disabled);
+        $roles = ErcoreParticipantBuild::ercoreNoNewValues();
+        if (!in_array($type->name, $roles)) {
+          $spreadsheet->getActiveSheet()
+            ->setCellValue('J' . $row, $type->new);
+        }
+        else {
+          $spreadsheet->getActiveSheet()
+            ->setCellValue('J' . $row, 'n/a');
+          $spreadsheet->getActiveSheet()
+            ->getStyle('J' . $row)->getFill()->setFillType('solid');
+          $spreadsheet->getActiveSheet()
+            ->getStyle('J' . $row)->getFill()->getStartColor()->setARGB('D3D3D3');
+        }
+        $row++;
+      }
+    }
+    $spreadsheet->getActiveSheet()
+      ->removeRow($row)
+      ->removeRow($row);
+    $advisory = [0, 0, 0, 0, 0, 0, 0, 0];
+    $spreadsheet->getActiveSheet()->fromArray($advisory, NULL, 'C' . ($row + 1));
+    return $spreadsheet;
+  }
+
+  /**
+   * ERCore Collaborations - Table C.
    */
   public function ercoreCollaborationExport() {
     $file_name = 'Collaborations';
@@ -138,7 +198,7 @@ string(21) "H - Leveraged Support"*/
   }
 
   /**
-   * ERCore Engagements.
+   * ERCore Engagements - Table D.
    */
   public function ercoreEngagementExport() {
     $file_name = 'External-Engagement';
@@ -150,7 +210,7 @@ string(21) "H - Leveraged Support"*/
   }
 
   /**
-   * ERCore Outputs.
+   * ERCore Outputs - Table E.
    */
   public function ercoreOutputsExport() {
     $file_name = 'Outputs';
