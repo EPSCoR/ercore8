@@ -3,6 +3,7 @@
 namespace Drupal\ercore_core\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\ercore_core\ErcoreCollaborationBuild;
 use Drupal\ercore_core\ErcoreExcel;
 use Drupal\ercore_core\ErcoreParticipantBuild;
 use Drupal\ercore_core\ErcoreSalary;
@@ -38,13 +39,11 @@ class ERCoreCoreExportController extends ControllerBase {
     $spreadsheet = self::ercoreSalaryData($spreadsheet);
     $spreadsheet->setActiveSheetIndexByName('B - Participants');
     $spreadsheet = self::ercoreParticipantData($spreadsheet);
-    /*"
-string(18) "C - Collaborations"
+    $spreadsheet->setActiveSheetIndexByName('C - Collaborations');
+    $spreadsheet = self::ercoreCollaborationData($spreadsheet);
+    /*
 string(23) "D - External Engagement"
-string(11) "E - Outputs"
-string(16) "F - Expenditures"
-string(16) "G - Cost sharing"
-string(21) "H - Leveraged Support"*/
+string(11) "E - Outputs"*/
     // Modify stuff.
     ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
@@ -73,7 +72,8 @@ string(21) "H - Leveraged Support"*/
     $row = 7;
     foreach ($salary_data as $university => $participants) {
       $row_count = count($participants);
-      $spreadsheet->getActiveSheet()->insertNewRowBefore($row + 1, $row_count + 1);
+      $spreadsheet->getActiveSheet()
+        ->insertNewRowBefore($row + 1, $row_count + 1);
       foreach ($participants as $participant) {
         $data_row = [
           '0' => $participant['institution'],
@@ -121,7 +121,6 @@ string(21) "H - Leveraged Support"*/
   public function ercoreParticipantExport() {
     $file_name = 'Participants';
     $file_path = drupal_get_path('module', 'ercore_core') . '/files/Participants.xls';
-    $spreadsheet = ErcoreExcel::getFile($file_path);
     $spreadsheet = self::ercoreParticipantData(ErcoreExcel::getFile($file_path));
     ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
@@ -173,7 +172,10 @@ string(21) "H - Leveraged Support"*/
           $spreadsheet->getActiveSheet()
             ->getStyle('J' . $row)->getFill()->setFillType('solid');
           $spreadsheet->getActiveSheet()
-            ->getStyle('J' . $row)->getFill()->getStartColor()->setARGB('D3D3D3');
+            ->getStyle('J' . $row)
+            ->getFill()
+            ->getStartColor()
+            ->setARGB('D3D3D3');
         }
         $row++;
       }
@@ -192,10 +194,38 @@ string(21) "H - Leveraged Support"*/
   public function ercoreCollaborationExport() {
     $file_name = 'Collaborations';
     $file_path = drupal_get_path('module', 'ercore_core') . '/files/Collaborations.xls';
-    $spreadsheet = ErcoreExcel::getFile($file_path);
-    $sheet = $spreadsheet->getActiveSheet();
-    // Modify stuff.
+    $spreadsheet = self::ercoreCollaborationData(ErcoreExcel::getFile($file_path));
     ErcoreExcel::returnFile($file_name, $spreadsheet);
+  }
+
+  /**
+   * Process Collaboration Data - Table B.
+   *
+   * @param \PhpOffice\PhpSpreadsheet\Spreadsheet $spreadsheet
+   *   Receives template for data to be added to.
+   *
+   * @return \PhpOffice\PhpSpreadsheet\Spreadsheet
+   *   Return spreadsheet with data.
+   */
+  public function ercoreCollaborationData(Spreadsheet $spreadsheet) {
+    $table_rows = ErcoreCollaborationBuild::getData();
+    $row = 5;
+    foreach ($table_rows as $table_row) {
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('B' . $row, $table_row->localInstitutions);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('C' . $row, $table_row->localCollaborators);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('D' . $row, $table_row->domesticInstitutions);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('E' . $row, $table_row->domesticCollaborators);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('F' . $row, $table_row->foreignInstitutions);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('G' . $row, $table_row->foreignCollaborators);
+      $row++;
+    }
+    return $spreadsheet;
   }
 
   /**

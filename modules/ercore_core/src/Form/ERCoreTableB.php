@@ -63,7 +63,6 @@ class ERCoreTableB extends FormBase {
    * Format Results.
    */
   public function formatResults() {
-
     $data = ErcoreParticipantBuild::getData();
     $results = '';
     foreach ($data as $institution) {

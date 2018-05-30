@@ -1,0 +1,147 @@
+<?php
+
+namespace Drupal\ercore_core;
+
+use Drupal\ercore\ercoreStartDate;
+use Drupal\ercore_core\ErcoreCollaboration;
+
+/**
+ * Class ErcoreCollaborationBuild.
+ *
+ * @package Drupal\ercore_core
+ */
+class ErcoreCollaborationBuild {
+
+  /**
+   * Data types which form row headers.
+   *
+   * @return array
+   *   Return array of data types.
+   */
+  public static function dataTypes() {
+    return [
+      'academic' => 'Academic Research Institutions',
+      'undergrad' => 'Primarily Undergraduate Institutions',
+      'black' => 'Historically Black Colleges and Universities',
+      'hispanic' => 'Hispanic Serving Institutions',
+      'tribal' => 'Tribal Colleges and Universities',
+      'lab' => 'National Laboratories',
+      'industry' => 'Industry',
+      'none' => 'None/Other',
+      'totals' => 'Totals',
+    ];
+  }
+
+  /**
+   * Builds data array for participant data block.
+   *
+   * @return array
+   *   Returns array of objects.
+   */
+  public static function buildDataArray() {
+    $dataArray = [];
+    foreach (self::dataTypes() as $key => $type) {
+      $dataArray[$key] = new ErcoreCollaboration();
+      $dataArray[$key]->setName($type);
+    }
+    return $dataArray;
+  }
+
+  /**
+   * Build salary object.
+   *
+   * @return array
+   *   Array of User IDs.
+   */
+  public static function getNodeIds() {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'ercore_collaboration')
+      ->condition('status', 1);
+    return $query->execute();
+  }
+
+  /**
+   * Build salary object.
+   *
+   * @return array
+   *   Array of Users.
+   */
+  public static function getNodes() {
+    $ids = self::getNodeIds();
+    $nodes = [];
+    foreach ($ids as $id) {
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($id);
+      if (!$node->get('field_ercore_collaboration_start')->isEmpty()) {
+        $collaboration_start = $node->get('field_ercore_collaboration_start')->getValue();
+        if (!$node->get('field_ercore_collaboration_end')->isEmpty()) {
+          $end = $node->get('field_ercore_collaboration_end')->getValue();
+          $collaboration_end = ErcoreStartDate::dateArgumentToUnix($end[0]['value']);
+        }
+        else {
+          $collaboration_end = ErcoreStartDate::endUnix();
+        }
+        if (!$node->get('field_ercore_cn_collaborator')->isEmpty()) {
+          $nodes[$id] = [
+            'start' => ErcoreStartDate::dateArgumentToUnix($collaboration_start[0]['value']),
+            'end' => $collaboration_end,
+          ];
+          $externals = $node->get('field_ercore_cn_collaborator')->getValue();
+          foreach ($externals as $external) {
+            $pid = $external['target_id'];
+            $type = '';
+            $category = '';
+            $collaborator = \Drupal::entityTypeManager()
+              ->getStorage('paragraph')
+              ->load($pid);
+            if (!$collaborator->get('field_ercore_cr_inst')->isEmpty()) {
+              $institution = $collaborator->get('field_ercore_cr_inst')->entity;
+              if (!$institution->get('field_ercore_inst_type')->isEmpty()) {
+                $type = $institution->get('field_ercore_inst_type')->value;
+              }
+              if (!$institution->get('field_ercore_inst_category')->isEmpty()) {
+                $category = $institution->get('field_ercore_inst_category')->value;
+              }
+            }
+            $nodes[$id]['data'][$category][$type][] = $pid;
+          }
+        }
+      }
+    }
+    return $nodes;
+  }
+
+  /**
+   * Build salary object.
+   *
+   * @return array
+   *   Array of User IDs.
+   */
+  public static function filterNodeIds() {
+    $dates = ercore_get_filter_dates();
+    $filtered = [];
+    $nodes = self::getNodes();
+    foreach ($nodes as $nid => $node) {
+      if (($node['start'] <= $dates['end'] && $node['end'] >= $dates['start'])
+        || ($node['start'] <= $dates['end'] && empty($node['end']))) {
+        $filtered[$nid] = $node;
+      }
+    }
+    return $filtered;
+  }
+
+  /**
+   * Gets all Participant data.
+   */
+  public static function getData() {
+    $data = self::buildDataArray();
+    $nodes = self::filterNodeIds();
+    foreach ($nodes as $nid => $node) {
+      foreach ($node['data'] as $key => $external) {
+      }
+      $data[$key]->groupData($external);
+      $data['totals']->groupData($external);
+    }
+    return $data;
+  }
+
+}
