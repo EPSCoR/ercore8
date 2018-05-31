@@ -184,6 +184,16 @@ class ErcoreStartDate {
   }
 
   /**
+   * Returns today's date in Unix format.
+   *
+   * @returns int
+   *   Returns unix timestamp formatted date.
+   */
+  public static function todayUnix() {
+    return strtotime(date(self::$argumentFormat, time()));
+  }
+
+  /**
    * Generates start and end dates for views and displays YYYY-MM-DD.
    *
    * @return array

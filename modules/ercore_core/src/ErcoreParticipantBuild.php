@@ -80,7 +80,7 @@ class ErcoreParticipantBuild {
   }
 
   /**
-   * Build salary object.
+   * Get array of User IDs.
    *
    * @return array
    *   Array of User IDs.
@@ -91,7 +91,7 @@ class ErcoreParticipantBuild {
   }
 
   /**
-   * Build salary object.
+   * Build user objects.
    *
    * @return array
    *   Array of Users.
@@ -108,7 +108,13 @@ class ErcoreParticipantBuild {
         }
         if (!empty($role) && $role !== 'evaluation') {
           $user_start = $user->get('field_ercore_user_start')->getValue();
-          $user_end = $user->get('field_ercore_user_end')->getValue();
+          if (!$user->get('field_ercore_user_end')->isEmpty()) {
+            $end_var = $user->get('field_ercore_user_end')->value;
+            $user_end = ErcoreStartDate::dateArgumentToUnix($end_var);
+          }
+          else {
+            $user_end = ErcoreStartDate::endUnix();
+          }
           $institution = $user
             ->get('field_ercore_user_partic_inst')
             ->first()
@@ -120,10 +126,20 @@ class ErcoreParticipantBuild {
           $name = $user->getUsername();
           $hired = '';
           if (!$user->get('field_ercore_user_hired_date')->isEmpty()) {
-            $hired = $user->get('field_ercore_user_hired_date')
-              ->first()
-              ->getValue();
-            $hired = ErcoreStartDate::dateArgumentToUnix($hired['value']);
+            $hired_var = $user->get('field_ercore_user_hired_date')->value;
+            $hired = ErcoreStartDate::dateArgumentToUnix($hired_var);
+          }
+          if (!$user->get('field_ercore_user_doc_act')->isEmpty()) {
+            $doctoral_var = $user->get('field_ercore_user_doc_act')->value;
+            $doctoral = ErcoreStartDate::dateArgumentToUnix($doctoral_var);
+          }
+          if (!$user->get('field_ercore_user_master_act')->isEmpty()) {
+            $masters_var = $user->get('field_ercore_user_master_act')->value;
+            $masters = ErcoreStartDate::dateArgumentToUnix($masters_var);
+          }
+          if (!$user->get('field_ercore_user_under_act')->isEmpty()) {
+            $undergraduate_var = $user->get('field_ercore_user_under_act')->value;
+            $undergraduate = ErcoreStartDate::dateArgumentToUnix($undergraduate_var);
           }
           $department = '';
           if (!$user->get('field_ercore_user_department')->isEmpty()) {
@@ -136,12 +152,6 @@ class ErcoreParticipantBuild {
           if (!$realname->isEmpty()) {
             $real = $realname->getValue();
             $name = implode(' ', array_filter($real[0]));
-          }
-          if (empty($user_end[0]['value'])) {
-            $user_end = ErcoreStartDate::endUnix();
-          }
-          else {
-            $user_end = ErcoreStartDate::dateArgumentToUnix($user_end[0]['value']);
           }
           $leadership = 0;
           if (!$user->get('field_ercore_user_lead_team')->isEmpty()) {
@@ -213,6 +223,10 @@ class ErcoreParticipantBuild {
             'start' => ErcoreStartDate::dateArgumentToUnix($user_start[0]['value']),
             'end' => $user_end,
             'new' => $new,
+            'hired' => $hired,
+            'doctoral' => $doctoral,
+            'masters' => $masters,
+            'undergraduate' => $undergraduate,
           ];
         }
       }
@@ -235,7 +249,7 @@ class ErcoreParticipantBuild {
   }
 
   /**
-   * Build salary object.
+   * Filtered users.
    *
    * @return array
    *   Array of User IDs.

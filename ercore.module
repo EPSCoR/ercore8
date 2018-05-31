@@ -75,3 +75,16 @@ function ercore_get_filter_dates() {
     'end' => $dates->get('ercore_value_end'),
   ];
 }
+
+/**
+ * Get filter dates.
+ *
+ * @return array
+ *   Array of date objects.
+ */
+function ercore_get_cumulative_filter_dates() {
+  return [
+    'start' => ErcoreStartDate::startUnix(),
+    'end' => ErcoreStartDate::todayUnix(),
+  ];
+}

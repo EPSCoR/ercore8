@@ -48,7 +48,7 @@ class ErcoreCollaborationBuild {
   }
 
   /**
-   * Build salary object.
+   * Build Node ID array.
    *
    * @return array
    *   Array of User IDs.
@@ -61,7 +61,7 @@ class ErcoreCollaborationBuild {
   }
 
   /**
-   * Build salary object.
+   * Build data object.
    *
    * @return array
    *   Array of Users.
@@ -111,7 +111,7 @@ class ErcoreCollaborationBuild {
   }
 
   /**
-   * Build salary object.
+   * Filter data by date.
    *
    * @return array
    *   Array of User IDs.
