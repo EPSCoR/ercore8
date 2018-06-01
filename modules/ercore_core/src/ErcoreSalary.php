@@ -87,7 +87,7 @@ class ErcoreSalary {
    * @return array
    *   Array of User IDs.
    */
-  public static function filterUserIds() {
+  public static function filteredUsers() {
     $dates = ercore_get_filter_dates();
     $filtered = [];
     $users = self::getUsers();

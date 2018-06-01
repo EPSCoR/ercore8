@@ -116,7 +116,7 @@ class ErcoreCollaborationBuild {
    * @return array
    *   Array of User IDs.
    */
-  public static function filterNodeIds() {
+  public static function filteredNodes() {
     $dates = ercore_get_filter_dates();
     $filtered = [];
     $nodes = self::getNodes();
@@ -134,7 +134,7 @@ class ErcoreCollaborationBuild {
    */
   public static function getData() {
     $data = self::buildDataArray();
-    $nodes = self::filterNodeIds();
+    $nodes = self::filteredNodes();
     foreach ($nodes as $nid => $node) {
       foreach ($node['data'] as $key => $external) {
       }

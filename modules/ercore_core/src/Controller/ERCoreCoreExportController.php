@@ -4,6 +4,7 @@ namespace Drupal\ercore_core\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\ercore_core\ErcoreCollaborationBuild;
+use Drupal\ercore_core\ErcoreEngagementBuild;
 use Drupal\ercore_core\ErcoreExcel;
 use Drupal\ercore_core\ErcoreOutputs;
 use Drupal\ercore_core\ErcoreParticipantBuild;
@@ -42,10 +43,10 @@ class ERCoreCoreExportController extends ControllerBase {
     $spreadsheet = self::ercoreParticipantData($spreadsheet);
     $spreadsheet->setActiveSheetIndexByName('C - Collaborations');
     $spreadsheet = self::ercoreCollaborationData($spreadsheet);
+    $spreadsheet->setActiveSheetIndexByName('D - External Engagement');
+    $spreadsheet = self::ercoreEngagementsData($spreadsheet);
     $spreadsheet->setActiveSheetIndexByName('E - Outputs');
     $spreadsheet = self::ercoreOutputsData($spreadsheet);
-// "D - External Engagement"
-    // Modify stuff.
     ErcoreExcel::returnFile($file_name, $spreadsheet);
   }
 
@@ -69,7 +70,7 @@ class ERCoreCoreExportController extends ControllerBase {
    *   Return spreadsheet with data.
    */
   public function ercoreSalaryData(Spreadsheet $spreadsheet) {
-    $salary_data = ErcoreSalary::filterUserIds();
+    $salary_data = ErcoreSalary::filteredUsers();
     $row = 7;
     foreach ($salary_data as $university => $participants) {
       $row_count = count($participants);
@@ -235,10 +236,47 @@ class ERCoreCoreExportController extends ControllerBase {
   public function ercoreEngagementExport() {
     $file_name = 'External-Engagement';
     $file_path = drupal_get_path('module', 'ercore_core') . '/files/External-Engagement.xls';
-    $spreadsheet = ErcoreExcel::getFile($file_path);
-    $sheet = $spreadsheet->getActiveSheet();
-    // Modify stuff.
+    $spreadsheet = self::ercoreEngagementsData(ErcoreExcel::getFile($file_path));
     ErcoreExcel::returnFile($file_name, $spreadsheet);
+  }
+
+  /**
+   * Process Engagements Data - Table D.
+   *
+   * @param \PhpOffice\PhpSpreadsheet\Spreadsheet $spreadsheet
+   *   Receives template for data to be added to.
+   *
+   * @return \PhpOffice\PhpSpreadsheet\Spreadsheet
+   *   Return spreadsheet with data.
+   */
+  public function ercoreEngagementsData(Spreadsheet $spreadsheet) {
+    $data = ErcoreEngagementBuild::getData();
+    $types = ErcoreEngagementBuild::dataTypes();
+    foreach ($types as $row => $type) {
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('B' . $row, $data[$type]->ariFac);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('C' . $row, $data[$type]->ariStu);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('D' . $row, $data[$type]->puiFac);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('E' . $row, $data[$type]->puiStu);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('F' . $row, $data[$type]->msiFac);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('G' . $row, $data[$type]->msiStu);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('H' . $row, $data[$type]->k12tch);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('I' . $row, $data[$type]->k12dir);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('J' . $row, $data[$type]->k12ttr);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('K' . $row, $data[$type]->other);
+      $spreadsheet->getActiveSheet()
+        ->setCellValue('L' . $row, $data[$type]->total);
+    }
+    return $spreadsheet;
   }
 
   /**

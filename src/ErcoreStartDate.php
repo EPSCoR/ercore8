@@ -3,7 +3,6 @@
 namespace Drupal\ercore;
 
 use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Core\Render\Element\Link;
 
 /**
  * Class ErcoreStartDate.
@@ -449,6 +448,9 @@ class ErcoreStartDate {
 
   /**
    * Receives a date in Argument format, returns Unix.
+   *
+   * @param string $date
+   *   Receive date to be processed.
    *
    * @return int
    *   Returns Unix date integer.

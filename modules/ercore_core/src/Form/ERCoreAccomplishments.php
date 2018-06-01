@@ -38,12 +38,9 @@ class ERCoreAccomplishments extends FormBase {
     $form['#attached']['library'][] = 'ercore_core/ercore-core-exports.library';
     $form['date_filter'] = \Drupal::formBuilder()->getForm('Drupal\ercore_core\Form\ERCoreDateFilter');
     $form['data_table'] = [
-      '#type' => 'fieldset',
+      '#type' => 'div',
       '#title' => t('Accomplishments Data'),
       '#open' => TRUE,
-    ];
-    $form['data_table']['description'] = [
-      '#markup' => 'Results will go here.',
     ];
     $form['export_link'] = [
       '#markup' => '<p class="epscor-download">' . $link->toString() . '</p>',

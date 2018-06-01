@@ -291,7 +291,7 @@ class ErcoreOutputs {
    * @return array
    *   Array of User IDs.
    */
-  public static function filterPatents(array $data) {
+  public static function filteredPatents(array $data) {
     $nodes = self::getPatents();
     foreach ($nodes as $node) {
       if (!empty($node['licensed'])) {
@@ -319,7 +319,7 @@ class ErcoreOutputs {
    * @return array
    *   Array of User IDs.
    */
-  public static function filterProposals(array $data) {
+  public static function filteredProposals(array $data) {
     $nodes = self::getProposals();
     foreach ($nodes as $node) {
       if ($node['denied'] !== TRUE) {
@@ -367,7 +367,7 @@ class ErcoreOutputs {
    * @return array
    *   Array of User IDs.
    */
-  public static function filterPublications(array $data) {
+  public static function filteredPublications(array $data) {
     $nodes = self::getPublications();
     foreach ($nodes as $node) {
       if ($node['rii'] === '0') {
@@ -391,7 +391,7 @@ class ErcoreOutputs {
    * @return array
    *   Array of User IDs.
    */
-  public static function filterUsers(array $data) {
+  public static function filteredUsers(array $data) {
     $users = ErcoreParticipantBuild::getUsers();
     foreach ($users as $user) {
       $hired = FALSE;
@@ -627,10 +627,10 @@ class ErcoreOutputs {
    */
   public static function getData() {
     $data = self::buildDataArray();
-    $data = self::filterPatents($data);
-    $data = self::filterProposals($data);
-    $data = self::filterPublications($data);
-    $data = self::filterUsers($data);
+    $data = self::filteredPatents($data);
+    $data = self::filteredProposals($data);
+    $data = self::filteredPublications($data);
+    $data = self::filteredUsers($data);
     return $data;
   }
 
