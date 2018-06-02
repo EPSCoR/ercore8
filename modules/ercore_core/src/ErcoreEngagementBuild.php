@@ -234,7 +234,6 @@ class ErcoreEngagementBuild {
   public static function getData() {
     $data_array = self::buildDataArray();
     $engagements = self::getEngagements();
-    ksm($engagements);
     $types = self::dataTypes();
     foreach ($types as $type) {
       $data_array[$type]->ariFac += $engagements[$type]['ari']['fac'];

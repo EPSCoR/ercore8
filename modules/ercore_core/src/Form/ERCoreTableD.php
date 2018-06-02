@@ -43,7 +43,6 @@ class ERCoreTableD extends FormBase {
       '#title' => t('Table D Results'),
       '#open' => TRUE,
     ];
-    $data =
     $form['data_table']['data'] = [
       '#theme' => 'table',
       '#caption' => 'Engagements Data',
