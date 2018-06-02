@@ -35,7 +35,6 @@ class ERCoreTableA extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $url = Url::fromRoute('ercore_core.salary_support_export');
     $link = Link::fromTextAndUrl('Download NSF Table A.', $url);
-    $data = $this->formatResults();
     $form['#attached']['library'][] = 'ercore_core/ercore-core-exports.library';
     $form['date_filter'] = \Drupal::formBuilder()->getForm('Drupal\ercore_core\Form\ERCoreDateFilter');
     $form['data_table'] = [
@@ -43,9 +42,7 @@ class ERCoreTableA extends FormBase {
       '#title' => t('Table A Results'),
       '#open' => TRUE,
     ];
-    $form['data_table']['description'] = [
-      '#markup' => $data,
-    ];
+    $form['data_table']['description'] = $this->formatResults();
     $form['export_link'] = [
       '#markup' => '<p class="epscor-download">' . $link->toString() . '</p>',
     ];
@@ -63,22 +60,23 @@ class ERCoreTableA extends FormBase {
    * Format Results.
    */
   public function formatResults() {
-    $data = ErcoreSalary::filterUserIds();
-    $results = '';
-    foreach ($data as $name => $institution) {
-      $results .= '<li><strong>' . $name . '</strong><ul>';
+    $data = ErcoreSalary::filteredUsers();
+    $results = [];
+    foreach ($data as $title => $institution) {
+      $users = [];
       foreach ($institution as $result) {
         $user = '/user/' . $result['id'];
-        $name = Link::fromTextAndUrl($result['name'], Url::fromUserInput($user))
-          ->toString()
-          ->getGeneratedLink();
-        $results .= '<li>' . $name . '</li>';
-        if (!next($institution)) {
-          $results .= '</ul></li>';
-        }
+        $users[] = Link::fromTextAndUrl($result['name'], Url::fromUserInput($user))
+          ->toString();
       }
+      $results[] = [
+        '#theme' => 'item_list',
+        '#title' => $title,
+        '#list_type' => 'ul',
+        '#items' => $users,
+      ];
     }
-    return '<ul>' . $results . '</ul>';
+    return $results;
   }
 
 }
