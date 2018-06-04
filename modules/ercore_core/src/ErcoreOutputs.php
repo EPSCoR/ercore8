@@ -76,7 +76,7 @@ class ErcoreOutputs {
           'cumulative' => 0,
         ],
       ],
-      'new-hires' => [
+      'hired' => [
         'male' => [
           'current' => 0,
           'cumulative' => 0,
@@ -387,193 +387,128 @@ class ErcoreOutputs {
    *
    * @param array $data
    *   Boolean to identify period or cumulative date range.
+   * @param string $type
+   *   Date value used to separate by graph.
    *
    * @return array
    *   Array of User IDs.
    */
-  public static function filteredUsers(array $data) {
+  public static function filteredUsers(array $data, $type) {
     $users = ErcoreParticipantBuild::getUsers();
     foreach ($users as $user) {
-      $hired = FALSE;
-      $hired_c = FALSE;
-      $dates = [
-        'start' => $user['start'],
-        'end' => $user['end'],
-      ];
-      $postdoc = FALSE;
-      $postdoc_c = FALSE;
-      if (!empty($user['role']) && $user['role'] === 'post-doc') {
-        if (self::outputDateRangeFilter($dates, FALSE) == 1) {
-          $postdoc = TRUE;
-        }
-        if (self::outputDateRangeFilter($dates, TRUE) == 1) {
-          $postdoc_c = TRUE;
-        }
-      }
-      $in = [
-        'American Indian or Alaskan Native',
-        'Black or African American',
-        'Pacific Islander',
-        'Native Hawaiian',
-      ];
-      $minority = FALSE;
-      if (!empty($user['race']) && in_array($user['race'], $in)) {
-        $minority = TRUE;
-      }
-      // Undergraduate.
-      $under = FALSE;
-      $under_c = FALSE;
-      if (!empty($user['undergraduate'])) {
-        if (self::outputDateFilter($user['undergraduate'], FALSE) === 1) {
-          $under = TRUE;
-          $under_c = TRUE;
-        }
-        elseif (self::outputDateFilter($user['undergraduate'], TRUE) === 1) {
-          $under_c = TRUE;
+      $filter_date = NULL;
+      $dates = NULL;
+      $count = FALSE;
+      $count_c = FALSE;
+      if ($type === 'post-doc') {
+        if ($user['role'] === 'post-doc') {
+          $dates = [
+            'start' => $user['start'],
+            'end' => $user['end'],
+          ];
+          if (self::outputDateRangeFilter($dates, FALSE) == 1) {
+            $count = TRUE;
+          }
+          if (self::outputDateRangeFilter($dates, TRUE) == 1) {
+            $count_c = TRUE;
+          }
         }
       }
-      // Masters.
-      $grad = FALSE;
-      $grad_c = FALSE;
-      if (!empty($user['masters'])) {
-        if (self::outputDateFilter($user['masters'], FALSE) === 1) {
-          $grad = TRUE;
-          $grad_c = TRUE;
+      else {
+        if ($type === 'undergraduate' && $user['role'] === 'undergraduate') {
+          $filter_date = $user[$type];
         }
-        elseif (self::outputDateFilter($user['masters'], TRUE) === 1) {
-          $grad_c = TRUE;
+        elseif ($type === 'hired' && ($user['role'] === 'faculty' || $user['role'] === 'post-doc')) {
+          $filter_date = $user[$type];
         }
-      }
-      // Doctoral - also graduate.
-      if (!empty($user['doctoral'])) {
-        if (self::outputDateFilter($user['doctoral'], FALSE) === 1) {
-          $grad = TRUE;
-          $grad_c = TRUE;
+        elseif ($type === 'graduate' && ($user['role'] === 'graduate')) {
+          $filter_date = $user['masters'];
+          if (!empty($user['doctoral'])) {
+            $filter_date = $user['doctoral'];
+          }
         }
-        elseif (self::outputDateFilter($user['doctoral'], TRUE) === 1) {
-          $grad_c = TRUE;
-        }
-      }
-      // New hire.
-      if (!empty($user['hired'])) {
-        if (self::outputDateFilter($user['hired'], FALSE) === 1) {
-          $hired = TRUE;
-          $hired_c = TRUE;
-        }
-        elseif (self::outputDateFilter($user['hired'], TRUE) === 1) {
-          $hired_c = TRUE;
+        if (!empty($filter_date)) {
+          if (self::outputDateFilter($filter_date, FALSE) == 1) {
+            $count = TRUE;
+          }
+          if (self::outputDateFilter($filter_date, TRUE) == 1) {
+            $count_c = TRUE;
+          }
         }
       }
-      // Male.
-      if ($user['gender'] === 'male') {
-        if ($hired === TRUE) {
-          $data['new-hires']['male']['current']++;
+      if ($count === TRUE || $count_c === TRUE) {
+        $user_status = [
+          'type' => $type,
+          'name' => $user['name'],
+          'current' => $count,
+          'cumulative' => $count_c,
+          'Male' => FALSE,
+          'Female' => FALSE,
+          'minority' => FALSE,
+          'disabled' => FALSE,
+        ];
+        $in = [
+          'American Indian or Alaskan Native',
+          'Black or African American',
+          'Pacific Islander',
+          'Native Hawaiian',
+        ];
+        if (!empty($user['race']) && in_array($user['race'], $in)) {
+          $user_status['minority'] = TRUE;
         }
-        if ($hired_c === TRUE) {
-          $data['new-hires']['male']['cumulative']++;
+        if (!empty($user['gender'])) {
+          $user_status[$user['gender']] = TRUE;
         }
-        if ($under === TRUE) {
-          $data['undergraduate']['male']['current']++;
+        if (!empty($user['disability']) && $user['disability'] !== 'None') {
+          $user_status['disabled'] = TRUE;
         }
-        if ($under_c === TRUE) {
-          $data['undergraduate']['male']['cumulative']++;
-        }
-        if ($grad === TRUE) {
-          $data['graduate']['male']['current']++;
-        }
-        if ($grad_c === TRUE) {
-          $data['graduate']['male']['cumulative']++;
-        }
-        if ($postdoc === TRUE) {
-          $data['post-doc']['male']['current']++;
-        }
-        if ($postdoc_c === TRUE) {
-          $data['post-doc']['male']['cumulative']++;
-        }
-      }
-      // Female.
-      elseif ($user['gender'] === 'female') {
-        if ($hired === TRUE) {
-          $data['new-hires']['female']['current']++;
-        }
-        if ($hired_c === TRUE) {
-          $data['new-hires']['female']['cumulative']++;
-        }
-        if ($under === TRUE) {
-          $data['undergraduate']['female']['current']++;
-        }
-        if ($under_c === TRUE) {
-          $data['undergraduate']['female']['cumulative']++;
-        }
-        if ($grad === TRUE) {
-          $data['graduate']['female']['current']++;
-        }
-        if ($grad_c === TRUE) {
-          $data['graduate']['female']['cumulative']++;
-        }
-        if ($postdoc === TRUE) {
-          $data['post-doc']['female']['current']++;
-        }
-        if ($postdoc_c === TRUE) {
-          $data['post-doc']['female']['cumulative']++;
-        }
-      }
-      // Minority.
-      if ($minority === TRUE) {
-        if ($hired === TRUE) {
-          $data['new-hires']['minority']['current']++;
-        }
-        if ($hired_c === TRUE) {
-          $data['new-hires']['minority']['cumulative']++;
-        }
-        if ($under === TRUE) {
-          $data['undergraduate']['minority']['current']++;
-        }
-        if ($under_c === TRUE) {
-          $data['undergraduate']['minority']['cumulative']++;
-        }
-        if ($grad === TRUE) {
-          $data['graduate']['minority']['current']++;
-        }
-        if ($grad_c === TRUE) {
-          $data['graduate']['minority']['cumulative']++;
-        }
-        if ($postdoc === TRUE) {
-          $data['post-doc']['minority']['current']++;
-        }
-        if ($postdoc_c === TRUE) {
-          $data['post-doc']['minority']['cumulative']++;
-        }
-      }
-      // Disabled.
-      if (!empty($user['disabled']) && $user['disabled'] !== 'none') {
-        if ($hired === TRUE) {
-          $data['new-hires']['disabled']['current']++;
-        }
-        if ($hired_c === TRUE) {
-          $data['new-hires']['disabled']['cumulative']++;
-        }
-        if ($under === TRUE) {
-          $data['undergraduate']['disabled']['current']++;
-        }
-        if ($under_c === TRUE) {
-          $data['undergraduate']['disabled']['cumulative']++;
-        }
-        if ($grad === TRUE) {
-          $data['graduate']['disabled']['current']++;
-        }
-        if ($grad_c === TRUE) {
-          $data['graduate']['disabled']['cumulative']++;
-        }
-        if ($postdoc === TRUE) {
-          $data['post-doc']['disabled']['current']++;
-        }
-        if ($postdoc_c === TRUE) {
-          $data['post-doc']['disabled']['cumulative']++;
-        }
+        $data[$type] = self::countUsers($data[$type], $user_status);
       }
     }
     return $data;
+  }
+
+  /**
+   * Increment (count) users in data sub-arrays.
+   *
+   * @param array $typeArray
+   *   Data array capturing data.
+   * @param array $user
+   *   User data array to use for counts.
+   *
+   * @return array
+   *   Return modified array.
+   */
+  public static function countUsers(array $typeArray, array $user) {
+    if ($user['current'] === TRUE) {
+      if ($user['Male'] === TRUE) {
+        $typeArray['male']['current']++;
+      }
+      elseif ($user['Female'] === TRUE) {
+        $typeArray['female']['current']++;
+      }
+      if ($user['minority'] === TRUE) {
+        $typeArray['minority']['current']++;
+      }
+      if ($user['disabled'] === TRUE) {
+        $typeArray['disabled']['current']++;
+      }
+    }
+    if ($user['cumulative'] === TRUE) {
+      if ($user['Male'] === TRUE) {
+        $typeArray['male']['cumulative']++;
+      }
+      elseif ($user['Female'] === TRUE) {
+        $typeArray['female']['cumulative']++;
+      }
+      if ($user['minority'] === TRUE) {
+        $typeArray['minority']['cumulative']++;
+      }
+      if ($user['disabled'] === TRUE) {
+        $typeArray['disabled']['cumulative']++;
+      }
+    }
+    return $typeArray;
   }
 
   /**
@@ -630,7 +565,10 @@ class ErcoreOutputs {
     $data = self::filteredPatents($data);
     $data = self::filteredProposals($data);
     $data = self::filteredPublications($data);
-    $data = self::filteredUsers($data);
+    $data = self::filteredUsers($data, 'hired');
+    $data = self::filteredUsers($data, 'post-doc');
+    $data = self::filteredUsers($data, 'graduate');
+    $data = self::filteredUsers($data, 'undergraduate');
     return $data;
   }
 

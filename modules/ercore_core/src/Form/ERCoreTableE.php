@@ -36,15 +36,14 @@ class ERCoreTableE extends FormBase {
     $url = Url::fromRoute('ercore_core.outputs_export');
     $link = Link::fromTextAndUrl('Download NSF Table E.', $url);
     $form['#attached']['library'][] = 'ercore_core/ercore-core-exports.library';
-    $form['date_filter'] = \Drupal::formBuilder()->getForm('Drupal\ercore_core\Form\ERCoreDateFilter');
+    $form['date_filter'] = \Drupal::formBuilder()
+      ->getForm('Drupal\ercore_core\Form\ERCoreDateFilter');
     $form['data_table'] = [
       '#type' => 'fieldset',
       '#title' => t('Table E Results'),
       '#open' => TRUE,
     ];
-    $form['data_table']['description'] = [
-      '#markup' => self::formatResults(),
-    ];
+    $form['data_table']['description'] = self::formatResults();
     $form['export_link'] = [
       '#markup' => '<p class="epscor-download">' . $link->toString() . '</p>',
     ];
@@ -63,58 +62,337 @@ class ERCoreTableE extends FormBase {
    */
   public function formatResults() {
     $rows = ErcoreOutputs::getData();
-    $results = '<h2>NSF Table E Data</h2>';
-    $results .= '<table class="ercore-table-b"><caption>Patents</caption>';
-    $results .= '<thead><tr><th>Category</th><th>Total for Current Reporting Period</th><th>Cumulative Total for the Award</th></tr></thead><tbody>';
-    $results .= '<tr><th>Awarded</th><td>' . $rows['patents']['awarded']['current'] . '</td><td>' . $rows['patents']['awarded']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Pending</th><td>' . $rows['patents']['pending']['current'] . '</td><td>' . $rows['patents']['pending']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Licensed</th><td>' . $rows['patents']['licensed']['current'] . '</td><td>' . $rows['patents']['licensed']['cumulative'] . '</td></tr>';
-    $results .= '</tbody></table>';
+    // Patents.
+    $patents = [
+      'awarded' => [
+        [
+          'data' => 'Awarded',
+          'header' => TRUE,
+        ],
+        $rows['patents']['awarded']['current'],
+        $rows['patents']['awarded']['cumulative'],
+      ],
+      'pending' => [
+        [
+          'data' => 'Pending',
+          'header' => TRUE,
+        ],
+        $rows['patents']['pending']['current'],
+        $rows['patents']['pending']['cumulative'],
+      ],
+      'licensed' => [
+        [
+          'data' => 'Licensed',
+          'header' => TRUE,
+        ],
+        $rows['patents']['licensed']['current'],
+        $rows['patents']['licensed']['cumulative'],
+      ],
+    ];
+    $results['patents'] = $form['data_table']['data'] = [
+      '#theme' => 'table',
+      '#caption' => 'Patents',
+      '#header' => [
+        'Category',
+        'Total for Current Reporting Period',
+        'Cumulative Total for the Award',
+      ],
+      '#rows' => $patents,
+      '#attributes' => [
+        'class' => [
+          'ercore-data-table',
+        ],
+      ],
+    ];
+    // Proposals.
+    $proposals = [
+      'submitted' => [
+        [
+          'data' => 'Submitted',
+          'header' => TRUE,
+        ],
+        $rows['proposals']['submitted']['current']['number'],
+        $rows['proposals']['submitted']['current']['funds'],
+        $rows['proposals']['submitted']['cumulative']['number'],
+        $rows['proposals']['submitted']['cumulative']['funds'],
+      ],
+      'awarded' => [
+        [
+          'data' => 'Awarded',
+          'header' => TRUE,
+        ],
+        $rows['proposals']['awarded']['current']['number'],
+        $rows['proposals']['awarded']['current']['funds'],
+        $rows['proposals']['awarded']['cumulative']['number'],
+        $rows['proposals']['awarded']['cumulative']['funds'],
+      ],
+      'pending' => [
+        [
+          'data' => 'Pending',
+          'header' => TRUE,
+        ],
+        $rows['proposals']['pending']['current']['number'],
+        $rows['proposals']['pending']['current']['funds'],
+        $rows['proposals']['pending']['cumulative']['number'],
+        $rows['proposals']['pending']['cumulative']['funds'],
+      ],
+    ];
+    $results['proposals'] = $form['data_table']['data'] = [
+      '#theme' => 'table',
+      '#caption' => 'Proposals / Grants / Contracts',
+      '#header' => [
+        'Category',
+        'Current Number',
+        'Current Funds Requested',
+        'Cumulative Number',
+        'Cumulative Funds Requested',
+      ],
+      '#rows' => $proposals,
+      '#attributes' => [
+        'class' => [
+          'ercore-data-table',
+        ],
+      ],
+    ];
+    // Publications.
+    $publications = [
+      'primary' => [
+        [
+          'data' => 'Primary RII Support',
+          'header' => TRUE,
+        ],
+        $rows['publications']['primary']['current'],
+        $rows['publications']['primary']['cumulative'],
+      ],
+      'partial' => [
+        [
+          'data' => 'Partial RII Support',
+          'header' => TRUE,
+        ],
+        $rows['publications']['partial']['current'],
+        $rows['publications']['partial']['cumulative'],
+      ],
+    ];
+    $results['publications'] = $form['data_table']['data'] = [
+      '#theme' => 'table',
+      '#caption' => 'Published Publications',
+      '#header' => [
+        'Category',
+        'Total for Current Reporting Period',
+        'Cumulative Total for the Award',
+      ],
+      '#rows' => $publications,
+      '#attributes' => [
+        'class' => [
+          'ercore-data-table',
+        ],
+      ],
+    ];
+    // New Hires.
+    $hired = [
+      'male' => [
+        [
+          'data' => 'Male',
+          'header' => TRUE,
+        ],
+        $rows['hired']['male']['current'],
+        $rows['hired']['male']['cumulative'],
+      ],
+      'female' => [
+        [
+          'data' => 'Female',
+          'header' => TRUE,
+        ],
+        $rows['hired']['female']['current'],
+        $rows['hired']['female']['cumulative'],
 
-    $results .= '<table class="ercore-table-b"><caption>Proposals / Grants / Contracts</caption>';
-    $results .= '<thead><tr><th>Category</th><th>Current Number</th><th>Current Funds Requested</th><th>Cumulative Number</th><th>Cumulative Funds Requested</th></tr></thead><tbody>';
-    $results .= '<tr><th>Submitted</th><td>' . $rows['proposals']['submitted']['current']['number'] . '</td><td>' . $rows['proposals']['submitted']['current']['funds'] . '</td><td>' . $rows['proposals']['submitted']['cumulative']['number'] . '</td><td>' . $rows['proposals']['submitted']['cumulative']['funds'] . '</td></tr>';
-    $results .= '<tr><th>Awarded</th><td>' . $rows['proposals']['awarded']['current']['number'] . '</td><td>' . $rows['proposals']['awarded']['current']['funds'] . '</td><td>' . $rows['proposals']['awarded']['cumulative']['number'] . '</td><td>' . $rows['proposals']['awarded']['cumulative']['funds'] . '</td></tr>';
-    $results .= '<tr><th>Pending</th><td>' . $rows['proposals']['pending']['current']['number'] . '</td><td>' . $rows['proposals']['pending']['current']['funds'] . '</td><td>' . $rows['proposals']['pending']['cumulative']['number'] . '</td><td>' . $rows['proposals']['pending']['cumulative']['funds'] . '</td></tr>';
-    $results .= '</tbody></table>';
+      ],
+      'minority' => [
+        [
+          'data' => 'Underrepresented Minority',
+          'header' => TRUE,
+        ],
+        $rows['hired']['minority']['current'],
+        $rows['hired']['minority']['cumulative'],
+      ],
+      'disabled' => [
+        [
+          'data' => 'Disabled',
+          'header' => TRUE,
+        ],
+        $rows['hired']['disabled']['current'],
+        $rows['hired']['disabled']['cumulative'],
+      ],
+    ];
+    $results['new_hires'] = $form['data_table']['data'] = [
+      '#theme' => 'table',
+      '#caption' => 'New Hires',
+      '#header' => [
+        'Category',
+        'Total for Current Reporting Period',
+        'Cumulative Total for the Award',
 
-    $results .= '<table class="ercore-table-b"><caption>Published Publications</caption>';
-    $results .= '<thead><tr><th>Category</th><th>Total for Current Reporting Period</th><th>Cumulative Total for the Award</th></tr></thead><tbody>';
-    $results .= '<tr><th>Primary RII Support</th><td>' . $rows['publications']['primary']['current'] . '</td><td>' . $rows['publications']['primary']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Partial RII Support</th><td>' . $rows['publications']['partial']['current'] . '</td><td>' . $rows['publications']['partial']['cumulative'] . '</td></tr>';
-    $results .= '</tbody></table>';
+      ],
+      '#rows' => $hired,
+      '#attributes' => [
+        'class' => [
+          'ercore-data-table',
+        ],
+      ],
+    ];
+    // Post Docs.
+    $postdoc = [
+      'male' => [
+        [
+          'data' => 'Male',
+          'header' => TRUE,
+        ],
+        $rows['post-doc']['male']['current'],
+        $rows['post-doc']['male']['cumulative'],
+      ],
+      'female' => [
+        [
+          'data' => 'Female',
+          'header' => TRUE,
+        ],
+        $rows['post-doc']['female']['current'],
+        $rows['post-doc']['female']['cumulative'],
 
-    $results .= '<table class="ercore-table-b"><caption>New Hires</caption>';
-    $results .= '<thead><tr><th>Category</th><th>Total for Current Reporting Period</th><th>Cumulative Total for the Award</th></tr></thead><tbody>';
-    $results .= '<tr><th>Male</th><td>' . $rows['new-hires']['male']['current'] . '</td><td>' . $rows['new-hires']['male']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Female</th><td>' . $rows['new-hires']['female']['current'] . '</td><td>' . $rows['new-hires']['female']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Underrepresented Minority</th><td>' . $rows['new-hires']['minority']['current'] . '</td><td>' . $rows['new-hires']['minority']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Disabled</th><td>' . $rows['new-hires']['disabled']['current'] . '</td><td>' . $rows['new-hires']['disabled']['cumulative'] . '</td></tr>';
-    $results .= '</tbody></table>';
+      ],
+      'minority' => [
+        [
+          'data' => 'Underrepresented Minority',
+          'header' => TRUE,
+        ],
+        $rows['post-doc']['minority']['current'],
+        $rows['post-doc']['minority']['cumulative'],
+      ],
+      'disabled' => [
+        [
+          'data' => 'Disabled',
+          'header' => TRUE,
+        ],
+        $rows['post-doc']['disabled']['current'],
+        $rows['post-doc']['disabled']['cumulative'],
+      ],
+    ];
+    $results['postdocs'] = $form['data_table']['data'] = [
+      '#theme' => 'table',
+      '#caption' => 'Post Docs',
+      '#header' => [
+        'Category',
+        'Total for Current Reporting Period',
+        'Cumulative Total for the Award',
+      ],
+      '#rows' => $postdoc,
+      '#attributes' => [
+        'class' => [
+          'ercore-data-table',
+        ],
+      ],
+    ];
+    // Graduate.
+    $graduate = [
+      'male' => [
+        [
+          'data' => 'Male',
+          'header' => TRUE,
+        ],
+        $rows['graduate']['male']['current'],
+        $rows['graduate']['male']['cumulative'],
+      ],
+      'female' => [
+        [
+          'data' => 'Female',
+          'header' => TRUE,
+        ],
+        $rows['graduate']['female']['current'],
+        $rows['graduate']['female']['cumulative'],
 
-    $results .= '<table class="ercore-table-b"><caption>Post Docs</caption>';
-    $results .= '<thead><tr><th>Category</th><th>Total for Current Reporting Period</th><th>Cumulative Total for the Award</th></tr></thead><tbody>';
-    $results .= '<tr><th>Male</th><td>' . $rows['post-doc']['male']['current'] . '</td><td>' . $rows['post-doc']['male']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Female</th><td>' . $rows['post-doc']['female']['current'] . '</td><td>' . $rows['post-doc']['female']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Underrepresented Minority</th><td>' . $rows['post-doc']['minority']['current'] . '</td><td>' . $rows['post-doc']['minority']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Disabled</th><td>' . $rows['post-doc']['disabled']['current'] . '</td><td>' . $rows['post-doc']['disabled']['cumulative'] . '</td></tr>';
-    $results .= '</tbody></table>';
+      ],
+      'minority' => [
+        [
+          'data' => 'Underrepresented Minority',
+          'header' => TRUE,
+        ],
+        $rows['graduate']['minority']['current'],
+        $rows['graduate']['minority']['cumulative'],
+      ],
+      'disabled' => [
+        [
+          'data' => 'Disabled',
+          'header' => TRUE,
+        ],
+        $rows['graduate']['disabled']['current'],
+        $rows['graduate']['disabled']['cumulative'],
+      ],
+    ];
+    $results['graduate'] = $form['data_table']['data'] = [
+      '#theme' => 'table',
+      '#caption' => 'Graduate Students',
+      '#header' => [
+        'Category',
+        'Total for Current Reporting Period',
+        'Cumulative Total for the Award',
+      ],
+      '#rows' => $graduate,
+      '#attributes' => [
+        'class' => [
+          'ercore-data-table',
+        ],
+      ],
+    ];
+    // Undergraduate.
+    $undergraduate = [
+      'male' => [
+        [
+          'data' => 'Male',
+          'header' => TRUE,
+        ],
+        $rows['undergraduate']['male']['current'],
+        $rows['undergraduate']['male']['cumulative'],
+      ],
+      'female' => [
+        [
+          'data' => 'Female',
+          'header' => TRUE,
+        ],
+        $rows['undergraduate']['female']['current'],
+        $rows['undergraduate']['female']['cumulative'],
 
-    $results .= '<table class="ercore-table-b"><caption>Graduate Students</caption>';
-    $results .= '<thead><tr><th>Category</th><th>Total for Current Reporting Period</th><th>Cumulative Total for the Award</th></tr></thead><tbody>';
-    $results .= '<tr><th>Male</th><td>' . $rows['graduate']['male']['current'] . '</td><td>' . $rows['graduate']['male']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Female</th><td>' . $rows['graduate']['female']['current'] . '</td><td>' . $rows['graduate']['female']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Underrepresented Minority</th><td>' . $rows['graduate']['minority']['current'] . '</td><td>' . $rows['graduate']['minority']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Disabled</th><td>' . $rows['graduate']['disabled']['current'] . '</td><td>' . $rows['graduate']['disabled']['cumulative'] . '</td></tr>';
-    $results .= '</tbody></table>';
-
-    $results .= '<table class="ercore-table-b"><caption>Undergraduate Students</caption>';
-    $results .= '<thead><tr><th>Category</th><th>Total for Current Reporting Period</th><th>Cumulative Total for the Award</th></tr></thead><tbody>';
-    $results .= '<tr><th>Male</th><td>' . $rows['undergraduate']['male']['current'] . '</td><td>' . $rows['undergraduate']['male']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Female</th><td>' . $rows['undergraduate']['female']['current'] . '</td><td>' . $rows['undergraduate']['female']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Underrepresented Minority</th><td>' . $rows['undergraduate']['minority']['current'] . '</td><td>' . $rows['undergraduate']['minority']['cumulative'] . '</td></tr>';
-    $results .= '<tr><th>Disabled</th><td>' . $rows['undergraduate']['disabled']['current'] . '</td><td>' . $rows['undergraduate']['disabled']['cumulative'] . '</td></tr>';
-    $results .= '</tbody></table>';
+      ],
+      'minority' => [
+        [
+          'data' => 'Underrepresented Minority',
+          'header' => TRUE,
+        ],
+        $rows['undergraduate']['minority']['current'],
+        $rows['undergraduate']['minority']['cumulative'],
+      ],
+      'disabled' => [
+        [
+          'data' => 'Disabled',
+          'header' => TRUE,
+        ],
+        $rows['undergraduate']['disabled']['current'],
+        $rows['undergraduate']['disabled']['cumulative'],
+      ],
+    ];
+    $results['undergraduate'] = $form['data_table']['data'] = [
+      '#theme' => 'table',
+      '#caption' => 'Undergraduate Students',
+      '#header' => [
+        'Category',
+        'Total for Current Reporting Period',
+        'Cumulative Total for the Award',
+      ],
+      '#rows' => $undergraduate,
+      '#attributes' => [
+        'class' => [
+          'ercore-data-table',
+        ],
+      ],
+    ];
     return $results;
   }
 

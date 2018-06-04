@@ -125,19 +125,23 @@ class ErcoreParticipantBuild {
           $institution_name = $institution->getTitle();
           $name = $user->getUsername();
           $hired = '';
-          if (!$user->get('field_ercore_user_hired_date')->isEmpty()) {
+          if ($role === 'faculty' && !$user->get('field_ercore_user_hired_date')->isEmpty()) {
             $hired_var = $user->get('field_ercore_user_hired_date')->value;
             $hired = ErcoreStartDate::dateArgumentToUnix($hired_var);
           }
-          if (!$user->get('field_ercore_user_doc_act')->isEmpty()) {
-            $doctoral_var = $user->get('field_ercore_user_doc_act')->value;
-            $doctoral = ErcoreStartDate::dateArgumentToUnix($doctoral_var);
-          }
-          if (!$user->get('field_ercore_user_master_act')->isEmpty()) {
+          $masters = '';
+          if ($role === 'graduate' && !$user->get('field_ercore_user_master_act')->isEmpty()) {
             $masters_var = $user->get('field_ercore_user_master_act')->value;
             $masters = ErcoreStartDate::dateArgumentToUnix($masters_var);
           }
-          if (!$user->get('field_ercore_user_under_act')->isEmpty()) {
+          $doctoral = '';
+          if ($role === 'graduate' && !$user->get('field_ercore_user_doc_act')->isEmpty()) {
+            $masters = '';
+            $doctoral_var = $user->get('field_ercore_user_doc_act')->value;
+            $doctoral = ErcoreStartDate::dateArgumentToUnix($doctoral_var);
+          }
+          $undergraduate = '';
+          if ($role === 'undergraduate' && !$user->get('field_ercore_user_under_act')->isEmpty()) {
             $undergraduate_var = $user->get('field_ercore_user_under_act')->value;
             $undergraduate = ErcoreStartDate::dateArgumentToUnix($undergraduate_var);
           }

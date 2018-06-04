@@ -66,7 +66,7 @@ class ERCoreTableB extends FormBase {
     $data = ErcoreParticipantBuild::getData();
     $results = '';
     foreach ($data as $institution) {
-      $results .= '<table class="ercore-table-b"><caption>' . $institution['name'] . '</caption>';
+      $results .= '<table class="ercore-data-table"><caption>' . $institution['name'] . '</caption>';
       $results .= '<thead><tr><th>Senior Project Role</th><th>Total Individuals</th><th>Male</th><th>Female</th><th>Black or African American</th><th>Hispanic</th><th>Other Ethnicity</th><th>Disabilities</th><th>New Hires*</th></tr></thead><tbody>';
       foreach ($institution['data'] as $row) {
         $results .= '<tr><th>' . $row->name . '</th>';

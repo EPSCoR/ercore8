@@ -32,16 +32,6 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
   // User form logic.
   if ($form_id === 'user_form') {
     // Post Doc.
-    $form['field_ercore_user_doc_act']['#states'] = [
-      'visible' => [
-        ':input[name="field_ercore_senior_role"]' => ['value' => 'post-doc'],
-      ],
-    ];
-    $form['field_ercore_user_doc_ant']['#states'] = [
-      'visible' => [
-        ':input[name="field_ercore_senior_role"]' => ['value' => 'post-doc'],
-      ],
-    ];
     $form['field_ercore_user_mentor_plan']['#states'] = [
       'visible' => [
         ':input[name="field_ercore_senior_role"]' => ['value' => 'post-doc'],
@@ -64,7 +54,16 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
         ':input[name="field_ercore_senior_role"]' => ['value' => 'graduate'],
       ],
     ];
-
+    $form['field_ercore_user_doc_act']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'graduate'],
+      ],
+    ];
+    $form['field_ercore_user_doc_ant']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => ['value' => 'graduate'],
+      ],
+    ];
     // Undergraduate.
     $form['field_ercore_user_under_act']['#states'] = [
       'visible' => [
