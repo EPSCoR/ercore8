@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ercore_components
+    - node.type.ercore_presentation
+    - taxonomy.vocabulary.ercore_component_vocab
+id: node.ercore_presentation.field_ercore_components
+field_name: field_ercore_components
+entity_type: node
+bundle: ercore_presentation
+label: Components
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      ercore_component_vocab: ercore_component_vocab
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.ercore_presentation.body
+    - field.field.node.ercore_presentation.field_ercore_components
     - field.field.node.ercore_presentation.field_ercore_nsf
     - field.field.node.ercore_presentation.field_ercore_organizer
     - field.field.node.ercore_presentation.field_ercore_programs
@@ -40,6 +41,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_ercore_components:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_ercore_nsf:
     weight: 12
     settings: {  }
@@ -56,7 +63,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ercore_programs:
-    weight: 8
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -127,7 +134,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 18
     region: content
     third_party_settings: {  }
   sticky:
