@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ercore_publication.body
+    - field.field.node.ercore_publication.field_ercore_components
     - field.field.node.ercore_publication.field_ercore_nsf
     - field.field.node.ercore_publication.field_ercore_organizer
     - field.field.node.ercore_publication.field_ercore_pb_arch_name
@@ -74,6 +75,7 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_ercore_components: true
   field_ercore_nsf: true
   field_ercore_pb_arch_name: true
   field_ercore_pb_archived: true
