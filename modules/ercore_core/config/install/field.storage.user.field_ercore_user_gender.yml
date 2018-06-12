@@ -15,6 +15,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: na
+      label: N/A
+    -
       value: Male
       label: Male
     -

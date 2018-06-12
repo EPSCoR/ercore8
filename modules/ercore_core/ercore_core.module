@@ -112,7 +112,27 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
         ],
       ],
     ];
-
+    // Demographics.
+    $form['field_ercore_user_gender']['#states'] = [
+      'disabled' => [
+        ':input[name="field_ercore_prefer_no_answer[value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    $form['field_ercore_user_ethnicity']['#states'] = [
+      'disabled' => [
+        ':input[name="field_ercore_prefer_no_answer[value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    $form['field_ercore_user_race']['#states'] = [
+      'disabled' => [
+        ':input[name="field_ercore_prefer_no_answer[value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    $form['field_ercore_user_disabilities']['#states'] = [
+      'disabled' => [
+        ':input[name="field_ercore_prefer_no_answer[value]"]' => ['checked' => TRUE],
+      ],
+    ];
     // RCR.
     $form['field_ercore_user_rcr_status']['#states'] = [
       'visible' => [
