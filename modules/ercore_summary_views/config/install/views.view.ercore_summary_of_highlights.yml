@@ -378,8 +378,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.node.ercore_j_highlight.default'
-        - 'config:core.entity_view_display.node.ercore_j_highlight.teaser'
         - 'config:core.entity_view_display.node.ercore_admin.default'
         - 'config:core.entity_view_display.node.ercore_admin.full'
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
@@ -391,7 +389,9 @@ display:
         - 'config:core.entity_view_display.node.ercore_institution.default'
         - 'config:core.entity_view_display.node.ercore_institution.full'
         - 'config:core.entity_view_display.node.ercore_institution.teaser'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.default'
         - 'config:core.entity_view_display.node.ercore_j_highlight.full'
+        - 'config:core.entity_view_display.node.ercore_j_highlight.teaser'
         - 'config:core.entity_view_display.node.ercore_j_honor.default'
         - 'config:core.entity_view_display.node.ercore_j_honor.full'
         - 'config:core.entity_view_display.node.ercore_j_honor.teaser'

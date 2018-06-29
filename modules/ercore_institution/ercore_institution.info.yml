@@ -4,7 +4,6 @@ type: module
 core: 8.x
 dependencies:
   - better_exposed_filters
-  - ercore_core
   - field
   - field_permissions
   - link
@@ -24,3 +23,4 @@ dependencies:
 version: 8.x-1.0
 project: ercore
 package: ERCore
+hidden: true

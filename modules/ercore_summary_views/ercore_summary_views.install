@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * The ERCore Summary Views install file.
+ */
+
+/**
+ * ERCore uninstall.
+ */
+function ercore_summary_views_uninstall() {
+  $configs = [
+    'views.view.ercore_collaborations_field',
+    'views.view.ercore_engagement_field',
+    'views.view.ercore_external_engagements_information',
+    'views.view.ercore_institutions_filter',
+    'views.view.ercore_participation_date_filter',
+    'views.view.ercore_summary_of_collaborations',
+    'views.view.ercore_summary_of_events',
+    'views.view.ercore_summary_of_external_collaborators',
+    'views.view.ercore_summary_of_external_engagements',
+    'views.view.ercore_summary_of_highlights',
+    'views.view.ercore_summary_of_honors',
+    'views.view.ercore_summary_of_institutions',
+    'views.view.ercore_summary_of_other_research_products',
+    'views.view.ercore_summary_of_participants',
+    'views.view.ercore_summary_of_patents',
+    'views.view.ercore_summary_of_presentations',
+    'views.view.ercore_summary_of_proposals_and_grants',
+    'views.view.ercore_summary_of_publications',
+    'views.view.ercore_user_summary_formatting',
+    'views.view.ercore_user_summary_formatting_other',
+  ];
+  foreach ($configs as $config) {
+    \Drupal::configFactory()->getEditable($config)->delete();
+  }
+}

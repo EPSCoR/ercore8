@@ -1,5 +1,5 @@
-name: ERCore
-description: 'ERCore Base module'
+name: ERCore (All Modules)
+description: 'ERCore Base module, others install/uninstall automatically.'
 type: module
 core: 8.x
 version: 8.x-1.0
@@ -20,6 +20,5 @@ dependencies:
   - ercore_presentation
   - ercore_proposal
   - ercore_publication
-  - ercore_summary_views
 project: ercore
 package: ERCore

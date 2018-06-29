@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_ercore_senior_role
     - field.field.user.user.field_ercore_user_address
     - field.field.user.user.field_ercore_user_advisor_mentor
+    - field.field.user.user.field_ercore_user_boards
     - field.field.user.user.field_ercore_user_collecting
     - field.field.user.user.field_ercore_user_component
     - field.field.user.user.field_ercore_user_data_date
@@ -89,6 +90,7 @@ hidden:
   field_ercore_senior_role: true
   field_ercore_user_address: true
   field_ercore_user_advisor_mentor: true
+  field_ercore_user_boards: true
   field_ercore_user_collecting: true
   field_ercore_user_component: true
   field_ercore_user_data_date: true

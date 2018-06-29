@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * The ERCore Core install file.
+ */
+
+/**
+ * ERCore Core uninstall.
+ */
+function ercore_core_uninstall() {
+  \Drupal::configFactory()->getEditable('views.view.ercore_160_hours_criteria')->delete();
+}
