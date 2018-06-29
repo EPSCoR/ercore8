@@ -14,3 +14,10 @@ function ercore_install() {
     ->set('ercore_reporting_month', '03')
     ->save();
 }
+
+/**
+ * ERCore uninstall file sets variables and modules.
+ */
+function ercore_uninstall() {
+  \Drupal::configFactory()->getEditable('ercore.settings')->delete();
+}

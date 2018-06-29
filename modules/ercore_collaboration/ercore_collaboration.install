@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * The ERCore Collaboration install file.
+ */
+
+/**
+ * ERCore collaboration uninstall.
+ */
+function ercore_collaboration_uninstall() {
+  $configs = [
+    'views.view.ercore_collaborating_institutions_non_participating',
+    'views.view.ercore_collaborating_institutions_participating',
+  ];
+  foreach ($configs as $config) {
+    \Drupal::configFactory()->getEditable($config)->delete();
+  }
+}
