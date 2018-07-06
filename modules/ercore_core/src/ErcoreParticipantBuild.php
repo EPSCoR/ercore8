@@ -2,7 +2,7 @@
 
 namespace Drupal\ercore_core;
 
-use Drupal\ercore\ercoreStartDate;
+use Drupal\ercore\ErcoreStartDate;
 
 /**
  * Class ErcoreParticipant.

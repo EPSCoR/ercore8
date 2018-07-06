@@ -5,10 +5,6 @@
  * File for the ERCore Data Integrity.
  */
 
-use Drupal\ercore\ercoreStartDate;
-
-module_load_include('inc', 'phpexcel');
-
 /**
  * Display ERCore data data integrity Views.
  *

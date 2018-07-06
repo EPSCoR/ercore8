@@ -2,8 +2,7 @@
 
 namespace Drupal\ercore_core;
 
-use Drupal\ercore\ercoreStartDate;
-use Drupal\ercore_core\ErcoreCollaboration;
+use Drupal\ercore\ErcoreStartDate;
 
 /**
  * Class ErcoreCollaborationBuild.
