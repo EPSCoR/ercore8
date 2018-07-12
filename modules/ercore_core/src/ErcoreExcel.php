@@ -47,7 +47,7 @@ class ErcoreExcel {
       ->setDescription($description)
       ->setKeywords($keywords);
     $file_name = $file_name . '_' . self::dateArguments();
-    $writer = IOFactory::createWriter($spreadsheet, "Xlsx");
+    $writer = IOFactory::createWriter($spreadsheet, "Xls");
     $header = 'Content-Disposition: attachment; filename="' . $file_name . '.xls"';
     header('Content-Type: application/vnd.ms-excel');
     header($header);
