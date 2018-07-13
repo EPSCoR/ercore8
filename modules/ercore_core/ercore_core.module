@@ -213,11 +213,35 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
     $form['#validate'][] = 'ercore_core_form_validate';
   }
   if ($form_id === 'user_register_form') {
-    ksm($form);
     $form['account']['pass']['#access'] = FALSE;
     $form['account']['pass']['#value']['pass1'] = user_password();
     $form['account']['pass']['#value']['pass2'] = $form['account']['pass']['#value']['pass1'];
     $form['account']['notify']['#default_value'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_field_group_build_pre_render_alter().
+ */
+function ercore_core_field_group_build_pre_render_alter(&$element) {
+  if ($element['#form_id'] === 'user_form' && isset($element['group_ercore_us_profile'])) {
+    $element['group_ercore_us_profile']['group_ercore_us_epscor']['group_ercore_us_education']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'post-doc'],
+          ['value' => 'graduate'],
+          ['value' => 'undergraduate'],
+        ],
+      ],
+    ];
+    $element['group_ercore_us_profile']['group_ercore_us_epscor']['group_ercore_us_certification']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'graduate'],
+          ['value' => 'undergraduate'],
+        ],
+      ],
+    ];
   }
 }
 
