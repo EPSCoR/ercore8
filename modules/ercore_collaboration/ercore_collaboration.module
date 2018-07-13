@@ -20,7 +20,9 @@ function ercore_collaboration_form_node_form_alter(&$form, FormStateInterface $f
  * Custom validation hook.
  */
 function ercore_collaboration_node_form_validate(&$form, FormStateInterface $form_state) {
-  if ($form_state->getValue('field_ercore_collaboration_end') < $form_state->getValue('field_ercore_collaboration_start')) {
-    $form_state->setErrorByName('field_ercore_collaboration_end', t('The Collaboration End Date must be higher than Start Date'));
+  $value1 = $form_state->getValue('field_ercore_collaboration_start');
+  $value2 = $form_state->getValue('field_ercore_collaboration_end');
+  if (!empty($value2['0']['value']) && $value2['0']['value'] < $value1['0']['value']) {
+    $form_state->setErrorByName('field_ercore_collaboration_end', t('End date must be after start date.'));
   }
 }

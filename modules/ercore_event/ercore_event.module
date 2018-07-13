@@ -49,26 +49,32 @@ function ercore_event_form_validate(array &$form, FormStateInterface $form_state
 /**
  * Implements hook_form_node_form_alter().
  */
-function ercore_event_form_node_form_alter(&$form, FormStateInterface $form_state) {
-  $form['field_ercore_ev_engagement']['widget'][0]['subform']['field_ercore_ee_disable_file_alt']['#states'] = [
-    'visible' => [
-      ':input[name="field_ercore_ev_engagement[0][subform][field_ercore_ee_excel][0][fids]"]' => ['filled' => TRUE],
-    ],
+function ercore_event_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $forms = [
+    'node_ercore_event_form',
+    'node_ercore_event_edit_form',
   ];
-  $form['field_ercore_ev_engagement']['widget'][0]['subform']['field_ercore_ee_excel']['#states'] = [
-    'invisible' => [
-      ':input[name="field_ercore_ev_engagement[0][subform][field_ercore_ee_disable_file_alt][value]"]' => ['checked' => TRUE],
-    ],
-  ];
-  if ($form['#form_id'] === 'node_ercore_event_edit_form' || $form['form_id'] === 'node_ercore_event_form') {
-    foreach (array_keys($form['actions']) as $action) {
-      if ($action !== 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
-        $form['actions'][$action]['#submit'][] = 'ercore_event_node_form_submit';
+  if (in_array($form_id, $forms)) {
+    $form['field_ercore_ev_engagement']['widget'][0]['subform']['field_ercore_ee_disable_file_alt']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_ev_engagement[0][subform][field_ercore_ee_excel][0][fids]"]' => ['filled' => TRUE],
+      ],
+    ];
+    $form['field_ercore_ev_engagement']['widget'][0]['subform']['field_ercore_ee_excel']['#states'] = [
+      'invisible' => [
+        ':input[name="field_ercore_ev_engagement[0][subform][field_ercore_ee_disable_file_alt][value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    if ($form['#form_id'] === 'node_ercore_event_edit_form' || $form['form_id'] === 'node_ercore_event_form') {
+      foreach (array_keys($form['actions']) as $action) {
+        if ($action !== 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+          $form['actions'][$action]['#submit'][] = 'ercore_event_node_form_submit';
+        }
       }
     }
+    $file_path = '/' . drupal_get_path('module', 'ercore_event') . '/files/External_Engagement_Reporting_Sheet.xls';
+    $form['field_ercore_ev_engagement']['widget'][0]['subform']['field_ercore_ee_excel']['#prefix'] = '<p>Download the <a href="' . $file_path . '">External Engagement Reporting Sheet</a> and fill out the data at your event. Once the sheet is completed you may then upload the excel sheet below, and the system will do the rest</p>';
   }
-  $file_path = '/' . drupal_get_path('module', 'ercore_event') . '/files/External_Engagement_Reporting_Sheet.xls';
-  $form['field_ercore_ev_engagement']['widget'][0]['subform']['field_ercore_ee_excel']['#prefix'] = '<p>Download the <a href="' . $file_path . '">External Engagement Reporting Sheet</a> and fill out the data at your event. Once the sheet is completed you may then upload the excel sheet below, and the system will do the rest</p>';
 }
 
 /**

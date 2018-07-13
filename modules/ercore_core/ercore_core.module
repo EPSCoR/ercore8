@@ -12,7 +12,7 @@ use Drupal\user\Entity\User;
  * Implements hook_form_alter().
  */
 function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Set current user to default valuie of organizer field.
+  // Set current user to default value of organizer field.
   $forms = [
     'node_ercore_collaboration_form',
     'node_ercore_event_form',
@@ -211,6 +211,13 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
     $primary = '<div class="form-wrapper"><div class="form-item"><div class="label">Primary Email</div> ' . $mail . '</div><div class="description">Primary Drupal email, editable on Account Information tab.</div></div>';
     $form['field_ercore_user_second_email']['#prefix'] = $primary;
     $form['#validate'][] = 'ercore_core_form_validate';
+  }
+  if ($form_id === 'user_register_form') {
+    ksm($form);
+    $form['account']['pass']['#access'] = FALSE;
+    $form['account']['pass']['#value']['pass1'] = user_password();
+    $form['account']['pass']['#value']['pass2'] = $form['account']['pass']['#value']['pass1'];
+    $form['account']['notify']['#default_value'] = TRUE;
   }
 }
 
