@@ -13,171 +13,196 @@ use Drupal\Core\Form\FormStateInterface;
 function ercore_publication_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_publication_form' || $form_id === 'node_ercore_publication_edit_form') {
     // Submitted Date field #states.
-    $form['field_ercore_pb_submit_date']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_status"]' => array(
-          array('value' => '0'),
-          array('value' => '1'),
-          array('value' => '2'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_submit_date']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_status"]' => [
+          ['value' => '0'],
+          ['value' => '1'],
+          ['value' => '2'],
+        ],
+      ],
+    ];
     // Published Date field #states.
-    $form['field_ercore_pb_date']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_status"]' => array('value' => '0'),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pb_status"]' => array('value' => '0'),
-      ),
-    );
+    $form['field_ercore_pb_date']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_status"]' => ['value' => '0'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pb_status"]' => ['value' => '0'],
+      ],
+    ];
     // NSF field #states.
-    $form['field_ercore_nsf']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_status"]' => array('value' => '0'),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pb_status"]' => array('value' => '0'),
-      ),
-    );
+    $form['field_ercore_nsf']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_status"]' => ['value' => '0'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pb_status"]' => ['value' => '0'],
+      ],
+    ];
     // Body field #states.
     $form['body']['#weight'] = '9';
-    $form['body']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_status"]' => array('value' => '0'),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pb_status"]' => array('value' => '0'),
-      ),
-    );
+    $form['body']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_status"]' => ['value' => '0'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pb_status"]' => ['value' => '0'],
+      ],
+    ];
     // Journal Name field #states.
-    $form['field_ercore_pb_journal_name']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_journal_name']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+      'required' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // Volume field #states.
-    $form['field_ercore_pb_journal_volume']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_journal_volume']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // Publisher field #states.
-    $form['field_ercore_pb_publisher']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_publisher']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // Title of Series field #states.
-    $form['field_ercore_pb_coll_title']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_coll_title']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // Pages field #states.
-    $form['field_ercore_pb_journal_pages']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_journal_pages']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // DOI field #states.
-    $form['field_ercore_pb_doi']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_doi']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // ISSN/ISBN field #states.
-    $form['field_ercore_pb_issn']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_issn']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // ARK field #states.
-    $form['field_ercore_pb_ark']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_type"]' => array(
-          array('value' => 'Journal Article'),
-          array('value' => 'Book'),
-          array('value' => 'Conference Proceedings'),
-          array('value' => 'Magazine Article'),
-          array('value' => 'Technical Report'),
-          array('value' => 'Newspaper Article'),
-        ),
-      ),
-    );
+    $form['field_ercore_pb_ark']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
     // Data field #states.
-    $form['field_ercore_pb_archived']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_data"]' => array('value' => '1'),
-      ),
-    );
-    $form['field_ercore_pb_arch_name']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pb_archived"]' => array('value' => '1'),
-      ),
-    );
-    $form['field_ercore_pb_arch_name']['widget']['0']['value']['#states'] = array(
-      'required' => array(
-        ':input[name="field_ercore_pb_archived"]' => array('value' => '1'),
-      ),
-    );
+    $form['field_ercore_pb_archived']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_data"]' => ['value' => '1'],
+      ],
+    ];
+    $form['field_ercore_pb_arch_name']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_archived"]' => ['value' => '1'],
+      ],
+    ];
+    $form['field_ercore_pb_arch_name']['widget']['0']['value']['#states'] = [
+      'required' => [
+        ':input[name="field_ercore_pb_archived"]' => ['value' => '1'],
+      ],
+    ];
+  }
+}
+
+
+/**
+ * Implements hook_field_group_build_pre_render_alter().
+ */
+function ercore_publication_field_group_build_pre_render_alter(&$element) {
+  $forms = [
+    'node_ercore_publication_form',
+    'node_ercore_publication_edit_form',
+  ];
+  if (in_array($element['#form_id'], $forms) && isset($element['group_ercore_pb_info'])) {
+    $element['group_ercore_pb_info']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pb_type"]' => [
+          ['value' => 'Journal Article'],
+          ['value' => 'Book'],
+          ['value' => 'Conference Proceedings'],
+          ['value' => 'Magazine Article'],
+          ['value' => 'Technical Report'],
+          ['value' => 'Newspaper Article'],
+        ],
+      ],
+    ];
   }
 }

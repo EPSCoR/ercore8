@@ -12,25 +12,25 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function ercore_patent_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_patent_form' || $form_id === 'node_ercore_patent_edit_form') {
-    $form['field_ercore_pt_license']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pt_licensed[value]"]' => array('checked' => TRUE),
-      ),
-    );
-    $form['field_ercore_pt_license']['widget']['0']['value']['#states'] = array(
-      'required' => array(
-        ':input[name="field_ercore_pt_licensed[value]"]' => array('checked' => TRUE),
-      ),
-    );
-    $form['field_ercore_pt_licensee']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_pt_licensed[value]"]' => array('checked' => TRUE),
-      ),
-    );
-    $form['field_ercore_pt_licensee']['widget']['0']['target_id']['#states'] = array(
-      'required' => array(
-        ':input[name="field_ercore_pt_licensed[value]"]' => array('checked' => TRUE),
-      ),
-    );
+    $form['field_ercore_pt_license']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pt_licensed[value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    $form['field_ercore_pt_license']['widget']['0']['value']['#states'] = [
+      'required' => [
+        ':input[name="field_ercore_pt_licensed[value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    $form['field_ercore_pt_licensee']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_pt_licensed[value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    $form['field_ercore_pt_licensee']['widget']['0']['target_id']['#states'] = [
+      'required' => [
+        ':input[name="field_ercore_pt_licensed[value]"]' => ['checked' => TRUE],
+      ],
+    ];
   }
 }

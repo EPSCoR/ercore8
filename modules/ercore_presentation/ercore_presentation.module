@@ -12,13 +12,13 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function ercore_presentation_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_presentation_form' || $form_id === 'node_ercore_presentation_edit_form') {
-    $form['field_ercore_nsf']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_ercore_ps_status"]' => array('value' => '0'),
-      ),
-      'required' => array(
-        ':input[name="field_ercore_ps_status"]' => array('value' => '0'),
-      ),
-    );
+    $form['field_ercore_nsf']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_ps_status"]' => ['value' => '0'],
+      ],
+      'required' => [
+        ':input[name="field_ercore_ps_status"]' => ['value' => '0'],
+      ],
+    ];
   }
 }
