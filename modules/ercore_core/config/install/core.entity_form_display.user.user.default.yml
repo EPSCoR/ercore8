@@ -138,9 +138,9 @@ third_party_settings:
         - field_ercore_user_role_desc
         - group_ercore_us_education
         - group_ercore_us_certification
+        - field_ercore_user_boards
         - field_ercore_user_program
         - field_ercore_user_component
-        - field_ercore_user_boards
       parent_name: group_ercore_us_profile
       weight: 50
       format_type: tab
@@ -298,10 +298,10 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ercore_user_boards:
-    weight: 17
+    weight: 15
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: options_select
     region: content
   field_ercore_user_collecting:
     type: boolean_checkbox
@@ -311,13 +311,10 @@ content:
       display_label: true
     third_party_settings: {  }
   field_ercore_user_component:
-    weight: 16
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    weight: 17
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_ercore_user_data_date:
     type: datetime_default
@@ -519,13 +516,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_ercore_user_program:
-    weight: 15
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    weight: 16
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_ercore_user_race:
     type: options_buttons
