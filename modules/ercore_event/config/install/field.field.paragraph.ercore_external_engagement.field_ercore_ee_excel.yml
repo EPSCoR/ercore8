@@ -11,7 +11,7 @@ field_name: field_ercore_ee_excel
 entity_type: paragraph
 bundle: ercore_external_engagement
 label: 'Upload the Excel Sheet'
-description: ''
+description: "<p class=\"label\">Using the file upload field:</p>\r\n<ol><li>Use the file upload field to upload the reporting sheet containing your data.</li>\r\n<li>After you have saved the page, the numbers from the reporting sheet will be populated in the Engagement fields.</li></ol>\r\n<p class=\"label\">To update engagement values:</p><ul><li>Update the reporting sheet and upload again</li><li>Alternatively, check the \"Disable automatic file alterations\" button and manually update the fields. This will keep your manual changes from being replaced by the uploaded reporting sheet when the page is saved.</li></ul>"
 required: false
 translatable: false
 default_value: {  }

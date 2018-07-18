@@ -8,7 +8,7 @@ id: node.ercore_presentation.field_ercore_ps_event
 field_name: field_ercore_ps_event
 entity_type: node
 bundle: ercore_presentation
-label: 'What was the event where you presented?'
+label: 'What is the name of the event (if any) where you presented?'
 description: 'Please provide the name of the event, where it was held, and any other significant identifying information.'
 required: false
 translatable: false

@@ -8,8 +8,8 @@ id: paragraph.ercore_external_engagement.field_ercore_ee_disable_file_alt
 field_name: field_ercore_ee_disable_file_alt
 entity_type: paragraph
 bundle: ercore_external_engagement
-label: 'Disable file alterations'
-description: 'Once a file is uploaded, check this box to allow manual changes. Uncheck if a new file upload is necessary.'
+label: 'Disable automatic file alterations'
+description: 'Once a file is uploaded, <em>and the page has been saved</em>, check this box to allow manual changes. Uncheck if a new file upload is necessary. <strong>A new file upload will replace all engagement data.</strong>'
 required: false
 translatable: false
 default_value:

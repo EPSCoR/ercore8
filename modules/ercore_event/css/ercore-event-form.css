@@ -18,3 +18,7 @@
     overflow: inherit;
     text-overflow: unset;
 }
+
+.description ul {
+    padding: 0;
+}

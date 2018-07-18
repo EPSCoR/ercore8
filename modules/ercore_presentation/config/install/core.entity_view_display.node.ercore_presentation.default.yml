@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.ercore_presentation.field_ercore_ps_event
     - field.field.node.ercore_presentation.field_ercore_ps_link
     - field.field.node.ercore_presentation.field_ercore_ps_others
-    - field.field.node.ercore_presentation.field_ercore_ps_status
     - field.field.node.ercore_presentation.field_ercore_ps_type
     - field.field.node.ercore_presentation.field_ercore_ps_upload
     - node.type.ercore_presentation
@@ -101,13 +100,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_ercore_ps_status:
-    weight: 5
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
     region: content
   field_ercore_ps_type:
     weight: 4
