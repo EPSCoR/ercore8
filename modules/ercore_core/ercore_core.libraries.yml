@@ -8,3 +8,8 @@ ercore-core-exports.library:
   css:
     base:
       css/ercore-core-exports.css: {}
+ercore-core-user-form.library:
+  version: 1.x
+  css:
+    base:
+      css/ercore-core-user-form.css: {}

@@ -15,8 +15,8 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: na
-      label: N/A
+      value: 'no'
+      label: 'Prefer not to repond'
     -
       value: Male
       label: Male

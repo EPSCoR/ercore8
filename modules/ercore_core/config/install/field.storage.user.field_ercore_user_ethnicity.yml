@@ -15,6 +15,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: 'no'
+      label: 'Prefer not to respond'
+    -
       value: 'Hispanic or Latino'
       label: 'Hispanic or Latino'
     -

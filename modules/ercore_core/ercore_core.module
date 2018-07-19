@@ -31,6 +31,7 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
   }
   // User form logic.
   if ($form_id === 'user_form') {
+    $form['#attached']['library'][] = 'ercore_core/ercore-core-user-form.library';
     // Post Doc.
     $form['field_ercore_user_mentor_plan']['#states'] = [
       'visible' => [
@@ -76,7 +77,7 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
       ],
     ];
 
-    // Advisor & Mentor.
+    // Adviser & Mentor.
     $form['field_ercore_user_advisor_mentor']['#states'] = [
       'visible' => [
         ':input[name="field_ercore_senior_role"]' => [
@@ -134,8 +135,16 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
       ],
     ];
     // RCR.
+    // Remove n/a option from field_ercore_user_rcr_status.
+    unset($form['field_ercore_user_rcr_status']['widget']['#options']['_none']);
     $form['field_ercore_user_rcr_status']['#states'] = [
       'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'undergraduate'],
+          ['value' => 'graduate'],
+        ],
+      ],
+      'required' => [
         ':input[name="field_ercore_senior_role"]' => [
           ['value' => 'undergraduate'],
           ['value' => 'graduate'],

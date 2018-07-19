@@ -15,6 +15,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: 'no'
+      label: 'Prefer not to repond'
+    -
       value: None
       label: None
     -

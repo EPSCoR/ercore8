@@ -9,7 +9,7 @@ id: user.user.field_ercore_prefer_no_answer
 field_name: field_ercore_prefer_no_answer
 entity_type: user
 bundle: user
-label: 'Prefer not to answer'
+label: 'Prefer not to answer demographics questions'
 description: ''
 required: false
 translatable: false
