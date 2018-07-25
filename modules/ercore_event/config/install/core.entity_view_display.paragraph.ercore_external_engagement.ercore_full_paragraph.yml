@@ -292,16 +292,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     region: content
-  field_ercore_ee_disable_file_alt:
-    type: boolean
-    weight: 8
-    region: content
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
   field_ercore_ee_estimated:
     type: boolean
     weight: 0
@@ -744,4 +734,5 @@ content:
     type: computed_integer
     region: content
 hidden:
+  field_ercore_ee_disable_file_alt: true
   field_ercore_ee_excel: true
