@@ -191,7 +191,7 @@ function ercore_publication_field_group_build_pre_render_alter(&$element) {
     'node_ercore_publication_form',
     'node_ercore_publication_edit_form',
   ];
-  if (in_array($element['#form_id'], $forms) && isset($element['group_ercore_pb_info'])) {
+  if (isset($element['#form_id']) && in_array($element['#form_id'], $forms) && isset($element['group_ercore_pb_info'])) {
     $element['group_ercore_pb_info']['#states'] = [
       'visible' => [
         ':input[name="field_ercore_pb_type"]' => [

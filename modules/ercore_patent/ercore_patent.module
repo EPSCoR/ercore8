@@ -27,7 +27,6 @@ function ercore_patent_form_alter(&$form, FormStateInterface $form_state, $form_
         ':input[name="field_ercore_pt_licensed[value]"]' => ['checked' => TRUE],
       ],
     ];
-    ksm($form);
     $form['field_ercore_pt_licensee']['widget']['0']['target_id']['#states'] = [
       'required' => [
         ':input[name="field_ercore_pt_licensed[value]"]' => ['checked' => TRUE],

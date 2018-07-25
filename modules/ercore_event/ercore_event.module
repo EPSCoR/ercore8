@@ -74,16 +74,18 @@ function ercore_event_form_node_form_alter(&$form, FormStateInterface $form_stat
  * Implements hook_entity_presave().
  */
 function ercore_event_node_presave(EntityInterface $entity) {
-  $disallow = 1;
-  $engagement = $entity->get('field_ercore_ev_engagement')->getValue();
-  if (isset($engagement[0]['subform']['field_ercore_ee_disable_file_alt']['value']) &&
-    isset($engagement[0]['subform']['field_ercore_ee_excel'][0]['fids']) &&
-  !empty($engagement[0]['subform']['field_ercore_ee_excel'][0]['fids'])) {
-    dpm('hit');
-    $disallow = $engagement[0]['subform']['field_ercore_ee_disable_file_alt']['value'];
-  }
-  if ($disallow !== 1) {
-    Drupal::service('ercore_event.ercore_import_engagement')
-      ->processEngagement($engagement);
+  if ($entity->getType() === 'ercore_event') {
+    $disallow = 1;
+    $engagement = $entity->get('field_ercore_ev_engagement')->getValue();
+    if (isset($engagement[0]['subform']['field_ercore_ee_disable_file_alt']['value']) &&
+      isset($engagement[0]['subform']['field_ercore_ee_excel'][0]['fids']) &&
+      !empty($engagement[0]['subform']['field_ercore_ee_excel'][0]['fids'])
+    ) {
+      $disallow = $engagement[0]['subform']['field_ercore_ee_disable_file_alt']['value'];
+    }
+    if ($disallow !== 1) {
+      Drupal::service('ercore_event.ercore_import_engagement')
+        ->processEngagement($engagement);
+    }
   }
 }
