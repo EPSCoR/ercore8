@@ -223,32 +223,32 @@ class ErcoreOutputs {
       if (!$node->get('field_ercore_pp_award_start')->isEmpty()) {
         $start = $node->get('field_ercore_pp_award_start')->value;
         $awarded['start'] = ErcoreStartDate::dateArgumentToUnix($start);
-        if (!$node->get('field_ercore_pp_award_end')->isEmpty()) {
-          $end = $node->get('field_ercore_pp_award_end')->value;
-          $awarded['end'] = ErcoreStartDate::dateArgumentToUnix($end);
-        }
-        if (!$node->get('field_ercore_pp_award_amount')->isEmpty()) {
-          $amount = $node->get('field_ercore_pp_award_amount')->value;
-        }
-        if (!$node->get('field_ercore_pp_proposal_submit')->isEmpty()) {
-          $submitted_var = $node->get('field_ercore_pp_proposal_submit')->value;
-          $submitted = ErcoreStartDate::dateArgumentToUnix($submitted_var);
-        }
-        if (!$node->get('field_ercore_pp_proposal_pending')->isEmpty()) {
-          $pending_var = $node->get('field_ercore_pp_proposal_pending')->value;
-          $pending = ErcoreStartDate::dateArgumentToUnix($pending_var);
-        }
-        if (!$node->get('field_ercore_pp_proposal_denied')->isEmpty()) {
-          $denied = TRUE;
-        }
-        $nodes[] = [
-          'amount' => $amount,
-          'submitted' => $submitted,
-          'awarded' => $awarded,
-          'pending' => $pending,
-          'denied' => $denied,
-        ];
       }
+      if (!$node->get('field_ercore_pp_award_end')->isEmpty()) {
+        $end = $node->get('field_ercore_pp_award_end')->value;
+        $awarded['end'] = ErcoreStartDate::dateArgumentToUnix($end);
+      }
+      if (!$node->get('field_ercore_pp_award_req_dec')->isEmpty()) {
+        $amount = $node->get('field_ercore_pp_award_req_dec')->value;
+      }
+      if (!$node->get('field_ercore_pp_proposal_submit')->isEmpty()) {
+        $submitted_var = $node->get('field_ercore_pp_proposal_submit')->value;
+        $submitted = ErcoreStartDate::dateArgumentToUnix($submitted_var);
+      }
+      if (!$node->get('field_ercore_pp_proposal_pending')->isEmpty()) {
+        $pending_var = $node->get('field_ercore_pp_proposal_pending')->value;
+        $pending = ErcoreStartDate::dateArgumentToUnix($pending_var);
+      }
+      if (!$node->get('field_ercore_pp_proposal_denied')->isEmpty()) {
+        $denied = TRUE;
+      }
+      $nodes[] = [
+        'amount' => $amount,
+        'submitted' => $submitted,
+        'awarded' => $awarded,
+        'pending' => $pending,
+        'denied' => $denied,
+      ];
     }
     return $nodes;
   }
@@ -342,7 +342,7 @@ class ErcoreOutputs {
             $data['proposals']['pending']['cumulative']['funds'] += $node['amount'];
           }
         }
-        if (!empty($node['awarded'])) {
+        if (!empty($node['awarded']['start'])) {
           if (self::outputDateRangeFilter($node['awarded'], FALSE) === 1) {
             $data['proposals']['awarded']['current']['number']++;
             $data['proposals']['awarded']['current']['funds'] += $node['amount'];
@@ -453,6 +453,9 @@ class ErcoreOutputs {
           'Native Hawaiian',
         ];
         if (!empty($user['race']) && in_array($user['race'], $in)) {
+          $user_status['minority'] = TRUE;
+        }
+        if (!empty($user['ethnicity']) && $user['ethnicity'] === 'Hispanic or Latino') {
           $user_status['minority'] = TRUE;
         }
         if (!empty($user['gender'])) {
