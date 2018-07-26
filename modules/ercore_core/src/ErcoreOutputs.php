@@ -265,7 +265,6 @@ class ErcoreOutputs {
         'denied' => $denied,
       ];
     }
-    ksm($nodes);
     return $nodes;
   }
 
