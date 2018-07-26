@@ -253,7 +253,7 @@ class ErcoreOutputs {
           $pending = ErcoreStartDate::dateArgumentToUnix($pending_var);
         }
       }
-      if (!$node->get('field_ercore_pp_proposal_denied')->isEmpty()) {
+      if ($status === 'Denied') {
         $denied = TRUE;
       }
       $nodes[] = [
