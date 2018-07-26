@@ -210,24 +210,17 @@ class ErcoreOutputs {
   public static function getProposals() {
     $ids = self::getNodeIds('ercore_proposal');
     $nodes = [];
-    $amount = 0;
-    $pending = '';
-    $submitted = '';
-    $awarded = [
-      'start' => '',
-      'end' => '',
-    ];
-    $denied = FALSE;
     foreach ($ids as $id) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->load($id);
-      if (!$node->get('field_ercore_pp_award_start')->isEmpty()) {
-        $start = $node->get('field_ercore_pp_award_start')->value;
-        $awarded['start'] = ErcoreStartDate::dateArgumentToUnix($start);
-      }
-      if (!$node->get('field_ercore_pp_award_end')->isEmpty()) {
-        $end = $node->get('field_ercore_pp_award_end')->value;
-        $awarded['end'] = ErcoreStartDate::dateArgumentToUnix($end);
-      }
+      $status = $node->get('field_ercore_pp_proposal_status')->value;
+      $amount = 0;
+      $pending = '';
+      $submitted = '';
+      $awarded = [
+        'start' => '',
+        'end' => '',
+      ];
+      $denied = FALSE;
       if (!$node->get('field_ercore_pp_award_req_dec')->isEmpty()) {
         $amount = $node->get('field_ercore_pp_award_req_dec')->value;
       }
@@ -235,14 +228,36 @@ class ErcoreOutputs {
         $submitted_var = $node->get('field_ercore_pp_proposal_submit')->value;
         $submitted = ErcoreStartDate::dateArgumentToUnix($submitted_var);
       }
-      if (!$node->get('field_ercore_pp_proposal_pending')->isEmpty()) {
-        $pending_var = $node->get('field_ercore_pp_proposal_pending')->value;
-        $pending = ErcoreStartDate::dateArgumentToUnix($pending_var);
+      $award_status = [
+        'Awarded',
+        'Expired',
+      ];
+      if (in_array($status, $award_status)) {
+        if (!$node->get('field_ercore_pp_award_start')->isEmpty()) {
+          $start = $node->get('field_ercore_pp_award_start')->value;
+          $awarded['start'] = ErcoreStartDate::dateArgumentToUnix($start);
+        }
+        if (!$node->get('field_ercore_pp_award_end')->isEmpty()) {
+          $end = $node->get('field_ercore_pp_award_end')->value;
+          $awarded['end'] = ErcoreStartDate::dateArgumentToUnix($end);
+        }
+      }
+      $pending_status = [
+        'Awarded',
+        'Expired',
+        'Pending',
+      ];
+      if (in_array($status, $pending_status)) {
+        if (!$node->get('field_ercore_pp_proposal_pending')->isEmpty()) {
+          $pending_var = $node->get('field_ercore_pp_proposal_pending')->value;
+          $pending = ErcoreStartDate::dateArgumentToUnix($pending_var);
+        }
       }
       if (!$node->get('field_ercore_pp_proposal_denied')->isEmpty()) {
         $denied = TRUE;
       }
       $nodes[] = [
+        'status' => $status,
         'amount' => $amount,
         'submitted' => $submitted,
         'awarded' => $awarded,
@@ -250,6 +265,7 @@ class ErcoreOutputs {
         'denied' => $denied,
       ];
     }
+    ksm($nodes);
     return $nodes;
   }
 
