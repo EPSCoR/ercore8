@@ -25,6 +25,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
+    - field.field.user.user.field_ercore_user_first_gen
     - field.field.user.user.field_ercore_user_funding_src
     - field.field.user.user.field_ercore_user_gender
     - field.field.user.user.field_ercore_user_hired_date
@@ -121,6 +122,16 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_ercore_user_first_gen:
+    weight: 14
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_ercore_user_partic_inst:
     weight: 1

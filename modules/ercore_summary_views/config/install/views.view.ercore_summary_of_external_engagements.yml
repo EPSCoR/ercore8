@@ -886,20 +886,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-      sorts:
-        field_ercore_ev_date_value:
-          id: field_ercore_ev_date_value
-          table: node__field_ercore_ev_date
-          field: field_ercore_ev_date_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          plugin_id: datetime
+      sorts: {  }
       title: 'ERCore Summary of External Engagements'
       header: {  }
       footer: {  }

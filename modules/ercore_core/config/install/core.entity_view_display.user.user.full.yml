@@ -26,6 +26,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
+    - field.field.user.user.field_ercore_user_first_gen
     - field.field.user.user.field_ercore_user_funding_src
     - field.field.user.user.field_ercore_user_gender
     - field.field.user.user.field_ercore_user_hired_date
@@ -156,6 +157,7 @@ third_party_settings:
         - field_ercore_user_mentor_plan_dt
         - field_ercore_user_mentor_plan
         - field_ercore_user_advisor_mentor
+        - field_ercore_user_first_gen
         - field_ercore_user_under_ant
         - field_ercore_user_under_act
         - field_ercore_user_master_ant
@@ -168,7 +170,7 @@ third_party_settings:
         - field_ercore_user_rcr_on
         - field_ercore_user_rcr_on_up
       parent_name: group_ercore_institution
-      weight: 36
+      weight: 35
       format_type: fieldset
       format_settings:
         id: ercore_education
@@ -306,7 +308,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_department:
     type: string
-    weight: 35
+    weight: 34
     region: content
     label: inline
     settings:
@@ -330,7 +332,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_doc_act:
     type: datetime_default
-    weight: 63
+    weight: 64
     region: content
     label: inline
     settings:
@@ -339,7 +341,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_doc_ant:
     type: datetime_default
-    weight: 62
+    weight: 63
     region: content
     label: inline
     settings:
@@ -399,6 +401,16 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
+  field_ercore_user_first_gen:
+    type: boolean
+    weight: 58
+    region: content
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_ercore_user_funding_src:
     type: text_default
     weight: 26
@@ -446,7 +458,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_master_act:
     type: datetime_default
-    weight: 61
+    weight: 62
     region: content
     label: inline
     settings:
@@ -455,7 +467,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_master_ant:
     type: datetime_default
-    weight: 60
+    weight: 61
     region: content
     label: inline
     settings:
@@ -546,7 +558,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_on:
     type: datetime_default
-    weight: 67
+    weight: 68
     region: content
     label: inline
     settings:
@@ -555,7 +567,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_on_up:
     type: file_default
-    weight: 68
+    weight: 69
     region: content
     label: inline
     settings:
@@ -563,7 +575,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_per:
     type: datetime_default
-    weight: 65
+    weight: 66
     region: content
     label: inline
     settings:
@@ -572,7 +584,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_per_up:
     type: file_default
-    weight: 66
+    weight: 67
     region: content
     label: inline
     settings:
@@ -580,7 +592,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_rcr_status:
     type: boolean
-    weight: 64
+    weight: 65
     region: content
     label: inline
     settings:
@@ -613,7 +625,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_under_act:
     type: datetime_default
-    weight: 59
+    weight: 60
     region: content
     label: inline
     settings:
@@ -622,7 +634,7 @@ content:
     third_party_settings: {  }
   field_ercore_user_under_ant:
     type: datetime_default
-    weight: 58
+    weight: 59
     region: content
     label: inline
     settings:

@@ -180,9 +180,16 @@ class ERCoreDateFilter extends FormBase {
       }
     }
     else {
-      $this->temp->set('ercore_chosen_range', $form_state->getValue('range'));
-      $this->temp->delete('ercore_filter_start');
-      $this->temp->delete('ercore_filter_end');
+      $date_key = $form_state->getValue('range');
+      $this->temp->set('ercore_chosen_range', $date_key);
+      // Sets up data array from select list.
+      $unix_array = ErcoreStartDate::ercoreSelectListUnix();
+      $string_array = ErcoreStartDate::ercoreSelectListArguments();
+      // Sets data values from arrays.
+      $this->temp->set('ercore_value_start', $unix_array[$date_key]['start']);
+      $this->temp->set('ercore_value_end', $unix_array[$date_key]['end']);
+      $this->temp->set('ercore_filter_start', $string_array[$date_key]['start']);
+      $this->temp->set('ercore_filter_end', $string_array[$date_key]['end']);
     }
     drupal_set_message('Filter saved.');
   }

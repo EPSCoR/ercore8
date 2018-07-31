@@ -175,10 +175,10 @@ class ErcoreOutputs {
   public static function getPatents() {
     $ids = self::getNodeIds('ercore_patent');
     $nodes = [];
-    $licensed = '';
-    $pending = '';
-    $awarded = '';
     foreach ($ids as $id) {
+      $licensed = '';
+      $pending = '';
+      $awarded = '';
       $node = \Drupal::entityTypeManager()->getStorage('node')->load($id);
       if (!$node->get('field_ercore_pt_license')->isEmpty()) {
         $licensed_var = $node->get('field_ercore_pt_license')->value;
@@ -192,7 +192,7 @@ class ErcoreOutputs {
         $pending_var = $node->get('field_ercore_pt_provisional')->value;
         $pending = ErcoreStartDate::dateArgumentToUnix($pending_var);
       }
-      $nodes[] = [
+      $nodes[$id] = [
         'licensed' => $licensed,
         'awarded' => $awarded,
         'pending' => $pending,

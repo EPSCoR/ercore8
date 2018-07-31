@@ -367,8 +367,8 @@ class ErcoreStartDate {
     ];
     foreach ($ranges as $key => $value) {
       $select_list[] = [
-        date(self::$argumentFormat, $value[0]),
-        date(self::$argumentFormat, $value[1]),
+        'start' => date(self::$argumentFormat, $value[0]),
+        'end' => date(self::$argumentFormat, $value[1]),
       ];
     }
     return $select_list;

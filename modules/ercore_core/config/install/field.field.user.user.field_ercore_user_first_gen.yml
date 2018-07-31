@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ercore_user_first_gen
+  module:
+    - user
+id: user.user.field_ercore_user_first_gen
+field_name: field_ercore_user_first_gen
+entity_type: user
+bundle: user
+label: 'Are you a first generation college student?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
