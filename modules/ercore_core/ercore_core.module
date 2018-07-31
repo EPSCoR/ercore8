@@ -87,6 +87,19 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
       ],
     ];
 
+    // First generation.
+    // Remove n/a option from field_ercore_user_first_gen.
+    unset($form['field_ercore_user_first_gen']['widget']['#options']['_none']);
+    $form['field_ercore_user_first_gen']['#states'] = [
+      'visible' => [
+        ':input[name="field_ercore_senior_role"]' => [
+          ['value' => 'post-doc'],
+          ['value' => 'graduate'],
+          ['value' => 'undergraduate'],
+        ],
+      ],
+    ];
+
     // Faculty / Non-Technical.
     // Boards and Committees.
     $form['field_ercore_user_boards']['#states'] = [
