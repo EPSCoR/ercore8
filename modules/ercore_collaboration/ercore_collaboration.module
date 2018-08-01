@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\CloseModalDialogCommand;
 
 /**
  * Implements hook_form_alter().
@@ -13,6 +15,11 @@ use Drupal\Core\Form\FormStateInterface;
 function ercore_collaboration_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === 'node_ercore_collaboration_edit_form' || $form_id === 'node_ercore_collaboration_form') {
     $form['#validate'][] = 'ercore_collaboration_node_form_validate';
+  }
+  if ($form_id === 'node_ercore_institution_form') {
+    $form['actions']['submit']['#submit'][] = '_modal_form_institution_ajax_submit';
+    $form['actions']['submit']['#attributes']['class'][] = 'use-ajax-submit';
+    $form['#attached']['library'][] = 'ercore_collaboration/ercore-collaboration-modal.library';
   }
 }
 
@@ -25,4 +32,19 @@ function ercore_collaboration_node_form_validate(&$form, FormStateInterface $for
   if (!empty($value2['0']['value']) && $value2['0']['value'] < $value1['0']['value']) {
     $form_state->setErrorByName('field_ercore_collaboration_end', t('End date must be after start date.'));
   }
+}
+
+/**
+ * Close the Institution Modal and leave use on page.
+ *
+ * @param array $form
+ *   The form that will be altered.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   FormState Object.
+ */
+function _modal_form_institution_ajax_submit(array $form, FormStateInterface &$form_state) {
+  ksm($form);
+  $response = new AjaxResponse();
+  $response->addCommand(new CloseModalDialogCommand());
+  $form_state->setResponse($response);
 }

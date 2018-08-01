@@ -1,0 +1,8 @@
+@media screen and (min-width: 780px), (min-device-height: 780px) and (orientation: landscape) {
+    .layout-node-form  .layout-region-node-main,
+    .layout-node-form  .layout-region-node-secondary,
+    .layout-node-form  .layout-region-node-footer {
+        width: 100%;
+        float: none;
+    }
+}
