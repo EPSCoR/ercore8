@@ -407,6 +407,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
         - 'config:core.entity_view_display.node.ercore_admin.default'
         - 'config:core.entity_view_display.node.ercore_admin.full'
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
@@ -438,6 +441,8 @@ display:
         - 'config:core.entity_view_display.node.ercore_publication.default'
         - 'config:core.entity_view_display.node.ercore_publication.full'
         - 'config:core.entity_view_display.node.ercore_publication.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'
   data_export_1:
     display_plugin: data_export
     id: data_export_1
@@ -908,6 +913,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
         - 'config:core.entity_view_display.node.ercore_admin.default'
         - 'config:core.entity_view_display.node.ercore_admin.full'
         - 'config:core.entity_view_display.node.ercore_admin.teaser'
@@ -939,3 +947,5 @@ display:
         - 'config:core.entity_view_display.node.ercore_publication.default'
         - 'config:core.entity_view_display.node.ercore_publication.full'
         - 'config:core.entity_view_display.node.ercore_publication.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'

@@ -63,9 +63,9 @@ dependencies:
     - node.type.ercore_event
     - system.menu.ercore-admin-menu
   module:
-    - better_exposed_filters
     - computed_field
     - csv_serialization
+    - datetime
     - node
     - paragraphs
     - rest
@@ -105,7 +105,7 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: bef
+        type: basic
         options:
           submit_button: Apply
           reset_button: true
@@ -114,33 +114,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
-          text_input_required: 'Select any filter and click on Apply to see results'
-          bef:
-            general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
-              autosubmit: false
-              autosubmit_hide: false
-            field_ercore_ev_date_end_value:
-              bef_format: bef_datepicker
-              more_options:
-                is_secondary: false
-            field_ercore_ev_date_value:
-              bef_format: bef_datepicker
-              more_options:
-                is_secondary: false
-            field_ercore_user_partic_inst_target_id:
-              bef_format: default
-              slider_options:
-                bef_slider_min: null
-                bef_slider_max: null
-                bef_slider_step: !!float 1
-                bef_slider_animate: ''
-                bef_slider_orientation: ''
-              more_options:
-                is_secondary: false
-          text_input_required_format: basic_html
       pager:
         type: full
         options:
@@ -753,13 +726,17 @@ display:
           group: 1
         field_ercore_ev_date_end_value:
           id: field_ercore_ev_date_end_value
-          table: node__field_ercore_ev_date
+          table: node__field_ercore_ev_date_end
           field: field_ercore_ev_date_end_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
           group: 1
           exposed: true
           expose:
@@ -768,7 +745,7 @@ display:
             description: ''
             use_operator: false
             operator: field_ercore_ev_date_end_value_op
-            identifier: ercore_start_date
+            identifier: field_ercore_ev_date_end_value
             required: false
             remember: false
             multiple: false
@@ -782,6 +759,9 @@ display:
               ercore_manage_site: '0'
               administrator: '0'
               anonymous: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -795,24 +775,28 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        field_ercore_ev_date_value:
-          id: field_ercore_ev_date_value
-          table: node__field_ercore_ev_date
-          field: field_ercore_ev_date_value
+        field_ercore_ev_date_start_value:
+          id: field_ercore_ev_date_start_value
+          table: node__field_ercore_ev_date_start
+          field: field_ercore_ev_date_start_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
           group: 1
           exposed: true
           expose:
-            operator_id: field_ercore_ev_date_value_op
+            operator_id: field_ercore_ev_date_start_value_op
             label: 'End Date'
             description: ''
             use_operator: false
-            operator: field_ercore_ev_date_value_op
-            identifier: ercore_end_date
+            operator: field_ercore_ev_date_start_value_op
+            identifier: field_ercore_ev_date_start_value
             required: false
             remember: false
             multiple: false
@@ -826,6 +810,9 @@ display:
               ercore_manage_site: '0'
               administrator: '0'
               anonymous: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -930,6 +917,7 @@ display:
         operator: AND
         groups:
           1: AND
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1135,9 +1123,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          view: ercore_engagement_field
+          view: ercore_user_summary_formatting
           display: block_1
-          arguments: '{{ fields.parent_id }}'
+          arguments: '{{ raw_fields.parent_id }}'
           plugin_id: view
         field_ercore_programs:
           id: field_ercore_programs
@@ -5036,6 +5024,9 @@ display:
         type: perm
         options:
           perm: 'access ercore excel sheets'
+      displays:
+        default: '0'
+        page_1: '0'
     cache_metadata:
       max-age: -1
       contexts:

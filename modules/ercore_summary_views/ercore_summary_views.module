@@ -18,6 +18,7 @@ function ercore_summary_views_form_views_exposed_form_alter(&$form, FormStateInt
     'views-exposed-form-ercore-summary-of-collaborations-page-1',
     'views-exposed-form-ercore-summary-of-events-page-1',
     'views-exposed-form-ercore-summary-of-external-collaborators-page-1',
+    'views-exposed-form-ercore-summary-of-external-engagements-page-1',
     'views-exposed-form-ercore-summary-of-highlights-page-1',
     'views-exposed-form-ercore-summary-of-honors-page-1',
     'views-exposed-form-ercore-summary-of-other-research-products-page-1',

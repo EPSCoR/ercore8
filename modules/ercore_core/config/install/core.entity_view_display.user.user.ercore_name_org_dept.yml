@@ -26,6 +26,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_epscore_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
+    - field.field.user.user.field_ercore_user_first_gen
     - field.field.user.user.field_ercore_user_funding_src
     - field.field.user.user.field_ercore_user_gender
     - field.field.user.user.field_ercore_user_hired_date
@@ -105,6 +106,7 @@ hidden:
   field_ercore_user_epscore_paid: true
   field_ercore_user_ethnicity: true
   field_ercore_user_fac_support: true
+  field_ercore_user_first_gen: true
   field_ercore_user_funding_src: true
   field_ercore_user_gender: true
   field_ercore_user_hired_date: true
