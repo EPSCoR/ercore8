@@ -238,6 +238,19 @@ function ercore_core_form_alter(&$form, FormStateInterface $form_state, $form_id
     $form['account']['pass']['#value']['pass2'] = $form['account']['pass']['#value']['pass1'];
     $form['account']['notify']['#default_value'] = TRUE;
   }
+  if ($form['#id'] === 'views-exposed-form-ercore-participant-search-page-1') {
+    $options = ercore_get_institutions();
+    // Start building out our new form element.
+    $form['field_ercore_user_partic_inst_target_id']['#type'] = 'select';
+    $form['field_ercore_user_partic_inst_target_id']['#multiple'] = FALSE;
+
+    // Specify the empty option for our select list.
+    $form['field_ercore_user_partic_inst_target_id']['#empty_option'] = t('Institution');
+
+    // Add the $options from above to our select list.
+    $form['field_ercore_user_partic_inst_target_id']['#options'] = $options;
+    unset($form['field_ercore_user_partic_inst_target_id']['#size']);
+  }
 }
 
 /**
@@ -274,4 +287,38 @@ function ercore_core_form_validate(array &$form, FormStateInterface $form_state)
   if (!empty($value2['0']['value']) && $value2['0']['value'] < $value1['0']['value']) {
     $form_state->setErrorByName('field_ercore_user_end', t('End date must be after start date.'));
   }
+}
+
+/**
+ * Get Institutions for other functions.
+ *
+ * @return array|bool
+ *   Return array of institutions or FALSE.
+ */
+function ercore_get_institutions() {
+  // Query nodes.
+  $storage = Drupal::getContainer()
+    ->get('entity_type.manager')
+    ->getStorage('node');
+  $nids = $storage->getQuery();
+
+  // Gather published artist nodes and sort by title.
+  $nids = $nids->condition('type', 'ercore_institution')
+    ->condition('status', 1)
+    ->sort('title')
+    ->execute();
+
+  // If there are no nodes, move on.
+  if (!$nids) {
+    return FALSE;
+  }
+  // Start building out the options for our select list.
+  $options = [];
+  $nodes = $storage->loadMultiple($nids);
+
+  // Push titles into select list.
+  foreach ($nodes as $node) {
+    $options[$node->id()] = $node->getTitle();
+  }
+  return $options;
 }

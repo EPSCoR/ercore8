@@ -8,7 +8,7 @@ dependencies:
     - name
     - user
 id: ercore_160_hours_criteria
-label: 'ERCore 160 Hours Criteria'
+label: 'ERCore: 160 Hours Criteria'
 module: views
 description: ''
 tag: 'ercore ercore-admin'
