@@ -16,10 +16,15 @@ function ercore_collaboration_form_node_form_alter(&$form, FormStateInterface $f
   if ($form_id === 'node_ercore_collaboration_edit_form' || $form_id === 'node_ercore_collaboration_form') {
     $form['#validate'][] = 'ercore_collaboration_node_form_validate';
   }
+  // If institution node form.
   if ($form_id === 'node_ercore_institution_form') {
-    $form['actions']['submit']['#submit'][] = '_modal_form_institution_ajax_submit';
-    $form['actions']['submit']['#attributes']['class'][] = 'use-ajax-submit';
-    $form['#attached']['library'][] = 'ercore_collaboration/ercore-collaboration-modal.library';
+    $modal = \Drupal::request()->get('modal');
+    // If Institution form is in modal.
+    if (isset($modal) && $modal === 'true') {
+      $form['actions']['submit']['#submit'][] = '_modal_form_institution_ajax_submit';
+      $form['actions']['submit']['#attributes']['class'][] = 'use-ajax-submit';
+      $form['#attached']['library'][] = 'ercore_collaboration/ercore-collaboration-modal.library';
+    }
   }
 }
 
@@ -43,7 +48,6 @@ function ercore_collaboration_node_form_validate(&$form, FormStateInterface $for
  *   FormState Object.
  */
 function _modal_form_institution_ajax_submit(array $form, FormStateInterface &$form_state) {
-  ksm($form);
   $response = new AjaxResponse();
   $response->addCommand(new CloseModalDialogCommand());
   $form_state->setResponse($response);
