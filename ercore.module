@@ -82,9 +82,9 @@ function ercore_get_filter_dates() {
  * @return array
  *   Array of date objects.
  */
-function ercore_get_cumulative_filter_dates() {
+function ercore_get_project_filter_dates() {
   return [
     'start' => ErcoreStartDate::startUnix(),
-    'end' => ErcoreStartDate::todayUnix(),
+    'end' => ErcoreStartDate::endUnix(),
   ];
 }

@@ -255,11 +255,17 @@ class ErcoreParticipantBuild {
   /**
    * Filtered users.
    *
+   * @param bool $entire_range
+   *   Use cumulative date or filtered.
+   *
    * @return array
    *   Array of User IDs.
    */
-  public static function getFilteredUsers() {
+  public static function getFilteredUsers($entire_range = FALSE) {
     $dates = ercore_get_filter_dates();
+    if ($entire_range === TRUE) {
+      $dates = ercore_get_project_filter_dates();
+    }
     $filtered = [];
     $users = self::getUsers();
     foreach ($users as $uid => $user) {

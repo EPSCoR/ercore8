@@ -83,6 +83,7 @@ class ErcoreCollaborationBuild {
           $nodes[$id] = [
             'start' => ErcoreStartDate::dateArgumentToUnix($collaboration_start[0]['value']),
             'end' => $collaboration_end,
+            'count' => 0,
           ];
           $externals = $node->get('field_ercore_cn_collaborator')->getValue();
           foreach ($externals as $external) {
@@ -102,6 +103,7 @@ class ErcoreCollaborationBuild {
               }
             }
             $nodes[$id]['data'][$category][$type][] = $pid;
+            $nodes[$id]['count'] += 1;
           }
         }
       }
@@ -112,11 +114,17 @@ class ErcoreCollaborationBuild {
   /**
    * Filter data by date.
    *
+   * @param bool $entire_range
+   *   Use cumulative date or filtered.
+   *
    * @return array
    *   Array of User IDs.
    */
-  public static function filteredNodes() {
+  public static function filteredNodes($entire_range = FALSE) {
     $dates = ercore_get_filter_dates();
+    if ($entire_range === TRUE) {
+      $dates = ercore_get_project_filter_dates();
+    }
     $filtered = [];
     $nodes = self::getNodes();
     foreach ($nodes as $nid => $node) {
@@ -126,6 +134,24 @@ class ErcoreCollaborationBuild {
       }
     }
     return $filtered;
+  }
+
+  /**
+   * Counts external collaborators.
+   *
+   * @param bool $entire_range
+   *   Use cumulative date or filtered.
+   *
+   * @return int
+   *   Count of external collaborators.
+   */
+  public static function countExternals($entire_range = FALSE) {
+    $count = 0;
+    $nodes = self::filteredNodes($entire_range);
+    foreach ($nodes as $node) {
+      $count += $node['count'];
+    }
+    return $count;
   }
 
   /**

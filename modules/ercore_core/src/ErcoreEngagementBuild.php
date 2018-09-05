@@ -101,7 +101,7 @@ class ErcoreEngagementBuild {
     foreach ($ids as $id) {
       $node = \Drupal::entityTypeManager()->getStorage('node')->load($id);
       if (!$node->get('field_ercore_ev_date_start')
-          ->isEmpty() && !$node->get('field_ercore_ev_engagement')->isEmpty()
+        ->isEmpty() && !$node->get('field_ercore_ev_engagement')->isEmpty()
       ) {
         $start_var = $node->get('field_ercore_ev_date_start')->value;
         $start = strtotime($start_var);
@@ -126,11 +126,17 @@ class ErcoreEngagementBuild {
   /**
    * Filter data by date.
    *
+   * @param bool $entire_range
+   *   Use cumulative date or filtered.
+   *
    * @return array
    *   Array of User IDs.
    */
-  public static function filteredNodes() {
+  public static function filteredNodes($entire_range = FALSE) {
     $dates = ercore_get_filter_dates();
+    if ($entire_range === TRUE) {
+      $dates = ercore_get_project_filter_dates();
+    }
     $filtered = [];
     $nodes = self::getNodes();
     foreach ($nodes as $nid => $node) {
@@ -145,10 +151,16 @@ class ErcoreEngagementBuild {
 
   /**
    * Process engagements into a data array for aggregation.
+   *
+   * @param bool $entire_range
+   *   Use cumulative date or filtered.
+   *
+   * @return array
+   *   Return data array.
    */
-  public static function getEngagements() {
+  public static function getEngagements($entire_range = FALSE) {
     $engagements = self::buildAggregationArray();
-    $entities = self::filteredNodes();
+    $entities = self::filteredNodes($entire_range);
     foreach ($entities as $entity) {
       // ARI Faculty.
       $engagements['total']['ari']['fac'] += $entity->get('field_ercore_ee_ari_fac_f')->value;
@@ -228,12 +240,15 @@ class ErcoreEngagementBuild {
   /**
    * Builds Engagement data object with data.
    *
+   * @param bool $entire_range
+   *   Use cumulative date or filtered.
+   *
    * @return array
    *   Returns array of data objects.
    */
-  public static function getData() {
+  public static function getData($entire_range = FALSE) {
     $data_array = self::buildDataArray();
-    $engagements = self::getEngagements();
+    $engagements = self::getEngagements($entire_range);
     $types = self::dataTypes();
     foreach ($types as $type) {
       $data_array[$type]->ariFac += $engagements[$type]['ari']['fac'];
@@ -261,6 +276,20 @@ class ErcoreEngagementBuild {
       $data_array[$type]->total += $engagements[$type]['other'];
     }
     return $data_array;
+  }
+
+  /**
+   * Counts external engagements.
+   *
+   * @param bool $entire_range
+   *   Use cumulative date or filtered.
+   *
+   * @return int
+   *   Count of external engagements.
+   */
+  public static function countExternals($entire_range = FALSE) {
+    $engagements = self::getData($entire_range);
+    return $engagements['total']->total;
   }
 
 }

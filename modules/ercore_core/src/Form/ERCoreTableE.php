@@ -89,7 +89,7 @@ class ERCoreTableE extends FormBase {
         $rows['patents']['licensed']['cumulative'],
       ],
     ];
-    $results['patents'] = $form['data_table']['data'] = [
+    $results['patents'] = [
       '#theme' => 'table',
       '#caption' => 'Patents',
       '#header' => [
@@ -137,7 +137,7 @@ class ERCoreTableE extends FormBase {
         $rows['proposals']['pending']['cumulative']['funds'],
       ],
     ];
-    $results['proposals'] = $form['data_table']['data'] = [
+    $results['proposals'] = [
       '#theme' => 'table',
       '#caption' => 'Proposals / Grants / Contracts',
       '#header' => [
@@ -173,7 +173,7 @@ class ERCoreTableE extends FormBase {
         $rows['publications']['partial']['cumulative'],
       ],
     ];
-    $results['publications'] = $form['data_table']['data'] = [
+    $results['publications'] = [
       '#theme' => 'table',
       '#caption' => 'Published Publications',
       '#header' => [
@@ -224,7 +224,7 @@ class ERCoreTableE extends FormBase {
         $rows['hired']['disabled']['cumulative'],
       ],
     ];
-    $results['new_hires'] = $form['data_table']['data'] = [
+    $results['new_hires'] = [
       '#theme' => 'table',
       '#caption' => 'New Hires',
       '#header' => [
@@ -276,7 +276,7 @@ class ERCoreTableE extends FormBase {
         $rows['post-doc']['disabled']['cumulative'],
       ],
     ];
-    $results['postdocs'] = $form['data_table']['data'] = [
+    $results['postdocs'] = [
       '#theme' => 'table',
       '#caption' => 'Post Docs',
       '#header' => [
@@ -327,7 +327,7 @@ class ERCoreTableE extends FormBase {
         $rows['graduate']['disabled']['cumulative'],
       ],
     ];
-    $results['graduate'] = $form['data_table']['data'] = [
+    $results['graduate'] = [
       '#theme' => 'table',
       '#caption' => 'Graduate Students',
       '#header' => [
@@ -378,7 +378,7 @@ class ERCoreTableE extends FormBase {
         $rows['undergraduate']['disabled']['cumulative'],
       ],
     ];
-    $results['undergraduate'] = $form['data_table']['data'] = [
+    $results['undergraduate'] = [
       '#theme' => 'table',
       '#caption' => 'Undergraduate Students',
       '#header' => [

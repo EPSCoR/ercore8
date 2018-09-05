@@ -1,4 +1,6 @@
-#edit-filter-type--wrapper fieldset .form-item, #edit-filter-type--wrapper #edit-filter-type .form-item {
+#edit-filter-type--wrapper fieldset .form-item,
+#edit-filter-type--wrapper #edit-filter-type .form-item,
+#range-form-container .fieldset-wrapper .form-item {
   float: left;
   margin-right: 20px;
 }

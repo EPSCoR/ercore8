@@ -215,7 +215,7 @@ class ERCoreDateFilter extends FormBase {
     $this->temp->set('ercore_filter_end', ErcoreStartDate::endString());
     $this->temp->set('ercore_value_start', ErcoreStartDate::startUnix());
     $this->temp->set('ercore_value_end', ErcoreStartDate::endUnix());
-    drupal_set_message('Filter reset.');
+    drupal_set_message('Filters have been reset.');
   }
 
 }

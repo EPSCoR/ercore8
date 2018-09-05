@@ -328,7 +328,7 @@ class ErcoreOutputs {
    * Build Proposal object.
    *
    * @param array $data
-   *   Boolean to identify period or cumulative date range.
+   *   Data array.
    *
    * @return array
    *   Array of User IDs.
@@ -542,7 +542,7 @@ class ErcoreOutputs {
   public static function outputDateFilter($date, $cumulative = FALSE) {
     $filter = ercore_get_filter_dates();
     if ($cumulative === TRUE) {
-      $filter = ercore_get_cumulative_filter_dates();
+      $filter = ercore_get_project_filter_dates();
     }
     if ($filter['start'] <= $date && $date <= $filter['end']) {
       return 1;
@@ -564,7 +564,7 @@ class ErcoreOutputs {
   public static function outputDateRangeFilter(array $dates, $cumulative = FALSE) {
     $filter = ercore_get_filter_dates();
     if ($cumulative === TRUE) {
-      $filter = ercore_get_cumulative_filter_dates();
+      $filter = ercore_get_project_filter_dates();
     }
     if (($dates['start'] <= $filter['end'] && $dates['end'] >= $filter['start'])
       || ($dates['start'] <= $filter['end'] && empty($dates['end']))
