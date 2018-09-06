@@ -42,8 +42,18 @@ class ERCoreAccomplishments extends FormBase {
     $other = ErcoreOutputs::getData();
     $this->temp = \Drupal::service('user.private_tempstore')
       ->get('ercore_core');
-    $filterStart = $this->temp->get('ercore_filter_start');
-    $filterEnd = $this->temp->get('ercore_filter_end');
+    if ($this->temp->get('ercore_filter_start')) {
+      $filterStart = $this->temp->get('ercore_filter_start');
+    }
+    else {
+      $filterStart = ErcoreStartDate::startString();
+    }
+    if ($this->temp->get('ercore_filter_end')) {
+      $filterEnd = $this->temp->get('ercore_filter_end');
+    }
+    else {
+      $filterEnd = ErcoreStartDate::endString();
+    }
     $url = Url::fromRoute('ercore_core.accomplishments_export');
     $link = Link::fromTextAndUrl('Download EPSCoR Reporting Core Tables.', $url);
     $form['#attached']['library'][] = 'ercore_core/ercore-core-exports.library';
