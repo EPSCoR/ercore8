@@ -10,7 +10,7 @@ field_name: field_ercore_cr_inst
 entity_type: paragraph
 bundle: ercore_collaborator
 label: Institution/Organization
-description: 'Not seeing your institution? <a class="use-ajax"  data-dialog-options="{&quot;width&quot;:800}" data-dialog-type="modal" href="/node/add/ercore_institution">Add an institution here</a>, then select it in this field.'
+description: 'Not seeing your institution? <a class="use-ajax"  data-dialog-options="{&quot;width&quot;:800}" data-dialog-type="modal" href="/node/add/ercore_institution?modal=true">Add an institution here</a>, then select it in this field.'
 required: true
 translatable: false
 default_value: {  }
