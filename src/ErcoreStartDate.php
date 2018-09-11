@@ -356,11 +356,7 @@ class ErcoreStartDate {
   public static function ercoreGetReportingRanges() {
     $ranges = [];
     if (!count($ranges)) {
-      $current_month = date('n');
-      $adjusted_date = time(0, 0, 0, $current_month - self::reportingMonth() + 7);
-      // +half a year into the future (6) +1 offset.
-      $current_year = date('Y', $adjusted_date);
-      for ($year = $current_year; $year >= self::startYear(); $year--) {
+      for ($year = self::endYear(); $year >= self::startYear(); $year--) {
         $ranges[] = self::generateReportingRange($year);
       }
     }
