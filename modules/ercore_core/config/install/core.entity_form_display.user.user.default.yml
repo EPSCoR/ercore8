@@ -22,7 +22,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_effort_months
     - field.field.user.user.field_ercore_user_employee_id
     - field.field.user.user.field_ercore_user_end
-    - field.field.user.user.field_ercore_user_epscore_paid
+    - field.field.user.user.field_ercore_user_epscor_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
     - field.field.user.user.field_ercore_user_first_gen
@@ -130,7 +130,7 @@ third_party_settings:
         - field_ercore_user_advisor_mentor
         - field_ercore_user_first_gen
         - field_ercore_user_lead_team
-        - field_ercore_user_epscore_paid
+        - field_ercore_user_epscor_paid
         - field_ercore_user_part_160
         - field_ercore_user_fac_support
         - field_ercore_user_hired_date
@@ -408,7 +408,7 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_ercore_user_epscore_paid:
+  field_ercore_user_epscor_paid:
     type: options_buttons
     weight: 6
     region: content
