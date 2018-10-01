@@ -1,6 +1,4 @@
 langcode: en
-langcode: en
-langcode: en
 status: true
 dependencies:
   config:
