@@ -21,7 +21,7 @@ settings:
       value: Meeting
       label: Meeting
     -
-      value: ''
+      value: Workshop
       label: Workshop
     -
       value: Conference
