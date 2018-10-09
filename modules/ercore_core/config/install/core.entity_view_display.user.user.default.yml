@@ -22,7 +22,7 @@ dependencies:
     - field.field.user.user.field_ercore_user_effort_months
     - field.field.user.user.field_ercore_user_employee_id
     - field.field.user.user.field_ercore_user_end
-    - field.field.user.user.field_ercore_user_epscore_paid
+    - field.field.user.user.field_ercore_user_epscor_paid
     - field.field.user.user.field_ercore_user_ethnicity
     - field.field.user.user.field_ercore_user_fac_support
     - field.field.user.user.field_ercore_user_first_gen
@@ -195,7 +195,7 @@ hidden:
   field_ercore_user_doc_ant: true
   field_ercore_user_effort_months: true
   field_ercore_user_employee_id: true
-  field_ercore_user_epscore_paid: true
+  field_ercore_user_epscor_paid: true
   field_ercore_user_ethnicity: true
   field_ercore_user_fac_support: true
   field_ercore_user_funding_src: true

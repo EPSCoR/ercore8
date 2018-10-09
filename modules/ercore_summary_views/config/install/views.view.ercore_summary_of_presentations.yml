@@ -1337,6 +1337,11 @@ display:
       menu:
         type: normal
         title: Presentation
+        description: ''
+        expanded: false
+        parent: ercore_core.ercore_content
+        weight: 0
+        context: '0'
         menu_name: ercore-admin-menu
     cache_metadata:
       max-age: -1

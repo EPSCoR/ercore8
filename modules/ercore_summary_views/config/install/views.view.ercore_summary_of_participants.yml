@@ -19,7 +19,7 @@ dependencies:
     - field.storage.user.field_ercore_user_effort_months
     - field.storage.user.field_ercore_user_employee_id
     - field.storage.user.field_ercore_user_end
-    - field.storage.user.field_ercore_user_epscore_paid
+    - field.storage.user.field_ercore_user_epscor_paid
     - field.storage.user.field_ercore_user_ethnicity
     - field.storage.user.field_ercore_user_fac_support
     - field.storage.user.field_ercore_user_first_gen
@@ -2493,10 +2493,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_ercore_user_epscore_paid:
-          id: field_ercore_user_epscore_paid
-          table: user__field_ercore_user_epscore_paid
-          field: field_ercore_user_epscore_paid
+        field_ercore_user_epscor_paid:
+          id: field_ercore_user_epscor_paid
+          table: user__field_ercore_user_epscor_paid
+          field: field_ercore_user_epscor_paid
           relationship: none
           group_type: group
           admin_label: ''
@@ -4322,7 +4322,7 @@ display:
         - 'config:field.storage.user.field_ercore_user_effort_months'
         - 'config:field.storage.user.field_ercore_user_employee_id'
         - 'config:field.storage.user.field_ercore_user_end'
-        - 'config:field.storage.user.field_ercore_user_epscore_paid'
+        - 'config:field.storage.user.field_ercore_user_epscor_paid'
         - 'config:field.storage.user.field_ercore_user_ethnicity'
         - 'config:field.storage.user.field_ercore_user_fac_support'
         - 'config:field.storage.user.field_ercore_user_first_gen'
