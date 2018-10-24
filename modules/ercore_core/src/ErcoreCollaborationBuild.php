@@ -95,15 +95,19 @@ class ErcoreCollaborationBuild {
               ->load($pid);
             if (!$collaborator->get('field_ercore_cr_inst')->isEmpty()) {
               $institution = $collaborator->get('field_ercore_cr_inst')->entity;
-              if (!$institution->get('field_ercore_inst_type')->isEmpty()) {
-                $type = $institution->get('field_ercore_inst_type')->value;
+              if (!empty($institution)) {
+                if (!$institution->get('field_ercore_inst_type')->isEmpty()) {
+                  $type = $institution->get('field_ercore_inst_type')->value;
+                }
+                if (!$institution->get('field_ercore_inst_category')
+                  ->isEmpty()
+                ) {
+                  $category = $institution->get('field_ercore_inst_category')->value;
+                }
               }
-              if (!$institution->get('field_ercore_inst_category')->isEmpty()) {
-                $category = $institution->get('field_ercore_inst_category')->value;
-              }
+              $nodes[$id]['data'][$category][$type][] = $pid;
+              $nodes[$id]['count'] += 1;
             }
-            $nodes[$id]['data'][$category][$type][] = $pid;
-            $nodes[$id]['count'] += 1;
           }
         }
       }

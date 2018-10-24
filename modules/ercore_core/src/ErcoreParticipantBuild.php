@@ -101,137 +101,147 @@ class ErcoreParticipantBuild {
     $users = [];
     foreach ($ids as $id) {
       $user = \Drupal::entityTypeManager()->getStorage('user')->load($id);
-      if (!$user->get('field_ercore_user_start')->isEmpty()) {
-        $role = '';
-        if (!$user->get('field_ercore_senior_role')->isEmpty()) {
-          $role = $user->get('field_ercore_senior_role')->getString();
-        }
-        if (!empty($role) && $role !== 'evaluation') {
-          $user_start = $user->get('field_ercore_user_start')->getValue();
-          if (!$user->get('field_ercore_user_end')->isEmpty()) {
-            $end_var = $user->get('field_ercore_user_end')->value;
-            $user_end = ErcoreStartDate::dateArgumentToUnix($end_var);
+      if (!$user->get('field_ercore_user_start')->isEmpty() && !$user->get('field_ercore_user_partic_inst')->isEmpty()) {
+        $institution_target = $user
+          ->get('field_ercore_user_partic_inst')
+          ->first()
+          ->get('entity')
+          ->getTarget();
+        if (!empty($institution_target)) {
+          $institution = $institution_target->getValue();
+          $role = '';
+          if (!$user->get('field_ercore_senior_role')->isEmpty()) {
+            $role = $user->get('field_ercore_senior_role')->getString();
           }
-          else {
-            $user_end = ErcoreStartDate::endUnix();
-          }
-          $institution = $user
-            ->get('field_ercore_user_partic_inst')
-            ->first()
-            ->get('entity')
-            ->getTarget()
-            ->getValue();
-          $institution_id = $institution->id();
-          $institution_name = $institution->getTitle();
-          $name = $user->getUsername();
-          $hired = '';
-          if ($role === 'faculty' && !$user->get('field_ercore_user_hired_date')->isEmpty()) {
-            $hired_var = $user->get('field_ercore_user_hired_date')->value;
-            $hired = ErcoreStartDate::dateArgumentToUnix($hired_var);
-          }
-          $masters = '';
-          if ($role === 'graduate' && !$user->get('field_ercore_user_master_act')->isEmpty()) {
-            $masters_var = $user->get('field_ercore_user_master_act')->value;
-            $masters = ErcoreStartDate::dateArgumentToUnix($masters_var);
-          }
-          $doctoral = '';
-          if ($role === 'graduate' && !$user->get('field_ercore_user_doc_act')->isEmpty()) {
+          if (!empty($role) && $role !== 'evaluation') {
+            $user_start = $user->get('field_ercore_user_start')->getValue();
+            if (!$user->get('field_ercore_user_end')->isEmpty()) {
+              $end_var = $user->get('field_ercore_user_end')->value;
+              $user_end = ErcoreStartDate::dateArgumentToUnix($end_var);
+            }
+            else {
+              $user_end = ErcoreStartDate::endUnix();
+            }
+            $institution_id = $institution->id();
+            $institution_name = $institution->getTitle();
+            $name = $user->getUsername();
+            $hired = '';
+            if ($role === 'faculty' && !$user->get('field_ercore_user_hired_date')
+              ->isEmpty()
+            ) {
+              $hired_var = $user->get('field_ercore_user_hired_date')->value;
+              $hired = ErcoreStartDate::dateArgumentToUnix($hired_var);
+            }
             $masters = '';
-            $doctoral_var = $user->get('field_ercore_user_doc_act')->value;
-            $doctoral = ErcoreStartDate::dateArgumentToUnix($doctoral_var);
-          }
-          $undergraduate = '';
-          if ($role === 'undergraduate' && !$user->get('field_ercore_user_under_act')->isEmpty()) {
-            $undergraduate_var = $user->get('field_ercore_user_under_act')->value;
-            $undergraduate = ErcoreStartDate::dateArgumentToUnix($undergraduate_var);
-          }
-          $department = '';
-          if (!$user->get('field_ercore_user_department')->isEmpty()) {
-            $department_value = $user->get('field_ercore_user_department')
-              ->first()
-              ->getValue();
-            $department = $department_value['value'];
-          }
-          $realname = $user->get('field_ercore_user_name');
-          if (!$realname->isEmpty()) {
-            $real = $realname->getValue();
-            $name = implode(' ', array_filter($real[0]));
-          }
-          $leadership = 0;
-          if (!$user->get('field_ercore_user_lead_team')->isEmpty()) {
-            $onTeam = $user->get('field_ercore_user_lead_team')
-              ->first()
-              ->getValue();
-            if (!in_array($role, array_keys(self::ercoreNoNewValues())) && $onTeam['value'] == 1) {
-              $leadership = 1;
+            if ($role === 'graduate' && !$user->get('field_ercore_user_master_act')
+              ->isEmpty()
+            ) {
+              $masters_var = $user->get('field_ercore_user_master_act')->value;
+              $masters = ErcoreStartDate::dateArgumentToUnix($masters_var);
             }
-          }
-          // Demographics.
-          $prefer = 0;
-          $veteran = '0';
-          $gender = '';
-          $race = '';
-          $ethnicity = '';
-          $disability = 'None';
-          if (!$user->get('field_ercore_prefer_no_answer')->isEmpty()) {
-            $prefer = $user->get('field_ercore_prefer_no_answer')
-              ->first()
-              ->getValue();
-            $prefer = $prefer['value'];
-          }
-          if ($prefer != 1) {
-            if (!$user->get('field_ercore_user_gender')->isEmpty()) {
-              $gender = $user->get('field_ercore_user_gender')
-                ->first()
-                ->getString();
+            $doctoral = '';
+            if ($role === 'graduate' && !$user->get('field_ercore_user_doc_act')
+              ->isEmpty()
+            ) {
+              $masters = '';
+              $doctoral_var = $user->get('field_ercore_user_doc_act')->value;
+              $doctoral = ErcoreStartDate::dateArgumentToUnix($doctoral_var);
             }
-            if (!$user->get('field_ercore_user_race')->isEmpty()) {
-              $race = $user->get('field_ercore_user_race')
-                ->first()
-                ->getString();
+            $undergraduate = '';
+            if ($role === 'undergraduate' && !$user->get('field_ercore_user_under_act')
+              ->isEmpty()
+            ) {
+              $undergraduate_var = $user->get('field_ercore_user_under_act')->value;
+              $undergraduate = ErcoreStartDate::dateArgumentToUnix($undergraduate_var);
             }
-            if (!$user->get('field_ercore_user_ethnicity')->isEmpty()) {
-              $ethnicity = $user->get('field_ercore_user_ethnicity')
-                ->first()
-                ->getString();
-            }
-            if (!$user->get('field_ercore_user_disabilities')->isEmpty()) {
-              $disability = $user->get('field_ercore_user_disabilities')
-                ->first()
-                ->getString();
-            }
-            if (!$user->get('field_ercore_user_veteran')->isEmpty()) {
-              $veteran = $user->get('field_ercore_user_veteran')
+            $department = '';
+            if (!$user->get('field_ercore_user_department')->isEmpty()) {
+              $department_value = $user->get('field_ercore_user_department')
                 ->first()
                 ->getValue();
-              $veteran = $veteran['value'];
+              $department = $department_value['value'];
             }
+            $realname = $user->get('field_ercore_user_name');
+            if (!$realname->isEmpty()) {
+              $real = $realname->getValue();
+              $name = implode(' ', array_filter($real[0]));
+            }
+            $leadership = 0;
+            if (!$user->get('field_ercore_user_lead_team')->isEmpty()) {
+              $onTeam = $user->get('field_ercore_user_lead_team')
+                ->first()
+                ->getValue();
+              if (!in_array($role, array_keys(self::ercoreNoNewValues())) && $onTeam['value'] == 1) {
+                $leadership = 1;
+              }
+            }
+            // Demographics.
+            $prefer = 0;
+            $veteran = '0';
+            $gender = '';
+            $race = '';
+            $ethnicity = '';
+            $disability = 'None';
+            if (!$user->get('field_ercore_prefer_no_answer')->isEmpty()) {
+              $prefer = $user->get('field_ercore_prefer_no_answer')
+                ->first()
+                ->getValue();
+              $prefer = $prefer['value'];
+            }
+            if ($prefer != 1) {
+              if (!$user->get('field_ercore_user_gender')->isEmpty()) {
+                $gender = $user->get('field_ercore_user_gender')
+                  ->first()
+                  ->getString();
+              }
+              if (!$user->get('field_ercore_user_race')->isEmpty()) {
+                $race = $user->get('field_ercore_user_race')
+                  ->first()
+                  ->getString();
+              }
+              if (!$user->get('field_ercore_user_ethnicity')->isEmpty()) {
+                $ethnicity = $user->get('field_ercore_user_ethnicity')
+                  ->first()
+                  ->getString();
+              }
+              if (!$user->get('field_ercore_user_disabilities')->isEmpty()) {
+                $disability = $user->get('field_ercore_user_disabilities')
+                  ->first()
+                  ->getString();
+              }
+              if (!$user->get('field_ercore_user_veteran')->isEmpty()) {
+                $veteran = $user->get('field_ercore_user_veteran')
+                  ->first()
+                  ->getValue();
+                $veteran = $veteran['value'];
+              }
+            }
+            $new = FALSE;
+            if (!empty($hired) && !in_array($role, array_keys(self::ercoreNoNewValues()))) {
+              $new = self::newDateCallback($hired);
+            }
+            $users[$id] = [
+              'id' => $id,
+              'name' => $name,
+              'institution_id' => $institution_id,
+              'institution' => $institution_name,
+              'role' => $role,
+              'gender' => $gender,
+              'race' => $race,
+              'veteran' => $veteran,
+              'ethnicity' => $ethnicity,
+              'disability' => $disability,
+              'leadership' => $leadership,
+              'department' => $department,
+              'start' => ErcoreStartDate::dateArgumentToUnix($user_start[0]['value']),
+              'end' => $user_end,
+              'new' => $new,
+              'hired' => $hired,
+              'doctoral' => $doctoral,
+              'masters' => $masters,
+              'undergraduate' => $undergraduate,
+            ];
           }
-          $new = FALSE;
-          if (!empty($hired) && !in_array($role, array_keys(self::ercoreNoNewValues()))) {
-            $new = self::newDateCallback($hired);
-          }
-          $users[$id] = [
-            'id' => $id,
-            'name' => $name,
-            'institution_id' => $institution_id,
-            'institution' => $institution_name,
-            'role' => $role,
-            'gender' => $gender,
-            'race' => $race,
-            'veteran' => $veteran,
-            'ethnicity' => $ethnicity,
-            'disability' => $disability,
-            'leadership' => $leadership,
-            'department' => $department,
-            'start' => ErcoreStartDate::dateArgumentToUnix($user_start[0]['value']),
-            'end' => $user_end,
-            'new' => $new,
-            'hired' => $hired,
-            'doctoral' => $doctoral,
-            'masters' => $masters,
-            'undergraduate' => $undergraduate,
-          ];
         }
       }
     }
