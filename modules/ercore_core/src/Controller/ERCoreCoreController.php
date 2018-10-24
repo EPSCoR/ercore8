@@ -49,6 +49,13 @@ class ERCoreCoreController extends ControllerBase {
   /**
    * ERCore Content page.
    */
+  public function ercoreDataIntegrity() {
+    return ercore_core_submenu_tree_all_data('ercore_core.data_integrity');
+  }
+
+  /**
+   * ERCore Content page.
+   */
   public function ercoreContent() {
     return ercore_core_submenu_tree_all_data('ercore_core.ercore_content');
   }

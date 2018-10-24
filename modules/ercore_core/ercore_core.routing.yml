@@ -15,6 +15,14 @@ ercore_core.admin_actions:
   requirements:
     _permission: 'access ercore admin content'
 
+ercore_core.data_integrity:
+  path: 'ercore/data-integrity'
+  defaults:
+    _controller: '\Drupal\ercore_core\Controller\ERCoreCoreController::ercoreDataIntegrity'
+    _title: 'Data Integrity'
+  requirements:
+    _permission: 'access ercore admin content'
+
 ercore_core.ercore_content:
   path: 'ercore/content'
   defaults:

@@ -23,6 +23,14 @@ ercore_core.admin_actions:
   expanded: FALSE
   weight: 10
 
+ercore_core.data_integrity:
+  title: Data Integrity
+  route_name: ercore_core.data_integrity
+  menu_name: ercore-admin-menu
+  parent: ercore_core.ercore
+  expanded: FALSE
+  weight: 12
+
 ercore_core.admin_views:
   title: Adminstrative Views
   route_name: ercore_core.admin_views
@@ -45,7 +53,7 @@ ercore_core.participant_views:
   title: Participant Views
   route_name: ercore_core.participant_views
   menu_name: ercore-admin-menu
-  expanded: TRUE
+  expanded: FALSE
   parent: ercore_core.ercore
   weight: 25
 

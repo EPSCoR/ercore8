@@ -662,13 +662,13 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: ercore-incomplete-profile
+      path: ercore/incomplete-profile
       menu:
         type: normal
         title: 'Incomplete Profile'
         description: ''
         expanded: false
-        parent: ercore_core.participant_views
+        parent: ercore_core.data_integrity
         weight: 0
         context: '0'
         menu_name: ercore-admin-menu
