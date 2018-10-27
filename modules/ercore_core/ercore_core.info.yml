@@ -7,7 +7,6 @@ dependencies:
   - block
   - block_content
   - ckeditor
-  - contact
   - csv_serialization
   - datetime
   - datetime_range
