@@ -2,40 +2,40 @@ name: 'ERCore Summary Views'
 type: module
 core: 8.x
 dependencies:
-  - better_exposed_filters
-  - computed_field
-  - csv_serialization
-  - date_popup
-  - datetime
-  - datetime_range
-  - entity_reference_revisions
-  - ercore_collaboration
-  - ercore_core
-  - ercore_event
-  - ercore_institution
-  - ercore_j_highlight
-  - ercore_j_honor
-  - ercore_other_product
-  - ercore_patent
-  - ercore_presentation
-  - ercore_program
-  - ercore_proposal
-  - ercore_publication
-  - file
-  - link
-  - name
-  - node
-  - options
-  - paragraphs
-  - rest
-  - semanticviews
-  - serialization
-  - telephone
-  - text
-  - user
-  - views
-  - views_data_export
-  - views_field_view
+  - better_exposed_filters:better_exposed_filters
+  - computed_field:computed_field
+  - csv_serialization:csv_serialization
+  - date_popup:date_popup
+  - drupal:datetime
+  - drupal:datetime_range
+  - entity_reference_revisions:entity_reference_revisions
+  - ercore:ercore_collaboration
+  - ercore:ercore_core
+  - ercore:ercore_event
+  - ercore:ercore_institution
+  - ercore:ercore_j_highlight
+  - ercore:ercore_j_honor
+  - ercore:ercore_other_product
+  - ercore:ercore_patent
+  - ercore:ercore_presentation
+  - ercore:ercore_program
+  - ercore:ercore_proposal
+  - ercore:ercore_publication
+  - drupal:file
+  - drupal:link
+  - name:name
+  - drupal:node
+  - drupal:options
+  - paragraphs:paragraphs
+  - drupal:rest
+  - semanticviews:semanticviews
+  - drupal:serialization
+  - drupal:telephone
+  - drupal:text
+  - drupal:user
+  - drupal:views
+  - views_data_export:views_data_export
+  - views_field_view:views_field_view
 version: 8.x-1.0
 package: ERCore
 description: 'ERCore Summary and supporting Views'

@@ -3,14 +3,14 @@ description: 'ERCore Components vocabulary and functions.'
 type: module
 core: 8.x
 dependencies:
-  - ctools
-  - field
-  - field_permissions
-  - paragraphs
-  - path
-  - pathauto
-  - taxonomy
-  - text
+  - ctools:ctools
+  - drupal:field
+  - field_permissions:field_permissions
+  - paragraphs:paragraphs
+  - drupal:path
+  - pathauto:pathauto
+  - drupal:taxonomy
+  - drupal:text
 version: 8.x-1.0
 project: ercore
 package: ERCore

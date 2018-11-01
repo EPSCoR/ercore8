@@ -3,21 +3,21 @@ description: 'Provides ERCore Institution content type and related configuration
 type: module
 core: 8.x
 dependencies:
-  - better_exposed_filters
-  - field
-  - field_permissions
-  - link
-  - menu_ui
-  - node
-  - options
-  - paragraphs
-  - path
-  - pathauto
-  - rest
-  - semanticviews
-  - serialization
-  - text
-  - user
+  - better_exposed_filters:better_exposed_filters
+  - drupal:field
+  - field_permissions:field_permissions
+  - drupal:link
+  - drupal:menu_ui
+  - drupal:node
+  - drupal:options
+  - paragraphs:paragraphs
+  - drupal:path
+  - pathauto:pathauto
+  - drupal:rest
+  - semanticviews:semanticviews
+  - drupal:serialization
+  - drupal:text
+  - drupal:user
 version: 8.x-1.0
 project: ercore
 package: ERCore

@@ -3,36 +3,36 @@ description: 'Provides ERCore Engagement Event content type and related configur
 type: module
 core: 8.x
 dependencies:
-  - better_exposed_filters
-  - computed_field
-  - csv_serialization
-  - datetime
-  - datetime_range
-  - entity_reference_revisions
-  - ercore_collaboration
-  - ercore_component
-  - ercore_core
-  - ercore_program
-  - field
-  - field_group
-  - field_permissions
-  - file
-  - link
-  - menu_ui
-  - node
-  - options
-  - paragraphs
-  - pathauto
-  - rest
-  - select_or_other
-  - semanticviews
-  - serialization
-  - taxonomy
-  - text
-  - user
-  - views
-  - views_data_export
-  - views_field_view
+  - better_exposed_filters:better_exposed_filters
+  - computed_field:computed_field
+  - csv_serialization:csv_serialization
+  - drupal:datetime
+  - drupal:datetime_range
+  - entity_reference_revisions:entity_reference_revisions
+  - ercore:ercore_collaboration
+  - ercore:ercore_component
+  - ercore:ercore_core
+  - ercore:ercore_program
+  - drupal:field
+  - field_group:field_group
+  - field_permissions:field_permissions
+  - drupal:file
+  - drupal:link
+  - drupal:menu_ui
+  - drupal:node
+  - drupal:options
+  - paragraphs:paragraphs
+  - pathauto:pathauto
+  - drupal:rest
+  - select_or_other:select_or_other
+  - semanticviews:semanticviews
+  - drupal:serialization
+  - drupal:taxonomy
+  - drupal:text
+  - drupal:user
+  - drupal:views
+  - views_data_export:views_data_export
+  - views_field_view:views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore

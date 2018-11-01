@@ -3,26 +3,26 @@ description: 'Provides ERCore Other Product content type and related configurati
 type: module
 core: 8.x
 dependencies:
-  - better_exposed_filters
-  - csv_serialization
-  - datetime
-  - ercore_core
-  - ercore_program
-  - field
-  - field_permissions
-  - link
-  - menu_ui
-  - node
-  - options
-  - path
-  - pathauto
-  - rest
-  - semanticviews
+  - better_exposed_filters:better_exposed_filters
+  - csv_serialization:csv_serialization
+  - drupal:datetime
+  - ercore:ercore_core
+  - ercore:ercore_program
+  - drupal:field
+  - field_permissions:field_permissions
+  - drupal:link
+  - drupal:menu_ui
+  - drupal:node
+  - drupal:options
+  - drupal:path
+  - pathauto:pathauto
+  - drupal:rest
+  - semanticviews:semanticviews
   - serialization
-  - user
-  - views
-  - views_data_export
-  - views_field_view
+  - drupal:user
+  - drupal:views
+  - views_data_export:views_data_export
+  - views_field_view:views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore

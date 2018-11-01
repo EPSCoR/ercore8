@@ -4,23 +4,22 @@ type: module
 core: 8.x
 version: 8.x-1.0
 dependencies:
-  - components
-  - entity_reference_exposed_filters
-  - ercore_component
-  - ercore_program
-  - ercore_institution
-  - ercore_core
-  - ercore_admin
-  - ercore_collaboration
-  - ercore_event
-  - ercore_j_highlight
-  - ercore_j_honor
-  - ercore_other_product
-  - ercore_patent
-  - ercore_publication
-  - ercore_presentation
-  - ercore_proposal
-  - ercore_publication
-  - libraries
+  - components:components
+  - entity_reference_exposed_filters:entity_reference_exposed_filters
+  - ercore:ercore_component
+  - ercore:ercore_program
+  - ercore:ercore_institution
+  - ercore:ercore_core
+  - ercore:ercore_admin
+  - ercore:ercore_collaboration
+  - ercore:ercore_event
+  - ercore:ercore_j_highlight
+  - ercore:ercore_j_honor
+  - ercore:ercore_other_product
+  - eercore:ercore_patent
+  - ercore:ercore_publication
+  - ercore:ercore_presentation
+  - ercore:ercore_proposal
+  - libraries:libraries
 project: ercore
 package: ERCore

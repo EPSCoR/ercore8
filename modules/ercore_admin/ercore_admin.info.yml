@@ -3,16 +3,16 @@ description: 'Provides ERCore Admin content type and related configuration. For 
 type: module
 core: 8.x
 dependencies:
-  - block
-  - ercore_core
-  - field
-  - menu_ui
-  - node
-  - path
-  - pathauto
-  - system
-  - text
-  - user
+  - drupal:block
+  - ercore:ercore_core
+  - drupal:field
+  - drupal:menu_ui
+  - drupal:node
+  - drupal:path
+  - pathauto:pathauto
+  - drupal:system
+  - drupal:text
+  - drupal:user
 version: 8.x-1.0
 project: ercore
 package: ERCore

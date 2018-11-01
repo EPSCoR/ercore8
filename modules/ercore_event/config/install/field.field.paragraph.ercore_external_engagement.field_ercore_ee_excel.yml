@@ -17,7 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: external_engagement
+  file_directory: external-engagement
   file_extensions: xls
   max_filesize: ''
   description_field: false

@@ -3,29 +3,29 @@ description: 'Provides ERCore Honors and Awards content type and related configu
 type: module
 core: 8.x
 dependencies:
-  - better_exposed_filters
-  - csv_serialization
-  - datetime
-  - ercore_component
-  - ercore_core
-  - ercore_institution
-  - ercore_j_highlight
-  - ercore_program
-  - field
+  - better_exposed_filters:better_exposed_filters
+  - csv_serialization:csv_serialization
+  - drupal:datetime
+  - ercore:ercore_component
+  - ercore:ercore_core
+  - ercore:ercore_institution
+  - ercore:ercore_j_highlight
+  - ercore:ercore_program
+  - drupal:field
   - field_permissions
-  - menu_ui
-  - node
-  - options
-  - path
-  - pathauto
-  - rest
-  - semanticviews
-  - serialization
-  - text
-  - user
-  - views
-  - views_data_export
-  - views_field_view
+  - drupal:menu_ui
+  - drupal:node
+  - drupal:options
+  - drupal:path
+  - pathauto:pathauto
+  - drupal:rest
+  - semanticviews:semanticviews
+  - drupal:serialization
+  - drupal:text
+  - drupal:user
+  - drupal:views
+  - views_data_export:views_data_export
+  - views_field_view:views_field_view
 version: 8.x-1.0
 project: ercore
 package: ERCore
