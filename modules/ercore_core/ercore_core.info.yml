@@ -7,7 +7,6 @@ dependencies:
   - drupal:block
   - drupal:block_content
   - drupal:ckeditor
-  - drupal:contact
   - csv_serialization:csv_serialization
   - drupal:datetime
   - drupal:datetime_range
